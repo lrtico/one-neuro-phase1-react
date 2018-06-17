@@ -1,0 +1,16 @@
+#page-trans {
+  background-color: #474747;
+  box-shadow: none;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  z-index: 1;
+  transition: all 500ms cubic-bezier(0.61, 0.31, 0.04, 1.18);
+}
+
+.menu-open #page-trans {
+  box-shadow: -10px 0px 20px 0 rgba(0, 0, 0, 0.2);
+  width: 28.56vw;
+}

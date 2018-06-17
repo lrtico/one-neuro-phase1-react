@@ -1,0 +1,31 @@
+label {
+  color: #00414d;
+  display: block;
+  font-size: 26px;
+  font-size: 2.6rem;
+  line-height: 30px;
+  line-height: 3rem;
+  margin: 0 0 1.8rem 0;
+}
+
+.question.grid__quarter,
+.question.grid__third,
+.question.grid__half,
+.question.grid__two-thirds,
+.question.grid__three-quarters {
+  min-height: 104px;
+  padding-right: 9px;
+}
+.question {
+  margin-bottom: 54px;
+}
+
+.question .question__input > img {
+  margin-right: 9px;
+  width: 54px;
+}
+
+.question .question__input {
+  align-items: flex-end;
+  min-height: 64px;
+}

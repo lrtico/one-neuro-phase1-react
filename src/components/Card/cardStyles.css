@@ -1,0 +1,14 @@
+.question .question__input {
+  align-items: flex-end;
+  min-height: 64px;
+}
+
+.question .question__input .question__single-choice {
+  display: none;
+}
+
+.question .question__input ul.question__choices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
