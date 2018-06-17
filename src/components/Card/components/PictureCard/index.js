@@ -5,13 +5,35 @@ import MaterialIcon from "react-google-material-icons";
 import { Field } from "redux-form";
 
 export default class PictureCard extends Component {
-  handleTick = event => {
-    const card = event.target;
-    card.classList.toggle("question__checkbox--selected");
-    const input = event.target.parentNode.firstChild.checked;
-    console.log(`This is a ${input}`);
-    // this.refs.myRefs.checked = true;
-    //console.log(this.document.getElementById("B"));
+  constructor(props) {
+    super(props);
+    this.state = {
+      isChecked: false
+    };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("nextProps, nextState", nextProps, nextState);
+    return true;
+  }
+
+  handleTick = () => {
+    //const card = event.currentTarget;
+    //const parent = card.parentNode;
+    //console.log(parent);
+    // const list = card.parentNode.children;
+    // console.log(list);
+    // for (let item of list) {
+    //   item.classList.remove("question__checkbox--selected");
+    // }
+    // card.classList.add("question__checkbox--selected");
+    // console.log(card);
+    //const input = card.firstChild;
+    // console.log(input);
+    //input.checked = true;
+    this.setState(prevState => {
+      return { isChecked: !prevState.isChecked };
+    });
   };
 
   render() {
@@ -26,17 +48,19 @@ export default class PictureCard extends Component {
 
     return (
       <li
-        className="question__choice"
+        className={
+          this.state.isChecked
+            ? "question__choice question__checkbox--selected"
+            : "question__choice"
+        }
         tabIndex={tabOrder}
-        onClick={this.handleTick}
       >
         <Field
           name={cardName}
           type="radio"
           component="input"
           value={cardLabel}
-          ref={cardKey}
-          id={cardKey}
+          onChange={this.handleTick}
         />
         <div className="question__tick-wrap">
           <MaterialIcon icon="check" />
