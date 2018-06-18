@@ -1,16 +1,16 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "./validate";
-import TextQuestion from "./components/TextQuestion/";
-import SectionTitle from "./components/SectionTitle";
-import Button from "./components/Button";
-import Card from "./components/Card";
+import React from 'react'
+import { Field, reduxForm } from 'redux-form'
+import validate from './validate'
+import TextQuestion from './components/TextQuestion/'
+import SectionTitle from './components/SectionTitle'
+import Button from './components/Button'
+import Card from './components/Card'
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
 
 const WizardFormSecondPage = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit } = props
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Demographics" titleRegular="info" />
@@ -106,55 +106,62 @@ const WizardFormSecondPage = props => {
         />
       </div>
       <div className="flex">
-        <Field
-          component={Card}
-          cardInfo={[
-            {
-              thumbnail: "img/icons-woman-generic.svg",
-              thumbnailAlt: "Girl",
-              cardName: "di-gender",
-              cardKey: "A",
-              cardLabel: "Girl",
-              tabOrder: "9"
-            },
-            {
-              thumbnail: "img/icons-man-generic.svg",
-              thumbnailAlt: "Boy",
-              cardName: "di-gender",
-              cardKey: "B",
-              cardLabel: "Boy",
-              tabOrder: "10"
-            }
-          ]}
-          label="What's the patient's"
-          labelBold="gender"
-          name="di-gender"
-          classes="question question--thumb grid__half"
-        />
-        <Field
-          component={Card}
-          cardInfo={[
-            {
-              thumbnail: "img/icons-hand-left.svg",
-              thumbnailAlt: "Left hand",
-              cardKey: "A",
-              cardLabel: "Left",
-              tabOrder: "11"
-            },
-            {
-              thumbnail: "img/icons-hand-right.svg",
-              thumbnailAlt: "Right hand",
-              cardKey: "B",
-              cardLabel: "Right",
-              tabOrder: "12"
-            }
-          ]}
-          label="Which"
-          labelBold="hand"
-          labelLast="is dominant"
-          name="di-handedness"
-          classes="question question--thumb grid__half"
-        />
+        <div>
+          <Field
+            name="di-hand-test"
+            component={Card}
+            cardInfo={[
+              {
+                thumbnail: 'img/icons-woman-generic.svg',
+                thumbnailAlt: 'Girl',
+                cardName: 'di-gender',
+                cardKey: 'A',
+                cardLabel: 'Girl',
+                tabOrder: '9'
+              },
+              {
+                thumbnail: 'img/icons-man-generic.svg',
+                thumbnailAlt: 'Boy',
+                cardName: 'di-gender',
+                cardKey: 'B',
+                cardLabel: 'Boy',
+                tabOrder: '10'
+              }
+            ]}
+            label="Which"
+            labelBold="hand"
+            labelLast="is dominant"
+            classes="question question--thumb grid__half"
+          />
+        </div>
+        <div>
+          <Field
+            name="di-hand-ing"
+            component={Card}
+            cardInfo={[
+              {
+                thumbnail: 'img/icons-hand-left.svg',
+                thumbnailAlt: 'Left hand',
+                cardName: 'di-handedness',
+                cardKey: 'A',
+                cardLabel: 'Left',
+                tabOrder: '13'
+              },
+              {
+                thumbnail: 'img/icons-hand-right.svg',
+                thumbnailAlt: 'Right hand',
+                cardName: 'di-handedness',
+                cardKey: 'B',
+                cardLabel: 'Right',
+                tabOrder: '14'
+              }
+            ]}
+            label="Which"
+            labelBold="hand"
+            labelLast="is dominant"
+            classes="question question--thumb grid__half"
+          />
+        </div>
       </div>
       <div className="question">
         <Field
@@ -173,12 +180,12 @@ const WizardFormSecondPage = props => {
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>
-  );
-};
+  )
+}
 
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate
-})(WizardFormSecondPage);
+})(WizardFormSecondPage)
