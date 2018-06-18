@@ -1,40 +1,23 @@
-import React, { Component } from "react";
-import "./pictureCard.css";
-import "../../../../app.css";
-import MaterialIcon from "react-google-material-icons";
-import { Field } from "redux-form";
+import React, { Component } from 'react'
+import './pictureCard.css'
+import '../../../../app.css'
+import MaterialIcon from 'react-google-material-icons'
+import { connect } from 'react-redux'
+import { Field, reduxForm, formValueSelector } from 'redux-form'
 
-export default class PictureCard extends Component {
+class PictureCard extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      isChecked: false
-    };
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("nextProps, nextState", nextProps, nextState);
-    return true;
+      isChecked: ''
+    }
   }
 
   handleTick = () => {
-    //const card = event.currentTarget;
-    //const parent = card.parentNode;
-    //console.log(parent);
-    // const list = card.parentNode.children;
-    // console.log(list);
-    // for (let item of list) {
-    //   item.classList.remove("question__checkbox--selected");
-    // }
-    // card.classList.add("question__checkbox--selected");
-    // console.log(card);
-    //const input = card.firstChild;
-    // console.log(input);
-    //input.checked = true;
     this.setState(prevState => {
-      return { isChecked: !prevState.isChecked };
-    });
-  };
+      return { isChecked: !prevState.isChecked }
+    })
+  }
 
   render() {
     const {
@@ -44,23 +27,25 @@ export default class PictureCard extends Component {
       cardLabel,
       thumbnail,
       thumbnailAlt
-    } = this.props;
+    } = this.props
 
     return (
       <li
         className={
-          this.state.isChecked
-            ? "question__choice question__checkbox--selected"
-            : "question__choice"
+          this.props.ReduxValue1 === cardLabel ||
+          this.props.ReduxValue2 === cardLabel ||
+          this.props.ReduxValue3 === cardLabel
+            ? 'question__choice question__checkbox--selected'
+            : 'question__choice'
         }
         tabIndex={tabOrder}
+        onChange={this.handleTick}
       >
         <Field
           name={cardName}
           type="radio"
           component="input"
           value={cardLabel}
-          onChange={this.handleTick}
         />
         <div className="question__tick-wrap">
           <MaterialIcon icon="check" />
@@ -80,6 +65,27 @@ export default class PictureCard extends Component {
         </div>
         <div className="question__bg" />
       </li>
-    );
+    )
   }
 }
+
+// Decorate with redux-form
+PictureCard = reduxForm({
+  form: 'wizard' // a unique identifier for this form
+})(PictureCard)
+
+// Decorate with connect to read form values
+const selector = formValueSelector('wizard') // <-- same as form name
+PictureCard = connect(state => {
+  // can select values individually
+  const ReduxValue1 = selector(state, 'di-gender')
+  const ReduxValue2 = selector(state, 'di-handedness')
+  const ReduxValue3 = selector(state, 'paq-guardian')
+  return {
+    ReduxValue1,
+    ReduxValue2,
+    ReduxValue3
+  }
+})(PictureCard)
+
+export default PictureCard

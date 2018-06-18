@@ -1,8 +1,8 @@
-import React from "react";
-import "./cardStyles.css";
-import "../../app.css";
-import PictureCard from "./components/PictureCard";
-import { randomId } from "../../utils/Helpers";
+import React from 'react'
+import './cardStyles.css'
+import '../../app.css'
+import PictureCard from './components/PictureCard'
+import { randomId } from '../../utils/Helpers'
 
 const Card = (
   {
@@ -43,7 +43,7 @@ const Card = (
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
