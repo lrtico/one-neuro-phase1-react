@@ -49,9 +49,9 @@ const renderBrothersSisters = ({ fields }) => (
                 component="input"
                 value="Girl"
                 className="radio-visible"
-                id={`bs-choice${+1}`}
+                id={`bs-choice${index + 1}`}
               />
-              <label htmlFor={`bs-choice${+1}`}>Girl</label>
+              <label htmlFor={`bs-choice${index + 1}`}>Girl</label>
             </div>
             <div className="question-card__radio">
               <Field
@@ -60,9 +60,9 @@ const renderBrothersSisters = ({ fields }) => (
                 component="input"
                 value="Boy"
                 className="radio-visible"
-                id={`bs-choice${+2}`}
+                id={`bs-choice${index + 2}`}
               />
-              <label htmlFor={`bs-choice${+2}`}>Boy</label>
+              <label htmlFor={`bs-choice${index + 2}`}>Boy</label>
             </div>
             <div className="question-card__radio">
               <Field
@@ -71,9 +71,9 @@ const renderBrothersSisters = ({ fields }) => (
                 component="input"
                 value="Sister"
                 className="radio-visible"
-                id={`bs-choice${+3}`}
+                id={`bs-choice${index + 3}`}
               />
-              <label htmlFor={`bs-choice${+3}`}>Sister</label>
+              <label htmlFor={`bs-choice${index + 3}`}>Sister</label>
             </div>
             <div className="question-card__radio">
               <Field
@@ -82,9 +82,9 @@ const renderBrothersSisters = ({ fields }) => (
                 component="input"
                 value="Brother"
                 className="radio-visible"
-                id={`bs-choice${+4}`}
+                id={`bs-choice${index + 4}`}
               />
-              <label htmlFor={`bs-choice${+4}`}>Brother</label>
+              <label htmlFor={`bs-choice${index + 4}`}>Brother</label>
             </div>
             <div className="question-card__radio">
               <Field
@@ -93,9 +93,9 @@ const renderBrothersSisters = ({ fields }) => (
                 component="input"
                 value="Yes"
                 className="radio-visible"
-                id={`bs-choice${+5}`}
+                id={`bs-choice${index + 5}`}
               />
-              <label htmlFor={`bs-choice${+5}`}>Lives at home</label>
+              <label htmlFor={`bs-choice${index + 5}`}>Lives at home</label>
             </div>
             <div className="question-card__radio">
               <Field
@@ -104,9 +104,9 @@ const renderBrothersSisters = ({ fields }) => (
                 component="input"
                 value="No"
                 className="radio-visible"
-                id={`bs-choice${+6}`}
+                id={`bs-choice${index + 6}`}
               />
-              <label htmlFor={`bs-choice${+6}`}>Not at home</label>
+              <label htmlFor={`bs-choice${index + 6}`}>Not at home</label>
             </div>
             <div
               className="question__key-label flex flex--center-vertical"

@@ -7,6 +7,7 @@ import RadioCard from "./components/Card/RadioCard/RadioCard";
 import CheckboxCard from "./components/Card/CheckboxCard/CheckboxCard";
 import Button from "./components/Button";
 import ButtonToggle from "./components/ButtonToggle";
+import DescriptionCheckboxCard from "./components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 // import TextQuestion from "./components/TextQuestion";
 
 const WizardFormFifthteenthPage = props => {
@@ -110,27 +111,25 @@ const WizardFormFifthteenthPage = props => {
         />
       </div>
       <FieldArray
-        component={CheckboxCard}
+        component={DescriptionCheckboxCard}
         checkboxInfo={[
           {
-            cardName: "mdh-other",
             cardKey: "A",
             cardLabel: "Other",
             tabOrder: "11",
-            checkboxDescription: "mdh-other-description"
+            cardDescription: "mdh-other-description"
           },
           {
-            cardName: "mdh-maternal-injury",
             cardKey: "B",
             cardLabel: "Maternal injury",
             tabOrder: "12",
-            heckboxDescription: "mdh-maternal-injury-description"
+            cardDescription: "mdh-maternal-injury-description"
           }
         ]}
         label="Check any of the following"
         labelBold="complications"
         labelLast="that occured during pregnancy"
-        name="mdh-complications-pregnancy"
+        name="mdh-complications-pregnancy-group"
         classes="question question--thumbless"
       />
 

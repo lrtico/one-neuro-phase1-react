@@ -16,7 +16,21 @@ const WizardFormFifthPage = props => {
           <span>disable</span>
         </div>
       </div>
-      <FieldArray name="records-reviewed" component={FormCard} />
+      <FieldArray
+        name="records-reviewed"
+        component={FormCard}
+        fields={[
+          {
+            cardName: "record",
+            cardType: "text",
+            cardPlaceholder: "Title"
+          },
+          {
+            cardName: "date",
+            cardType: "date"
+          }
+        ]}
+      />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
 

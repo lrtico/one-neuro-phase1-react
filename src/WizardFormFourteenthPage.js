@@ -256,25 +256,25 @@ const WizardFormFourteenthPage = props => {
               cardName: "mdh-mother-length-hospital",
               cardKey: "A",
               cardLabel: "1-2 Days ",
-              tabOrder: "12"
+              tabOrder: "23"
             },
             {
               cardName: "mdh-mother-length-hospital",
               cardKey: "B",
               cardLabel: "3-7 Days ",
-              tabOrder: "13"
+              tabOrder: "24"
             },
             {
               cardName: "mdh-mother-length-hospital",
               cardKey: "C",
               cardLabel: "8-10 Days ",
-              tabOrder: "14"
+              tabOrder: "25"
             },
             {
               cardName: "mdh-mother-length-hospital",
               cardKey: "D",
               cardLabel: "11+ Days ",
-              tabOrder: "15"
+              tabOrder: "26"
             }
           ]}
           label="Mother's"
@@ -292,25 +292,25 @@ const WizardFormFourteenthPage = props => {
               cardName: "mdh-child-length-hospital",
               cardKey: "A",
               cardLabel: "1-2 Days",
-              tabOrder: "16"
+              tabOrder: "27"
             },
             {
               cardName: "mdh-child-length-hospital",
               cardKey: "B",
               cardLabel: "3-7 Days",
-              tabOrder: "17"
+              tabOrder: "28"
             },
             {
               cardName: "mdh-child-length-hospital",
               cardKey: "C",
               cardLabel: "8-10 Days",
-              tabOrder: "18"
+              tabOrder: "29"
             },
             {
               cardName: "mdh-child-length-hospital",
               cardKey: "D",
               cardLabel: "11+ Days",
-              tabOrder: "19"
+              tabOrder: "30"
             }
           ]}
           label="Child's"

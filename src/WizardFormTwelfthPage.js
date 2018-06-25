@@ -22,25 +22,25 @@ const WizardFormTwelfthPage = props => {
               cardName: "cr-residence",
               cardKey: "A",
               cardLabel: "Apartment",
-              tabOrder: "3"
+              tabOrder: "1"
             },
             {
               cardName: "cr-residence",
               cardKey: "B",
               cardLabel: "Single-family home",
-              tabOrder: "4"
+              tabOrder: "2"
             },
             {
               cardName: "cr-residence",
               cardKey: "C",
               cardLabel: "Townhome",
-              tabOrder: "5"
+              tabOrder: "3"
             },
             {
               cardName: "cr-residence",
               cardKey: "D",
               cardLabel: "Other",
-              tabOrder: "6"
+              tabOrder: "4"
             }
           ]}
           label="Where does this child"
@@ -56,32 +56,32 @@ const WizardFormTwelfthPage = props => {
             {
               cardName: "cr-residence-length",
               cardLabel: "1",
-              tabOrder: "7"
+              tabOrder: "5"
             },
             {
               cardName: "cr-residence-length",
               cardLabel: "2",
-              tabOrder: "8"
+              tabOrder: "6"
             },
             {
               cardName: "cr-residence-length",
               cardLabel: "3",
-              tabOrder: "9"
+              tabOrder: "7"
             },
             {
               cardName: "cr-residence-length",
               cardLabel: "4",
-              tabOrder: "10"
+              tabOrder: "8"
             },
             {
               cardName: "cr-residence-length",
               cardLabel: "5",
-              tabOrder: "11"
+              tabOrder: "9"
             },
             {
               cardName: "cr-residence-length",
               cardLabel: "6",
-              tabOrder: "12"
+              tabOrder: "10"
             }
           ]}
           label="How many"
