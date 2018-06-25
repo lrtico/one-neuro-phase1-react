@@ -4,35 +4,45 @@ import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import TextQuestion from "./components/TextQuestion";
 import Button from "./components/Button";
+import ButtonToggle from "./components/ButtonToggle";
 
-const WizardFormFourthPage = props => {
+const WizardFormNinthPage = props => {
   const { handleSubmit, previousPage } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <SectionTitle titleBold="Reasons" titleRegular="for referral" />
+      <div className="flex">
+        <SectionTitle titleBold="Childcare" titleRegular="info" />
+        <ButtonToggle buttonToggleLabel="disable" />
+      </div>
       <Field
         component={TextQuestion}
-        name="reason-referral-1"
+        name="cc-caregiver-gone"
         tabOrder="1"
         type="input"
         classes="question"
-        materialIcon="arrow_right"
+        label="Who"
+        labelBold="takes care"
+        labelLast="of this child if the caregivers are gone"
       />
       <Field
         component={TextQuestion}
-        name="reason-referral-2"
+        name="cc-hours-per-day"
         tabOrder="2"
         type="input"
         classes="question"
-        materialIcon="arrow_right"
+        label="How"
+        labelBold="many hours per day"
+        labelLast="is this child in a childcare setting"
       />
       <Field
         component={TextQuestion}
-        name="reason-referral-3"
+        name="cc-different-people"
         tabOrder="3"
         type="input"
         classes="question"
-        materialIcon="arrow_right"
+        label="How"
+        labelBold="many different people"
+        labelLast="care for this child (please explain)"
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
@@ -50,4 +60,4 @@ export default reduxForm({
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate
-})(WizardFormFourthPage);
+})(WizardFormNinthPage);

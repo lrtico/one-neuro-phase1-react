@@ -160,3 +160,28 @@
   > .question__letter {
   color: #474747;
 }
+
+/* Card with Numbers */
+.question.question--numbers
+  .question__input
+  ul.question__choices
+  > li.question__choice {
+  min-width: 108px;
+}
+
+.question.question--numbers
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .question__text-wrap
+  .question__label {
+  display: none;
+}
+
+.question.question--numbers
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .question__text-wrap {
+  justify-content: center;
+}

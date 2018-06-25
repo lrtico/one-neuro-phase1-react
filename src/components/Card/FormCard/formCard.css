@@ -1,0 +1,236 @@
+.question ul.question__cards {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+li.question__card.question__form-card {
+  justify-content: flex-end;
+  margin-bottom: 9px;
+  min-height: 187px;
+}
+
+li.question__card.question__form-card.flex--center-vertical {
+  justify-content: center;
+}
+
+.question ul.question__cards li.question__card {
+  cursor: pointer;
+  margin-right: 9px;
+  position: relative;
+  width: 145px;
+  padding: 15px 9px;
+  transition: all 0.25s ease-out;
+}
+
+li.question__card.question__form-card .cardTextInput {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.2rem;
+  padding: 9px 3px;
+}
+
+.question ul.question__cards li.question__card .question__key-label {
+  color: rgb(3, 1, 1);
+  font-family: Montserrat, sans-serif;
+  font-size: 1.8rem;
+  transition: color 0.25s;
+}
+
+li.question__card.question__form-card .question__key-label {
+  margin-top: 27px;
+}
+
+.question ul.question__cards li.question__card:hover .question__key-label {
+  color: rgb(71, 71, 71);
+}
+
+.question
+  ul.question__cards
+  li.question__card:hover
+  .question__key-label
+  .question__key {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.question
+  ul.question__cards
+  li.question__card
+  .question__key-label
+  .question__key {
+  margin-right: 9px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-image: initial;
+  padding: 6px;
+  transition: background-color 0.25s;
+}
+
+.question ul.question__cards li.question__card .question__bg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-image: initial;
+  border-radius: 2px;
+  transition: background-color 0.25s ease-out;
+}
+
+.question ul.question__cards li.question__card .question__tick-wrap {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.question ul.question__cards li.question__card .question__tick-wrap > i {
+  display: none;
+}
+
+.question
+  ul.question__cards
+  li.question__card.question__checkbox--selected
+  .question__tick-wrap
+  > i {
+  display: block;
+}
+
+.question ul.question__cards > li.question__card .question__tick-wrap:after {
+  border-style: solid;
+  border-width: 0 47px 53px 0;
+  border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
+  content: "";
+  display: none;
+  height: 0;
+  opacity: 0.6;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+}
+
+.question
+  ul.question__cards
+  li.question__card.question__checkbox--selected
+  .question__tick-wrap:after {
+  display: block;
+}
+
+.question ul.question__cards > li.question__cards__button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: 1.8rem;
+  height: 187px;
+  order: 99;
+}
+
+.question ul.question__cards > li.question__cards__button:hover .question__bg {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.question ul.question__cards > li.question__cards__button i.material-icons {
+  transition: all 250ms cubic-bezier(0.06, 0.46, 0.58, 1);
+}
+
+.question
+  ul.question__cards
+  > li.question__cards__button:hover
+  i.material-icons {
+  transform: translateY(-10px);
+}
+
+h2 + .toggleVis {
+  margin-bottom: 54px;
+}
+
+.toggleVis {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgb(71, 71, 71);
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.8rem;
+  margin-left: 27px;
+  margin-bottom: 21px;
+  position: relative;
+  border-radius: 30px;
+  padding: 9px 18px;
+  overflow: hidden;
+}
+
+.toggleVis .btn__hover {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.toggleVis .btn__hover::after,
+.toggleVis .btn__hover::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(
+    135deg,
+    rgb(33, 33, 33) 0%,
+    rgb(165, 165, 165) 100%
+  );
+}
+
+.toggleVis .btn__hover::before {
+  transform: translate3d(0px, 103%, 0px);
+  opacity: 1;
+}
+
+.toggleVis .btn__hover::after {
+  transform: translate3d(0px, -105%, 0px);
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.toggleVis > span {
+  z-index: 1;
+  transition: color 0.25s linear 0.1s;
+}
+
+.toggleVis:hover .btn__hover::before {
+  transform: translateZ(0px);
+  opacity: 1;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.toggleVis .btn__hover::after,
+.toggleVis .btn__hover::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(
+    135deg,
+    rgb(33, 33, 33) 0%,
+    rgb(165, 165, 165) 100%
+  );
+}
+
+.toggleVis:hover .btn__hover::after {
+  transform: translateZ(0px);
+  opacity: 0;
+  transition: none;
+}
+
+.toggleVis:hover > span {
+  color: white;
+}

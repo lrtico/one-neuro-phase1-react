@@ -4,6 +4,17 @@ import WizardFormFirstPage from "./WizardFormFirstPage";
 import WizardFormSecondPage from "./WizardFormSecondPage";
 import WizardFormThirdPage from "./WizardFormThirdPage";
 import WizardFormFourthPage from "./WizardFormFourthPage";
+import WizardFormFifthPage from "./WizardFormFifthPage";
+import WizardFormSixthPage from "./WizardFormSixthPage";
+import WizardFormSeventhPage from "./WizardFormSeventhPage";
+import WizardFormEigthPage from "./WizardFormEigthPage";
+import WizardFormNinthPage from "./WizardFormNinthPage";
+import WizardFormTenthPage from "./WizardFormTenthPage";
+import WizardFormEleventhPage from "./WizardFormEleventhPage";
+import WizardFormTwelfthPage from "./WizardFormTwelfthPage";
+import WizardFormThirteenthPage from "./WizardFormThirteenthPage";
+import WizardFormFourteenthPage from "./WizardFormFourteenthPage";
+import WizardFormFifthteenthPage from "./WizardFormFifthteenthPage";
 
 class WizardForm extends Component {
   constructor(props) {
@@ -42,6 +53,72 @@ class WizardForm extends Component {
         )}
         {page === 4 && (
           <WizardFormFourthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 5 && (
+          <WizardFormFifthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 6 && (
+          <WizardFormSixthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 7 && (
+          <WizardFormSeventhPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 8 && (
+          <WizardFormEigthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 9 && (
+          <WizardFormNinthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 10 && (
+          <WizardFormTenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 11 && (
+          <WizardFormEleventhPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 12 && (
+          <WizardFormTwelfthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 13 && (
+          <WizardFormThirteenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 14 && (
+          <WizardFormFourteenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 15 && (
+          <WizardFormFifthteenthPage
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />

@@ -1,16 +1,16 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import validate from './validate'
-import TextQuestion from './components/TextQuestion/'
-import SectionTitle from './components/SectionTitle'
-import Button from './components/Button'
-import Card from './components/Card'
+import React from "react";
+import { Field, reduxForm } from "redux-form";
+import validate from "./validate";
+import TextQuestion from "./components/TextQuestion/";
+import SectionTitle from "./components/SectionTitle";
+import Button from "./components/Button";
+import RadioCard from "./components/Card/RadioCard/RadioCard";
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
 
 const WizardFormSecondPage = props => {
-  const { handleSubmit } = props
+  const { handleSubmit, previousPage } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Demographics" titleRegular="info" />
@@ -76,7 +76,7 @@ const WizardFormSecondPage = props => {
           label="What"
           labelBold="grade"
           labelLast="are they in"
-          name="di-age"
+          name="di-grade"
           type="input"
           tabOrder="6"
           classes="question grid__half"
@@ -109,23 +109,23 @@ const WizardFormSecondPage = props => {
         <div>
           <Field
             name="di-hand-test"
-            component={Card}
+            component={RadioCard}
             cardInfo={[
               {
-                thumbnail: 'img/icons-woman-generic.svg',
-                thumbnailAlt: 'Girl',
-                cardName: 'di-gender',
-                cardKey: 'A',
-                cardLabel: 'Girl',
-                tabOrder: '9'
+                thumbnail: "img/icons-woman-generic.svg",
+                thumbnailAlt: "Girl",
+                cardName: "di-gender",
+                cardKey: "A",
+                cardLabel: "Girl",
+                tabOrder: "9"
               },
               {
-                thumbnail: 'img/icons-man-generic.svg',
-                thumbnailAlt: 'Boy',
-                cardName: 'di-gender',
-                cardKey: 'B',
-                cardLabel: 'Boy',
-                tabOrder: '10'
+                thumbnail: "img/icons-man-generic.svg",
+                thumbnailAlt: "Boy",
+                cardName: "di-gender",
+                cardKey: "B",
+                cardLabel: "Boy",
+                tabOrder: "10"
               }
             ]}
             label="Which"
@@ -137,23 +137,23 @@ const WizardFormSecondPage = props => {
         <div>
           <Field
             name="di-hand-ing"
-            component={Card}
+            component={RadioCard}
             cardInfo={[
               {
-                thumbnail: 'img/icons-hand-left.svg',
-                thumbnailAlt: 'Left hand',
-                cardName: 'di-handedness',
-                cardKey: 'A',
-                cardLabel: 'Left',
-                tabOrder: '13'
+                thumbnail: "img/icons-hand-left.svg",
+                thumbnailAlt: "Left hand",
+                cardName: "di-handedness",
+                cardKey: "A",
+                cardLabel: "Left",
+                tabOrder: "13"
               },
               {
-                thumbnail: 'img/icons-hand-right.svg',
-                thumbnailAlt: 'Right hand',
-                cardName: 'di-handedness',
-                cardKey: 'B',
-                cardLabel: 'Right',
-                tabOrder: '14'
+                thumbnail: "img/icons-hand-right.svg",
+                thumbnailAlt: "Right hand",
+                cardName: "di-handedness",
+                cardKey: "B",
+                cardLabel: "Right",
+                tabOrder: "14"
               }
             ]}
             label="Which"
@@ -177,15 +177,17 @@ const WizardFormSecondPage = props => {
           classes="question"
         />
       </div>
-
       <Button onClick={handleSubmit} buttonLabel="OK" />
+      <button type="button" className="previous" onClick={previousPage}>
+        Previous
+      </button>
     </form>
-  )
-}
+  );
+};
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: "wizard", //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate
-})(WizardFormSecondPage)
+})(WizardFormSecondPage);

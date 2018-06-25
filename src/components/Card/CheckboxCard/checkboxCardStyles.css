@@ -1,0 +1,11 @@
+.question__checkboxCard input[type="checkbox"] {
+  z-index: 0;
+}
+
+.question__checkboxCard input[type="text"] {
+  z-index: 1;
+}
+
+.question__checkboxCard .question__text-label {
+  white-space: nowrap;
+}

@@ -598,6 +598,14 @@ form > div {
   -ms-flex-direction: column;
   flex-direction: column;
 }
+
+.flex--col-vertical-center {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* End Flex Styles */
 
 /* Form Styles */
@@ -625,3 +633,37 @@ input {
   width: 100%;
 }
 /* End Form Styles */
+
+/* Radio Card - Radio Buttons visible */
+.question-card__radio {
+  width: 100%;
+}
+
+[type="radio"].radio-visible {
+  height: initial;
+  position: initial;
+  top: initial;
+  left: initial;
+  right: initial;
+  bottom: initial;
+  opacity: initial;
+  width: initial;
+}
+
+.question-card__radio > label {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: initial;
+  margin: inherit;
+  margin-left: 9px;
+}
+
+.question__card > .question-card__radio:nth-child(even) {
+  margin-bottom: 9px;
+}
+
+.question__multiple-choice {
+  display: none;
+}

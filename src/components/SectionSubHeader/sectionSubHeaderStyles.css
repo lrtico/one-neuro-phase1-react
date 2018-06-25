@@ -1,0 +1,11 @@
+h3 + .flex > h4,
+h3 + .flex--space-between > h4,
+h3 + .flex--center > h4,
+h3 + .flex--stretch > h4,
+h3 + .flex--center-vertical > h4,
+h3 + .flex--wrap > h4,
+h3 + .flex--flex-end > h4,
+h3 + .flex--col > h4,
+h3 + .flex--align-items-end > h4 {
+  margin-bottom: 72px;
+}
