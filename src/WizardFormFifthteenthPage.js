@@ -110,7 +110,7 @@ const WizardFormFifthteenthPage = props => {
           classes="question question--thumbless question--numbers"
         />
       </div>
-      <FieldArray
+      <Field
         component={DescriptionCheckboxCard}
         checkboxInfo={[
           {
@@ -131,6 +131,7 @@ const WizardFormFifthteenthPage = props => {
         labelLast="that occured during pregnancy"
         name="mdh-complications-pregnancy-group"
         classes="question question--thumbless"
+        type="text"
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
