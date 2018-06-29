@@ -24,14 +24,8 @@ class RadioCard extends Component {
       label,
       labelBold,
       labelLast,
-      tabOrder,
-      cardName,
-      cardKey,
-      cardLabel,
       cardInfo,
       classes,
-      thumbnail,
-      thumbnailAlt,
       meta: { touched, error }
     } = this.props;
 
@@ -67,7 +61,11 @@ class RadioCard extends Component {
                   this.props.ReduxValue17 === card.cardLabel ||
                   this.props.ReduxValue18 === card.cardLabel ||
                   this.props.ReduxValue19 === card.cardLabel ||
-                  this.props.ReduxValue20 === card.cardLabel
+                  this.props.ReduxValue20 === card.cardLabel ||
+                  this.props.ReduxValue21 === card.cardLabel ||
+                  this.props.ReduxValue22 === card.cardLabel ||
+                  this.props.ReduxValue23 === card.cardLabel ||
+                  this.props.ReduxValue24 === card.cardLabel
                     ? "question__choice question__checkbox--selected"
                     : "question__choice"
                 }
@@ -136,6 +134,10 @@ RadioCard = connect(state => {
   const ReduxValue18 = selector(state, "mdh-hospital-birth");
   const ReduxValue19 = selector(state, "mdh-mother-length-hospital");
   const ReduxValue20 = selector(state, "mdh-child-length-hospital");
+  const ReduxValue21 = selector(state, "mdh-planned-pregnancy");
+  const ReduxValue22 = selector(state, "mdh-dr-care");
+  const ReduxValue23 = selector(state, "mdh-total-pregnancies");
+  const ReduxValue24 = selector(state, "mdh-change-writing-hand");
 
   return {
     ReduxValue1,
@@ -157,7 +159,11 @@ RadioCard = connect(state => {
     ReduxValue17,
     ReduxValue18,
     ReduxValue19,
-    ReduxValue20
+    ReduxValue20,
+    ReduxValue21,
+    ReduxValue22,
+    ReduxValue23,
+    ReduxValue24
   };
 })(RadioCard);
 

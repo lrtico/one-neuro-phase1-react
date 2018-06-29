@@ -4,10 +4,9 @@ import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import SectionSubHeader from "./components/SectionSubHeader";
 import RadioCard from "./components/Card/RadioCard/RadioCard";
-import CheckboxCard from "./components/Card/CheckboxCard/CheckboxCard";
+import DescriptionCheckboxCard from "./components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import Button from "./components/Button";
 import ButtonToggle from "./components/ButtonToggle";
-import TextQuestion from "./components/TextQuestion";
 
 const WizardFormFourteenthPage = props => {
   const { handleSubmit, previousPage } = props;
@@ -18,307 +17,186 @@ const WizardFormFourteenthPage = props => {
         titleRegular="history"
       />
       <div className="flex">
-        <SectionSubHeader subHeader="Birth" />
+        <SectionSubHeader subHeader="Pregnancy" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <div className="flex">
         <Field
-          component={TextQuestion}
-          label="At this"
-          labelBold="child's birth,"
-          labelLast="what was the mother's age"
-          name="mdh-mothers-age"
-          tabOrder="1"
-          type="input"
-          classes="question grid__half"
-        />
-        <Field
-          alt="Speech bubble"
-          component={TextQuestion}
-          label="Father's"
-          name="mdh-fathers-age"
-          tabOrder="2"
-          type="input"
-          classes="question grid__half"
-        />
-      </div>
-      <Field
-        component={TextQuestion}
-        label="Mother's"
-        labelBold="age at birth,"
-        labelLast="of first child"
-        name="mdh-mothers-age-first-child"
-        tabOrder="3"
-        type="input"
-        classes="question grid__half"
-      />
-      <div className="flex">
-        <Field
-          name="mdh-hospital-birth-group"
+          name="mdh-planned-pregnancy-group"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-hospital-birth",
+              cardName: "mdh-planned-pregnancy",
               cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "4"
+              cardLabel: "Yes ",
+              tabOrder: "1"
             },
             {
-              cardName: "mdh-hospital-birth",
+              cardName: "mdh-planned-pregnancy",
               cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "5"
+              cardLabel: "No ",
+              tabOrder: "2"
             }
           ]}
-          label="Was this child"
-          labelBold="born"
-          labelLast="in a hospital"
+          label="Was this a"
+          labelBold="planned"
+          labelLast="pregnancy"
           classes="question grid__half question--thumbless"
         />
         <Field
-          component={TextQuestion}
-          label="If no,"
-          labelBold="where"
-          name="mdh-birth-location"
-          tabOrder="6"
-          type="input"
-          classes="question grid__half"
+          name="mdh-dr-care-group"
+          component={RadioCard}
+          cardInfo={[
+            {
+              cardName: "mdh-dr-care",
+              cardKey: "A",
+              cardLabel: "Yes",
+              tabOrder: "3"
+            },
+            {
+              cardName: "mdh-dr-care",
+              cardKey: "B",
+              cardLabel: "No",
+              tabOrder: "4"
+            }
+          ]}
+          label="Was the mother under a"
+          labelBold="doctor's"
+          labelLast="care"
+          classes="question grid__half question--thumbless"
         />
       </div>
       <div className="flex">
         <Field
-          alt="Ruler"
-          src="img/icons-length-ruler.svg"
-          component={TextQuestion}
-          labelBold="Length"
-          labelLast="of pregnancy (# of weeks)"
-          name="mdh-pregnancy-length"
-          tabOrder="7"
-          type="input"
-          classes="question grid__half"
-        />
-        <Field
-          alt="Scale"
-          src="img/icons-weight-scale.svg"
-          component={TextQuestion}
-          label="Birth"
-          labelBold="weight"
-          labelLast="(lbs &amp; oz)"
-          name="mdh-birth-weight"
-          tabOrder="8"
-          type="input"
-          classes="question grid__half"
-        />
-      </div>
-      <div className="flex">
-        <Field
-          alt="Ruler"
-          src="img/icons-length-ruler.svg"
-          component={TextQuestion}
-          labelBold="Length"
-          labelLast="of labor (# of weeks)"
-          name="mdh-labor-length"
-          tabOrder="9"
-          type="input"
-          classes="question grid__half"
-        />
-        <Field
-          alt="Scorecard"
-          src="img/icons-scorecard.svg"
-          component={TextQuestion}
-          labelBold="Apgar"
-          labelLast="score"
-          name="mdh-apgar-score"
-          tabOrder="10"
-          type="input"
-          classes="question grid__half"
+          component={RadioCard}
+          cardInfo={[
+            {
+              cardName: "mdh-total-pregnancies",
+              cardLabel: "1",
+              tabOrder: "5"
+            },
+            {
+              cardName: "mdh-total-pregnancies",
+              cardLabel: "2",
+              tabOrder: "6"
+            },
+            {
+              cardName: "mdh-total-pregnancies",
+              cardLabel: "3",
+              tabOrder: "7"
+            },
+            {
+              cardName: "mdh-total-pregnancies",
+              cardLabel: "4",
+              tabOrder: "8"
+            },
+            {
+              cardName: "mdh-total-pregnancies",
+              cardLabel: "5",
+              tabOrder: "9"
+            },
+            {
+              cardName: "mdh-total-pregnancies",
+              cardLabel: "6",
+              tabOrder: "10"
+            }
+          ]}
+          label="The number of"
+          labelBold="previous"
+          labelLast="pregnancies/miscarriages"
+          name="mdh-total-pregnancies-group"
+          classes="question question--thumbless question--numbers"
         />
       </div>
-      <Field
-        component={TextQuestion}
-        label="Child's"
-        labelBold="condition"
-        labelLast="at birth"
-        name="mdh-birth-condition-child"
-        tabOrder="11"
-        type="input"
-        classes="question"
-      />
-      <Field
-        component={TextQuestion}
-        label="Mother's"
-        labelBold="condition"
-        labelLast="at birth"
-        name="mdh-birth-condition-mother"
-        tabOrder="12"
-        type="input"
-        classes="question"
-      />
       <FieldArray
-        component={CheckboxCard}
+        component={DescriptionCheckboxCard}
         checkboxInfo={[
           {
-            cardName: "mdh-forceps",
             cardKey: "A",
-            cardLabel: "Forceps used",
+            cardName: "mdh-pregnancy-difficult-conception",
+            cardLabel: "Difficulty in conception",
+            tabOrder: "11"
+          },
+          {
+            cardKey: "B",
+            cardName: "mdh-pregnancy-toxemia",
+            cardLabel: "Toxemia",
+            tabOrder: "12"
+          },
+          {
+            cardKey: "C",
+            cardName: "mdh-pregnancy-weight-gain",
+            cardLabel: "Abnormal weight gain",
             tabOrder: "13"
           },
           {
-            cardName: "mdh-breech",
-            cardKey: "B",
-            cardLabel: "Breech birth",
+            cardKey: "D",
+            cardName: "mdh-pregnancy-vomiting",
+            cardLabel: "Excessive vomiting",
             tabOrder: "14"
           },
           {
-            cardName: "mdh-induced",
-            cardKey: "C",
-            cardLabel: "Labor induced",
+            cardKey: "E",
+            cardLabel: "German measels",
             tabOrder: "15"
           },
           {
-            cardName: "mdh-ceasarean",
-            cardKey: "D",
-            cardLabel: "Ceasarean delivery",
+            cardKey: "F",
+            cardName: "mdh-pregnancy-swelling",
+            cardLabel: "Excessive swelling",
             tabOrder: "16"
+          },
+          {
+            cardKey: "G",
+            cardName: "mdh-pregnancy-emotional",
+            cardLabel: "Emotional problems",
+            tabOrder: "17"
+          },
+          {
+            cardKey: "H",
+            cardName: "mdh-pregnancy-vaginal-bleeding",
+            cardLabel: "Vaginal bleeding",
+            tabOrder: "18"
+          },
+          {
+            cardKey: "I",
+            cardName: "mdh-pregnancy-flu",
+            cardLabel: "Flu",
+            tabOrder: "19"
+          },
+          {
+            cardKey: "J",
+            cardName: "mdh-pregnancy-anemia",
+            cardLabel: "Anemia",
+            tabOrder: "20"
+          },
+          {
+            cardKey: "K",
+            cardName: "mdh-pregnancy-blood-pressure",
+            cardLabel: "High blood pressure",
+            tabOrder: "21"
+          },
+          {
+            cardKey: "L",
+            cardName: "mdh-pregnancy-other",
+            cardLabel: "Other",
+            tabOrder: "22",
+            cardDescription: "mdh-other-description"
+          },
+          {
+            cardKey: "B",
+            cardName: "mdh-pregnancy-injury",
+            cardLabel: "Maternal injury",
+            tabOrder: "23",
+            cardDescription: "mdh-maternal-injury-description"
           }
         ]}
         label="Check any of the following"
         labelBold="complications"
-        labelLast="that occured during birth"
-        name="mdh-complications"
+        labelLast="that occured during pregnancy"
+        name="mdh-complications-pregnancy-group"
         classes="question question--thumbless"
       />
-      <Field
-        alt="Complications"
-        component={TextQuestion}
-        label="Other"
-        labelBold="delivery complications"
-        name="mdh-delivery-complications"
-        src="img/icons-problem-triangle.svg"
-        tabOrder="17"
-        type="input"
-        classes="question"
-      />
-      <Field
-        alt="Calendar"
-        component={TextQuestion}
-        label="Incubator:"
-        labelBold="How long"
-        name="mdh-incubator"
-        src="img/icons-calendar-large.svg"
-        tabOrder="18"
-        type="input"
-        classes="question"
-      />
-      <Field
-        component={TextQuestion}
-        label="Jaundiced: Bilirubin lights?"
-        labelBold="How long"
-        name="mdh-jaundiced"
-        tabOrder="19"
-        type="input"
-        classes="question"
-      />
-      <Field
-        component={TextQuestion}
-        labelBold="Breathing problems"
-        labelLast="right after birth"
-        name="mdh-breathing-problems"
-        tabOrder="20"
-        type="input"
-        classes="question"
-      />
-      <Field
-        component={TextQuestion}
-        labelBold="Supplemental oxygen?"
-        labelLast="If yes, how long"
-        name="mdh-supplemental-oxygen"
-        tabOrder="21"
-        type="input"
-        classes="question"
-      />
-      <Field
-        component={TextQuestion}
-        label="Was"
-        labelBold="anethesia"
-        labelLast="used during delivery? If yes, what kind"
-        name="mdh-anethesia"
-        tabOrder="22"
-        type="input"
-        classes="question"
-      />
-      <div className="flex">
-        <Field
-          name="mdh-mother-length-hospital-group"
-          component={RadioCard}
-          cardInfo={[
-            {
-              cardName: "mdh-mother-length-hospital",
-              cardKey: "A",
-              cardLabel: "1-2 Days ",
-              tabOrder: "23"
-            },
-            {
-              cardName: "mdh-mother-length-hospital",
-              cardKey: "B",
-              cardLabel: "3-7 Days ",
-              tabOrder: "24"
-            },
-            {
-              cardName: "mdh-mother-length-hospital",
-              cardKey: "C",
-              cardLabel: "8-10 Days ",
-              tabOrder: "25"
-            },
-            {
-              cardName: "mdh-mother-length-hospital",
-              cardKey: "D",
-              cardLabel: "11+ Days ",
-              tabOrder: "26"
-            }
-          ]}
-          label="Mother's"
-          labelBold="length"
-          labelLast="of hospital stay"
-          classes="question question--thumbless"
-        />
-      </div>
-      <div className="flex">
-        <Field
-          name="mdh-child-length-hospital-group"
-          component={RadioCard}
-          cardInfo={[
-            {
-              cardName: "mdh-child-length-hospital",
-              cardKey: "A",
-              cardLabel: "1-2 Days",
-              tabOrder: "27"
-            },
-            {
-              cardName: "mdh-child-length-hospital",
-              cardKey: "B",
-              cardLabel: "3-7 Days",
-              tabOrder: "28"
-            },
-            {
-              cardName: "mdh-child-length-hospital",
-              cardKey: "C",
-              cardLabel: "8-10 Days",
-              tabOrder: "29"
-            },
-            {
-              cardName: "mdh-child-length-hospital",
-              cardKey: "D",
-              cardLabel: "11+ Days",
-              tabOrder: "30"
-            }
-          ]}
-          label="Child's"
-          labelBold="length"
-          labelLast="of hospital stay"
-          classes="question question--thumbless"
-        />
-      </div>
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
 

@@ -3,7 +3,7 @@ import { FieldArray, reduxForm } from "redux-form";
 import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import Button from "./components/Button";
-import FormCard from "./components/Card/FormCard/FormCard";
+import FormCardTextDate from "./components/Card/FormCard/FormCardTextDate";
 
 const WizardFormFifthPage = props => {
   const { handleSubmit, previousPage } = props;
@@ -16,7 +16,7 @@ const WizardFormFifthPage = props => {
           <span>disable</span>
         </div>
       </div>
-      <FieldArray name="records-reviewed" component={FormCard} />
+      <FieldArray name="records-reviewed" component={FormCardTextDate} />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
 

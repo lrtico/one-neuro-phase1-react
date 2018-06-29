@@ -234,3 +234,12 @@ h2 + .toggleVis {
 .toggleVis:hover > span {
   color: white;
 }
+
+/* FormCardStacked */
+.question ul.question__cards li.question__card .cardLabel {
+  align-self: flex-start;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1em;
+}

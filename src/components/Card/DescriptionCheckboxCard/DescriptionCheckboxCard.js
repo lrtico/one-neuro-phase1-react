@@ -20,11 +20,9 @@ const DescriptionCheckboxCard = ({
   label,
   labelBold,
   labelLast,
-  tabOrder,
   checkboxInfo,
   classes,
-  thumbnail,
-  thumbnailAlt,
+  liClasses,
   meta: { touched, error }
 }) => {
   return (
@@ -41,7 +39,11 @@ const DescriptionCheckboxCard = ({
           {checkboxInfo.map(card => (
             <li
               key={randomId()}
-              className="question__choice"
+              className={
+                card.liClasses == null
+                  ? "question__choice"
+                  : `${card.liClasses} question__choice`
+              }
               tabIndex={card.tabOrder}
               // onClick={card.handleTick}
             >
@@ -61,7 +63,7 @@ const DescriptionCheckboxCard = ({
                 </div>
                 <div className="question__text-label">{card.cardLabel}</div>
                 <Field
-                  name={card.cardDescription}
+                  name={card.cardName}
                   component="input"
                   type="text"
                   // onClick={handleCheckbox}

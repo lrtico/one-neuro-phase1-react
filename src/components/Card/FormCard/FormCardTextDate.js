@@ -11,7 +11,7 @@ function handleTick(event) {
   tar.parentNode.classList.toggle("question__checkbox--selected");
 }
 
-const FormCard = ({ recordsReviewed, input, fields }) => (
+const FormCardTextDate = ({ recordsReviewed, input, fields }) => (
   <div className="question">
     <ul className="question__cards flex--wrap">
       <li className="question__card question__cards__button flex--center-vertical question__form-card">
@@ -66,4 +66,4 @@ const FormCard = ({ recordsReviewed, input, fields }) => (
   </div>
 );
 
-export default FormCard;
+export default FormCardTextDate;

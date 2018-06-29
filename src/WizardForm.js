@@ -15,6 +15,14 @@ import WizardFormTwelfthPage from "./WizardFormTwelfthPage";
 import WizardFormThirteenthPage from "./WizardFormThirteenthPage";
 import WizardFormFourteenthPage from "./WizardFormFourteenthPage";
 import WizardFormFifthteenthPage from "./WizardFormFifthteenthPage";
+import WizardFormSixteenthPage from "./WizardFormSixteenthPage";
+import WizardFormSeventeenthPage from "./WizardFormSeventeenthPage";
+import WizardFormEighteenthPage from "./WizardFormEighteenthPage";
+import WizardFormNineteenthPage from "./WizardFormNineteenthPage";
+import WizardFormTwentiethPage from "./WizardFormTwentiethPage";
+import WizardFormTwentyFirstPage from "./WizardFormTwentyFirstPage";
+import WizardFormTwentySecondPage from "./WizardFormTwentySecondPage";
+import WizardFormTwentyThirdPage from "./WizardFormTwentyThirdPage";
 
 class WizardForm extends Component {
   constructor(props) {
@@ -119,6 +127,54 @@ class WizardForm extends Component {
         )}
         {page === 15 && (
           <WizardFormFifthteenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 16 && (
+          <WizardFormSixteenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 17 && (
+          <WizardFormSeventeenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 18 && (
+          <WizardFormEighteenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 19 && (
+          <WizardFormNineteenthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 20 && (
+          <WizardFormTwentiethPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 21 && (
+          <WizardFormTwentyFirstPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 22 && (
+          <WizardFormTwentySecondPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 23 && (
+          <WizardFormTwentyThirdPage
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />
