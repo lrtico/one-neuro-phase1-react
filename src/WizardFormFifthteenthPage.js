@@ -319,6 +319,29 @@ const WizardFormFifthteenthPage = props => {
           classes="question question--thumbless"
         />
       </div>
+      <Field
+        component={DescriptionCheckboxCard}
+        checkboxInfo={[
+          {
+            cardKey: "A",
+            cardLabel: "Other",
+            tabOrder: "11",
+            cardDescription: "mdh-other-description"
+          },
+          {
+            cardKey: "B",
+            cardLabel: "Maternal injury",
+            tabOrder: "12",
+            cardDescription: "mdh-maternal-injury-description"
+          }
+        ]}
+        label="Check any of the following"
+        labelBold="complications"
+        labelLast="that occured during pregnancy"
+        name="mdh-complications-pregnancy-group"
+        classes="question question--thumbless"
+        type="text"
+      />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
 
