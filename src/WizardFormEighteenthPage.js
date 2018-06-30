@@ -1,5 +1,5 @@
 import React from "react";
-import { FieldArray, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import SectionSubHeader from "./components/SectionSubHeader";
@@ -19,7 +19,7 @@ const WizardFormEighteenthPage = props => {
         <SectionSubHeader subHeader="Development" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
-      <FieldArray
+      <Field
         component={DescriptionCheckboxCard}
         checkboxInfo={[
           {

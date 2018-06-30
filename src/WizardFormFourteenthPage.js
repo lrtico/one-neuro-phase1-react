@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import SectionSubHeader from "./components/SectionSubHeader";
@@ -108,7 +108,7 @@ const WizardFormFourteenthPage = props => {
           classes="question question--thumbless question--numbers"
         />
       </div>
-      <FieldArray
+      <Field
         component={DescriptionCheckboxCard}
         checkboxInfo={[
           {
@@ -136,6 +136,7 @@ const WizardFormFourteenthPage = props => {
             tabOrder: "14"
           },
           {
+            cardName: "mdh-pregnancy-german-measels",
             cardKey: "E",
             cardLabel: "German measels",
             tabOrder: "15"

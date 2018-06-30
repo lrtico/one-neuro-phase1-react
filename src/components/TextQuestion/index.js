@@ -18,7 +18,7 @@ const TextQuestion = ({
   meta: { touched, error }
 }) => (
   <div className={classes}>
-    <label>
+    <label hidden={label == null ? true : false}>
       {label} <strong>{labelBold}</strong> {labelLast}?
     </label>
     <div className="flex question__input">

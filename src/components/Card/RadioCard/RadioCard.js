@@ -65,7 +65,10 @@ class RadioCard extends Component {
                   this.props.ReduxValue21 === card.cardLabel ||
                   this.props.ReduxValue22 === card.cardLabel ||
                   this.props.ReduxValue23 === card.cardLabel ||
-                  this.props.ReduxValue24 === card.cardLabel
+                  this.props.ReduxValue24 === card.cardLabel ||
+                  this.props.ReduxValue25 === card.cardLabel ||
+                  this.props.ReduxValue26 === card.cardLabel ||
+                  this.props.ReduxValue27 === card.cardLabel
                     ? "question__choice question__checkbox--selected"
                     : "question__choice"
                 }
@@ -138,6 +141,9 @@ RadioCard = connect(state => {
   const ReduxValue22 = selector(state, "mdh-dr-care");
   const ReduxValue23 = selector(state, "mdh-total-pregnancies");
   const ReduxValue24 = selector(state, "mdh-change-writing-hand");
+  const ReduxValue25 = selector(state, "md-neurological-meds");
+  const ReduxValue26 = selector(state, "md-neurological-tranquilizer");
+  const ReduxValue27 = selector(state, "md-neurological-adhd-meds");
 
   return {
     ReduxValue1,
@@ -163,7 +169,10 @@ RadioCard = connect(state => {
     ReduxValue21,
     ReduxValue22,
     ReduxValue23,
-    ReduxValue24
+    ReduxValue24,
+    ReduxValue25,
+    ReduxValue26,
+    ReduxValue27
   };
 })(RadioCard);
 

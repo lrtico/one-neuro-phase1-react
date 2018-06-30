@@ -26,11 +26,18 @@ const CheckboxCard = ({
   classes,
   thumbnail,
   thumbnailAlt,
+  columnHeader,
   meta: { touched, error }
 }) => {
   return (
     <div className={classes}>
-      <label>
+      <h4
+        className="question__col-header"
+        hidden={columnHeader == null ? true : false}
+      >
+        {columnHeader}
+      </h4>
+      <label hidden={label == null ? true : false}>
         {label} <strong>{labelBold}</strong> {labelLast}?
       </label>
       <div className="question__input">
@@ -42,7 +49,11 @@ const CheckboxCard = ({
           {checkboxInfo.map(card => (
             <li
               key={randomId()}
-              className="question__choice"
+              className={
+                card.liClasses == null
+                  ? "question__choice"
+                  : `${card.liClasses} question__choice`
+              }
               tabIndex={tabOrder}
               onClick={handleTick}
             >

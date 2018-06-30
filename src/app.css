@@ -533,6 +533,14 @@ h4 {
   text-transform: uppercase;
 }
 
+.question__col-header {
+  color: #474747;
+  font-family: "Montserrat", sans-serif;
+  font-size: 21px;
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
 p {
   font-size: 28px;
   font-size: 2.8rem;
