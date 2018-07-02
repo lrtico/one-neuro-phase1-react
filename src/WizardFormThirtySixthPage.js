@@ -1,10 +1,11 @@
 import React from "react";
-import { FieldArray, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm } from "redux-form";
 import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import Button from "./components/Button";
 import FormCardMultiInput from "./components/Card/FormCard/FormCardMultiInput";
 import CheckboxCard from "./components/Card/CheckboxCard/CheckboxCard";
+import TextQuestion from "./components/TextQuestion";
 
 const WizardFormThirtySixthPage = props => {
   const { handleSubmit, previousPage } = props;
@@ -278,6 +279,30 @@ const WizardFormThirtySixthPage = props => {
           classes="question question--thumbless grid__half"
         />
       </div>
+      <Field
+        alt="Health"
+        component={TextQuestion}
+        label="What's the father's"
+        labelBold="present"
+        labelLast="health"
+        name="fh-fathers-health"
+        src="img/icons-health-heart-check.svg"
+        tabOrder="15"
+        type="input"
+        classes="question"
+      />
+      <Field
+        alt="Health"
+        component={TextQuestion}
+        label="What's the mother's"
+        labelBold="present"
+        labelLast="health"
+        name="fh-mothers-health"
+        src="img/icons-health-heart-check.svg"
+        tabOrder="16"
+        type="input"
+        classes="question"
+      />
       <label>
         Has anyone in the family ever been in
         <strong> special education</strong>?

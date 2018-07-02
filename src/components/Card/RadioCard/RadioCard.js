@@ -31,7 +31,7 @@ class RadioCard extends Component {
 
     return (
       <div className={classes}>
-        <label>
+        <label hidden={label == null ? true : false}>
           {label} <strong>{labelBold}</strong> {labelLast}?
         </label>
         <div className="question__input">
@@ -68,7 +68,18 @@ class RadioCard extends Component {
                   this.props.ReduxValue24 === card.cardLabel ||
                   this.props.ReduxValue25 === card.cardLabel ||
                   this.props.ReduxValue26 === card.cardLabel ||
-                  this.props.ReduxValue27 === card.cardLabel
+                  this.props.ReduxValue27 === card.cardLabel ||
+                  this.props.ReduxValue28 === card.cardLabel ||
+                  this.props.ReduxValue29 === card.cardLabel ||
+                  this.props.ReduxValue30 === card.cardLabel ||
+                  this.props.ReduxValue31 === card.cardLabel ||
+                  this.props.ReduxValue32 === card.cardLabel ||
+                  this.props.ReduxValue33 === card.cardLabel ||
+                  this.props.ReduxValue34 === card.cardLabel ||
+                  this.props.ReduxValue35 === card.cardLabel ||
+                  this.props.ReduxValue36 === card.cardLabel ||
+                  this.props.ReduxValue37 === card.cardLabel ||
+                  this.props.ReduxValue38 === card.cardLabel
                     ? "question__choice question__checkbox--selected"
                     : "question__choice"
                 }
@@ -144,6 +155,17 @@ RadioCard = connect(state => {
   const ReduxValue25 = selector(state, "md-neurological-meds");
   const ReduxValue26 = selector(state, "md-neurological-tranquilizer");
   const ReduxValue27 = selector(state, "md-neurological-adhd-meds");
+  const ReduxValue28 = selector(state, "f-relating-problems");
+  const ReduxValue29 = selector(state, "f-fight");
+  const ReduxValue30 = selector(state, "f-younger-friends");
+  const ReduxValue31 = selector(state, "f-making-friends");
+  const ReduxValue32 = selector(state, "f-alone");
+  const ReduxValue33 = selector(state, "f-neighborhood-friends");
+  const ReduxValue34 = selector(state, "eh-daycare");
+  const ReduxValue35 = selector(state, "eh-kindergarten");
+  const ReduxValue36 = selector(state, "rda-religon-affiliation");
+  const ReduxValue37 = selector(state, "rda-religon-involvement");
+  const ReduxValue38 = selector(state, "rda-religon-building");
 
   return {
     ReduxValue1,
@@ -172,7 +194,18 @@ RadioCard = connect(state => {
     ReduxValue24,
     ReduxValue25,
     ReduxValue26,
-    ReduxValue27
+    ReduxValue27,
+    ReduxValue28,
+    ReduxValue29,
+    ReduxValue30,
+    ReduxValue31,
+    ReduxValue32,
+    ReduxValue33,
+    ReduxValue34,
+    ReduxValue35,
+    ReduxValue36,
+    ReduxValue37,
+    ReduxValue38
   };
 })(RadioCard);
 
