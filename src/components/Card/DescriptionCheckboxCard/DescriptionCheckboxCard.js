@@ -6,16 +6,6 @@ import "../../Card/cardStyles.css";
 import { randomId } from "../../../utils/Helpers";
 import MaterialIcon from "react-google-material-icons";
 
-// function handleTick(event) {
-//   const tar = event.currentTarget;
-//   tar.classList.toggle("question__checkbox--selected");
-// }
-
-// function handleCheckbox(event) {
-//   const tar = event.currentTarget;
-//   tar.parentNode.parentNode.classList.toggle("question__checkbox--selected");
-// }
-
 const DescriptionCheckboxCard = ({
   label,
   labelBold,
