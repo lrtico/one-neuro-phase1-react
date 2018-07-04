@@ -57,6 +57,9 @@
 .content .col {
   padding: 0 3.57vw;
 }
+.content .grid__twelfth {
+  width: 7.14vw;
+}
 .content .grid__sixth {
   width: 14.28vw;
 }

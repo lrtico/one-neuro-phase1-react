@@ -72,7 +72,7 @@ const WizardFormThirtySecondPage = props => {
       <FieldArray
         name="medication-list-group"
         component={FormCardMultiInput}
-        inputs={[
+        fieldInputs={[
           {
             inputName: "mc-medication-name",
             inputType: "text",

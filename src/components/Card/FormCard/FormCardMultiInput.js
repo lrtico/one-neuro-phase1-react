@@ -9,7 +9,7 @@ function handleTick(event) {
   tar.parentNode.classList.toggle("question__checkbox--selected");
 }
 
-const FormCardMultiInput = ({ fields }) => (
+const FormCardMultiInput = ({ fields, fieldInputs }) => (
   <div className="question">
     <ul className="question__cards flex--wrap">
       <li className="question__card question__cards__button flex--center-vertical question__form-card">
@@ -23,7 +23,7 @@ const FormCardMultiInput = ({ fields }) => (
         </button>
         <div className="question__bg" />
       </li>
-      {fields.map((multiInput, inputs, index) => (
+      {fields.map((multiInput, index) => (
         <li
           key={index}
           className="question__card question__form-card flex--col flex--center-vertical flex--space-between"
@@ -31,24 +31,16 @@ const FormCardMultiInput = ({ fields }) => (
           <div className="question__tick-wrap">
             <MaterialIcon icon="check" />
           </div>
-          {inputs.map(input => (
+          {fieldInputs.map(input => (
             <Field
               name={`${multiInput}.${input.inputName}`}
-              type={input.type}
+              type={input.inputType}
               component="input"
               label={input.inputLabel}
               className={input.inputClasses}
               placeholder={input.inputPlaceholder}
             />
           ))}
-          {/* <Field
-            name={`${multiInput}.reason`}
-            type="text"
-            component="input"
-            label="Reason"
-            className="cardTextInput"
-            placeholder="Reason"
-          /> */}
           <div
             className="question__key-label flex flex--center-vertical"
             onClick={handleTick}

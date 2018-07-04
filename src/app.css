@@ -676,3 +676,115 @@ textarea {
 .question__multiple-choice {
   display: none;
 }
+
+/* Domain-based tests */
+.test-desc {
+  margin-bottom: 108px;
+}
+
+.test-desc hr {
+  margin: 36px 0;
+}
+
+.test-table-heading {
+  margin-top: 72px;
+}
+
+.test-desc p {
+  line-height: 32px;
+  line-height: 3.2rem;
+}
+
+.test-desc h5 {
+  color: #a3a3a3;
+  font-family: "Montserrat", sans-serif;
+  font-size: 21px;
+  font-size: 2.1rem;
+  margin: 36px 0 9px;
+  text-transform: none;
+}
+
+.test__list i {
+  margin-right: 36px;
+}
+
+.test__list p {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+.test__list input {
+  background-color: rgba(255, 255, 0, 0.5);
+  border-bottom-color: blue;
+  color: blue;
+  font-family: "Montserrat", sans-serif;
+}
+
+.test__list input[type="number"] {
+  width: 7.14vw;
+}
+
+.test__list input[type="text"] {
+  width: 14.28vw;
+}
+
+form .test-table {
+  font-family: "Montserrat", sans-serif;
+}
+
+.test-table .table__row {
+  border-bottom: 1px solid #a3a3a3;
+  color: rgb(71, 71, 71);
+  display: flex;
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin: 18px 0 0;
+  padding-bottom: 18px;
+}
+
+.table__row.table__header {
+  font-size: 18px;
+  font-size: 1.8rem;
+  border-top: 1px solid #a3a3a3;
+  border-bottom: 1px solid #a3a3a3;
+  padding: 9px 0;
+  color: #a3a3a3;
+}
+
+.test-table .table__row.table__header div:first-child,
+.test-table .table__row div:first-child,
+.test-table .table__row.table__header div:nth-child(2),
+.test-table .table__row div:nth-child(2) {
+  padding-right: 36px;
+}
+
+.test-table .table__row.table__header div:first-child,
+.test-table .table__row div:first-child {
+  width: 14.28vw;
+}
+
+.test-table .table__row.table__header div:nth-child(2),
+.test-table .table__row div:nth-child(2) {
+  width: 7.14vw;
+}
+
+.test-table .table__row.table__header div:nth-child(3),
+.test-table .table__row div:nth-child(3) {
+  width: 57.12vw;
+}
+
+.table__row input[type="text"] {
+  background-color: rgba(255, 255, 0, 0.5);
+  border-bottom-color: blue;
+  font-family: "Montserrat", sans-serif;
+  width: 72px;
+}
+
+.test__list input:focus,
+.test-table input:focus {
+  background-color: transparent;
+}
+
+.test-table .table__row:last-of-type {
+  border-bottom: none;
+}

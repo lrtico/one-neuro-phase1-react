@@ -24,7 +24,7 @@ const WizardFormThirtyFourthPage = props => {
       <FieldArray
         name="nuerological-group"
         component={FormCardMultiInput}
-        inputs={[
+        fieldInputs={[
           {
             inputName: "mc-nuerological-name",
             inputType: "text",

@@ -5,6 +5,7 @@ import SectionTitle from "./components/SectionTitle";
 import SectionSubHeader from "./components/SectionSubHeader";
 import RadioCard from "./components/Card/RadioCard/RadioCard";
 import CheckboxCard from "./components/Card/CheckboxCard/CheckboxCard";
+import DescriptionCheckboxCard from "./components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import Button from "./components/Button";
 import ButtonToggle from "./components/ButtonToggle";
 import TextQuestion from "./components/TextQuestion";

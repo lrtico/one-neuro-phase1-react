@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../cardStyles.css";
+import "./RadioCard.css";
 import "../../../app.css";
 import MaterialIcon from "react-google-material-icons";
 import { randomId } from "../../../utils/Helpers";
@@ -79,7 +80,8 @@ class RadioCard extends Component {
                   this.props.ReduxValue35 === card.cardLabel ||
                   this.props.ReduxValue36 === card.cardLabel ||
                   this.props.ReduxValue37 === card.cardLabel ||
-                  this.props.ReduxValue38 === card.cardLabel
+                  this.props.ReduxValue38 === card.cardLabel ||
+                  this.props.ReduxValue39 === card.cardLabel
                     ? "question__choice question__checkbox--selected"
                     : "question__choice"
                 }
@@ -99,6 +101,11 @@ class RadioCard extends Component {
                   <div className="question__image-wrap">
                     <img src={card.thumbnail} alt={card.thumbnailAlt} />
                   </div>
+                )}
+                {card.cardText == null ? null : (
+                  <p className="question__choice__radioCard-text">
+                    {card.cardText}
+                  </p>
                 )}
                 <div className="question__text-wrap flex flex--center-vertical">
                   <div className="question__label">
@@ -166,6 +173,7 @@ RadioCard = connect(state => {
   const ReduxValue36 = selector(state, "rda-religon-affiliation");
   const ReduxValue37 = selector(state, "rda-religon-involvement");
   const ReduxValue38 = selector(state, "rda-religon-building");
+  const ReduxValue39 = selector(state, "tor-format");
 
   return {
     ReduxValue1,
@@ -205,7 +213,8 @@ RadioCard = connect(state => {
     ReduxValue35,
     ReduxValue36,
     ReduxValue37,
-    ReduxValue38
+    ReduxValue38,
+    ReduxValue39
   };
 })(RadioCard);
 

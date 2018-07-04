@@ -310,7 +310,7 @@ const WizardFormThirtySixthPage = props => {
       <FieldArray
         name="special-ed-group"
         component={FormCardMultiInput}
-        inputs={[
+        fieldInputs={[
           {
             inputName: "mc-special-ed-name",
             inputType: "text",
