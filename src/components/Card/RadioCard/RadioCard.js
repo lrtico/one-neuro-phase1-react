@@ -15,6 +15,16 @@ class RadioCard extends Component {
     };
   }
 
+  handleShow = cardKey => {
+    console.log("Fired!", cardKey);
+    if (cardKey === "1") {
+      console.log("cardkey = 1");
+      this.props.showLetterFormat();
+    } else if (cardKey === "2") {
+      this.props.showDomainBased();
+    }
+  };
+
   handleTick = () => {
     this.setState(prevState => {
       return { isChecked: !prevState.isChecked };
@@ -41,6 +51,7 @@ class RadioCard extends Component {
           <ul className="question__choices flex--wrap">
             {cardInfo.map(card => (
               <li
+                onClick={() => this.handleShow(card.cardKey)}
                 key={randomId()}
                 className={
                   this.props.ReduxValue1 === card.cardLabel ||

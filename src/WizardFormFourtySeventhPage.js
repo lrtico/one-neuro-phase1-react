@@ -10,14 +10,45 @@ import ButtonToggle from "./components/ButtonToggle";
 import RadioCard from "./components/Card/RadioCard/RadioCard";
 import CheckboxCard from "./components/Card/CheckboxCard/CheckboxCard";
 import MaterialIcon from "react-google-material-icons";
+import DivButton from "./components/Button/DivButton";
+
+const showLetterFormat = () => {
+  console.log("hide domain, show letter");
+  document.querySelector(".domain__pick-domain").classList.remove("show");
+  document.querySelector(".letter-format").classList.add("show");
+};
+
+const showDomainBased = () => {
+  console.log("hide letter, domain based");
+  document.querySelector(".letter-format").classList.remove("show");
+  document.querySelector(".domain__pick-domain").classList.add("show");
+};
+
+const showSubDomain = () => {
+  console.log("hide everything but pick the sub domain executing...");
+  document.querySelector(".domain__pick-sub-domain").classList.add("show");
+};
+
+const showTests = () => {
+  console.log("Make tests go now!");
+  document.querySelector(".domain__test").classList.add("show");
+};
+
+const showSummary = () => {
+  console.log("Make summary go now!");
+  document.querySelector(".summary-findings").classList.add("show");
+};
 
 const WizardFormFourtySeventhPage = props => {
   const { handleSubmit, previousPage } = props;
+
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Type" titleRegular="of report" />
       <div className="flex">
         <Field
+          showLetterFormat={showLetterFormat}
+          showDomainBased={showDomainBased}
           name="mdh-development"
           component={RadioCard}
           cardInfo={[
@@ -43,7 +74,7 @@ const WizardFormFourtySeventhPage = props => {
         />
       </div>
 
-      <div>
+      <div className="letter-format">
         <SectionTitle titleBold="Letter-format" titleRegular="type of report" />
         <div className="grid__half">
           <label>
@@ -51,9 +82,10 @@ const WizardFormFourtySeventhPage = props => {
           </label>
           <Field name="other-information" component="textarea" />
         </div>
+        <Button onClick={handleSubmit} buttonLabel="OK" />
       </div>
 
-      <div>
+      <div className="domain__pick-domain">
         <SectionTitle titleBold="Domain-based" titleRegular="reports" />
         <FieldArray
           component={CheckboxCard}
@@ -192,9 +224,10 @@ const WizardFormFourtySeventhPage = props => {
           name="dbr-domains-group"
           classes="question question--thumbless"
         />
+        <DivButton divButtonLabel="OK" show={showSubDomain} />
       </div>
 
-      <div>
+      <div className="domain__pick-sub-domain">
         <SectionTitle titleBold="Domain-based" titleRegular="reports" />
         <FieldArray
           component={CheckboxCard}
@@ -331,185 +364,201 @@ const WizardFormFourtySeventhPage = props => {
           name="dbr-tests-group"
           classes="question question--thumbless"
         />
-      </div>
-      <SectionTitle titleBold="Domain-based" titleRegular="reports" />
-      <SectionSubTitle subTitleBold="Learning &amp; memory" />
-      <div className="flex">
-        <SectionSubHeader subHeader="WPPSI-IV" />
-        <ButtonToggle buttonToggleLabel="Remove test" />
-      </div>
-      <div className="test-desc">
-        <p>
-          The Wechsler Preschool and Primary Scale of Intelligence (WPPSI-IV) is
-          a test of intellectual abilities, which assesses both cognitive
-          strengths and weaknesses in infants and children aged 2 years 6 months
-          through 7 years 7 months (2:6-7:7).
-        </p>
-        <hr />
-        <SectionSubHeader subHeader="FULL SCALE IQ" />
-        <p>
-          The Full Scale IQ (FSIQ) is a composite score that represents general
-          intellectual functioning and is calculated from all of the subtests
-          within the main indices.
-        </p>
-        <h5>If the FSIQ is meaningful</h5>
-        <div className="flex test__list">
-          <MaterialIcon icon="arrow_right" />
-          <p>
-            Overall, (client) demonstrated a consistent performance on the
-            WISC-V and received a Full-Scale IQ (FSIQ) score of{" "}
-            <input type="number" name="fsiq-score" /> (
-            <input type="number" name="fsiq-percentile" /> percentile), which
-            falls within in the <input type="text" name="fsiq-range" /> range of
-            functioning.
-          </p>
-        </div>
-        <h5>If the FSIQ is not meaningful</h5>
-        <div className="flex test__list">
-          <MaterialIcon icon="arrow_right" />
-          <p>
-            Overall, (client) demonstrated an inconsistent performance on the
-            WPPSI-IV. As a result, (his/her) Full-Scale score cannot be
-            interpreted meaningfully due to the significant discrepancies
-            between the five Composite areas that constitute (his/her)
-            Full-Scale score (FSIQ). Therefore, in order to better understand
-            (his/her) cognitive strengths and weaknesses, a more in-depth look
-            at all of (client’s) individual subtest scores is warranted.
-          </p>
-        </div>
-        <hr />
-        <SectionSubHeader subHeader="GENERAL ABILITY INDEX" />
-        <p>
-          The General Ability Index is a composite score that provides an
-          estimate of general intellectual ability, with reduced emphasis on
-          working memory and processing speed relative to the FSIQ.
-        </p>
-      </div>
-      <SectionSubTitle subTitleBold="Intellectual functioning" />
-      <SectionSubHeader subHeader="VERBAL COMPREHENSION" />
-      <div className="test-table">
-        <div className="table__row table__header">
-          <div>Subtest</div>
-          <div>Score</div>
-          <div>Description</div>
-        </div>
-        <div className="table__row">
-          <div>Similarities</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            The subtest is designed to measure verbal concept formation and
-            abstract reasoning. It also involves crystallized intelligence,
-            auditory comprehension, memory, associative and categorical
-            thinking, distinction between nonessential and essential features,
-            and verbal expression.
-          </div>
-        </div>
-        <div className="table__row">
-          <div>Vocabulary</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            The subtest is designed to measure verbal concept formation and
-            abstract reasoning. It also involves crystallized intelligence,
-            auditory comprehension, memory, associative and categorical
-            thinking, distinction between nonessential and essential features,
-            and verbal expression.
-          </div>
-        </div>
-        <div className="table__row">
-          <div>Information</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            This subtest is designed to measure a child’s ability to acquire,
-            retain, and retrieve general factual knowledge. It involves
-            crystallized intelligence, long-term memory, and the ability to
-            retain and retrieve knowledge from the environment and/or school.
-          </div>
-        </div>
-        <div className="table__row">
-          <div>Comprehension</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            It is designed to measure verbal reasoning and conceptualization,
-            verbal comprehension and expression, the ability to evaluate and use
-            past experience, and the ability to demonstrate practical knowledge
-            and judgement. It also involved crystallized intelligence, knowledge
-            of conventional standards of behavior, social judgement, long-term
-            memory and common sense.
-          </div>
-        </div>
-      </div>
-      <div className="test-table-heading">
-        <SectionSubHeader subHeader="FLUID REASONING" />
-      </div>
-      <div className="test-table">
-        <div className="table__row table__header">
-          <div>Subtest</div>
-          <div>Score</div>
-          <div>Description</div>
-        </div>
-        <div className="table__row">
-          <div>Similarities</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            The subtest is designed to measure verbal concept formation and
-            abstract reasoning. It also involves crystallized intelligence,
-            auditory comprehension, memory, associative and categorical
-            thinking, distinction between nonessential and essential features,
-            and verbal expression.
-          </div>
-        </div>
-        <div className="table__row">
-          <div>Vocabulary</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            The subtest is designed to measure verbal concept formation and
-            abstract reasoning. It also involves crystallized intelligence,
-            auditory comprehension, memory, associative and categorical
-            thinking, distinction between nonessential and essential features,
-            and verbal expression.
-          </div>
-        </div>
-        <div className="table__row">
-          <div>Information</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            This subtest is designed to measure a child’s ability to acquire,
-            retain, and retrieve general factual knowledge. It involves
-            crystallized intelligence, long-term memory, and the ability to
-            retain and retrieve knowledge from the environment and/or school.
-          </div>
-        </div>
-        <div className="table__row">
-          <div>Comprehension</div>
-          <div>
-            <input type="text" name="testname-score" />
-          </div>
-          <div>
-            It is designed to measure verbal reasoning and conceptualization,
-            verbal comprehension and expression, the ability to evaluate and use
-            past experience, and the ability to demonstrate practical knowledge
-            and judgement. It also involved crystallized intelligence, knowledge
-            of conventional standards of behavior, social judgement, long-term
-            memory and common sense.
-          </div>
-        </div>
+        <DivButton divButtonLabel="OK" show={showTests} />
       </div>
 
-      <Button onClick={handleSubmit} buttonLabel="OK" />
+      <div className="domain__test">
+        <SectionTitle titleBold="Domain-based" titleRegular="reports" />
+        <SectionSubTitle subTitleBold="Learning &amp; memory" />
+        <div className="flex">
+          <SectionSubHeader subHeader="WPPSI-IV" />
+          <ButtonToggle buttonToggleLabel="Remove test" />
+        </div>
+        <div className="test-desc">
+          <p>
+            The Wechsler Preschool and Primary Scale of Intelligence (WPPSI-IV)
+            is a test of intellectual abilities, which assesses both cognitive
+            strengths and weaknesses in infants and children aged 2 years 6
+            months through 7 years 7 months (2:6-7:7).
+          </p>
+          <hr />
+          <SectionSubHeader subHeader="FULL SCALE IQ" />
+          <p>
+            The Full Scale IQ (FSIQ) is a composite score that represents
+            general intellectual functioning and is calculated from all of the
+            subtests within the main indices.
+          </p>
+          <h5>If the FSIQ is meaningful</h5>
+          <div className="flex test__list">
+            <MaterialIcon icon="arrow_right" />
+            <p>
+              Overall, (client) demonstrated a consistent performance on the
+              WISC-V and received a Full-Scale IQ (FSIQ) score of{" "}
+              <input type="number" name="fsiq-score" /> (
+              <input type="number" name="fsiq-percentile" /> percentile), which
+              falls within in the <input type="text" name="fsiq-range" /> range
+              of functioning.
+            </p>
+          </div>
+          <h5>If the FSIQ is not meaningful</h5>
+          <div className="flex test__list">
+            <MaterialIcon icon="arrow_right" />
+            <p>
+              Overall, (client) demonstrated an inconsistent performance on the
+              WPPSI-IV. As a result, (his/her) Full-Scale score cannot be
+              interpreted meaningfully due to the significant discrepancies
+              between the five Composite areas that constitute (his/her)
+              Full-Scale score (FSIQ). Therefore, in order to better understand
+              (his/her) cognitive strengths and weaknesses, a more in-depth look
+              at all of (client’s) individual subtest scores is warranted.
+            </p>
+          </div>
+          <hr />
+          <SectionSubHeader subHeader="GENERAL ABILITY INDEX" />
+          <p>
+            The General Ability Index is a composite score that provides an
+            estimate of general intellectual ability, with reduced emphasis on
+            working memory and processing speed relative to the FSIQ.
+          </p>
+        </div>
+        <SectionSubTitle subTitleBold="Intellectual functioning" />
+        <SectionSubHeader subHeader="VERBAL COMPREHENSION" />
+        <div className="test-table">
+          <div className="table__row table__header">
+            <div>Subtest</div>
+            <div>Score</div>
+            <div>Description</div>
+          </div>
+          <div className="table__row">
+            <div>Similarities</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              The subtest is designed to measure verbal concept formation and
+              abstract reasoning. It also involves crystallized intelligence,
+              auditory comprehension, memory, associative and categorical
+              thinking, distinction between nonessential and essential features,
+              and verbal expression.
+            </div>
+          </div>
+          <div className="table__row">
+            <div>Vocabulary</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              The subtest is designed to measure verbal concept formation and
+              abstract reasoning. It also involves crystallized intelligence,
+              auditory comprehension, memory, associative and categorical
+              thinking, distinction between nonessential and essential features,
+              and verbal expression.
+            </div>
+          </div>
+          <div className="table__row">
+            <div>Information</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              This subtest is designed to measure a child’s ability to acquire,
+              retain, and retrieve general factual knowledge. It involves
+              crystallized intelligence, long-term memory, and the ability to
+              retain and retrieve knowledge from the environment and/or school.
+            </div>
+          </div>
+          <div className="table__row">
+            <div>Comprehension</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              It is designed to measure verbal reasoning and conceptualization,
+              verbal comprehension and expression, the ability to evaluate and
+              use past experience, and the ability to demonstrate practical
+              knowledge and judgement. It also involved crystallized
+              intelligence, knowledge of conventional standards of behavior,
+              social judgement, long-term memory and common sense.
+            </div>
+          </div>
+        </div>
+        <div className="test-table-heading">
+          <SectionSubHeader subHeader="FLUID REASONING" />
+        </div>
+        <div className="test-table">
+          <div className="table__row table__header">
+            <div>Subtest</div>
+            <div>Score</div>
+            <div>Description</div>
+          </div>
+          <div className="table__row">
+            <div>Similarities</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              The subtest is designed to measure verbal concept formation and
+              abstract reasoning. It also involves crystallized intelligence,
+              auditory comprehension, memory, associative and categorical
+              thinking, distinction between nonessential and essential features,
+              and verbal expression.
+            </div>
+          </div>
+          <div className="table__row">
+            <div>Vocabulary</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              The subtest is designed to measure verbal concept formation and
+              abstract reasoning. It also involves crystallized intelligence,
+              auditory comprehension, memory, associative and categorical
+              thinking, distinction between nonessential and essential features,
+              and verbal expression.
+            </div>
+          </div>
+          <div className="table__row">
+            <div>Information</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              This subtest is designed to measure a child’s ability to acquire,
+              retain, and retrieve general factual knowledge. It involves
+              crystallized intelligence, long-term memory, and the ability to
+              retain and retrieve knowledge from the environment and/or school.
+            </div>
+          </div>
+          <div className="table__row">
+            <div>Comprehension</div>
+            <div>
+              <input type="text" name="testname-score" />
+            </div>
+            <div>
+              It is designed to measure verbal reasoning and conceptualization,
+              verbal comprehension and expression, the ability to evaluate and
+              use past experience, and the ability to demonstrate practical
+              knowledge and judgement. It also involved crystallized
+              intelligence, knowledge of conventional standards of behavior,
+              social judgement, long-term memory and common sense.
+            </div>
+          </div>
+        </div>
+        <DivButton divButtonLabel="Ok" show={showSummary} />
+      </div>
+
+      <div className="summary-findings">
+        <SectionTitle titleBold="Summary" titleRegular="of findings" />
+        <div className="grid__half">
+          <label>
+            Lorem ipsum delor <strong>debator</strong>
+          </label>
+          <Field name="other-information" component="textarea" />
+        </div>
+        <Button onClick={handleSubmit} buttonLabel="OK" />
+      </div>
+
+      {/* <Button onClick={handleSubmit} buttonLabel="OK" /> */}
 
       <button type="button" className="previous" onClick={previousPage}>
         Previous

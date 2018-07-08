@@ -715,8 +715,8 @@ textarea {
 
 .test__list input {
   background-color: rgba(255, 255, 0, 0.5);
-  border-bottom-color: blue;
-  color: blue;
+  border-bottom-color: #306cff;
+  color: #306cff;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -743,18 +743,20 @@ form .test-table {
 }
 
 .table__row.table__header {
-  font-size: 18px;
-  font-size: 1.8rem;
   border-top: 1px solid #a3a3a3;
   border-bottom: 1px solid #a3a3a3;
-  padding: 9px 0;
+  font-size: 18px;
+  font-size: 1.8rem;
   color: #a3a3a3;
+  padding: 9px 0;
 }
 
 .test-table .table__row.table__header div:first-child,
 .test-table .table__row div:first-child,
 .test-table .table__row.table__header div:nth-child(2),
-.test-table .table__row div:nth-child(2) {
+.test-table .table__row div:nth-child(2),
+.test-table.test-table--appendix .table__row.table__header div:nth-child(3),
+.test-table.test-table--appendix .table__row div:nth-child(3) {
   padding-right: 36px;
 }
 
@@ -775,7 +777,7 @@ form .test-table {
 
 .table__row input[type="text"] {
   background-color: rgba(255, 255, 0, 0.5);
-  border-bottom-color: blue;
+  border-bottom-color: #306cff;
   font-family: "Montserrat", sans-serif;
   width: 72px;
 }
@@ -787,4 +789,90 @@ form .test-table {
 
 .test-table .table__row:last-of-type {
   border-bottom: none;
+}
+
+.test-table.test-table--appendix {
+  margin-bottom: 54px;
+}
+
+.test-table.test-table--appendix .table__row.table__header {
+  border-top: none;
+  color: #306cff;
+}
+
+.test-table.test-table--appendix .table__row.table__header div:first-child,
+.test-table.test-table--appendix .table__row div:first-child {
+  width: 28.56vw;
+}
+
+.test-table.test-table--appendix .table__row.table__header div:nth-child(2),
+.test-table.test-table--appendix .table__row div:nth-child(2) {
+  width: 14.28vw;
+}
+
+.test-table.test-table--appendix .table__row.table__header div:nth-child(3),
+.test-table.test-table--appendix .table__row div:nth-child(3) {
+  width: 14.28vw;
+}
+
+.test-table.test-table--appendix .table__row.table__header div:nth-child(4),
+.test-table.test-table--appendix .table__row div:nth-child(4) {
+  width: 14.28vw;
+}
+
+/* CSS show hide visibility method in React */
+.wrap {
+  opacity: 0;
+  visibility: hidden;
+  transition: height 500ms 500ms ease-in-out, opacity 500ms 0ms ease-in-out;
+}
+
+.wrap.wrap--show {
+  opacity: 1;
+  visibility: visible;
+  transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
+}
+
+.letter-format,
+.domain__pick-domain,
+.domain__pick-sub-domain,
+.domain__test,
+.summary-findings {
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
+  transition: height 500ms 500ms ease-in-out, opacity 500ms 0ms ease-in-out;
+}
+
+.letter-format.show {
+  height: 237px;
+  opacity: 1;
+  visibility: visible;
+  transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
+}
+
+.domain__pick-domain.show,
+.domain__pick-sub-domain.show {
+  height: 789px;
+  opacity: 1;
+  visibility: visible;
+  transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
+}
+
+.domain__pick-sub-domain.show {
+  height: 1000px;
+}
+
+.domain__test.show {
+  height: 2567px;
+  opacity: 1;
+  visibility: visible;
+  transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
+}
+
+.summary-findings.show {
+  height: 500px;
+  opacity: 1;
+  visibility: visible;
+  transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
 }

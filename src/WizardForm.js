@@ -47,6 +47,9 @@ import WizardFormFourtyFourthPage from "./WizardFormFourtyFourthPage";
 import WizardFormFourtyFifthPage from "./WizardFormFourtyFifthPage";
 import WizardFormFourtySixthPage from "./WizardFormFourtySixthPage";
 import WizardFormFourtySeventhPage from "./WizardFormFourtySeventhPage";
+import WizardFormFourtyEighthPage from "./WizardFormFourtyEighthPage";
+import WizardFormFourtyNinthPage from "./WizardFormFourtyNinthPage";
+import WizardFormFiftiethPage from "./WizardFormFiftiethPage";
 
 class WizardForm extends Component {
   constructor(props) {
@@ -54,7 +57,7 @@ class WizardForm extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.state = {
-      page: 47
+      page: 50
     };
   }
   nextPage() {
@@ -343,6 +346,24 @@ class WizardForm extends Component {
         )}
         {page === 47 && (
           <WizardFormFourtySeventhPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 48 && (
+          <WizardFormFourtyEighthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 49 && (
+          <WizardFormFourtyNinthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 50 && (
+          <WizardFormFiftiethPage
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />
