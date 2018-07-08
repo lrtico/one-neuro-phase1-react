@@ -3,6 +3,7 @@ import { Field } from "redux-form";
 import "./formCard.css";
 import "../../../app.css";
 import MaterialIcon from "react-google-material-icons";
+// import { CSSTransitionGroup } from "react-transition-group";
 
 function handleTick(event) {
   const tar = event.currentTarget;
