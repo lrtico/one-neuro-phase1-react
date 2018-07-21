@@ -47,7 +47,9 @@ const FormCardStacked = ({
             <Field
               name={card.cardName}
               component="input"
-              type="text"
+              type={undefined ? "text" : card.cardType}
+              value={undefined ? null : card.cardValue}
+              min={undefined ? null : card.cardMinValue}
               className="cardTextInput"
               placeholder={card.cardPlaceholder}
               // onClick={handleCheckbox}

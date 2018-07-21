@@ -92,7 +92,23 @@ class RadioCard extends Component {
                   this.props.ReduxValue36 === card.cardLabel ||
                   this.props.ReduxValue37 === card.cardLabel ||
                   this.props.ReduxValue38 === card.cardLabel ||
-                  this.props.ReduxValue39 === card.cardLabel
+                  this.props.ReduxValue39 === card.cardLabel ||
+                  this.props.ReduxValue40 === card.cardLabel ||
+                  this.props.ReduxValue41 === card.cardLabel ||
+                  this.props.ReduxValue42 === card.cardLabel ||
+                  this.props.ReduxValue43 === card.cardLabel ||
+                  this.props.ReduxValue44 === card.cardLabel ||
+                  this.props.ReduxValue45 === card.cardLabel ||
+                  this.props.ReduxValue46 === card.cardLabel ||
+                  this.props.ReduxValue47 === card.cardLabel ||
+                  this.props.ReduxValue48 === card.cardLabel ||
+                  this.props.ReduxValue49 === card.cardLabel ||
+                  this.props.ReduxValue50 === card.cardLabel ||
+                  this.props.ReduxValue51 === card.cardLabel ||
+                  this.props.ReduxValue52 === card.cardLabel ||
+                  this.props.ReduxValue53 === card.cardLabel ||
+                  this.props.ReduxValue54 === card.cardLabel ||
+                  this.props.ReduxValue55 === card.cardLabel
                     ? "question__choice question__checkbox--selected"
                     : "question__choice"
                 }
@@ -185,6 +201,22 @@ RadioCard = connect(state => {
   const ReduxValue37 = selector(state, "rda-religon-involvement");
   const ReduxValue38 = selector(state, "rda-religon-building");
   const ReduxValue39 = selector(state, "tor-format");
+  const ReduxValue40 = selector(state, "mdh-breast-fed");
+  const ReduxValue41 = selector(state, "mdh-bottle-fed");
+  const ReduxValue42 = selector(state, "mdh-bed-wetting");
+  const ReduxValue43 = selector(state, "mdh-bed-soiling");
+  const ReduxValue44 = selector(state, "mdh-bed-wetting-medical-reasons");
+  const ReduxValue45 = selector(state, "eh-changed-schools");
+  const ReduxValue46 = selector(state, "eh-repeat-grade");
+  const ReduxValue47 = selector(state, "eh-grade-skip");
+  const ReduxValue48 = selector(state, "eh-difficulty-reading");
+  const ReduxValue49 = selector(state, "eh-difficulty-math");
+  const ReduxValue50 = selector(state, "eh-poor-grades");
+  const ReduxValue51 = selector(state, "eh-special-ed");
+  const ReduxValue52 = selector(state, "eh-special-ed-current");
+  const ReduxValue53 = selector(state, "eh-dislikes-school");
+  const ReduxValue54 = selector(state, "eh-absent");
+  const ReduxValue55 = selector(state, "eh-teacher-concerns");
 
   return {
     ReduxValue1,
@@ -225,7 +257,23 @@ RadioCard = connect(state => {
     ReduxValue36,
     ReduxValue37,
     ReduxValue38,
-    ReduxValue39
+    ReduxValue39,
+    ReduxValue40,
+    ReduxValue41,
+    ReduxValue42,
+    ReduxValue43,
+    ReduxValue44,
+    ReduxValue45,
+    ReduxValue46,
+    ReduxValue47,
+    ReduxValue48,
+    ReduxValue49,
+    ReduxValue50,
+    ReduxValue51,
+    ReduxValue52,
+    ReduxValue53,
+    ReduxValue54,
+    ReduxValue55
   };
 })(RadioCard);
 

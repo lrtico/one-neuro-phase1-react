@@ -8,7 +8,9 @@ import MaterialIcon from "react-google-material-icons";
 
 function handleTick(event) {
   const tar = event.currentTarget;
+  const addDeleteEl = tar.children[1];
   tar.parentNode.classList.toggle("question__checkbox--selected");
+  addDeleteEl.classList.toggle("question__key-text--visible");
 }
 
 const FormCardTextDate = ({ recordsReviewed, input, fields }) => (
@@ -21,7 +23,7 @@ const FormCardTextDate = ({ recordsReviewed, input, fields }) => (
           className="flex--col-vertical-center flex--wrap"
         >
           <MaterialIcon icon="add_box" size={36} />
-          <span>Add Record</span>
+          <span>New Record</span>
         </button>
         <div className="question__bg" />
       </li>
@@ -55,9 +57,12 @@ const FormCardTextDate = ({ recordsReviewed, input, fields }) => (
             onClick={handleTick}
           >
             <div className="question__key">
-              <span>1</span>
+              <span>{index + 1}</span>
             </div>
-            <div className="question__key-text">Add</div>
+            <div className="question__key-text">
+              <span>Add</span>
+              <span>Delete</span>
+            </div>
           </div>
           <div className="question__bg" />
         </li>

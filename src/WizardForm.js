@@ -1,55 +1,56 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import WizardFormFirstPage from "./WizardFormFirstPage";
-import WizardFormSecondPage from "./WizardFormSecondPage";
-import WizardFormThirdPage from "./WizardFormThirdPage";
-import WizardFormFourthPage from "./WizardFormFourthPage";
-import WizardFormFifthPage from "./WizardFormFifthPage";
-import WizardFormSixthPage from "./WizardFormSixthPage";
-import WizardFormSeventhPage from "./WizardFormSeventhPage";
-import WizardFormEigthPage from "./WizardFormEigthPage";
-import WizardFormNinthPage from "./WizardFormNinthPage";
-import WizardFormTenthPage from "./WizardFormTenthPage";
-import WizardFormEleventhPage from "./WizardFormEleventhPage";
-import WizardFormTwelfthPage from "./WizardFormTwelfthPage";
-import WizardFormThirteenthPage from "./WizardFormThirteenthPage";
-import WizardFormFourteenthPage from "./WizardFormFourteenthPage";
-import WizardFormFifthteenthPage from "./WizardFormFifthteenthPage";
-import WizardFormSixteenthPage from "./WizardFormSixteenthPage";
-import WizardFormSeventeenthPage from "./WizardFormSeventeenthPage";
-import WizardFormEighteenthPage from "./WizardFormEighteenthPage";
-import WizardFormNineteenthPage from "./WizardFormNineteenthPage";
-import WizardFormTwentiethPage from "./WizardFormTwentiethPage";
-import WizardFormTwentyFirstPage from "./WizardFormTwentyFirstPage";
-import WizardFormTwentySecondPage from "./WizardFormTwentySecondPage";
-import WizardFormTwentyThirdPage from "./WizardFormTwentyThirdPage";
-import WizardFormTwentyFourthPage from "./WizardFormTwentyFourthPage";
-import WizardFormTwentyFifthPage from "./WizardFormTwentyFifthPage";
-import WizardFormTwentySixthPage from "./WizardFormTwentySixthPage";
-import WizardFormTwentySeventhPage from "./WizardFormTwentySeventhPage";
-import WizardFormTwentyEighthPage from "./WizardFormTwentyEighthPage";
-import WizardFormTwentyNinthPage from "./WizardFormTwentyNinthPage";
-import WizardFormThirtiethPage from "./WizardFormThirtiethPage";
-import WizardFormThirtyFirstPage from "./WizardFormThirtyFirstPage";
-import WizardFormThirtySecondPage from "./WizardFormThirtySecondPage";
-import WizardFormThirtyThirdPage from "./WizardFormThirtyThirdPage";
-import WizardFormThirtyFourthPage from "./WizardFormThirtyFourthPage";
-import WizardFormThirtyFifthPage from "./WizardFormThirtyFifthPage";
-import WizardFormThirtySixthPage from "./WizardFormThirtySixthPage";
-import WizardFormThirtySeventhPage from "./WizardFormThirtySeventhPage";
-import WizardFormThirtyEighthPage from "./WizardFormThirtyEighthPage";
-import WizardFormThirtyNinthPage from "./WizardFormThirtyNinthPage";
-import WizardFormFourtiethPage from "./WizardFormFourtiethPage";
-import WizardFormFourtyFirstPage from "./WizardFormFourtyFirstPage";
-import WizardFormFourtySecondPage from "./WizardFormFourtySecondPage";
-import WizardFormFourtyThirdPage from "./WizardFormFourtyThirdPage";
-import WizardFormFourtyFourthPage from "./WizardFormFourtyFourthPage";
-import WizardFormFourtyFifthPage from "./WizardFormFourtyFifthPage";
-import WizardFormFourtySixthPage from "./WizardFormFourtySixthPage";
-import WizardFormFourtySeventhPage from "./WizardFormFourtySeventhPage";
-import WizardFormFourtyEighthPage from "./WizardFormFourtyEighthPage";
-import WizardFormFourtyNinthPage from "./WizardFormFourtyNinthPage";
-import WizardFormFiftiethPage from "./WizardFormFiftiethPage";
+import WizardForm01Page from "./WizardForm01Page";
+import WizardForm02Page from "./WizardForm02Page";
+import WizardForm03Page from "./WizardForm03Page";
+import WizardForm04Page from "./WizardForm04Page";
+import WizardForm05Page from "./WizardForm05Page";
+import WizardForm06Page from "./WizardForm06Page";
+import WizardForm07Page from "./WizardForm07Page";
+import WizardForm08Page from "./WizardForm08Page";
+import WizardForm09Page from "./WizardForm09Page";
+import WizardForm10Page from "./WizardForm10Page";
+import WizardForm11Page from "./WizardForm11Page";
+import WizardForm12Page from "./WizardForm12Page";
+import WizardForm13Page from "./WizardForm13Page";
+import WizardForm14Page from "./WizardForm14Page";
+import WizardForm15Page from "./WizardForm15Page";
+import WizardForm16Page from "./WizardForm16Page";
+import WizardForm17Page from "./WizardForm17Page";
+import WizardForm18Page from "./WizardForm18Page";
+import WizardForm19Page from "./WizardForm19Page";
+import WizardForm20Page from "./WizardForm20Page";
+import WizardForm21Page from "./WizardForm21Page";
+import WizardForm22Page from "./WizardForm22Page";
+import WizardForm23Page from "./WizardForm23Page";
+import WizardForm24Page from "./WizardForm24Page";
+import WizardForm25Page from "./WizardForm25Page";
+import WizardForm26Page from "./WizardForm26Page";
+import WizardForm27Page from "./WizardForm27Page";
+import WizardForm28Page from "./WizardForm28Page";
+import WizardForm29Page from "./WizardForm29Page";
+import WizardForm30Page from "./WizardForm30Page";
+import WizardForm31Page from "./WizardForm31Page";
+import WizardForm32Page from "./WizardForm32Page";
+import WizardForm33Page from "./WizardForm33Page";
+import WizardForm34Page from "./WizardForm34Page";
+import WizardForm35Page from "./WizardForm35Page";
+import WizardForm36Page from "./WizardForm36Page";
+import WizardForm37Page from "./WizardForm37Page";
+import WizardForm38Page from "./WizardForm38Page";
+import WizardForm39Page from "./WizardForm39Page";
+import WizardForm40Page from "./WizardForm40Page";
+import WizardForm41Page from "./WizardForm41Page";
+import WizardForm42Page from "./WizardForm42Page";
+import WizardForm43Page from "./WizardForm43Page";
+import WizardForm44Page from "./WizardForm44Page";
+import WizardForm45Page from "./WizardForm45Page";
+import WizardForm46Page from "./WizardForm46Page";
+import WizardForm47Page from "./WizardForm47Page";
+import WizardForm48Page from "./WizardForm48Page";
+import WizardForm49Page from "./WizardForm49Page";
+import WizardForm50Page from "./WizardForm50Page";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 class WizardForm extends Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class WizardForm extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.state = {
-      page: 1
+      page: 48
     };
   }
   nextPage() {
@@ -73,297 +74,298 @@ class WizardForm extends Component {
     const { page } = this.state;
     return (
       <div className="content questions">
-        {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} />}
+        <ProgressBar currentProgress={page} goBack={this.previousPage} />
+        {page === 1 && <WizardForm01Page onSubmit={this.nextPage} />}
         {page === 2 && (
-          <WizardFormSecondPage
+          <WizardForm02Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 3 && (
-          <WizardFormThirdPage
+          <WizardForm03Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 4 && (
-          <WizardFormFourthPage
+          <WizardForm04Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 5 && (
-          <WizardFormFifthPage
+          <WizardForm05Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 6 && (
-          <WizardFormSixthPage
+          <WizardForm06Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 7 && (
-          <WizardFormSeventhPage
+          <WizardForm07Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 8 && (
-          <WizardFormEigthPage
+          <WizardForm08Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 9 && (
-          <WizardFormNinthPage
+          <WizardForm09Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 10 && (
-          <WizardFormTenthPage
+          <WizardForm10Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 11 && (
-          <WizardFormEleventhPage
+          <WizardForm11Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 12 && (
-          <WizardFormTwelfthPage
+          <WizardForm12Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 13 && (
-          <WizardFormThirteenthPage
+          <WizardForm13Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 14 && (
-          <WizardFormFourteenthPage
+          <WizardForm14Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 15 && (
-          <WizardFormFifthteenthPage
+          <WizardForm15Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 16 && (
-          <WizardFormSixteenthPage
+          <WizardForm16Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 17 && (
-          <WizardFormSeventeenthPage
+          <WizardForm17Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 18 && (
-          <WizardFormEighteenthPage
+          <WizardForm18Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 19 && (
-          <WizardFormNineteenthPage
+          <WizardForm19Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 20 && (
-          <WizardFormTwentiethPage
+          <WizardForm20Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 21 && (
-          <WizardFormTwentyFirstPage
+          <WizardForm21Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 22 && (
-          <WizardFormTwentySecondPage
+          <WizardForm22Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 23 && (
-          <WizardFormTwentyThirdPage
+          <WizardForm23Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 24 && (
-          <WizardFormTwentyFourthPage
+          <WizardForm24Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 25 && (
-          <WizardFormTwentyFifthPage
+          <WizardForm25Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 26 && (
-          <WizardFormTwentySixthPage
+          <WizardForm26Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 27 && (
-          <WizardFormTwentySeventhPage
+          <WizardForm27Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 28 && (
-          <WizardFormTwentyEighthPage
+          <WizardForm28Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 29 && (
-          <WizardFormTwentyNinthPage
+          <WizardForm29Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 30 && (
-          <WizardFormThirtiethPage
+          <WizardForm30Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 31 && (
-          <WizardFormThirtyFirstPage
+          <WizardForm31Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 32 && (
-          <WizardFormThirtySecondPage
+          <WizardForm32Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 33 && (
-          <WizardFormThirtyThirdPage
+          <WizardForm33Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 34 && (
-          <WizardFormThirtyFourthPage
+          <WizardForm34Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 35 && (
-          <WizardFormThirtyFifthPage
+          <WizardForm35Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 36 && (
-          <WizardFormThirtySixthPage
+          <WizardForm36Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 37 && (
-          <WizardFormThirtySeventhPage
+          <WizardForm37Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 38 && (
-          <WizardFormThirtyEighthPage
+          <WizardForm38Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 39 && (
-          <WizardFormThirtyNinthPage
+          <WizardForm39Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 40 && (
-          <WizardFormFourtiethPage
+          <WizardForm40Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 41 && (
-          <WizardFormFourtyFirstPage
+          <WizardForm41Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 42 && (
-          <WizardFormFourtySecondPage
+          <WizardForm42Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 43 && (
-          <WizardFormFourtyThirdPage
+          <WizardForm43Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 44 && (
-          <WizardFormFourtyFourthPage
+          <WizardForm44Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 45 && (
-          <WizardFormFourtyFifthPage
+          <WizardForm45Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 46 && (
-          <WizardFormFourtySixthPage
+          <WizardForm46Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 47 && (
-          <WizardFormFourtySeventhPage
+          <WizardForm47Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 48 && (
-          <WizardFormFourtyEighthPage
+          <WizardForm48Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 49 && (
-          <WizardFormFourtyNinthPage
+          <WizardForm49Page
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         )}
         {page === 50 && (
-          <WizardFormFiftiethPage
+          <WizardForm50Page
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />

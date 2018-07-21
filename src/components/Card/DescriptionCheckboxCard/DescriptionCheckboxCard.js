@@ -6,6 +6,16 @@ import "../../Card/cardStyles.css";
 import { randomId } from "../../../utils/Helpers";
 import MaterialIcon from "react-google-material-icons";
 
+function handleTick(event) {
+  const tar = event.currentTarget;
+  tar.classList.toggle("question__checkbox--selected");
+}
+
+function handleTextboxTick(event) {
+  const tar = event.currentTarget;
+  tar.parentNode.parentNode.classList.add("question__checkbox--selected");
+}
+
 const DescriptionCheckboxCard = ({
   label,
   labelBold,
@@ -36,7 +46,7 @@ const DescriptionCheckboxCard = ({
                   : `${card.liClasses} question__choice`
               }
               tabIndex={card.tabOrder}
-              // onClick={card.handleTick}
+              onClick={handleTick}
             >
               <div className="question__tick-wrap">
                 <MaterialIcon icon="check" />
@@ -57,7 +67,8 @@ const DescriptionCheckboxCard = ({
                   name={card.cardName}
                   component="input"
                   type="text"
-                  // onClick={handleCheckbox}
+                  // onClick={handleTextboxTick}
+                  onKeyPress={handleTextboxTick}
                 />
               </div>
               <div className="question__bg" />

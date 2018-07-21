@@ -33,6 +33,7 @@ li.question__card.question__form-card .cardTextInput {
   color: rgb(3, 1, 1);
   font-family: Montserrat, sans-serif;
   font-size: 1.8rem;
+  overflow-y: hidden;
   transition: color 0.25s;
 }
 
@@ -64,6 +65,61 @@ li.question__card.question__form-card .question__key-label {
   border-image: initial;
   padding: 6px;
   transition: background-color 0.25s;
+}
+
+.question
+  ul.question__cards
+  li.question__card
+  .question__key-label
+  .question__key-text {
+  display: flex;
+  flex-flow: column;
+}
+
+.question
+  ul.question__cards
+  li.question__card
+  .question__key-label
+  .question__key-text
+  > span {
+  position: relative;
+  transition: all 250ms ease-in-out;
+}
+
+.question
+  ul.question__cards
+  li.question__card
+  .question__key-label
+  .question__key-text
+  > span:first-of-type {
+  top: 10px;
+}
+
+.question
+  ul.question__cards
+  li.question__card
+  .question__key-label
+  .question__key-text
+  > span:nth-child(2) {
+  top: 45px;
+}
+
+.question
+  ul.question__cards
+  li.question__card
+  .question__key-label
+  .question__key-text.question__key-text--visible
+  > span:first-of-type {
+  top: -45px;
+}
+
+.question
+  ul.question__cards
+  li.question__card
+  .question__key-label
+  .question__key-text.question__key-text--visible
+  > span:nth-child(2) {
+  top: -10px;
 }
 
 .question ul.question__cards li.question__card .question__bg {
@@ -223,6 +279,11 @@ h2 + .toggleVis {
     rgb(33, 33, 33) 0%,
     rgb(165, 165, 165) 100%
   );
+}
+
+.toggleVis.toggleVis--active .btn__hover::after,
+.toggleVis.toggleVis--active .btn__hover::before {
+  background: transparent;
 }
 
 .toggleVis:hover .btn__hover::after {

@@ -19,7 +19,7 @@ const FormCardBrotherSister = ({ fields }) => (
           className="flex--col-vertical-center flex--wrap"
         >
           <MaterialIcon icon="add_box" size={36} />
-          <span>Add Record</span>
+          <span>New Record</span>
         </button>
         <div className="question__bg" />
       </li>

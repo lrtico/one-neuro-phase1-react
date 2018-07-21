@@ -14,7 +14,7 @@ const Button = props => {
           <MaterialIcon icon="check" />
         </button>
       </div>
-      <span>Press enter</span>
+      {/* <span>Press enter</span> */}
     </div>
   );
 };

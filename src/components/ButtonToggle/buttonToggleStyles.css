@@ -1,0 +1,32 @@
+@keyframes toggleButton {
+  0% {
+    background: linear-gradient(-135deg, #d5fbff 0%, #5d58a3 100%);
+    opacity: 1;
+  }
+  15% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    background: linear-gradient(-135deg, #d5fbff 0%, #5d58a3 100%);
+    color: white;
+  }
+}
+
+.toggleVis--active {
+  animation: toggleButton 800ms ease-in-out forwards;
+}

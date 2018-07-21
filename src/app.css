@@ -864,7 +864,7 @@ form .test-table {
 }
 
 .domain__test.show {
-  height: 2567px;
+  height: 2938px;
   opacity: 1;
   visibility: visible;
   transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
