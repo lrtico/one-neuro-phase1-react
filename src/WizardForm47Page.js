@@ -1,10 +1,12 @@
 import React from "react";
 import "./app.css";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm, formValueSelector } from "redux-form";
+import { connect } from "react-redux";
 import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import SectionSubHeader from "./components/SectionSubHeader";
 import SectionSubTitle from "./components/SectionSubTitle";
+import TextQuestion from "./components/TextQuestion";
 import Button from "./components/Button";
 import ButtonToggle from "./components/ButtonToggle";
 import RadioCard from "./components/Card/RadioCard/RadioCard";
@@ -39,8 +41,15 @@ const showSummary = () => {
   document.querySelector(".summary-findings").classList.add("show");
 };
 
-const WizardForm47Page = props => {
-  const { handleSubmit } = props;
+let WizardForm47Page = props => {
+  const {
+    handleSubmit,
+    patientAge,
+    patientName,
+    referral1,
+    referral2,
+    referral3
+  } = props;
 
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -549,11 +558,91 @@ const WizardForm47Page = props => {
 
       <div className="summary-findings">
         <SectionTitle titleBold="Summary" titleRegular="of findings" />
-        <div className="grid__half">
+        <div className="flex copy-forward-row">
+          {patientName && (
+            <Field
+              alt="Person"
+              component={TextQuestion}
+              label="What's the patient's"
+              labelBold="name"
+              name="di-name"
+              src="img/icons-happy-face-name.svg"
+              tabOrder="1"
+              type="input"
+              classes="question grid__one-third"
+              copyForward="true"
+            />
+          )}
+          {patientAge && (
+            <Field
+              alt="Person"
+              component={TextQuestion}
+              label="What's the patient's"
+              labelBold="name"
+              name="di-name"
+              src="img/icons-happy-face-name.svg"
+              tabOrder="1"
+              type="input"
+              classes="question grid__one-third"
+              copyForward="true"
+            />
+          )}
+        </div>
+        <div className="copy-forward-row grid__two-thirds">
           <label>
-            Lorem ipsum delor <strong>debator</strong>
+            Reasons for <strong>referral</strong>
           </label>
-          <Field name="other-information" component="textarea" />
+          {referral1 && (
+            <Field
+              component={TextQuestion}
+              name="reason-referral-1"
+              tabOrder="1"
+              type="input"
+              classes="question"
+              materialIcon="arrow_right"
+              copyForward="true"
+            />
+          )}
+          {referral2 && (
+            <Field
+              component={TextQuestion}
+              name="reason-referral-2"
+              tabOrder="2"
+              type="input"
+              classes="question"
+              materialIcon="arrow_right"
+              copyForward="true"
+            />
+          )}
+          {referral3 && (
+            <Field
+              component={TextQuestion}
+              name="reason-referral-3"
+              tabOrder="3"
+              type="input"
+              classes="question"
+              materialIcon="arrow_right"
+              copyForward="true"
+            />
+          )}
+        </div>
+        <div className="grid__two-thirds">
+          <label>
+            Relevant <strong>background</strong> history
+          </label>
+          <Field name="relevant-background-history" component="textarea" />
+        </div>
+        <div className="grid__two-thirds">
+          <label>
+            Results of <strong>current</strong> assessment
+          </label>
+          <Field name="results-current-assessment" component="textarea" />
+        </div>
+        <div className="grid__two-thirds">
+          <label>
+            Overall <strong>summary</strong> of current situation
+          </label>
+          <Field name="summary-current-situation" component="textarea" />
         </div>
         <Button onClick={handleSubmit} buttonLabel="OK" />
       </div>
@@ -562,6 +651,30 @@ const WizardForm47Page = props => {
     </form>
   );
 };
+
+// Decorate with redux-form
+WizardForm47Page = reduxForm({
+  form: "wizard" // a unique identifier for this form
+})(WizardForm47Page);
+
+// Decorate with connect to read form values
+const selector = formValueSelector("wizard"); // <-- same as form name
+WizardForm47Page = connect(state => {
+  // can select values individually
+  const patientName = selector(state, "di-name");
+  const patientAge = selector(state, "di-age");
+  const referral1 = selector(state, "reason-referral-1");
+  const referral2 = selector(state, "reason-referral-2");
+  const referral3 = selector(state, "reason-referral-3");
+  return {
+    patientName,
+    patientAge,
+    referral1,
+    referral2,
+    referral3
+  };
+})(WizardForm47Page);
+
 export default reduxForm({
   form: "wizard", //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data

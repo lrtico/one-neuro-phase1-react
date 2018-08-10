@@ -22,120 +22,120 @@ const WizardForm20Page = props => {
             {
               cardName: "mh-measels",
               cardLabel: "Measels?",
-              cardType: "month",
               cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               cardMinValue: "2018-04",
               tabOrder: "1"
             },
             {
               cardName: "mh-rheumatic-fever",
               cardLabel: "Rheumatic fever?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "2"
             },
             {
               cardName: "mh-german-measels",
               cardLabel: "German measels?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "3"
             },
             {
               cardName: "mh-diptheria",
               cardLabel: "Diptheria?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "4"
             },
             {
               cardName: "mh-mumps",
               cardLabel: "Mumps?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "5"
             },
             {
               cardName: "mh-understand-words",
               cardLabel: "Understand first words?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "6"
             },
             {
               cardName: "mdh-meningitis",
               cardLabel: "Meningitis?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "7"
             },
             {
               cardName: "mh-chicken-pox",
               cardLabel: "Chicken pox?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "8"
             },
             {
               cardName: "mh-encephalitis",
               cardLabel: "Encephalitis?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "9"
             },
             {
               cardName: "mh-tuberculosis",
               cardLabel: "Tuberculosis?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "10"
             },
             {
               cardName: "mh-anemia",
               cardLabel: "Anemia?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "11"
             },
             {
               cardName: "mh-whooping-cough",
               cardLabel: "Whooping cough?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "12"
             },
             {
               cardName: "mh-fever-104",
               cardLabel: "Fever above 104 &deg;?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "13"
             },
             {
               cardName: "mh-scarlet-fever",
               cardLabel: "Scarlet fever?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "14"
             },
             {
               cardName: "mh-broken-bones",
               cardLabel: "Broken bones?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "15"
             },
             {
               cardName: "mh-concussion",
               cardLabel: "Concussion?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "16"
             },
             {
               cardName: "mh-coma-loss-consciousness",
               cardLabel: "Coma or loss of consiousness?",
-              cardType: "month",
+              cardPlaceholder: "Months and years",
               cardValue: "2018-05",
               tabOrder: "17"
             }

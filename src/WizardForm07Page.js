@@ -20,7 +20,7 @@ const WizardForm07Page = props => {
       <SectionSubTitle subTitleFirst="Parent's" subTitleBold="information" />
       <div className="flex">
         <SectionSubHeader subHeader="Father" />
-        <ButtonToggle buttonToggleLabel="primary caregiver?" />
+        <ButtonToggle buttonToggleLabel="primary caregiver" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <div className="flex">

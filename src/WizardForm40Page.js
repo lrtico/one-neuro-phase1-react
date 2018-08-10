@@ -5,6 +5,7 @@ import SectionTitle from "./components/SectionTitle";
 import Button from "./components/Button";
 import TextQuestion from "./components/TextQuestion";
 import RadioCard from "./components/Card/RadioCard/RadioCard";
+import ButtonToggle from "./components/ButtonToggle";
 
 const WizardForm40Page = props => {
   const { handleSubmit, previousPage } = props;
@@ -12,10 +13,7 @@ const WizardForm40Page = props => {
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Educational" titleRegular="history" />
-        <div className="toggleVis">
-          <div className="btn__hover" />
-          <span>disable</span>
-        </div>
+        <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <Field
         name="eh-daycare-yes-no"

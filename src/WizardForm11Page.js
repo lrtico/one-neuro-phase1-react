@@ -6,6 +6,7 @@ import SectionTitle from "./components/SectionTitle";
 import Button from "./components/Button";
 import TextQuestion from "./components/TextQuestion";
 import FormCardBrotherSister from "./components/Card/FormCard/FormCardBrotherSister";
+import ButtonToggle from "./components/ButtonToggle";
 
 const WizardForm11Page = props => {
   const { handleSubmit } = props;
@@ -13,10 +14,7 @@ const WizardForm11Page = props => {
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Brothers &amp; Sisters" />
-        <div className="toggleVis">
-          <div className="btn__hover" />
-          <span>disable</span>
-        </div>
+        <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <FieldArray name="brothers-sisters" component={FormCardBrotherSister} />
 

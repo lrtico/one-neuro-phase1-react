@@ -42,7 +42,7 @@ const Hamburger = () => {
             <li className="nav__item">
               <a href="">
                 <span className="nav__item--main type--a2 type--uppercase">
-                  Import
+                  Make a PDF
                 </span>
               </a>
               <div className="nav__item__description">
@@ -50,20 +50,6 @@ const Hamburger = () => {
                   <img src="img/icons-import.svg" alt="Import" />
                 </span>
               </div>
-            </li>
-            <li className="nav__item">
-              <a href="">
-                <span className="nav__item--main type--a2 type--uppercase">
-                  Make a PDF
-                </span>
-              </a>
-            </li>
-            <li className="nav__item">
-              <a href="">
-                <span className="nav__item--main type--a2 type--uppercase">
-                  Print
-                </span>
-              </a>
             </li>
             <li className="nav__item">
               <a href="">

@@ -2,6 +2,7 @@ import React from "react";
 import "./textQuestionStyles.css";
 import "../../app.css";
 import MaterialIcon from "react-google-material-icons";
+import ButtonToggle from "../ButtonToggle";
 
 const TextQuestion = ({
   input,
@@ -15,6 +16,7 @@ const TextQuestion = ({
   alt,
   classes,
   materialIcon,
+  copyForward,
   meta: { touched, error }
 }) => (
   <div className={classes}>
@@ -30,6 +32,11 @@ const TextQuestion = ({
         type={type}
         tabIndex={tabOrder}
       />
+      {copyForward === undefined ? null : (
+        <div className="question__input__copy-forward">
+          <ButtonToggle buttonToggleLabel="copy forward" />
+        </div>
+      )}
       {touched && error && <span>{error}</span>}
     </div>
   </div>

@@ -72,7 +72,6 @@ const DescriptionCheckboxCard = ({
                 />
               </div>
               <div className="question__bg" />
-              {console.log(card)}
             </li>
           ))}
           {touched && error && <span>{error}</span>}

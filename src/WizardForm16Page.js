@@ -27,84 +27,73 @@ const WizardForm16Page = props => {
             {
               cardName: "mdh-turn-over",
               cardLabel: "Turn over?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "1"
             },
             {
               cardName: "mdh-walk-down-stairs",
               cardLabel: "Walk down stairs?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "2"
             },
             {
               cardName: "mdh-sit-alone",
               cardLabel: "Sit alone?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "3"
             },
             {
               cardName: "mdh-attracted-sound",
               cardLabel: "Show interest in or attraction to sound?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "4"
             },
             {
               cardName: "mdh-crawl",
               cardLabel: "Crawl?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "5"
             },
             {
               cardName: "mdh-understand-words",
               cardLabel: "Understand first words?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "6"
             },
             {
               cardName: "mdh-stand-alone",
               cardLabel: "Stand alone?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "7"
             },
             {
               cardName: "mdh-speak-first-words",
               cardLabel: "Speak first words?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "8"
             },
             {
               cardName: "mdh-walk-alone",
               cardLabel: "Walk alone?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "9"
             },
             {
               cardName: "mdh-speak-sentences",
               cardLabel: "Speak in sentences?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "10"
             },
             {
               cardName: "mdh-walk-up-stairs",
               cardLabel: "Walk up stairs?",
-              cardType: "month",
-              cardValue: "2018-05",
+              cardPlaceholder: "Months and years",
               tabOrder: "11"
             }
           ]}
           label="At what"
           labelBold="age"
-          labelLast="did this child do the following (please indicate year/months of age)"
+          labelLast="did this child do the following (please indicate months and years of age)"
           classes="question"
         />
       </div>

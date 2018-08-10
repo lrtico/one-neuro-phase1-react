@@ -15,9 +15,7 @@ const WizardForm50Page = props => {
         subTitleFirst="General Intelligence &amp; Overall Cognitive"
         subTitleBold="Functioning"
       />
-      <div className="flex">
-        <SectionSubHeader subHeader="WECHSLER INTELLIGENCE SCALE FOR CHILDREN, FIFTH EDITION (WISC-V)" />
-      </div>
+      <SectionSubHeader subHeader="WECHSLER INTELLIGENCE SCALE FOR CHILDREN, FIFTH EDITION (WISC-V)" />
       <div className="test-table test-table--appendix">
         <div className="table__row table__header">
           <div>Index</div>

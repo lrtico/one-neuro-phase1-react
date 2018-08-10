@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import FormCardMultiInput from "./components/Card/FormCard/FormCardMultiInput";
 import CheckboxCard from "./components/Card/CheckboxCard/CheckboxCard";
 import TextQuestion from "./components/TextQuestion";
+import ButtonToggle from "./components/ButtonToggle";
 
 const WizardForm36Page = props => {
   const { handleSubmit } = props;
@@ -13,10 +14,7 @@ const WizardForm36Page = props => {
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Family" titleRegular="history" />
-        <div className="toggleVis">
-          <div className="btn__hover" />
-          <span>disable</span>
-        </div>
+        <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <label>
         Have any

@@ -6,3 +6,19 @@
   padding: 42px 0 27px;
   text-align: center;
 }
+
+.question__choice--radio-shield {
+  background-color: transparent;
+  cursor: not-allowed;
+  display: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.question__choice--radio-shield.content--disabled {
+  display: block;
+}

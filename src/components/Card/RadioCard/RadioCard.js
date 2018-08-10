@@ -49,6 +49,7 @@ class RadioCard extends Component {
           <div className="question__single-choice">Pick one please</div>
           {/* Radio Buttons */}
           <ul className="question__choices flex--wrap">
+            <div className="question__choice--radio-shield" />
             {cardInfo.map(card => (
               <li
                 onClick={() => this.handleShow(card.cardKey)}

@@ -372,6 +372,7 @@ textarea {
   right: 0;
   bottom: 0;
   opacity: 0;
+  cursor: pointer;
 }
 
 /**
@@ -613,6 +614,12 @@ form > div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.flex--stretch-vertical {
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
 }
 /* End Flex Styles */
 
@@ -871,8 +878,43 @@ form .test-table {
 }
 
 .summary-findings.show {
-  height: 500px;
+  height: 1200px;
   opacity: 1;
   visibility: visible;
   transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
+}
+
+.summary-findings textarea {
+  margin-bottom: 54px;
+}
+
+.summary-findings li {
+  list-style: none;
+  margin-bottom: 18px;
+}
+
+.summary-findings li i.material-icons {
+  margin-left: -46px;
+  margin-right: 9px;
+}
+
+.copy-forward-row {
+  margin-bottom: 54px;
+}
+.content--disabled {
+  color: gray;
+  cursor: default;
+  cursor: not-allowed;
+  opacity: 0.25;
+}
+
+input[type="radio"].content--disabled,
+input[type="checkbox"].content--disabled {
+  opacity: 0;
+}
+
+input,
+label,
+textarea {
+  transition: opacity 250ms;
 }

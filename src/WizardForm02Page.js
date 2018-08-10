@@ -25,6 +25,7 @@ const WizardForm02Page = props => {
           tabOrder="1"
           type="input"
           classes="question grid__half"
+          copyForward="true"
         />
         <Field
           alt="Building"
@@ -58,6 +59,7 @@ const WizardForm02Page = props => {
           tabOrder="4"
           type="input"
           classes="question grid__half"
+          copyForward="true"
         />
       </div>
       <div className="flex">

@@ -5,6 +5,7 @@ import SectionTitle from "./components/SectionTitle";
 import TextQuestion from "./components/TextQuestion";
 import RadioCard from "./components/Card/RadioCard/RadioCard";
 import Button from "./components/Button";
+import ButtonToggle from "./components/ButtonToggle";
 import FormCardMultiInput from "./components/Card/FormCard/FormCardMultiInput";
 
 const WizardForm32Page = props => {
@@ -13,10 +14,7 @@ const WizardForm32Page = props => {
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Medical" titleRegular="care" />
-        <div className="toggleVis">
-          <div className="btn__hover" />
-          <span>disable</span>
-        </div>
+        <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <div className="flex">
         <Field

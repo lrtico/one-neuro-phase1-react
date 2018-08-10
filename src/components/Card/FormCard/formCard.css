@@ -10,9 +10,9 @@ li.question__card.question__form-card {
   min-height: 187px;
 }
 
-li.question__card.question__form-card.flex--center-vertical {
+/* li.question__card.question__form-card.flex--center-vertical {
   justify-content: center;
-}
+} */
 
 .question ul.question__cards li.question__card {
   cursor: pointer;
@@ -138,9 +138,18 @@ li.question__card.question__form-card .question__key-label {
 }
 
 .question ul.question__cards li.question__card .question__tick-wrap {
+  opacity: 0;
   position: absolute;
   right: 0px;
   top: 0px;
+  transition: opacity 0.5s;
+}
+
+.question
+  ul.question__cards
+  li.question__card.question__checkbox--selected
+  .question__tick-wrap {
+  opacity: 1;
 }
 
 .question ul.question__cards li.question__card .question__tick-wrap > i {
@@ -216,6 +225,10 @@ h2 + .toggleVis {
   border-radius: 30px;
   padding: 9px 18px;
   overflow: hidden;
+}
+
+.toggleVis.toggleVis--active > span {
+  color: rgb(213, 251, 255);
 }
 
 .toggleVis .btn__hover {

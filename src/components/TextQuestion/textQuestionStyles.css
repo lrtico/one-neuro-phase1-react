@@ -28,4 +28,11 @@ label {
 .question .question__input {
   align-items: flex-end;
   min-height: 64px;
+  position: relative;
+}
+
+.question .question__input .question__input__copy-forward {
+  position: absolute;
+  top: 12px;
+  right: 18px;
 }

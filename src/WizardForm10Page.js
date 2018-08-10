@@ -60,13 +60,13 @@ const WizardForm10Page = props => {
           {
             cardName: "fh-experienced",
             cardKey: "A",
-            cardLabel: "Yes",
+            cardLabel: "Yes ",
             tabOrder: "4"
           },
           {
             cardName: "fh-experienced",
             cardKey: "B",
-            cardLabel: "No",
+            cardLabel: "No ",
             tabOrder: "5"
           }
         ]}

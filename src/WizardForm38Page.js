@@ -4,6 +4,7 @@ import validate from "./validate";
 import SectionTitle from "./components/SectionTitle";
 import Button from "./components/Button";
 import TextQuestion from "./components/TextQuestion";
+import ButtonToggle from "./components/ButtonToggle";
 
 const WizardForm38Page = props => {
   const { handleSubmit } = props;
@@ -11,10 +12,7 @@ const WizardForm38Page = props => {
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Recreation &amp; Interests" />
-        <div className="toggleVis">
-          <div className="btn__hover" />
-          <span>disable</span>
-        </div>
+        <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <Field
         alt="Basketball hoop"
