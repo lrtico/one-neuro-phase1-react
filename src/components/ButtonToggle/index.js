@@ -8,8 +8,8 @@ function handleActive(event) {
     buttonSpan = button.children[1],
     buttonTextValue = buttonSpan.textContent,
     parent = button.parentNode.parentNode,
-    shield = parent.querySelector(".question__choice--radio-shield"),
-    inputs = parent.querySelectorAll("input, label");
+    shields = parent.querySelectorAll(".question__choice--radio-shield"),
+    inputs = parent.querySelectorAll("input, label, textarea");
 
   console.log("Make span go now!", buttonTextValue);
   console.log("inputs: ", inputs);
@@ -33,14 +33,18 @@ function handleActive(event) {
       input.value = "";
       input.readOnly = true;
     });
-    shield.classList.add("content--disabled");
+    shields.forEach(function(shield) {
+      shield.classList.add("content--disabled");
+    });
   } else {
     buttonSpan.textContent = "disable";
     inputs.forEach(function(input) {
       input.classList.remove("content--disabled");
       input.readOnly = false;
     });
-    shield.classList.remove("content--disabled");
+    shields.forEach(function(shield) {
+      shield.classList.remove("content--disabled");
+    });
   }
 }
 

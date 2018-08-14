@@ -16,6 +16,7 @@ function handleTick(event) {
 const FormCardTextDate = ({ recordsReviewed, input, fields }) => (
   <div className="question">
     <ul className="question__cards flex--wrap">
+      <div className="question__choice--radio-shield" />
       <li className="question__card question__cards__button flex--center-vertical question__form-card">
         <button
           type="button"

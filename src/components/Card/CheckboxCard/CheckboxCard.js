@@ -46,6 +46,7 @@ const CheckboxCard = ({
         </div>
         {/* Checkboxes */}
         <ul className="question__choices question__checkboxCard flex--wrap">
+          <div className="question__choice--radio-shield" />
           {checkboxInfo.map(card => (
             <li
               key={randomId()}

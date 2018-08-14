@@ -1,7 +1,8 @@
 .question ul.question__cards {
   list-style: none;
-  padding: 0px;
   margin: 0px;
+  padding: 0px;
+  position: relative;
 }
 
 li.question__card.question__form-card {

@@ -918,3 +918,26 @@ label,
 textarea {
   transition: opacity 250ms;
 }
+
+.form {
+  margin: 1rem;
+  margin-top: 25rem;
+}
+.form-enter {
+  opacity: 1;
+  transform: translateY(-500%);
+}
+.form-enter-active {
+  opacity: 1;
+  transform: translateY(-10%);
+  transition: all 500ms cubic-bezier(0.04, 0.6, 0.24, 1);
+}
+.form-exit {
+  opacity: 1;
+  transform: translateY(-10%);
+}
+.form-exit-active {
+  opacity: 0;
+  transform: translateY(+500%);
+  transition: all 500ms cubic-bezier(0.6, 0, 1, 0.32);
+}

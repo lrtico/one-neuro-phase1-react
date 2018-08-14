@@ -50,6 +50,7 @@ const FormCardStacked = ({
       </div>
       {/* Cards */}
       <ul className="question__cards flex--wrap flex--stretch-vertical">
+        <div className="question__choice--radio-shield" />
         {cardInfo.map((card, index) => (
           <li
             key={randomId()}
