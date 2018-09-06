@@ -16,6 +16,7 @@ const WizardForm11Page = props => {
         <SectionTitle titleBold="Brothers &amp; Sisters" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
+
       <FieldArray name="brothers-sisters" component={FormCardBrotherSister} />
 
       <div className="question">

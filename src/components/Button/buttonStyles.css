@@ -14,7 +14,6 @@
   font-style: normal;
   margin: 0;
   overflow: hidden;
-  padding: 9px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
@@ -25,7 +24,7 @@
   transition: background-color 250ms;
 }
 .btn-wrap .btn .btn__text {
-  padding: 1px 0;
+  padding: 9px;
   position: relative;
   width: 100%;
   z-index: 1;

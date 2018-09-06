@@ -22,3 +22,42 @@
 .question__choice--radio-shield.content--disabled {
   display: block;
 }
+.question__tick {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+}
+.question__tick:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.question__choice input:checked ~ .question__tick:after,
+.question__choice input:checked ~ .question__tick--bg {
+  display: block;
+}
+.question__choice .question__tick:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #474747;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.question__choice .question__tick--bg {
+  display: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 40px 40px 0;
+  border-color: transparent rgba(71, 71, 71, 0.2) transparent transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: rotate(360deg);
+}

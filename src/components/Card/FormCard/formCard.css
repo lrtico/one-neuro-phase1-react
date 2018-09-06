@@ -7,8 +7,13 @@
 
 li.question__card.question__form-card {
   justify-content: flex-end;
-  margin-bottom: 9px;
+  margin-bottom: 48px;
   min-height: 187px;
+}
+
+li.question__card.question__form-card:focus {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  outline: none;
 }
 
 /* li.question__card.question__form-card.flex--center-vertical {
@@ -165,7 +170,7 @@ li.question__card.question__form-card .question__key-label {
   display: block;
 }
 
-.question ul.question__cards > li.question__card .question__tick-wrap:after {
+.question ul.question__cards li.question__card .question__tick-wrap:after {
   border-style: solid;
   border-width: 0 47px 53px 0;
   border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
@@ -226,6 +231,7 @@ h2 + .toggleVis {
   border-radius: 30px;
   padding: 9px 18px;
   overflow: hidden;
+  width: max-content;
 }
 
 .toggleVis.toggleVis--active > span {

@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import CCWrapper from "./utils/PageWrapper";
 import PageList from "./PageList";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
+import Loading from "./components/Loading/Loading";
 
 class WizardForm extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class WizardForm extends Component {
     this.previousPage = this.previousPage.bind(this);
     this.state = {
       page: 2,
-      testState: false
+      testState: false,
+      loading: true
     };
   }
 
@@ -38,22 +40,35 @@ class WizardForm extends Component {
     this.setState({ page: this.state.page - 1 });
   }
 
+  componentDidMount() {
+    setTimeout(() => this.setState({ loading: false }), 3000);
+  }
+
   render() {
     //const { onSubmit } = this.props;
     //const { page } = this.state;
+    const { loading } = this.state;
     return (
       <div>
-        <CSSTransition in={this.state.testState} classNames="form">
-          <div className="form content questions">
-            <CCWrapper
-              startingAnimation={this.startingAnimation}
-              endingAnimation={this.endingAnimation}
-              pageNumber={this.state.page}
-            >
-              <PageList onSubmit={this.nextPage} pageNumber={this.state.page} />
-            </CCWrapper>
-          </div>
-        </CSSTransition>
+        {loading ? (
+          <Loading />
+        ) : (
+          <CSSTransition in={this.state.testState} classNames="form">
+            <div className="form content questions">
+              <CCWrapper
+                startingAnimation={this.startingAnimation}
+                endingAnimation={this.endingAnimation}
+                pageNumber={this.state.page}
+              >
+                <PageList
+                  onSubmit={this.nextPage}
+                  pageNumber={this.state.page}
+                />
+              </CCWrapper>
+            </div>
+          </CSSTransition>
+        )}
+
         <ProgressBar
           currentProgress={this.state.page}
           goBack={this.previousPage}

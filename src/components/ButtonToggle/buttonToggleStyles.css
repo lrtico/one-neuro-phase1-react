@@ -34,3 +34,15 @@
 .toggleVis.toggleVis--active:hover {
   transform: scale(1.1);
 }
+
+.toggleVis.add-button {
+  margin-left: 0;
+}
+
+.toggleVis.add-button:hover span {
+  color: white;
+}
+
+.toggleVis.add-button.toggleVis--active span {
+  color: rgb(213, 251, 255);
+}

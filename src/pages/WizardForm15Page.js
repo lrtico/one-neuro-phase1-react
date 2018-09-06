@@ -225,6 +225,7 @@ const WizardForm15Page = props => {
       />
       <Field
         component={TextQuestion}
+        label=""
         labelBold="Breathing problems"
         labelLast="right after birth"
         name="mdh-breathing-problems"
@@ -234,6 +235,7 @@ const WizardForm15Page = props => {
       />
       <Field
         component={TextQuestion}
+        label=""
         labelBold="Supplemental oxygen?"
         labelLast="If yes, how long"
         name="mdh-supplemental-oxygen"
@@ -328,15 +330,15 @@ const WizardForm15Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardLabel: "Other",
+            cardLabel: "Maternal injury",
             tabOrder: "31",
-            cardName: "mdh-other-complication-description"
+            cardName: "mdh-maternal-injury-description"
           },
           {
             cardKey: "B",
-            cardLabel: "Maternal injury",
+            cardLabel: "Other",
             tabOrder: "32",
-            cardName: "mdh-maternal-injury-description"
+            cardName: "mdh-other-complication-description"
           }
         ]}
         label="Check any of the following"

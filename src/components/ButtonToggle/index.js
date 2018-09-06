@@ -20,7 +20,8 @@ function handleActive(event) {
   //Change the text
   if (
     buttonTextValue === "primary caregiver" ||
-    buttonTextValue === "copy forward"
+    buttonTextValue === "copy forward" ||
+    buttonTextValue === "add"
   ) {
     return false;
   } else if (buttonTextValue === "disabled" || buttonTextValue === "disable") {

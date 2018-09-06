@@ -3,7 +3,9 @@
   "description": "Example of how to do a multi-page \"wizard\" form using Redux Form",
   "version": "0.0.0",
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "15.6.1",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "15.6.1",
     "react-google-material-icons": "^1.0.4",
     "react-redux": "5.0.6",

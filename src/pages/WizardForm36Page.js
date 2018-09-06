@@ -168,6 +168,7 @@ const WizardForm36Page = props => {
           ]}
           name="fh-conditions-group"
           classes="question question--thumbless grid__half"
+          addTick={this.makeTickMark}
         />
         <FieldArray
           component={CheckboxCard}
