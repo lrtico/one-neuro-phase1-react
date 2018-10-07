@@ -4,13 +4,12 @@ import "./checkboxCardStyles.css";
 import "../../../app.css";
 import "../../Card/cardStyles.css";
 import { randomId } from "../../../utils/Helpers";
-import MaterialIcon from "react-google-material-icons";
 
-function handleTick(event) {
-  const tar = event.currentTarget;
-  console.log("handleTick curr tar ", tar);
-  //tar.classList.toggle("question__checkbox--selected");
-}
+// function handleTick(event) {
+//   const tar = event.currentTarget;
+//   console.log("handleTick curr tar ", tar);
+//   tar.classList.toggle("question__checkbox--selected");
+// }
 
 // function handleCheckbox(event) {
 //   const tar = event.currentTarget;
@@ -32,6 +31,7 @@ const CheckboxCard = ({
   meta: { touched, error }
 }) => {
   console.log("checkboxinfo props, ", checkboxInfo);
+  const { handleDomainTestFilter } = props;
   return (
     <div className={classes}>
       <h4
@@ -59,12 +59,13 @@ const CheckboxCard = ({
                   : `${card.liClasses} question__choice`
               }
               tabIndex={tabOrder}
-              onClick={handleTick}
+              //onClick={handleTick}
             >
               <Field
                 name={card.cardName}
                 type="checkbox"
                 component="input"
+                onClick={() => handleDomainTestFilter(card.cardLabel)}
               />
               <span className="question__tick--bg" />
               <span className="question__tick" />
