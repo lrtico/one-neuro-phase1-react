@@ -1,25 +1,22 @@
 import React, { Component } from "react";
 import "../app.css";
-import { Field, FieldArray, reduxForm, formValueSelector } from "redux-form";
-import { connect } from "react-redux";
+import { Field, FieldArray, reduxForm } from "redux-form";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
-import SectionSubHeader from "../components/SectionSubHeader";
-import SectionSubTitle from "../components/SectionSubTitle";
 import TextQuestion from "../components/TextQuestion";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
-import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import CheckboxDomainsCard from "../components/Card/CheckboxCard/CheckboxDomainsCard";
-import MaterialIcon from "react-google-material-icons";
+import CheckboxTestsCard from "../components/Card/CheckboxCard/CheckboxTestsCard";
 import DivButton from "../components/Button/DivButton";
+import Test from "../components/Test/Test";
 
 class WizardForm47Page extends Component {
   state = {
     domains: [],
     tests: [],
-    matchedTests: []
+    matchedTests: [],
+    testsSelected: []
   };
 
   showLetterFormat = () => {
@@ -73,13 +70,47 @@ class WizardForm47Page extends Component {
           "The domain clicked isn't in the matchedTest array so make add now! ",
           this.state.matchedTests
         );
-        let newarr = matchedTests.concat(
-          tests.filter(t => t.DomainName === card)
+        // let newarr = matchedTests.concat(
+        //   tests.filter(t => t.DomainName === card)
+        // );
+        let handleMatches = tests.filter(t => t.DomainName === card);
+        let newarr = {
+          DomainName: card,
+          handleMatches
+        };
+        console.log("newarr, ", newarr);
+        return [matchedTests.push(newarr)];
+      }
+    });
+  };
+
+  showFilteredTest = test => {
+    console.log("Make show test go now!", test);
+    this.setState(({ testsSelected, tests, ...state }) => {
+      const idx = testsSelected.map(t => t.Abbreviation).indexOf(test);
+
+      if (idx !== -1) {
+        //The abbreviation is in state already so we remove it...
+        console.log("IndexOf, ", idx);
+        console.log(
+          "The abbreviation is in state already so we remove it now! ",
+          this.state.testsSelected
         );
         return {
           ...state,
-          matchedTests: newarr
+          testsSelected: testsSelected.filter(t => t.Abbreviation !== test)
         };
+      } else {
+        //The abbreviation clicked isn't in the testsSelected array, so filter the immutable all tests state
+        //by copying the test that was clicked to the testsSelected array
+        console.log("IndexOf, ", idx);
+        console.log(
+          "The abbreviation clicked isn't in the testsSelected array so make add now! ",
+          this.state.testsSelected
+        );
+        let selectedTest = tests.filter(t => t.Abbreviation === test);
+        console.log("selected test filtered =, ", selectedTest);
+        return [testsSelected.push(selectedTest[0])];
       }
     });
   };
@@ -119,8 +150,8 @@ class WizardForm47Page extends Component {
       referral2,
       referral3
     } = this.props;
-    const { domains } = this.state;
-    console.log("Domains from state, ", domains);
+    const { domains, matchedTests } = this.state;
+    console.log("MatchedTests from state, ", matchedTests);
 
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -191,146 +222,26 @@ class WizardForm47Page extends Component {
         <div className="domain__pick-sub-domain">
           <SectionTitle titleBold="Domain-based" titleRegular="reports" />
           <FieldArray
-            component={CheckboxCard}
-            columnHeader="[Name of domain]"
-            checkboxInfo={[
-              {
-                cardName: "dbr-basc-2",
-                cardKey: "A",
-                cardLabel: "BASC-2",
-                tabOrder: "1"
-              },
-              {
-                cardName: "dbr-beery-vmi",
-                cardKey: "B",
-                cardLabel: "BEERY VMI",
-                tabOrder: "2"
-              },
-              {
-                cardName: "dbr-dkefs",
-                cardKey: "C",
-                cardLabel: "DKEFS",
-                tabOrder: "3"
-              },
-              {
-                cardName: "dbr-gars-3",
-                cardKey: "D",
-                cardLabel: "GARS-3",
-                tabOrder: "4"
-              },
-              {
-                cardName: "dbr-nelson-denny",
-                cardKey: "E",
-                cardLabel: "NELSON DENNY",
-                tabOrder: "5"
-              },
-              {
-                cardName: "dbr-qik-continuous",
-                cardKey: "F",
-                cardLabel: "QIK-CONTINUOUS-PERFORMANCE-TEST",
-                tabOrder: "6"
-              },
-              {
-                cardName: "dbr-rbans",
-                cardKey: "G",
-                cardLabel: "RBANS",
-                tabOrder: "7"
-              },
-              {
-                cardName: "dbr-wais-iv",
-                cardKey: "H",
-                cardLabel: "WAIS-IV",
-                tabOrder: "8"
-              },
-              {
-                cardName: "dbr-wppsi-iv",
-                cardKey: "I",
-                cardLabel: "WPPSI-IV",
-                tabOrder: "9"
-              }
-            ]}
+            component={CheckboxTestsCard}
+            checkboxInfo={matchedTests.map(test => ({
+              columnHeader: test.DomainName,
+              cardName: `dbr-${test.DomainName}`,
+              checkboxLabels: test.handleMatches
+            }))}
             label="Check all the"
             labelBold="tests"
             labelLast="that were given"
             name="dbr-tests-group"
             classes="question question--thumbless"
-          />
-          <FieldArray
-            component={CheckboxCard}
-            columnHeader="[Name of domain]"
-            checkboxInfo={[
-              {
-                cardName: "dbr-nelson-denny",
-                cardKey: "E",
-                cardLabel: "NELSON DENNY",
-                tabOrder: "5"
-              },
-              {
-                cardName: "dbr-qik-continuous",
-                cardKey: "F",
-                cardLabel: "QIK-CONTINUOUS-PERFORMANCE-TEST",
-                tabOrder: "6"
-              },
-              {
-                cardName: "dbr-rbans",
-                cardKey: "G",
-                cardLabel: "RBANS",
-                tabOrder: "7"
-              },
-              {
-                cardName: "dbr-wais-iv",
-                cardKey: "H",
-                cardLabel: "WAIS-IV",
-                tabOrder: "8"
-              },
-              {
-                cardName: "dbr-wppsi-iv",
-                cardKey: "I",
-                cardLabel: "WPPSI-IV",
-                tabOrder: "9"
-              }
-            ]}
-            label="Check all the"
-            labelBold="tests"
-            labelLast="that were given"
-            name="dbr-tests-group"
-            classes="question question--thumbless"
-          />
-          <FieldArray
-            component={CheckboxCard}
-            columnHeader="[Name of domain]"
-            checkboxInfo={[
-              {
-                cardName: "dbr-nelson-denny",
-                cardKey: "E",
-                cardLabel: "NELSON DENNY",
-                tabOrder: "5"
-              },
-              {
-                cardName: "dbr-wais-iv",
-                cardKey: "H",
-                cardLabel: "WAIS-IV",
-                tabOrder: "8"
-              },
-              {
-                cardName: "dbr-wppsi-iv",
-                cardKey: "I",
-                cardLabel: "WPPSI-IV",
-                tabOrder: "9"
-              }
-            ]}
-            label="Check all the"
-            labelBold="tests"
-            labelLast="that were given"
-            name="dbr-tests-group"
-            classes="question question--thumbless"
+            handleTestFilter={this.showFilteredTest}
           />
           <DivButton divButtonLabel="OK" show={this.showTests} />
         </div>
 
         <div className="domain__test">
           <SectionTitle titleBold="Domain-based" titleRegular="reports" />
-          <SectionSubTitle subTitleBold="Learning &amp; memory" />
+          <Test testFromState={this.state.testsSelected} />
+          {/* <SectionSubTitle subTitleBold="Learning &amp; memory" />
           <div className="flex">
             <SectionSubHeader subHeader="WPPSI-IV" />
             <ButtonToggle buttonToggleLabel="Remove test" />
@@ -509,7 +420,7 @@ class WizardForm47Page extends Component {
                 sense.
               </div>
             </div>
-          </div>
+          </div> */}
           <DivButton divButtonLabel="Ok" show={this.showSummary} />
         </div>
 

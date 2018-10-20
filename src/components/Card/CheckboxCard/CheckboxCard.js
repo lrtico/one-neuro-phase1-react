@@ -4,7 +4,6 @@ import "./checkboxCardStyles.css";
 import "../../../app.css";
 import "../../Card/cardStyles.css";
 import { randomId } from "../../../utils/Helpers";
-import MaterialIcon from "react-google-material-icons";
 
 function handleTick(event) {
   const tar = event.currentTarget;
