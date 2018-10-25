@@ -1,5 +1,7 @@
 import React from "react";
 import { Field } from "redux-form";
+import ReactHtmlParser from "react-html-parser";
+import "./Test.css";
 import SectionSubTitle from "../SectionSubTitle";
 import SectionSubHeader from "../SectionSubHeader";
 import ButtonToggle from "../ButtonToggle";
@@ -17,7 +19,7 @@ const Test = ({ testFromState, ...props }) => {
             <ButtonToggle buttonToggleLabel="Remove test" />
           </div>
           <div className="test-desc">
-            <p>{t.Descriptions}</p>
+            <div>{ReactHtmlParser(t.Descriptions)}</div>
             <hr />
             {t.TestIndexes.map((t, i) => (
               <div key={i}>
@@ -28,7 +30,7 @@ const Test = ({ testFromState, ...props }) => {
                     <h5>{t.Condition}</h5>
                     <div className="flex test__list">
                       <MaterialIcon icon="arrow_right" />
-                      <p>{t.ConditionDescription}</p>
+                      <p>{ReactHtmlParser(t.ConditionDescription)}</p>
                     </div>
                     <hr />
                   </div>
@@ -88,14 +90,15 @@ const Test = ({ testFromState, ...props }) => {
             ) : null}
           </div>
           {t.ParentGroupScales.map((t, i) => (
-            <div key={i}>
-              <SectionSubTitle subTitleBold={t.ParentGroupScaleName} />
+            <div key={t.Id}>
+              <h5>{t.ParentGroupScaleName}</h5>
               {t.ParentGroupSubScales.map((t, i) => (
                 <div key={i}>
+                  <h6>{t.ParentGroupSubScaleName}</h6>
                   {t.ParentScaleTitles.map((t, i) => (
                     <div key={i}>
-                      <div className="test-table-heading">
-                        <SectionSubHeader subHeader={t.ParentScaleName} />
+                      <div>
+                        <h6>{t.ParentScaleName}</h6>
                       </div>
                       <div className="test-table">
                         <div className="table__row table__header">
@@ -126,11 +129,11 @@ const Test = ({ testFromState, ...props }) => {
           {t.ParentGroupSubScales.length > 0
             ? t.ParentGroupSubScales.map((t, i) => (
                 <div key={i}>
-                  <SectionSubTitle subTitleBold={t.ParentGroupSubScaleName} />
+                  <h5>{t.ParentGroupSubScaleName}</h5>
                   {t.ParentScaleTitles.map((t, i) => (
                     <div key={i}>
-                      <div className="test-table-heading">
-                        <SectionSubHeader subHeader={t.ParentScaleName} />
+                      <div>
+                        <h6>{t.ParentScaleName}</h6>
                       </div>
                       <div className="test-table">
                         <div className="table__row table__header">
@@ -157,34 +160,56 @@ const Test = ({ testFromState, ...props }) => {
                 </div>
               ))
             : null}
-          {t.TestScoringTableHeaders.length > 0
-            ? t.TestScoringTableHeaders.map((t, i) => (
+          {t.TestModules.length > 0
+            ? t.TestModules.map((t, i) => (
                 <div key={i}>
-                  <p>{t.Description}</p>
-                  {t.TestScoringTableScores.map((t, i) => (
-                    <div className="test-table" key={i}>
-                      <div className="table__row table__header">
-                        <div>{t.Col1}</div>
-                        <div>{t.Col2}</div>
-                        <div>{t.Col3}</div>
-                        <div>{t.Col4}</div>
+                  <SectionSubTitle subTitleBold={t.Name} />
+                  <p>{t.Descriptions}</p>
+                  {t.ParentGroupScales.map((t, i) => (
+                    <div key={i}>
+                      <div className="test-table-heading">
+                        <SectionSubHeader subHeader={t.ParentGroupScaleName} />
                       </div>
-                      <div className="table__row">
-                        <div>{t.Col1}</div>
-                        <div>{t.Col2}</div>
-                        <div>{t.Col3}</div>
-                        <div>{t.Col4}</div>
-                      </div>
+                      {t.ParentScaleTitles.map((t, i) => (
+                        <div key={i}>
+                          <SectionSubHeader
+                            subHeader={t.ParentGroupScaleName}
+                          />
+                          <div className="test-table">
+                            <div className="table__row table__header">
+                              <div>Scale</div>
+                              <div>Score</div>
+                              <div>Common Characteristics of High Scorers</div>
+                            </div>
+                            {t.SubTests.map((t, i) => (
+                              <div key={i} className="table__row">
+                                <div>{t.Name}</div>
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    name={`${t.Name}-score`}
+                                  />
+                                </div>
+                                <div>{t.Description}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   ))}
                 </div>
               ))
             : null}
+
           {t.TestSummaries.length > 0
             ? t.TestSummaries.map((t, i) => (
                 <div key={i}>
                   <SectionSubHeader subHeader="Summary" />
-                  <p>{t.Descriptions}</p>
+                  <p className="test__list">
+                    {ReactHtmlParser(t.Descriptions)}
+                  </p>
                 </div>
               ))
             : null}

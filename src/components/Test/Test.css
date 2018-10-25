@@ -1,3 +1,19 @@
+h5 {
+  font-size: 21px;
+  font-size: 2.1rem;
+  margin: 0 0 18px;
+  text-transform: capitalize;
+}
+
+h6 {
+  color: #444;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-size: 1.8rem;
+  margin: 0 0 21px;
+  text-transform: uppercase;
+}
+
 .test-table-heading:first-of-type {
-  margin-top: 18px;
+  margin-top: 45px;
 }

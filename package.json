@@ -8,6 +8,7 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "15.6.1",
     "react-google-material-icons": "^1.0.4",
+    "react-html-parser": "^2.0.2",
     "react-redux": "5.0.6",
     "react-transition-group": "^2.4.0",
     "react-transitions": "^1.0.0",

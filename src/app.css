@@ -725,6 +725,8 @@ textarea {
   border-bottom-color: #306cff;
   color: #306cff;
   font-family: "Montserrat", sans-serif;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .test__list input[type="number"] {
@@ -796,6 +798,7 @@ form .test-table {
 
 .test-table .table__row:last-of-type {
   border-bottom: none;
+  margin-bottom: 45px;
 }
 
 .test-table.test-table--appendix {
@@ -860,18 +863,20 @@ form .test-table {
 
 .domain__pick-domain.show,
 .domain__pick-sub-domain.show {
-  height: 789px;
+  height: max-content;
   opacity: 1;
   visibility: visible;
   transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;
 }
 
 .domain__pick-sub-domain.show {
-  height: 1000px;
+  height: max-content;
+  margin-top: 108px;
 }
 
 .domain__test.show {
-  height: 2938px;
+  height: max-content;
+  margin-top: 108px;
   opacity: 1;
   visibility: visible;
   transition: height 500ms 0ms ease-in-out, opacity 500ms 500ms ease-in-out;

@@ -16,7 +16,8 @@ class WizardForm47Page extends Component {
     domains: [],
     tests: [],
     matchedTests: [],
-    testsSelected: []
+    testsSelected: [],
+    domainsLoaded: false
   };
 
   showLetterFormat = () => {
@@ -123,7 +124,7 @@ class WizardForm47Page extends Component {
         return response.json();
       })
       .then(data => {
-        this.setState({ domains: data });
+        this.setState({ domains: data, domainsLoaded: true });
         console.log("Domain data from API, ", data);
       })
       .catch(error => console.log("Domain API error, ", error));
@@ -201,21 +202,25 @@ class WizardForm47Page extends Component {
 
         <div className="domain__pick-domain">
           <SectionTitle titleBold="Domain-based" titleRegular="reports" />
-          <FieldArray
-            component={CheckboxDomainsCard}
-            checkboxInfo={domains.map(domain => ({
-              cardName: `dbr-${domain.DomainName}`,
-              cardKey: domain.id,
-              cardLabel: domain.DomainName,
-              tabOrder: domain.id
-            }))}
-            label="Check all the"
-            labelBold="domains"
-            labelLast="that were given"
-            name="dbr-domains-group"
-            classes="question question--thumbless"
-            handleDomainTestFilter={this.filterTestsByDomainsSelected}
-          />
+          {this.state.domainsLoaded ? (
+            <FieldArray
+              component={CheckboxDomainsCard}
+              checkboxInfo={domains.map(domain => ({
+                cardName: `dbr-${domain.DomainName}`,
+                cardKey: domain.id,
+                cardLabel: domain.DomainName,
+                tabOrder: domain.id
+              }))}
+              label="Check all the"
+              labelBold="domains"
+              labelLast="that were given"
+              name="dbr-domains-group"
+              classes="question question--thumbless"
+              handleDomainTestFilter={this.filterTestsByDomainsSelected}
+            />
+          ) : (
+            <p>Loading domains...</p>
+          )}
           <DivButton divButtonLabel="OK" show={this.showSubDomain} />
         </div>
 
