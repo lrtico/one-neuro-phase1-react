@@ -934,7 +934,7 @@ textarea {
 }
 .form-enter-active {
   opacity: 1;
-  transform: translateY(-10%);
+  transform: translateY(-180px);
   transition: all 500ms cubic-bezier(0.04, 0.6, 0.24, 1);
 }
 .form-exit {

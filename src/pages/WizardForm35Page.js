@@ -20,7 +20,7 @@ const WizardForm35Page = props => {
         <strong> psychology or physciatric exam</strong>?
       </label>
       <FieldArray
-        name="counseling-group"
+        name="psychology-group"
         component={FormCardMultiInput}
         fieldInputs={[
           {

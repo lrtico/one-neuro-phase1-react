@@ -61,13 +61,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-repeat-grade",
               cardKey: "A",
-              cardLabel: "Yes ",
+              cardLabel: "Yes",
               tabOrder: "4"
             },
             {
               cardName: "eh-repeat-grade",
               cardKey: "B",
-              cardLabel: "No ",
+              cardLabel: "No",
               tabOrder: "5"
             }
           ]}
@@ -97,13 +97,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-grade-skip",
               cardKey: "A",
-              cardLabel: "Yes  ",
+              cardLabel: "Yes",
               tabOrder: "7"
             },
             {
               cardName: "eh-grade-skip",
               cardKey: "B",
-              cardLabel: "No  ",
+              cardLabel: "No",
               tabOrder: "8"
             }
           ]}
@@ -133,13 +133,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-difficulty-reading",
               cardKey: "A",
-              cardLabel: "Yes   ",
+              cardLabel: "Yes",
               tabOrder: "10"
             },
             {
               cardName: "eh-difficulty-reading",
               cardKey: "B",
-              cardLabel: "No   ",
+              cardLabel: "No",
               tabOrder: "11"
             }
           ]}
@@ -168,13 +168,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-difficulty-math",
               cardKey: "A",
-              cardLabel: "Yes    ",
+              cardLabel: "Yes",
               tabOrder: "13"
             },
             {
               cardName: "eh-difficulty-math",
               cardKey: "B",
-              cardLabel: "No    ",
+              cardLabel: "No",
               tabOrder: "14"
             }
           ]}
@@ -203,13 +203,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-poor-grades",
               cardKey: "A",
-              cardLabel: "Yes     ",
+              cardLabel: "Yes",
               tabOrder: "16"
             },
             {
               cardName: "eh-poor-grades",
               cardKey: "B",
-              cardLabel: "No     ",
+              cardLabel: "No",
               tabOrder: "17"
             }
           ]}
@@ -239,13 +239,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-special-ed",
               cardKey: "A",
-              cardLabel: "Yes      ",
+              cardLabel: "Yes",
               tabOrder: "19"
             },
             {
               cardName: "eh-special-ed",
               cardKey: "B",
-              cardLabel: "No       ",
+              cardLabel: "No",
               tabOrder: "20"
             }
           ]}
@@ -274,13 +274,13 @@ const WizardForm41Page = props => {
           {
             cardName: "eh-special-ed-current",
             cardKey: "A",
-            cardLabel: "Yes       ",
+            cardLabel: "Yes",
             tabOrder: "22"
           },
           {
             cardName: "eh-special-ed-current",
             cardKey: "B",
-            cardLabel: "No        ",
+            cardLabel: "No",
             tabOrder: "23"
           }
         ]}
@@ -320,13 +320,13 @@ const WizardForm41Page = props => {
           {
             cardName: "eh-dislikes-school",
             cardKey: "A",
-            cardLabel: "Yes        ",
+            cardLabel: "Yes",
             tabOrder: "26"
           },
           {
             cardName: "eh-dislikes-school",
             cardKey: "B",
-            cardLabel: "No         ",
+            cardLabel: "No",
             tabOrder: "27"
           }
         ]}
@@ -343,13 +343,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-absent",
               cardKey: "A",
-              cardLabel: "Yes          ",
+              cardLabel: "Yes",
               tabOrder: "28"
             },
             {
               cardName: "eh-absent",
               cardKey: "B",
-              cardLabel: "No          ",
+              cardLabel: "No",
               tabOrder: "29"
             }
           ]}
@@ -391,13 +391,13 @@ const WizardForm41Page = props => {
             {
               cardName: "eh-teacher-concerns",
               cardKey: "A",
-              cardLabel: "Yes           ",
+              cardLabel: "Yes",
               tabOrder: "32"
             },
             {
               cardName: "eh-teacher-concerns",
               cardKey: "B",
-              cardLabel: "No            ",
+              cardLabel: "No",
               tabOrder: "33"
             }
           ]}
@@ -412,7 +412,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-absent-desc"
+          name="eh-teacher-concerns-desc"
           src="img/icons-speech-bubble.svg"
           tabOrder="34"
           type="input"

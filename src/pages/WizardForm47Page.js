@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../app.css";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm, formValueSelector } from "redux-form";
+import { connect } from "react-redux";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import TextQuestion from "../components/TextQuestion";
@@ -21,30 +22,42 @@ class WizardForm47Page extends Component {
   };
 
   showLetterFormat = () => {
-    console.log("hide domain, show letter");
+    //console.log("hide domain, show letter");
     document.querySelector(".domain__pick-domain").classList.remove("show");
     document.querySelector(".letter-format").classList.add("show");
   };
 
   showDomainBased = () => {
-    console.log("hide letter, domain based");
+    //console.log("hide letter, domain based");
     document.querySelector(".letter-format").classList.remove("show");
     document.querySelector(".domain__pick-domain").classList.add("show");
+    document.querySelector(".domain__pick-domain").scrollIntoView({
+      behavior: "smooth"
+    });
   };
 
   showSubDomain = () => {
-    console.log("hide everything but pick the sub domain executing...");
+    //console.log("hide everything but pick the sub domain executing...");
     document.querySelector(".domain__pick-sub-domain").classList.add("show");
+    document.querySelector(".domain__pick-sub-domain").scrollIntoView({
+      behavior: "smooth"
+    });
   };
 
   showTests = () => {
-    console.log("Make tests go now!");
+    //console.log("Make tests go now!");
     document.querySelector(".domain__test").classList.add("show");
+    document.querySelector(".domain__test h4").scrollIntoView({
+      behavior: "smooth"
+    });
   };
 
   showSummary = () => {
-    console.log("Make summary go now!");
+    //console.log("Make summary go now!");
     document.querySelector(".summary-findings").classList.add("show");
+    document.querySelector(".summary-findings").scrollIntoView({
+      behavior: "smooth"
+    });
   };
 
   filterTestsByDomainsSelected = card => {
@@ -447,7 +460,7 @@ class WizardForm47Page extends Component {
                   tabOrder="1"
                   type="input"
                   classes="question"
-                  copyForward="true"
+                  //copyForward="true"
                 />
               )}
             </div>
@@ -466,7 +479,7 @@ class WizardForm47Page extends Component {
                   tabOrder="2"
                   type="input"
                   classes="question"
-                  copyForward="true"
+                  //copyForward="true"
                 />
               )}
             </div>
@@ -483,7 +496,7 @@ class WizardForm47Page extends Component {
                 type="input"
                 classes="question"
                 materialIcon="arrow_right"
-                copyForward="true"
+                //copyForward="true"
               />
             )}
             {referral2 && (
@@ -494,7 +507,7 @@ class WizardForm47Page extends Component {
                 type="input"
                 classes="question"
                 materialIcon="arrow_right"
-                copyForward="true"
+                //copyForward="true"
               />
             )}
             {referral3 && (
@@ -505,7 +518,7 @@ class WizardForm47Page extends Component {
                 type="input"
                 classes="question"
                 materialIcon="arrow_right"
-                copyForward="true"
+                //copyForward="true"
               />
             )}
           </div>
@@ -542,22 +555,22 @@ class WizardForm47Page extends Component {
 // })(WizardForm47Page);
 
 // Decorate with connect to read form values
-// const selector = formValueSelector("wizard"); // <-- same as form name
-// WizardForm47Page = connect(state => {
-// can select values individually
-//   const patientName = selector(state, "di-name");
-//   const patientAge = selector(state, "di-age");
-//   const referral1 = selector(state, "reason-referral-1");
-//   const referral2 = selector(state, "reason-referral-2");
-//   const referral3 = selector(state, "reason-referral-3");
-//   return {
-//     patientName,
-//     patientAge,
-//     referral1,
-//     referral2,
-//     referral3
-//   };
-// })(WizardForm47Page);
+const selector = formValueSelector("wizard"); // <-- same as form name
+WizardForm47Page = connect(state => {
+  // select values individually
+  const patientName = selector(state, "di-name");
+  const patientAge = selector(state, "di-age");
+  const referral1 = selector(state, "reason-referral-1");
+  const referral2 = selector(state, "reason-referral-2");
+  const referral3 = selector(state, "reason-referral-3");
+  return {
+    patientName,
+    patientAge,
+    referral1,
+    referral2,
+    referral3
+  };
+})(WizardForm47Page);
 
 export default reduxForm({
   form: "wizard", //                 <------ same form name

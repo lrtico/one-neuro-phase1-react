@@ -5,6 +5,7 @@ import CCWrapper from "./utils/PageWrapper";
 import PageList from "./PageList";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import Loading from "./components/Loading/Loading";
+import PageJump from "./components/PageJump/PageJump";
 
 class WizardForm extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class WizardForm extends Component {
     this.previousPage = this.previousPage.bind(this);
     this.state = {
       page: 47,
+      pageNumber: 1,
       testState: false,
       loading: true
     };
@@ -39,6 +41,29 @@ class WizardForm extends Component {
   previousPage() {
     this.setState({ page: this.state.page - 1 });
   }
+
+  backToPage1 = () => {
+    this.setState({ page: 2 });
+  };
+
+  goPage47 = () => {
+    this.setState({ page: 47 });
+  };
+
+  handlePageNumber = e => {
+    console.log("Make page jump now!");
+    let x = e.target.value - 0;
+    this.setState({
+      pageNumber: x
+    });
+  };
+
+  handleJumpToPage = () => {
+    console.log("Make page jump now!");
+    this.setState({
+      page: this.state.pageNumber
+    });
+  };
 
   componentDidMount() {
     setTimeout(() => this.setState({ loading: false }), 3000);
@@ -68,10 +93,16 @@ class WizardForm extends Component {
             </div>
           </CSSTransition>
         )}
-
         <ProgressBar
           currentProgress={this.state.page}
           goBack={this.previousPage}
+          handleGoPage1={this.backToPage1}
+          handleGoPage47={this.goPage47}
+        />
+        <PageJump
+          handlePageJump={this.handleJumpToPage}
+          pageNumber={this.state.pageNumber}
+          handlePageNumber={this.handlePageNumber}
         />
       </div>
     );

@@ -240,7 +240,7 @@ const WizardForm37Page = props => {
         labelLast="(for example, leader, follower)"
         name="f-role-peer-group-games"
         src="img/icons-question-mark-plain.svg"
-        tabOrder="21"
+        tabOrder="19"
         type="input"
         classes="question"
       />
@@ -251,31 +251,31 @@ const WizardForm37Page = props => {
             cardName: "f-smoke-cigarettes",
             cardKey: "A",
             cardLabel: "Smoke cigarettes",
-            tabOrder: "22"
+            tabOrder: "20"
           },
           {
             cardName: "f-chew-tobacco",
             cardKey: "B",
             cardLabel: "Chew tobacco",
-            tabOrder: "23"
+            tabOrder: "21"
           },
           {
             cardName: "f-inhale",
             cardKey: "C",
             cardLabel: "Inhale toxic substances (e.g., paint)",
-            tabOrder: "24"
+            tabOrder: "22"
           },
           {
             cardName: "f-alcholol",
             cardKey: "D",
             cardLabel: "Drink beer, wine, or liquor",
-            tabOrder: "25"
+            tabOrder: "23"
           },
           {
             cardName: "f-drugs",
             cardKey: "E",
             cardLabel: "Use drugs illegally (e.g., marijuana)",
-            tabOrder: "26"
+            tabOrder: "24"
           }
         ]}
         label="Does this"

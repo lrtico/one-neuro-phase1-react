@@ -57,7 +57,7 @@ const CheckboxCard = ({
                   ? "question__choice"
                   : `${card.liClasses} question__choice`
               }
-              tabIndex={tabOrder}
+              tabIndex={card.tabOrder}
               onClick={handleTick}
             >
               <Field

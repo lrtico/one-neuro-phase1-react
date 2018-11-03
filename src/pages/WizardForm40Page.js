@@ -37,17 +37,6 @@ const WizardForm40Page = props => {
         labelLast="preschool/daycare"
         classes="question question--thumbless"
       />
-      <Field
-        alt="Ghost"
-        component={TextQuestion}
-        label="Does this child have"
-        labelBold="fears"
-        name="bt-fears"
-        src="img/icons-ghost.svg"
-        tabOrder="3"
-        type="input"
-        classes="question"
-      />
       <div className="flex">
         <Field
           alt="Birthday cake"

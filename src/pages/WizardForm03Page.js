@@ -17,7 +17,7 @@ const WizardForm03Page = props => {
           component={TextQuestion}
           label="What's the person's"
           labelBold="name"
-          name="di-name"
+          name="paq-name"
           src="img/icons-happy-face-name.svg"
           tabOrder="1"
           type="input"
@@ -28,7 +28,7 @@ const WizardForm03Page = props => {
           component={TextQuestion}
           label="What's the person's"
           labelBold="address"
-          name="di-evaluationlocation"
+          name="paq-address"
           src="img/icons-house.svg"
           tabOrder="2"
           type="input"

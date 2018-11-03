@@ -141,7 +141,57 @@ const WizardForm07Page = props => {
           classes="question grid__half"
         />
       </div>
-
+      <div className="flex">
+        <Field
+          component={TextQuestion}
+          label="How many"
+          labelBold="years"
+          labelLast="has he worked there"
+          src="img/icons-calendar-large.svg"
+          alt="Calendar"
+          name="bh-father-length-employement"
+          tabOrder="11"
+          type="input"
+          classes="question grid__half"
+        />
+        <Field
+          component={TextQuestion}
+          label="What's the"
+          labelBold="highest grade"
+          labelLast="achieved"
+          src="img/icons-graduation-cap.svg"
+          alt="Graduation cap"
+          name="bh-father-highest-grade"
+          type="input"
+          tabOrder="12"
+          classes="question grid__half"
+        />
+      </div>
+      <div className="flex">
+        <Field
+          component={TextQuestion}
+          label="What's their"
+          labelBold="primary language"
+          src="img/icons-speech-bubble.svg"
+          alt="Speech bubble"
+          name="bh-father-primary-language"
+          tabOrder="13"
+          type="input"
+          classes="question grid__half"
+        />
+        <Field
+          component={TextQuestion}
+          label="What's their"
+          labelBold="secondary language"
+          labelLast="achieved"
+          src="img/icons-speech-bubble.svg"
+          alt="Speech bubble"
+          name="bh-father-secondary-language"
+          type="input"
+          tabOrder="14"
+          classes="question grid__half"
+        />
+      </div>
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>
   );

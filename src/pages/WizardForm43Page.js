@@ -16,13 +16,15 @@ const WizardForm43Page = props => {
         titleRegular="identification"
       />
       <div className="flex">
-        <SectionSubHeader subHeader="How important are spiritual concerns in your life" />
+        <SectionSubHeader subHeader="CURRENT RELIGIOUS DENOMINATION/AFFILIATION" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <div className="grid__half">
         <Field
           name="rda-spiritual-importance"
-          label="Label test"
+          label="How important are"
+          labelBold="spiritual concerns"
+          labelLast="in your life"
           component={Textarea}
           type="text"
         />

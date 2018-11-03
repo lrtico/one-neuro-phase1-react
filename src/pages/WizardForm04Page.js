@@ -17,7 +17,7 @@ const WizardForm04Page = props => {
         type="input"
         classes="question"
         materialIcon="arrow_right"
-        copyForward="true"
+        //copyForward="true"
       />
       <Field
         component={TextQuestion}
@@ -26,7 +26,7 @@ const WizardForm04Page = props => {
         type="input"
         classes="question"
         materialIcon="arrow_right"
-        copyForward="true"
+        //copyForward="true"
       />
       <Field
         component={TextQuestion}
@@ -35,7 +35,7 @@ const WizardForm04Page = props => {
         type="input"
         classes="question"
         materialIcon="arrow_right"
-        copyForward="true"
+        //copyForward="true"
       />
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>
