@@ -55,6 +55,7 @@ const WizardForm32Page = props => {
         <Field
           alt="Calendar"
           component={TextQuestion}
+          label=""
           labelBold="Date"
           labelLast="of last visit"
           name="mc-dr-last-visit"

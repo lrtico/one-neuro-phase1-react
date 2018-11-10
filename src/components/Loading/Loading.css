@@ -1,0 +1,28 @@
+/*
+Domains loading loder
+*/
+.domain-loader-wrap {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  height: 64px;
+  margin: 0 9px 9px 0;
+  overflow: hidden;
+  width: 280px;
+}
+.domain-loader-bar {
+  background: linear-gradient(to right, #cccccc 0%, #999999 100%);
+  height: 100%;
+  width: 35px;
+  animation: domainsLoadingBar 1.5s cubic-bezier(0.72, 0, 0.32, 1) infinite;
+}
+
+@keyframes domainsLoadingBar {
+  from {
+    width: 0;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 0;
+  }
+}

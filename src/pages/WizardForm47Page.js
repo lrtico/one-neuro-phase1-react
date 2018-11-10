@@ -11,6 +11,7 @@ import CheckboxDomainsCard from "../components/Card/CheckboxCard/CheckboxDomains
 import CheckboxTestsCard from "../components/Card/CheckboxCard/CheckboxTestsCard";
 import DivButton from "../components/Button/DivButton";
 import Test from "../components/Test/Test";
+import DomainsLoading from "../components/Loading/DomainsLoading";
 
 class WizardForm47Page extends Component {
   state = {
@@ -232,7 +233,7 @@ class WizardForm47Page extends Component {
               handleDomainTestFilter={this.filterTestsByDomainsSelected}
             />
           ) : (
-            <p>Loading domains...</p>
+            <DomainsLoading />
           )}
           <DivButton divButtonLabel="OK" show={this.showSubDomain} />
         </div>
