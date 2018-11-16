@@ -60,13 +60,13 @@ const WizardForm17Page = props => {
             {
               cardName: "mdh-bottle-fed",
               cardKey: "A",
-              cardLabel: "Yes ",
+              cardLabel: "Yes",
               tabOrder: "4"
             },
             {
               cardName: "mdh-bottle-fed",
               cardKey: "B",
-              cardLabel: "No ",
+              cardLabel: "No",
               tabOrder: "5"
             }
           ]}
@@ -118,13 +118,13 @@ const WizardForm17Page = props => {
             {
               cardName: "mdh-bed-wetting",
               cardKey: "A",
-              cardLabel: "Yes  ",
+              cardLabel: "Yes",
               tabOrder: "9"
             },
             {
               cardName: "mdh-bed-wetting",
               cardKey: "B",
-              cardLabel: "No  ",
+              cardLabel: "No",
               tabOrder: "10"
             }
           ]}
@@ -151,13 +151,13 @@ const WizardForm17Page = props => {
             {
               cardName: "mdh-bed-soiling",
               cardKey: "A",
-              cardLabel: "Yes   ",
+              cardLabel: "Yes",
               tabOrder: "12"
             },
             {
               cardName: "mdh-bed-soiling",
               cardKey: "B",
-              cardLabel: "No   ",
+              cardLabel: "No",
               tabOrder: "13"
             }
           ]}
@@ -184,13 +184,13 @@ const WizardForm17Page = props => {
             {
               cardName: "mdh-bed-wetting-medical-reasons",
               cardKey: "A",
-              cardLabel: "Yes    ",
+              cardLabel: "Yes",
               tabOrder: "15"
             },
             {
               cardName: "mdh-bed-wetting-medical-reasons",
               cardKey: "B",
-              cardLabel: "No    ",
+              cardLabel: "No",
               tabOrder: "16"
             }
           ]}

@@ -23,11 +23,38 @@ const Test = ({ testFromState, ...props }) => {
             <hr />
             {t.TestIndexes.map((t, i) => (
               <div key={i}>
-                <SectionSubHeader subHeader={t.IndexName} />
-                <p>{t.IndexDescription}</p>
+                {t.IndexName === "General Ability Index" ? (
+                  <div className="test__list">
+                    <SectionSubHeader subHeader={t.IndexName} />
+                    <p>
+                      {t.IndexDescription}{" "}
+                      <span>
+                        Client scored a{" "}
+                        <Field name="gai-score" type="text" component="input" />
+                        .
+                      </span>
+                    </p>
+                  </div>
+                ) : (
+                  <div>
+                    <SectionSubHeader subHeader={t.IndexName} />
+                    <p>{t.IndexDescription}</p>
+                  </div>
+                )}
+
                 {t.IndexConditions.map((t, i) => (
                   <div key={i}>
-                    <h5>{t.Condition}</h5>
+                    <div className="flex flex--center-vertical has-toggle-child">
+                      <h5>{t.Condition}</h5>
+                      <Field
+                        name={`${t.Id}-${t.Condition.toLowerCase().replace(
+                          / /g,
+                          "-"
+                        )}`}
+                        type="checkbox"
+                        component="input"
+                      />
+                    </div>
                     <div className="flex test__list">
                       <MaterialIcon icon="arrow_right" />
                       <p>{ReactHtmlParser(t.ConditionDescription)}</p>
@@ -42,6 +69,11 @@ const Test = ({ testFromState, ...props }) => {
                   <div key={i}>
                     <div className="test-table-heading">
                       <SectionSubHeader subHeader={t.ParentScaleName} />
+                      {t.ParentScaleDescription !== null ? (
+                        <div className="test__list">
+                          {ReactHtmlParser(t.ParentScaleDescription)}
+                        </div>
+                      ) : null}
                     </div>
                     <div className="test-table">
                       <div className="table__row table__header">
@@ -56,7 +88,12 @@ const Test = ({ testFromState, ...props }) => {
                             <Field
                               component="input"
                               type="text"
-                              name={`${t.ParentScaleTitleId}-${t.Name}-score`}
+                              name={`${
+                                t.ParentScaleTitleId
+                              }-${t.Name.toLowerCase().replace(
+                                / /g,
+                                "-"
+                              )}-score`}
                             />
                           </div>
                           <div>{t.Description}</div>
@@ -80,7 +117,9 @@ const Test = ({ testFromState, ...props }) => {
                       <Field
                         component="input"
                         type="text"
-                        name={`${t.Name}-score`}
+                        name={`${
+                          t.ParentScaleTitleId
+                        }-${t.Name.toLowerCase().replace(/ /g, "-")}-score`}
                       />
                     </div>
                     <div>{t.Description}</div>
@@ -89,7 +128,7 @@ const Test = ({ testFromState, ...props }) => {
               </div>
             ) : null}
           </div>
-          {t.ParentGroupScales.map((t, i) => (
+          {t.ParentGroupScales.map(t => (
             <div key={t.Id}>
               <h5>{t.ParentGroupScaleName}</h5>
               {t.ParentGroupSubScales.map((t, i) => (
@@ -97,8 +136,18 @@ const Test = ({ testFromState, ...props }) => {
                   <h6>{t.ParentGroupSubScaleName}</h6>
                   {t.ParentScaleTitles.map((t, i) => (
                     <div key={i}>
-                      <div>
+                      <div className="flex has-toggle-child">
                         <h6>{t.ParentScaleName}</h6>
+                        <Field
+                          name={`${
+                            t.Id
+                          }-${t.ParentScaleName.toLowerCase().replace(
+                            / /g,
+                            "-"
+                          )}`}
+                          type="checkbox"
+                          component="input"
+                        />
                       </div>
                       <div className="test-table">
                         <div className="table__row table__header">
@@ -113,7 +162,10 @@ const Test = ({ testFromState, ...props }) => {
                               <Field
                                 component="input"
                                 type="text"
-                                name={`${t.Name}-score`}
+                                name={`${t.Id}-${t.Name.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}-score`}
                               />
                             </div>
                             <div>{t.Description}</div>
@@ -141,14 +193,19 @@ const Test = ({ testFromState, ...props }) => {
                           <div>Score</div>
                           <div>Common Characteristics of High Scorers</div>
                         </div>
-                        {t.SubTests.map((t, i) => (
+                        {t.SubTests.map((t, i, ParentScaleName) => (
                           <div key={i} className="table__row">
                             <div>{t.Name}</div>
                             <div>
                               <Field
                                 component="input"
                                 type="text"
-                                name={`${t.Name}-score`}
+                                name={`${
+                                  t.Id
+                                }-${ParentScaleName}-${t.Name.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}-score`}
                               />
                             </div>
                             <div>{t.Description}</div>
@@ -163,7 +220,7 @@ const Test = ({ testFromState, ...props }) => {
           {t.TestModules.length > 0
             ? t.TestModules.map((t, i) => (
                 <div key={i}>
-                  <SectionSubTitle subTitleBold={t.Name} />
+                  <h5>{t.Name}</h5>
                   <p>{t.Descriptions}</p>
                   {t.ParentGroupScales.map((t, i) => (
                     <div key={i}>
@@ -188,7 +245,12 @@ const Test = ({ testFromState, ...props }) => {
                                   <Field
                                     component="input"
                                     type="text"
-                                    name={`${t.Name}-score`}
+                                    name={`${
+                                      t.Id
+                                    }-${t.Name.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-score`}
                                   />
                                 </div>
                                 <div>{t.Description}</div>
@@ -202,7 +264,18 @@ const Test = ({ testFromState, ...props }) => {
                 </div>
               ))
             : null}
-
+          {t.TestScoringTableDetails !== null ? (
+            <div className="test-table">
+              <div className="table__row table__header">
+                {t.TableHeaderRowTitles.map(
+                  t =>
+                    t.HeaderLabel !== null ? (
+                      <div key={t.Id}>{t.HeaderLabel}</div>
+                    ) : null
+                )}
+              </div>
+            </div>
+          ) : null}
           {t.TestSummaries.length > 0
             ? t.TestSummaries.map((t, i) => (
                 <div key={i}>

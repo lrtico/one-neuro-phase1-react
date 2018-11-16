@@ -60,13 +60,13 @@ const WizardForm37Page = props => {
             {
               cardName: "f-fight",
               cardKey: "A",
-              cardLabel: "Yes ",
+              cardLabel: "Yes",
               tabOrder: "4"
             },
             {
               cardName: "f-fight",
               cardKey: "B",
-              cardLabel: "No ",
+              cardLabel: "No",
               tabOrder: "5"
             }
           ]}
@@ -96,13 +96,13 @@ const WizardForm37Page = props => {
             {
               cardName: "f-younger-friends",
               cardKey: "A",
-              cardLabel: "Yes  ",
+              cardLabel: "Yes",
               tabOrder: "7"
             },
             {
               cardName: "f-younger-friends",
               cardKey: "B",
-              cardLabel: "No  ",
+              cardLabel: "No",
               tabOrder: "8"
             }
           ]}
@@ -132,13 +132,13 @@ const WizardForm37Page = props => {
             {
               cardName: "f-making-friends",
               cardKey: "A",
-              cardLabel: "Yes   ",
+              cardLabel: "Yes",
               tabOrder: "10"
             },
             {
               cardName: "f-making-friends",
               cardKey: "B",
-              cardLabel: "No   ",
+              cardLabel: "No",
               tabOrder: "11"
             }
           ]}
@@ -168,13 +168,13 @@ const WizardForm37Page = props => {
             {
               cardName: "f-alone",
               cardKey: "A",
-              cardLabel: "Yes    ",
+              cardLabel: "Yes",
               tabOrder: "13"
             },
             {
               cardName: "f-alone",
               cardKey: "B",
-              cardLabel: "No    ",
+              cardLabel: "No",
               tabOrder: "14"
             }
           ]}
@@ -204,13 +204,13 @@ const WizardForm37Page = props => {
             {
               cardName: "f-neighborhood-friends",
               cardKey: "A",
-              cardLabel: "Yes     ",
+              cardLabel: "Yes",
               tabOrder: "16"
             },
             {
               cardName: "f-neighborhood-friends",
               cardKey: "B",
-              cardLabel: "No     ",
+              cardLabel: "No",
               tabOrder: "17"
             }
           ]}

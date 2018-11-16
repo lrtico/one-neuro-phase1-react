@@ -148,13 +148,13 @@ const WizardForm27Page = props => {
             {
               cardName: "md-neurological-tranquilizer",
               cardKey: "A",
-              cardLabel: "Yes ",
+              cardLabel: "Yes",
               tabOrder: "16"
             },
             {
               cardName: "md-neurological-tranquilizer",
               cardKey: "B",
-              cardLabel: "No ",
+              cardLabel: "No",
               tabOrder: "17"
             }
           ]}
@@ -192,13 +192,13 @@ const WizardForm27Page = props => {
             {
               cardName: "md-neurological-adhd-meds",
               cardKey: "A",
-              cardLabel: "Yes  ",
+              cardLabel: "Yes",
               tabOrder: "20"
             },
             {
               cardName: "md-neurological-adhd-meds",
               cardKey: "B",
-              cardLabel: "No  ",
+              cardLabel: "No",
               tabOrder: "21"
             }
           ]}

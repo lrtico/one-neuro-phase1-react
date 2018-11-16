@@ -28,13 +28,13 @@ const WizardForm14Page = props => {
             {
               cardName: "mdh-planned-pregnancy",
               cardKey: "A",
-              cardLabel: "Yes ",
+              cardLabel: "Yes",
               tabOrder: "1"
             },
             {
               cardName: "mdh-planned-pregnancy",
               cardKey: "B",
-              cardLabel: "No ",
+              cardLabel: "No",
               tabOrder: "2"
             }
           ]}

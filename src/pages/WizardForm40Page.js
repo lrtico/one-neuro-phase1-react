@@ -93,13 +93,13 @@ const WizardForm40Page = props => {
           {
             cardName: "eh-kindergarten",
             cardKey: "A",
-            cardLabel: "Yes ",
+            cardLabel: "Yes",
             tabOrder: "8"
           },
           {
             cardName: "eh-kindergarten",
             cardKey: "B",
-            cardLabel: "No ",
+            cardLabel: "No",
             tabOrder: "9"
           }
         ]}
