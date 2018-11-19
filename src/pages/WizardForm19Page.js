@@ -25,35 +25,40 @@ const WizardForm19Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardName: "mdh-motor-skills-first-four",
+            cardNameCheckbox: "mdh-motor-skills-first-four",
+            cardNameDescription: "mdh-motor-skills-first-four-description",
             cardLabel: "Motor skills",
             liClasses: "question__choice--full-width",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardName: "mdh-temper-tantrum",
+            cardNameCheckbox: "mdh-temper-tantrum",
+            cardNameDescription: "mdh-temper-tantrum-description",
             cardLabel: "Temper trantrums",
             liClasses: "question__choice--full-width",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardName: "mdh-no-thrive-first-four",
+            cardNameCheckbox: "mdh-no-thrive-first-four",
+            cardNameDescription: "mdh-no-thrive-first-four-description",
             cardLabel: "Failure to thrive",
             liClasses: "question__choice--full-width",
             tabOrder: "3"
           },
           {
             cardKey: "D",
-            cardName: "mdh-separation-anxiety",
+            cardNameCheckbox: "mdh-separation-anxiety",
+            cardNameDescription: "mdh-separation-anxiety-description",
             cardLabel: "Separating from parents",
             liClasses: "question__choice--full-width",
             tabOrder: "4"
           },
           {
             cardKey: "E",
-            cardName: "mdh-excessive-crying",
+            cardNameCheckbox: "mdh-excessive-crying",
+            cardNameDescription: "mdh-excessive-crying-description",
             cardLabel: "Excessive crying",
             liClasses: "question__choice--full-width",
             tabOrder: "5"

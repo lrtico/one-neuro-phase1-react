@@ -22,21 +22,24 @@ const WizardForm29Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardName: "mdh-speech-stuttering",
+            cardNameCheckbox: "mdh-speech-stuttering",
+            cardNameDescription: "mdh-speech-stuttering-description",
             cardLabel: "Stuttering",
             liClasses: "question__choice--full-width",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardName: "mdh-speech-unclear",
+            cardNameCheckbox: "mdh-speech-unclear",
+            cardNameDescription: "mdh-speech-unclear-description",
             cardLabel: "Unclear speech",
             liClasses: "question__choice--full-width",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardName: "mdh-speech-other",
+            cardNameCheckbox: "mdh-speech-other",
+            cardNameDescription: "mdh-speech-other-description",
             cardLabel: "Other speech problems",
             liClasses: "question__choice--full-width",
             tabOrder: "3"

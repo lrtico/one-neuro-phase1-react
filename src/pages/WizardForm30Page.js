@@ -22,27 +22,30 @@ const WizardForm30Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardName: "mdh-hearing-ear-infection",
+            cardNameCheckbox: "mdh-hearing-ear-infection",
+            cardNameDescription: "mdh-hearing-ear-infection-description",
             cardLabel: "Ear infections",
             liClasses: "question__choice--full-width",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardName: "mdh-hearing-problems",
+            cardNameCheckbox: "mdh-hearing-problems",
+            cardNameDescription: "mdh-hearing-problems-description",
             cardLabel: "Hearing problems",
             liClasses: "question__choice--full-width",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardName: "mdh-hearing-tubes",
+            cardNameCheckbox: "mdh-hearing-tubes",
+            cardNameDescription: "mdh-hearing-tubes-description",
             cardLabel: "Ear tubes",
             liClasses: "question__choice--full-width",
             tabOrder: "3"
           }
         ]}
-        label="During this child"
+        label="Does this child"
         labelBold="currently"
         labelLast="have any of the following"
         name="mdh-hearing-group"

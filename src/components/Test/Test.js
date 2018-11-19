@@ -20,7 +20,7 @@ const Test = ({ testFromState, ...props }) => {
           </div>
           <div className="test-desc">
             <div>{ReactHtmlParser(t.Descriptions)}</div>
-            <hr />
+            {/* <hr /> */}
             {t.TestIndexes.map((t, i) => (
               <div key={i}>
                 {t.IndexName === "General Ability Index" ? (
@@ -136,42 +136,53 @@ const Test = ({ testFromState, ...props }) => {
                   <h6>{t.ParentGroupSubScaleName}</h6>
                   {t.ParentScaleTitles.map((t, i) => (
                     <div key={i}>
-                      <div className="flex has-toggle-child">
-                        <h6>{t.ParentScaleName}</h6>
-                        <Field
-                          name={`${
-                            t.Id
-                          }-${t.ParentScaleName.toLowerCase().replace(
-                            / /g,
-                            "-"
-                          )}`}
-                          type="checkbox"
-                          component="input"
-                        />
-                      </div>
-                      <div className="test-table">
-                        <div className="table__row table__header">
-                          <div>Subtest</div>
-                          <div>Score</div>
-                          <div>Description</div>
-                        </div>
-                        {t.SubTests.map((t, i) => (
-                          <div key={i} className="table__row">
-                            <div>{t.Name}</div>
-                            <div>
-                              <Field
-                                component="input"
-                                type="text"
-                                name={`${t.Id}-${t.Name.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-score`}
-                              />
-                            </div>
-                            <div>{t.Description}</div>
+                      {t.SubTests.length > 0 ? (
+                        <div>
+                          <div className="flex has-toggle-child">
+                            <h6>{t.ParentScaleName}</h6>
+                            <Field
+                              name={`${
+                                t.Id
+                              }-${t.ParentScaleName.toLowerCase().replace(
+                                / /g,
+                                "-"
+                              )}`}
+                              type="checkbox"
+                              component="input"
+                            />
                           </div>
-                        ))}
-                      </div>
+                          <div className="test-table">
+                            <div className="table__row table__header">
+                              <div>Subtest</div>
+                              <div>Score</div>
+                              <div>Description</div>
+                            </div>
+                            {t.SubTests.map((t, i) => (
+                              <div key={i} className="table__row">
+                                <div>{t.Name}</div>
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    name={`${
+                                      t.Id
+                                    }-${t.Name.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-score`}
+                                  />
+                                </div>
+                                <div>{t.Description}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <h6>{t.ParentScaleName}</h6>
+                          <p>{t.ParentScaleDescription}</p>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

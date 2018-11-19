@@ -21,21 +21,24 @@ const WizardForm28Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardName: "mdh-allergies-medicine",
+            cardNameCheckbox: "mdh-allergies-medicine",
+            cardNameDescription: "mdh-allergies-medicine-description",
             cardLabel: "Allergies to medicine",
             liClasses: "question__choice--full-width",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardName: "mdh-allergies-food",
+            cardNameCheckbox: "mdh-allergies-food",
+            cardNameDescription: "mdh-allergies-food-description",
             cardLabel: "Allergies to food",
             liClasses: "question__choice--full-width",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardName: "mdh-allergies-other",
+            cardNameCheckbox: "mdh-allergies-other",
+            cardNameDescription: "mdh-allergies-other-description",
             cardLabel: "Other allergies",
             liClasses: "question__choice--full-width",
             tabOrder: "3"

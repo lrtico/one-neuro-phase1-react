@@ -22,20 +22,22 @@ const WizardForm31Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardName: "mdh-vision-problems",
+            cardNameCheckbox: "mdh-vision-problems",
+            cardNameDescription: "mdh-vision-problems-description",
             cardLabel: "Vision problems",
             liClasses: "question__choice--full-width",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardName: "mdh-glasses",
+            cardNameCheckbox: "mdh-glasses",
+            cardNameDescription: "mdh-glasses-description",
             cardLabel: "Wears glasses or contacts",
             liClasses: "question__choice--full-width",
             tabOrder: "2"
           }
         ]}
-        label="During this child"
+        label="Does this child"
         labelBold="currently"
         labelLast="have any of the following"
         name="mdh-hearing-group"

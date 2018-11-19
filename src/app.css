@@ -373,6 +373,7 @@ textarea {
   bottom: 0;
   opacity: 0;
   cursor: pointer;
+  z-index: 1;
 }
 
 /**
@@ -530,7 +531,7 @@ h4 {
   font-family: "Montserrat", sans-serif;
   font-size: 21px;
   font-size: 2.1rem;
-  margin-bottom: 21px;
+  margin-bottom: 18px;
   text-transform: uppercase;
 }
 
@@ -686,7 +687,7 @@ textarea {
 
 /* Domain-based tests */
 .test-desc {
-  margin-bottom: 108px;
+  margin-bottom: 45px;
 }
 
 .test-desc hr {
@@ -747,12 +748,12 @@ form .test-table {
   display: flex;
   font-size: 16px;
   font-size: 1.6rem;
-  margin: 18px 0 0;
+  margin: 12px 0 0;
   padding-bottom: 18px;
 }
 
 .table__row.table__header {
-  border-top: 1px solid #a3a3a3;
+  /* border-top: 1px solid #a3a3a3; */
   border-bottom: 1px solid #a3a3a3;
   font-size: 18px;
   font-size: 1.8rem;

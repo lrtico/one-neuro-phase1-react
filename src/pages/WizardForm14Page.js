@@ -1,10 +1,11 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, FieldArray } from "redux-form";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
+import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import Button from "../components/Button";
 import ButtonToggle from "../components/ButtonToggle";
 
@@ -108,8 +109,8 @@ const WizardForm14Page = props => {
           classes="question question--thumbless question--numbers"
         />
       </div>
-      <Field
-        component={DescriptionCheckboxCard}
+      <FieldArray
+        component={CheckboxCard}
         checkboxInfo={[
           {
             cardKey: "A",
@@ -178,13 +179,6 @@ const WizardForm14Page = props => {
             tabOrder: "21"
           },
           {
-            cardKey: "L",
-            cardName: "mdh-pregnancy-other",
-            cardLabel: "Other",
-            tabOrder: "22",
-            cardDescription: "mdh-other-description"
-          },
-          {
             cardKey: "B",
             cardName: "mdh-pregnancy-injury",
             cardLabel: "Maternal injury",
@@ -197,6 +191,24 @@ const WizardForm14Page = props => {
         labelLast="that occured during pregnancy"
         name="mdh-complications-pregnancy-group"
         classes="question question--thumbless"
+      />
+      <Field
+        component={DescriptionCheckboxCard}
+        checkboxInfo={[
+          {
+            cardKey: "B",
+            cardLabel: "Other",
+            tabOrder: "35",
+            cardNameCheckbox: "mdh-other-complication",
+            cardNameDescription: "mdh-other-complication-description"
+          }
+        ]}
+        label="Any other"
+        labelBold="complications"
+        labelLast="during pregnancy"
+        name="mdh-complications-pregnancy-group"
+        classes="question question--thumbless question__choice--full-width"
+        type="text"
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

@@ -24,7 +24,6 @@ const DescriptionCheckboxCard = ({
   classes,
   liClasses,
   cardName,
-  cardNameDescription,
   meta: { touched, error }
 }) => {
   return (
@@ -50,12 +49,6 @@ const DescriptionCheckboxCard = ({
               tabIndex={card.tabOrder}
               onClick={handleTick}
             >
-              <Field
-                name={card.cardNameCheckbox}
-                type="checkbox"
-                component="input"
-              />
-
               <div className="question__tick-wrap">
                 <MaterialIcon icon="check" />
               </div>
@@ -72,7 +65,7 @@ const DescriptionCheckboxCard = ({
                 </div>
                 <div className="question__text-label">{card.cardLabel}</div>
                 <Field
-                  name={card.cardNameDescription}
+                  name={card.cardName}
                   component="input"
                   type="text"
                   // onClick={handleTextboxTick}

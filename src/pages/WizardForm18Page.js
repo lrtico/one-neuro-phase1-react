@@ -24,77 +24,88 @@ const WizardForm18Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardName: "mdh-walking-difficulty",
+            cardNameCheckbox: "mdh-walking-difficulty",
+            cardNameDescription: "mdh-walking-difficulty-description",
             cardLabel: "Walking difficulty",
             liClasses: "question__choice--full-width",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardName: "mdh-unclear-speech",
+            cardNameCheckbox: "mdh-unclear-speech",
+            cardNameDescription: "mdh-unclear-speech-description",
             cardLabel: "Unclear speech",
             liClasses: "question__choice--full-width",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardName: "mdh-feeding-problem",
+            cardNameCheckbox: "mdh-feeding-problem",
+            cardNameDescription: "mdh-feeding-problem-description",
             cardLabel: "Feeding problem",
             liClasses: "question__choice--full-width",
             tabOrder: "3"
           },
           {
             cardKey: "D",
-            cardName: "mdh-underweight-problem",
+            cardNameCheckbox: "mdh-underweight-problem",
+            cardNameDescription: "mdh-underweight-problem-description",
             cardLabel: "Underweight problem",
             liClasses: "question__choice--full-width",
             tabOrder: "4"
           },
           {
             cardKey: "E",
-            cardName: "mdh-overweight-problem",
+            cardNameCheckbox: "mdh-overweight-problem",
+            cardNameDescription: "mdh-overweight-problem-description",
             cardLabel: "Overweight problem",
             liClasses: "question__choice--full-width",
             tabOrder: "5"
           },
           {
             cardKey: "F",
-            cardName: "mdh-colic",
+            cardNameCheckbox: "mdh-colic",
+            cardNameDescription: "mdh-colic-description",
             cardLabel: "Colic",
             liClasses: "question__choice--full-width",
             tabOrder: "6"
           },
           {
             cardKey: "G",
-            cardName: "mdh-sleep-problem",
+            cardNameCheckbox: "mdh-sleep-problem",
+            cardNameDescription: "mdh-sleep-problem-description",
             cardLabel: "Sleep problem",
             liClasses: "question__choice--full-width",
             tabOrder: "7"
           },
           {
             cardKey: "H",
-            cardName: "mdh-eating-problem",
+            cardNameCheckbox: "mdh-eating-problem",
+            cardNameDescription: "mdh-eating-problem-description",
             cardLabel: "Eating problem",
             liClasses: "question__choice--full-width",
             tabOrder: "8"
           },
           {
             cardKey: "I",
-            cardName: "mdh-learing-ride-bike",
+            cardNameCheckbox: "mdh-learing-ride-bike",
+            cardNameDescription: "mdh-learing-ride-bike-description",
             cardLabel: "Difficulty learning to ride a bike",
             liClasses: "question__choice--full-width",
             tabOrder: "9"
           },
           {
             cardKey: "J",
-            cardName: "mdh-learning-skip",
+            cardNameCheckbox: "mdh-learning-skip",
+            cardNameDescription: "mdh-learning-skip-description",
             cardLabel: "Difficulty learning how to skip",
             liClasses: "question__choice--full-width",
             tabOrder: "10"
           },
           {
             cardKey: "K",
-            cardName: "mdh-learning-throw-catch",
+            cardNameCheckbox: "mdh-learning-throw-catch",
+            cardNameDescription: "mdh-learning-throw-catch-description",
             cardLabel: "Difficulty learning to throw or catch",
             liClasses: "question__choice--full-width",
             tabOrder: "11"

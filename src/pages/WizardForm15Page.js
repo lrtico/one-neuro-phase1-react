@@ -5,7 +5,6 @@ import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
-import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import Button from "../components/Button";
 import ButtonToggle from "../components/ButtonToggle";
 import TextQuestion from "../components/TextQuestion";
@@ -325,29 +324,6 @@ const WizardForm15Page = props => {
           classes="question question--thumbless"
         />
       </div>
-      <Field
-        component={DescriptionCheckboxCard}
-        checkboxInfo={[
-          {
-            cardKey: "A",
-            cardLabel: "Maternal injury",
-            tabOrder: "31",
-            cardName: "mdh-maternal-injury-description"
-          },
-          {
-            cardKey: "B",
-            cardLabel: "Other",
-            tabOrder: "32",
-            cardName: "mdh-other-complication-description"
-          }
-        ]}
-        label="Check any of the following"
-        labelBold="complications"
-        labelLast="that occured during pregnancy"
-        name="mdh-complications-pregnancy-group"
-        classes="question question--thumbless"
-        type="text"
-      />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>
