@@ -275,18 +275,53 @@ const Test = ({ testFromState, ...props }) => {
                 </div>
               ))
             : null}
-          {t.TestScoringTableDetails !== null ? (
-            <div className="test-table">
-              <div className="table__row table__header">
-                {t.TableHeaderRowTitles.map(
-                  t =>
-                    t.HeaderLabel !== null ? (
-                      <div key={t.Id}>{t.HeaderLabel}</div>
-                    ) : null
-                )}
-              </div>
-            </div>
-          ) : null}
+          {t.TestScoringTableDetails !== null
+            ? t.TestScoringTableDetails.map(t => (
+                <div key={t.Id} className="test-table test-table--fourCols">
+                  <div className="table__row table__header">
+                    <div>{t.TableHeaderRowTitles.Col1}</div>
+                    <div>{t.TableHeaderRowTitles.Col2}</div>
+                    <div>{t.TableHeaderRowTitles.Col3}</div>
+                    <div>{t.TableHeaderRowTitles.Col4}</div>
+                  </div>
+                  {t.TestScoringTableScores.map(t => (
+                    <div key={t.Id} className="table__row">
+                      <div>{t.Col1}</div>
+                      <div>
+                        <Field
+                          component="input"
+                          type="text"
+                          name={`${t.Id}-${t.Col1.toLowerCase().replace(
+                            / /g,
+                            "-"
+                          )}-percentile`}
+                        />
+                      </div>
+                      <div>
+                        <Field
+                          component="input"
+                          type="text"
+                          name={`${t.Id}-${t.Col1.toLowerCase().replace(
+                            / /g,
+                            "-"
+                          )}-age-level`}
+                        />
+                      </div>
+                      <div>
+                        <Field
+                          component="input"
+                          type="text"
+                          name={`${t.Id}-${t.Col1.toLowerCase().replace(
+                            / /g,
+                            "-"
+                          )}-grade-level`}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))
+            : null}
           {t.TestSummaries.length > 0
             ? t.TestSummaries.map((t, i) => (
                 <div key={i}>

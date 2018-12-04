@@ -831,6 +831,21 @@ form .test-table {
   width: 14.28vw;
 }
 
+.test-table.test-table--fourCols .table__row.table__header div:first-child,
+.test-table.test-table--fourCols .table__row div:first-child {
+  width: 21.42vw;
+}
+
+.test-table.test-table--fourCols .table__row.table__header div:nth-child(2),
+.test-table.test-table--fourCols .table__row div:nth-child(2) {
+  width: 14.28vw;
+}
+
+.test-table.test-table--fourCols .table__row.table__header div:nth-child(3),
+.test-table.test-table--fourCols .table__row div:nth-child(3) {
+  width: 14.28vw;
+}
+
 /* CSS show hide visibility method in React */
 .wrap {
   opacity: 0;

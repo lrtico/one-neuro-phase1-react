@@ -26,7 +26,7 @@ h6 {
 }
 
 .has-toggle-child input {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 0, 0, 0.8);
   border-radius: 50%;
   height: 20px;
   margin-left: 9px;
@@ -50,7 +50,7 @@ h6 {
   top: 3px;
   width: 5px;
   height: 10px;
-  border: solid #474747;
+  border: solid white;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -58,4 +58,7 @@ h6 {
 }
 .has-toggle-child input:hover {
   background-color: rgba(0, 0, 0, 0.4);
+}
+.has-toggle-child input:checked {
+  background-color: #13b913;
 }
