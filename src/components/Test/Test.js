@@ -68,7 +68,19 @@ const Test = ({ testFromState, ...props }) => {
               ? t.ParentScaleTitles.map((t, i) => (
                   <div key={i}>
                     <div className="test-table-heading">
-                      <SectionSubHeader subHeader={t.ParentScaleName} />
+                      <div className="flex has-toggle-child">
+                        <h6 className="h7">{t.ParentScaleName}</h6>
+                        <Field
+                          name={`${
+                            t.Id
+                          }-${t.ParentScaleName.toLowerCase().replace(
+                            / /g,
+                            "-"
+                          )}`}
+                          type="checkbox"
+                          component="input"
+                        />
+                      </div>
                       {t.ParentScaleDescription !== null ? (
                         <div className="test__list">
                           {ReactHtmlParser(t.ParentScaleDescription)}
@@ -139,7 +151,7 @@ const Test = ({ testFromState, ...props }) => {
                       {t.SubTests.length > 0 ? (
                         <div>
                           <div className="flex has-toggle-child">
-                            <h6>{t.ParentScaleName}</h6>
+                            <h6 className="h7">{t.ParentScaleName}</h6>
                             <Field
                               name={`${
                                 t.Id
@@ -151,6 +163,7 @@ const Test = ({ testFromState, ...props }) => {
                               component="input"
                             />
                           </div>
+                          <p>{t.ParentScaleDescription}</p>
                           <div className="test-table">
                             <div className="table__row table__header">
                               <div>Subtest</div>
@@ -196,13 +209,26 @@ const Test = ({ testFromState, ...props }) => {
                   {t.ParentScaleTitles.map((t, i) => (
                     <div key={i}>
                       <div>
-                        <h6>{t.ParentScaleName}</h6>
+                        <div className="flex has-toggle-child">
+                          <h6 className="h7">{t.ParentScaleName}</h6>
+                          <Field
+                            name={`${
+                              t.Id
+                            }-${t.ParentScaleName.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}`}
+                            type="checkbox"
+                            component="input"
+                          />
+                        </div>
+                        <p>{t.ParentScaleDescription}</p>
                       </div>
                       <div className="test-table">
                         <div className="table__row table__header">
                           <div>Scale</div>
                           <div>Score</div>
-                          <div>Common Characteristics of High Scorers</div>
+                          <div>Description</div>
                         </div>
                         {t.SubTests.map((t, i, ParentScaleName) => (
                           <div key={i} className="table__row">
@@ -219,7 +245,7 @@ const Test = ({ testFromState, ...props }) => {
                                 )}-score`}
                               />
                             </div>
-                            <div>{t.Description}</div>
+                            <div>{ReactHtmlParser(t.Description)}</div>
                           </div>
                         ))}
                       </div>

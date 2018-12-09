@@ -9,9 +9,18 @@ h5 {
 h6 {
   color: #444;
   font-family: "Montserrat", sans-serif;
+  font-size: 21px;
+  font-size: 2.1rem;
+  margin: 0 0 21px;
+  text-transform: uppercase;
+}
+
+.h7 {
+  color: #666;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-size: 1.8rem;
-  margin: 0 0 21px;
+  margin: 0px;
   text-transform: uppercase;
 }
 

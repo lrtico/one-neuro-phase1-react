@@ -152,6 +152,7 @@ class WizardForm47Page extends Component {
       })
       .then(d => {
         this.setState({ tests: d });
+        console.log("Test data from API, ", allData);
       })
       .catch(error => console.log("Getting all data error, ", error));
   }
