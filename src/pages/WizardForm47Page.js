@@ -12,6 +12,14 @@ import CheckboxTestsCard from "../components/Card/CheckboxCard/CheckboxTestsCard
 import DivButton from "../components/Button/DivButton";
 import Test from "../components/Test/Test";
 import DomainsLoading from "../components/Loading/DomainsLoading";
+import store from "../store";
+// import { addTest } from "../actions/actions";
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addTest: testsSelected => dispatch(addTest(testsSelected))
+//   };
+// };
 
 class WizardForm47Page extends Component {
   state = {
@@ -125,6 +133,10 @@ class WizardForm47Page extends Component {
         );
         let selectedTest = tests.filter(t => t.Abbreviation === test);
         console.log("selected test filtered =, ", selectedTest);
+        store.dispatch({
+          type: "ADD_TEST",
+          payload: testsSelected
+        });
         return [testsSelected.push(selectedTest[0])];
       }
     });
@@ -378,21 +390,25 @@ class WizardForm47Page extends Component {
 
 // Decorate with connect to read form values
 const selector = formValueSelector("wizard"); // <-- same as form name
-WizardForm47Page = connect(state => {
-  // select values individually
-  const patientName = selector(state, "di-name");
-  const patientAge = selector(state, "di-age");
-  const referral1 = selector(state, "reason-referral-1");
-  const referral2 = selector(state, "reason-referral-2");
-  const referral3 = selector(state, "reason-referral-3");
-  return {
-    patientName,
-    patientAge,
-    referral1,
-    referral2,
-    referral3
-  };
-})(WizardForm47Page);
+WizardForm47Page = connect(
+  //null,
+  //mapDispatchToProps,
+  state => {
+    // select values individually
+    const patientName = selector(state, "di-name");
+    const patientAge = selector(state, "di-age");
+    const referral1 = selector(state, "reason-referral-1");
+    const referral2 = selector(state, "reason-referral-2");
+    const referral3 = selector(state, "reason-referral-3");
+    return {
+      patientName,
+      patientAge,
+      referral1,
+      referral2,
+      referral3
+    };
+  }
+)(WizardForm47Page);
 
 export default reduxForm({
   form: "wizard", //                 <------ same form name

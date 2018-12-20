@@ -699,8 +699,8 @@ textarea {
 }
 
 .test-desc p {
-  line-height: 32px;
-  line-height: 3.2rem;
+  line-height: 24px;
+  line-height: 2.4rem;
 }
 
 .test-desc h5 {
@@ -766,7 +766,9 @@ form .test-table {
 .test-table .table__row.table__header div:nth-child(2),
 .test-table .table__row div:nth-child(2),
 .test-table.test-table--appendix .table__row.table__header div:nth-child(3),
-.test-table.test-table--appendix .table__row div:nth-child(3) {
+.test-table.test-table--appendix .table__row div:nth-child(3),
+.test-table.test-table--appendix .table__row.table__header div:nth-child(4),
+.test-table.test-table--appendix .table__row div:nth-child(4) {
   padding-right: 36px;
 }
 
@@ -833,16 +835,31 @@ form .test-table {
 
 .test-table.test-table--fourCols .table__row.table__header div:first-child,
 .test-table.test-table--fourCols .table__row div:first-child {
+  flex: 1 1 auto;
   width: 21.42vw;
 }
 
 .test-table.test-table--fourCols .table__row.table__header div:nth-child(2),
 .test-table.test-table--fourCols .table__row div:nth-child(2) {
+  flex: 1 1 auto;
   width: 14.28vw;
 }
 
 .test-table.test-table--fourCols .table__row.table__header div:nth-child(3),
 .test-table.test-table--fourCols .table__row div:nth-child(3) {
+  flex: 1 1 auto;
+  width: 14.28vw;
+}
+
+.test-table.test-table--fourCols .table__row.table__header div:nth-child(4),
+.test-table.test-table--fourCols .table__row div:nth-child(4) {
+  flex: 1 1 auto;
+  width: 14.28vw;
+}
+
+.test-table.test-table--fourCols .table__row.table__header div:nth-child(5),
+.test-table.test-table--fourCols .table__row div:nth-child(5) {
+  flex: 1 1 auto;
   width: 14.28vw;
 }
 

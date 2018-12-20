@@ -19,7 +19,9 @@ const Test = ({ testFromState, ...props }) => {
             <ButtonToggle buttonToggleLabel="Remove test" />
           </div>
           <div className="test-desc">
-            <div>{ReactHtmlParser(t.Descriptions)}</div>
+            <div style={{ marginBottom: "9px" }}>
+              {ReactHtmlParser(t.Descriptions)}
+            </div>
             {/* <hr /> */}
             {t.TestIndexes.map((t, i) => (
               <div key={i}>
@@ -108,7 +110,7 @@ const Test = ({ testFromState, ...props }) => {
                               )}-score`}
                             />
                           </div>
-                          <div>{t.Description}</div>
+                          <div>{ReactHtmlParser(t.Description)}</div>
                         </div>
                       ))}
                     </div>
@@ -143,6 +145,62 @@ const Test = ({ testFromState, ...props }) => {
           {t.ParentGroupScales.map(t => (
             <div key={t.Id}>
               <h5>{t.ParentGroupScaleName}</h5>
+              {t.ParentScaleTitles.length > 0
+                ? t.ParentScaleTitles.map(t => (
+                    <div key={t.Id}>
+                      {t.SubTests.length > 0 ? (
+                        <div>
+                          <div className="flex has-toggle-child">
+                            <h6 className="h7">{t.ParentScaleName}</h6>
+                            <Field
+                              name={`${
+                                t.Id
+                              }-${t.ParentScaleName.toLowerCase().replace(
+                                / /g,
+                                "-"
+                              )}`}
+                              type="checkbox"
+                              component="input"
+                            />
+                          </div>
+                          {t.ParentScaleDescription == null ? null : (
+                            <p>{t.ParentScaleDescription}</p>
+                          )}
+                          <div className="test-table">
+                            <div className="table__row table__header">
+                              <div>Scale</div>
+                              <div>Score</div>
+                              <div>Description</div>
+                            </div>
+                            {t.SubTests.map((t, i) => (
+                              <div key={i} className="table__row">
+                                <div>{t.Name}</div>
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    name={`${
+                                      t.Id
+                                    }-${t.Name.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-score`}
+                                  />
+                                </div>
+                                <div>{t.Description}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <h6>{t.ParentScaleName}</h6>
+                          <p>{t.ParentScaleDescription}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))
+                : null}
               {t.ParentGroupSubScales.map((t, i) => (
                 <div key={i}>
                   <h6>{t.ParentGroupSubScaleName}</h6>
@@ -269,11 +327,31 @@ const Test = ({ testFromState, ...props }) => {
                           <SectionSubHeader
                             subHeader={t.ParentGroupScaleName}
                           />
+                          <div className="test-table-heading">
+                            <div className="flex has-toggle-child">
+                              <h6 className="h7">{t.ParentScaleName}</h6>
+                              <Field
+                                name={`${
+                                  t.Id
+                                }-${t.ParentScaleName.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}`}
+                                type="checkbox"
+                                component="input"
+                              />
+                            </div>
+                            {t.ParentScaleDescription !== null ? (
+                              <div className="test__list">
+                                {ReactHtmlParser(t.ParentScaleDescription)}
+                              </div>
+                            ) : null}
+                          </div>
                           <div className="test-table">
                             <div className="table__row table__header">
                               <div>Scale</div>
                               <div>Score</div>
-                              <div>Common Characteristics of High Scorers</div>
+                              <div>Description</div>
                             </div>
                             {t.SubTests.map((t, i) => (
                               <div key={i} className="table__row">
@@ -304,45 +382,43 @@ const Test = ({ testFromState, ...props }) => {
           {t.TestScoringTableDetails !== null
             ? t.TestScoringTableDetails.map(t => (
                 <div key={t.Id} className="test-table test-table--fourCols">
+                  <div className="flex has-toggle-child">
+                    <h6 className="h7">{t.Name}</h6>
+                  </div>
+                  <p>{t.Description}</p>
+                  {t.ScoreHeader == null ? null : <p>{t.ScoreHeader}</p>}
                   <div className="table__row table__header">
-                    <div>{t.TableHeaderRowTitles.Col1}</div>
-                    <div>{t.TableHeaderRowTitles.Col2}</div>
-                    <div>{t.TableHeaderRowTitles.Col3}</div>
-                    <div>{t.TableHeaderRowTitles.Col4}</div>
+                    {t.TableHeaderRowTitles.Col1 == null ? (
+                      <div />
+                    ) : (
+                      <div>{t.TableHeaderRowTitles.Col1}</div>
+                    )}
+                    {t.TableHeaderRowTitles.Col2 == null ? (
+                      <div />
+                    ) : (
+                      <div>{t.TableHeaderRowTitles.Col2}</div>
+                    )}
+                    {t.TableHeaderRowTitles.Col3 == null ? (
+                      <div />
+                    ) : (
+                      <div>{t.TableHeaderRowTitles.Col3}</div>
+                    )}
+                    {t.TableHeaderRowTitles.Col4 == null ? (
+                      <div />
+                    ) : (
+                      <div>{t.TableHeaderRowTitles.Col4}</div>
+                    )}
+                    {t.TableHeaderRowTitles.Col5 == null ? null : (
+                      <div>{t.TableHeaderRowTitles.Col5}</div>
+                    )}
                   </div>
                   {t.TestScoringTableScores.map(t => (
                     <div key={t.Id} className="table__row">
-                      <div>{t.Col1}</div>
-                      <div>
-                        <Field
-                          component="input"
-                          type="text"
-                          name={`${t.Id}-${t.Col1.toLowerCase().replace(
-                            / /g,
-                            "-"
-                          )}-percentile`}
-                        />
-                      </div>
-                      <div>
-                        <Field
-                          component="input"
-                          type="text"
-                          name={`${t.Id}-${t.Col1.toLowerCase().replace(
-                            / /g,
-                            "-"
-                          )}-age-level`}
-                        />
-                      </div>
-                      <div>
-                        <Field
-                          component="input"
-                          type="text"
-                          name={`${t.Id}-${t.Col1.toLowerCase().replace(
-                            / /g,
-                            "-"
-                          )}-grade-level`}
-                        />
-                      </div>
+                      {t.Col1 == null ? <div /> : <div>{t.Col1}</div>}
+                      {t.Col2 == null ? <div /> : <div>{t.Col2}</div>}
+                      {t.Col3 == null ? <div /> : <div>{t.Col3}</div>}
+                      {t.Col4 == null ? <div /> : <div>{t.Col4}</div>}
+                      {t.Col5 == null ? null : <div>{t.Col5}</div>}
                     </div>
                   ))}
                 </div>

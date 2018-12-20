@@ -5,15 +5,18 @@ import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import SectionSubTitle from "../components/SectionSubTitle";
 import Button from "../components/Button";
+import Appendix from "../components/Test/Appendix";
 
 const WizardForm50Page = props => {
   const { handleSubmit } = props;
+  console.log("Wizard50 props, ", props);
   return (
     <form className="col" onSubmit={handleSubmit}>
+      <Appendix />
       <SectionTitle titleBold="Appendix" titleRegular="of scores" />
       <SectionSubTitle
-        subTitleFirst="General Intelligence &amp; Overall Cognitive"
-        subTitleBold="Functioning"
+        subTitleFirst="Intelligence"
+        //subTitleBold="Functioning"
       />
       <SectionSubHeader subHeader="WECHSLER INTELLIGENCE SCALE FOR CHILDREN, FIFTH EDITION (WISC-V)" />
       <div className="test-table test-table--appendix">
@@ -48,17 +51,17 @@ const WizardForm50Page = props => {
           <div>Very high</div>
         </div>
       </div>
-      <SectionSubTitle subTitleFirst="Verbal &amp; Language-Mediated Tasks &amp; Abilities" />
-      <SectionSubHeader subHeader="WISC-V VERBAL COMPREHENSION SUBTESTS SCORE SUMMARY" />
+      <SectionSubTitle subTitleFirst="Autism" />
+      <SectionSubHeader subHeader="Childhood Autism Rating Scale (CARS-2)" />
       <div className="test-table test-table--appendix">
         <div className="table__row table__header">
-          <div>Index</div>
+          <div>Item</div>
           <div>Scaled Score</div>
           <div>% Rank</div>
           <div>Range</div>
         </div>
         <div className="table__row">
-          <div>Verbal Comprehension</div>
+          <div>Relating to People</div>
           <div>
             <input type="text" name="testname-score" />
           </div>
@@ -66,7 +69,7 @@ const WizardForm50Page = props => {
           <div>Low average</div>
         </div>
         <div className="table__row">
-          <div>Visual Spatial</div>
+          <div>Imitation</div>
           <div>
             <input type="text" name="testname-score" />
           </div>
@@ -74,7 +77,7 @@ const WizardForm50Page = props => {
           <div>Average</div>
         </div>
         <div className="table__row">
-          <div>Fluid Reasoning</div>
+          <div>Body Use</div>
           <div>
             <input type="text" name="testname-score" />
           </div>
@@ -83,16 +86,16 @@ const WizardForm50Page = props => {
         </div>
       </div>
 
-      <SectionSubHeader subHeader="WECHSLER INDIVIDUAL ACHIEVEMENT TEST, THIRD EDITION (WIAT-III)" />
+      <SectionSubHeader subHeader="Comprehensive Test of Nonverbal Intelligence - Second Edition (CTONI-2)" />
       <div className="test-table test-table--appendix">
         <div className="table__row table__header">
-          <div>Index</div>
+          <div>Subtest</div>
           <div>Scaled Score</div>
           <div>% Rank</div>
           <div>Range</div>
         </div>
         <div className="table__row">
-          <div>Verbal Comprehension</div>
+          <div>Pictorial Analogies</div>
           <div>
             <input type="text" name="testname-score" />
           </div>
@@ -100,7 +103,7 @@ const WizardForm50Page = props => {
           <div>Low average</div>
         </div>
         <div className="table__row">
-          <div>Visual Spatial</div>
+          <div>Geometric Analogies</div>
           <div>
             <input type="text" name="testname-score" />
           </div>
@@ -108,7 +111,7 @@ const WizardForm50Page = props => {
           <div>Average</div>
         </div>
         <div className="table__row">
-          <div>Fluid Reasoning</div>
+          <div>Pictorial Categories</div>
           <div>
             <input type="text" name="testname-score" />
           </div>
