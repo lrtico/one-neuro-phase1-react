@@ -108,6 +108,12 @@ class WizardForm47Page extends Component {
   };
 
   showFilteredTest = test => {
+    let selectedTest = this.state.tests.filter(t => t.Abbreviation === test);
+    store.dispatch({
+      type: "ADD_TEST",
+      payload: selectedTest[0]
+    });
+
     console.log("Make show test go now!", test);
     this.setState(({ testsSelected, tests, ...state }) => {
       const idx = testsSelected.map(t => t.Abbreviation).indexOf(test);
@@ -131,12 +137,6 @@ class WizardForm47Page extends Component {
           "The abbreviation clicked isn't in the testsSelected array so make add now! ",
           this.state.testsSelected
         );
-        let selectedTest = tests.filter(t => t.Abbreviation === test);
-        console.log("selected test filtered =, ", selectedTest);
-        store.dispatch({
-          type: "ADD_TEST",
-          payload: testsSelected
-        });
         return [testsSelected.push(selectedTest[0])];
       }
     });

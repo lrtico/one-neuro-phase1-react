@@ -25,6 +25,10 @@ h6 {
   text-transform: uppercase;
 }
 
+.test-desc .test-table-heading .h7 span {
+  text-transform: capitalize;
+}
+
 .domain__test p,
 .domain__test {
   font-size: 21px;

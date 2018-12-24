@@ -8,7 +8,7 @@ import ButtonToggle from "../ButtonToggle";
 import MaterialIcon from "react-google-material-icons";
 
 const Test = ({ testFromState, ...props }) => {
-  console.log("testsSelected props, ", props);
+  console.log("testsSelected props, ", testFromState);
   return (
     <div>
       {testFromState.map((t, i) => (
@@ -22,7 +22,6 @@ const Test = ({ testFromState, ...props }) => {
             <div style={{ marginBottom: "9px" }}>
               {ReactHtmlParser(t.Descriptions)}
             </div>
-            {/* <hr /> */}
             {t.TestIndexes.map((t, i) => (
               <div key={i}>
                 {t.IndexName === "General Ability Index" ? (
@@ -71,7 +70,9 @@ const Test = ({ testFromState, ...props }) => {
                   <div key={i}>
                     <div className="test-table-heading">
                       <div className="flex has-toggle-child">
-                        <h6 className="h7">{t.ParentScaleName}</h6>
+                        <h6 className="h7">
+                          {ReactHtmlParser(t.ParentScaleName)}
+                        </h6>
                         <Field
                           name={`${
                             t.Id
@@ -91,7 +92,7 @@ const Test = ({ testFromState, ...props }) => {
                     </div>
                     <div className="test-table">
                       <div className="table__row table__header">
-                        <div>Subtest</div>
+                        <div>{testFromState[0].SubTestType}</div>
                         <div>Score</div>
                         <div>Description</div>
                       </div>
@@ -120,7 +121,7 @@ const Test = ({ testFromState, ...props }) => {
             {t.SubTests.length > 0 ? (
               <div className="test-table">
                 <div className="table__row table__header">
-                  <div>Subtest</div>
+                  <div>{testFromState[i].SubTestType}</div>
                   <div>Score</div>
                   <div>Description</div>
                 </div>
@@ -168,7 +169,7 @@ const Test = ({ testFromState, ...props }) => {
                           )}
                           <div className="test-table">
                             <div className="table__row table__header">
-                              <div>Scale</div>
+                              <div>{testFromState[i].SubTestType}</div>
                               <div>Score</div>
                               <div>Description</div>
                             </div>
@@ -224,7 +225,7 @@ const Test = ({ testFromState, ...props }) => {
                           <p>{t.ParentScaleDescription}</p>
                           <div className="test-table">
                             <div className="table__row table__header">
-                              <div>Subtest</div>
+                              <div>{testFromState[0].SubTestType}</div>
                               <div>Score</div>
                               <div>Description</div>
                             </div>
@@ -243,7 +244,7 @@ const Test = ({ testFromState, ...props }) => {
                                     )}-score`}
                                   />
                                 </div>
-                                <div>{t.Description}</div>
+                                <div>{ReactHtmlParser(t.Description)}</div>
                               </div>
                             ))}
                           </div>
@@ -284,7 +285,7 @@ const Test = ({ testFromState, ...props }) => {
                       </div>
                       <div className="test-table">
                         <div className="table__row table__header">
-                          <div>Scale</div>
+                          <div>{testFromState[0].SubTestType}</div>
                           <div>Score</div>
                           <div>Description</div>
                         </div>
@@ -349,7 +350,7 @@ const Test = ({ testFromState, ...props }) => {
                           </div>
                           <div className="test-table">
                             <div className="table__row table__header">
-                              <div>Scale</div>
+                              <div>{testFromState[0].SubTestType}</div>
                               <div>Score</div>
                               <div>Description</div>
                             </div>
