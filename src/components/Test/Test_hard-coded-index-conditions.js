@@ -8,56 +8,6 @@ import ButtonToggle from "../ButtonToggle";
 import MaterialIcon from "react-google-material-icons";
 // import HtmlParser from "react-html-parser/lib/HtmlParser";
 
-const replaceField = (condition, idx, a) => {
-  //Redux Form can't parse embedded <Field>s so we have to construct
-  //our own string including Field componentsand return it to the UI
-  let str = condition;
-  let i = idx;
-  let abbr = a;
-  console.log(`
-    *** The replaceField() string passed in is ${str}.
-    The id of the clicked test condition is ${i}.
-    The Abbreviation is ${abbr}.
-  `);
-
-  //Strip out the first part of the condition string to capture the name of the test
-  let output = str.substring(0, str.indexOf("<"));
-
-  let score = (
-    <Field
-      name={`${i}-${a.toLowerCase()}-fsiq-score`}
-      type="text"
-      component="input"
-    />
-  );
-  let percentile = (
-    <Field
-      name={`${i}-${a.toLowerCase()}-fsiq-percentile`}
-      type="text"
-      component="input"
-    />
-  );
-  let rank = (
-    <Field
-      name={`${i}-${a.toLowerCase()}-fsiq-rank`}
-      type="text"
-      component="input"
-    />
-  );
-
-  return (
-    <span>
-      {output}
-      {score}
-      {", ("}
-      {percentile}
-      {" percentile)"}
-      {", which falls within in the "}
-      {rank} {"range of functioning."}
-    </span>
-  );
-};
-
 const Test = ({ testFromState, ...props }) => {
   console.log("testsSelected props, ", testFromState);
   return (
@@ -101,35 +51,209 @@ const Test = ({ testFromState, ...props }) => {
                 )}
 
                 {t.IndexConditions.length > 0
-                  ? t.IndexConditions.map((t, i) => (
-                      <div key={t.Id}>
-                        <div className="flex flex--center-vertical has-toggle-child">
-                          <h5>{t.Condition}</h5>
-                          <Field
-                            name={`${t.Id}-${t.Condition.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}`}
-                            type="checkbox"
-                            component="input"
-                          />
-                        </div>
-                        <div className="flex test__list">
-                          <MaterialIcon icon="arrow_right" />
-                          <p>
-                            {t.Condition === "If FSIQ is meaningful" ||
-                            t.Condition === "If GIA is meaningful"
-                              ? replaceField(
-                                  t.ConditionDescription,
-                                  t.Id,
-                                  testFromState[i].Abbreviation
-                                )
-                              : t.ConditionDescription}
-                          </p>
-                        </div>
-                        <hr />
-                      </div>
-                    ))
+                  ? t.IndexConditions.map(t => {
+                      if (t.Condition === "If FSIQ is meaningful") {
+                        return (
+                          <div key={t.Id}>
+                            <div className="flex flex--center-vertical has-toggle-child">
+                              <h5>{t.Condition}</h5>
+                              <Field
+                                name={`${
+                                  t.Id
+                                }-${t.Condition.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}`}
+                                type="checkbox"
+                                component="input"
+                              />
+                            </div>
+                            <div className="flex test__list">
+                              <MaterialIcon icon="arrow_right" />
+                              <p>
+                                <span>
+                                  Overall, (client) demonstrated a consistent
+                                  performance on the&nbsp;
+                                  {testFromState[0].Abbreviation} and received a
+                                  Full-Scale IQ (FSIQ) score of
+                                </span>
+                                <Field
+                                  name={`${
+                                    t.Id
+                                  }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                    / /g,
+                                    "-"
+                                  )}-fsiq-score`}
+                                  type="text"
+                                  component="input"
+                                />
+                                <span>&nbsp;(</span>
+                                <Field
+                                  name={`${
+                                    t.Id
+                                  }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                    / /g,
+                                    "-"
+                                  )}-fsiq-percentile`}
+                                  type="text"
+                                  component="input"
+                                />
+                                <span>
+                                  &nbsp; percentile), which falls within in
+                                  the&nbsp;
+                                </span>
+                                <Field
+                                  name={`${
+                                    t.Id
+                                  }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                    / /g,
+                                    "-"
+                                  )}-fsiq-range`}
+                                  type="text"
+                                  component="input"
+                                />
+                                <span> range of functioning.</span>
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      } else if (t.Condition === "If FSIQ is NOT meaningful") {
+                        return (
+                          <div key={t.Id}>
+                            <div className="flex flex--center-vertical has-toggle-child">
+                              <h5>{t.Condition}</h5>
+                              <Field
+                                name={`${
+                                  t.Id
+                                }-${t.Condition.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}`}
+                                type="checkbox"
+                                component="input"
+                              />
+                            </div>
+                            <div className="flex test__list">
+                              <MaterialIcon icon="arrow_right" />
+                              <p>
+                                Overall, (client) demonstrated an inconsistent
+                                performance on the{" "}
+                                {testFromState[0].Abbreviation}. As a result,
+                                (his/her) Full-Scale score cannot be interpreted
+                                meaningfully due to the significant
+                                discrepancies between subtests that constitute
+                                (his/her) Full-Scale score (FSIQ). Therefore, in
+                                order to better understand (his/her) cognitive
+                                strengths and weaknesses, a more in-depth look
+                                at all of (client’s) individual subtest scores
+                                is warranted.
+                              </p>
+                            </div>
+                            <hr />
+                          </div>
+                        );
+                      } else if (t.Condition === "If GIA is meaningful") {
+                        return (
+                          <div key={t.Id}>
+                            <div className="flex flex--center-vertical has-toggle-child">
+                              <h5>{t.Condition}</h5>
+                              <Field
+                                name={`${
+                                  t.Id
+                                }-${t.Condition.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}`}
+                                type="checkbox"
+                                component="input"
+                              />
+                            </div>
+                            <div className="flex test__list">
+                              <MaterialIcon icon="arrow_right" />
+                              <p>
+                                <span>
+                                  Overall, (client) demonstrated a consistent
+                                  performance on the&nbsp;
+                                  {testFromState[0].Abbreviation} and received a
+                                  General Intellectual Ability (GIA) score of
+                                </span>
+                                <Field
+                                  name={`${
+                                    t.Id
+                                  }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                    / /g,
+                                    "-"
+                                  )}-gia-score`}
+                                  type="text"
+                                  component="input"
+                                />
+                                <span>&nbsp;(</span>
+                                <Field
+                                  name={`${
+                                    t.Id
+                                  }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                    / /g,
+                                    "-"
+                                  )}-gia-percentile`}
+                                  type="text"
+                                  component="input"
+                                />
+                                <span>
+                                  &nbsp; percentile), which falls within in
+                                  the&nbsp;
+                                </span>
+                                <Field
+                                  name={`${
+                                    t.Id
+                                  }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                    / /g,
+                                    "-"
+                                  )}-gia-range`}
+                                  type="text"
+                                  component="input"
+                                />
+                                <span> range of functioning.</span>
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      } else if (t.Condition === "If GIA is NOT meaningful") {
+                        return (
+                          <div key={t.Id}>
+                            <div className="flex flex--center-vertical has-toggle-child">
+                              <h5>{t.Condition}</h5>
+                              <Field
+                                name={`${
+                                  t.Id
+                                }-${t.Condition.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}`}
+                                type="checkbox"
+                                component="input"
+                              />
+                            </div>
+                            <div className="flex test__list">
+                              <MaterialIcon icon="arrow_right" />
+                              <p>
+                                Overall, (client) demonstrated an inconsistent
+                                performance on the{" "}
+                                {testFromState[0].Abbreviation}. As a result,
+                                (his/her) GIA score cannot be interpreted
+                                meaningfully due to the significant
+                                discrepancies between the seven clusters.
+                                Therefore, in order to better understand
+                                (his/her) cognitive strengths and weaknesses, a
+                                more in-depth look at all of (client’s)
+                                individual subtest scores is warranted.
+                              </p>
+                            </div>
+                            <hr />
+                          </div>
+                        );
+                      }
+                      return false;
+                    })
                   : null}
               </div>
             ))}
@@ -150,8 +274,7 @@ const Test = ({ testFromState, ...props }) => {
                           component="input"
                         />
                       </div>
-                      {t.ParentScaleDescription !== null &&
-                      t.ParentScaleDescription.indexOf("<") !== -1 ? (
+                      {t.ParentScaleDescription !== null ? (
                         <div className="test__list">
                           {/* {ReactHtmlParser(t.ParentScaleDescription)} */}
                           <p>
@@ -172,10 +295,7 @@ const Test = ({ testFromState, ...props }) => {
                               type="text"
                               component="input"
                             />
-                            <span>
-                              (inconsistent/consistent) performance on the
-                              subtests.
-                            </span>
+                            <span>performance on the subtests.</span>
                           </p>
                           <p>
                             <span>(Client) received a Composite score of </span>

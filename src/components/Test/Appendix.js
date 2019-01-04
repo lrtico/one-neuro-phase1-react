@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import SectionTitle from "../SectionTitle/index";
 import SectionSubHeader from "../SectionSubHeader/index";
 
-const mapStateToProps = state => {
-  return { tests: state.testsSelectedReducer };
-};
+const mapStateToProps = state => ({ tests: state.testsSelectedReducer });
 
 const AppendixConnected = props => {
   console.log("store from index, ", props);
@@ -54,7 +52,7 @@ const AppendixConnected = props => {
                   )
                 )
               : null}
-            {t.TestScoringTableDetails !== null
+            {/* {t.TestScoringTableDetails !== null
               ? t.TestScoringTableDetails.map(t =>
                   t.TestScoringTableScores.map(t => (
                     <div key={t.Id} className="table__row">
@@ -67,7 +65,7 @@ const AppendixConnected = props => {
                     </div>
                   ))
                 )
-              : null}
+              : null} */}
             {t.ParentGroupSubScales.length > 0
               ? t.ParentGroupSubScales.map(t =>
                   t.ParentScaleTitles.map(t => (
@@ -94,7 +92,7 @@ const AppendixConnected = props => {
                   </div>
                 ))
               : null}
-            {t.TestModules.length > 0
+            {/* {t.TestModules.length > 0
               ? t.TestModules.map(t =>
                   t.ParentGroupScales.map(t => (
                     <div key={t.Id} className="table__row">
@@ -107,7 +105,7 @@ const AppendixConnected = props => {
                     </div>
                   ))
                 )
-              : null}
+              : null} */}
           </div>
         </div>
       ))}
