@@ -686,9 +686,7 @@ const Test = ({ testFromState, ...props }) => {
                         <div>{t.Col4}</div>
                       ) //Fallback to insert string from DB
                       }
-                      {t.Col5 == null ? ( //Does Col5 = null?
-                        <div /> //...then add a blank div
-                      ) : t.Col5 === "<Field>" ? ( //Does Col5 = "<Field>"?
+                      {t.Col5 == null ? null : t.Col5 === "<Field>" ? ( //Does Col5 = null? //...then skip it //Does Col5 = "<Field>"?
                         <div>
                           <Field
                             name={`${t.Id}-${testFromState[
@@ -710,9 +708,7 @@ const Test = ({ testFromState, ...props }) => {
                         <div>{t.Col5}</div>
                       ) //Fallback to insert string from DB
                       }
-                      {t.Col6 == null ? ( //Does Col6 = null?
-                        <div /> //...then add a blank div
-                      ) : t.Col6 === "<Field>" ? ( //Does Col6 = "<Field>"?
+                      {t.Col6 == null ? null : t.Col6 === "<Field>" ? ( //Does Col6 = null? //...then skip it //Does Col6 = "<Field>"?
                         <div>
                           <Field
                             name={`${t.Id}-${testFromState[
