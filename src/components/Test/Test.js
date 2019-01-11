@@ -256,7 +256,7 @@ const Test = ({ testFromState, ...props }) => {
                                 : null
                             }
                           >
-                            {t.Name}
+                            {ReactHtmlParser(t.Name)}
                           </div>
                           <div>
                             <Field
