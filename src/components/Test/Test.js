@@ -401,7 +401,11 @@ const Test = ({ testFromState, ...props }) => {
                           <p>{t.ParentScaleDescription}</p>
                           <div className="test-table">
                             <div className="table__row table__header">
-                              <div>{testFromState[0].SubTestType}</div>
+                              <div>
+                                {t.Id === 85
+                                  ? "Index"
+                                  : testFromState[0].SubTestType}
+                              </div>
                               <div>Score</div>
                               <div>Description</div>
                             </div>

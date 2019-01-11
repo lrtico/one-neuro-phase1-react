@@ -93,7 +93,7 @@
   border: 1px solid #aaa;
   cursor: pointer;
   padding: 9px 42px 9px 18px;
-  top: 0px;
+  top: -1px;
   width: auto;
   position: relative;
 }
