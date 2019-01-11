@@ -347,7 +347,7 @@ const PageList = props => {
       ) : null}
       {props.pageNumber === 50 ? (
         <WizardForm50Page
-          onSubmit={props.onSubmit}
+          onSubmit={props.generateTest}
           previousPage={props.previousPage}
         />
       ) : null}

@@ -134,8 +134,8 @@ const Test = ({ testFromState, ...props }) => {
               </div>
             ))}
             {t.ParentScaleTitles.length > 0
-              ? t.ParentScaleTitles.map((t, i) => (
-                  <div key={i}>
+              ? t.ParentScaleTitles.map(t => (
+                  <div key={t.Id}>
                     <div className="test-table-heading">
                       <div className="flex has-toggle-child">
                         <h6 className="h7">
@@ -236,6 +236,7 @@ const Test = ({ testFromState, ...props }) => {
                       <div className="table__row table__header">
                         <div
                           className={
+                            t.SubTests.length > 0 &&
                             t.SubTests[0].Description == null
                               ? "table__row__cell--wide"
                               : null
@@ -263,10 +264,9 @@ const Test = ({ testFromState, ...props }) => {
                               type="text"
                               name={`${
                                 t.ParentScaleTitleId
-                              }-${t.Name.toLowerCase().replace(
-                                / /g,
-                                "-"
-                              )}-score`}
+                              }-${t.Name.toLowerCase()
+                                .replace("/", "-")
+                                .replace(/ /g, "-")}-score`}
                             />
                           </div>
                           <div>
@@ -305,10 +305,11 @@ const Test = ({ testFromState, ...props }) => {
                       <Field
                         component="input"
                         type="text"
-                        name={`${t.Id}-${t.Name.toLowerCase().replace(
-                          / /g,
-                          "-"
-                        )}-score`}
+                        name={`${t.Id}-${t.Name.toLowerCase()
+                          .replace(/[/]/g, "-")
+                          .replace(/[,/]/g, "")
+                          .replace(/[’]/g, "")
+                          .replace(/ /g, "-")}-score`}
                       />
                     </div>
                     <div>{ReactHtmlParser(t.Description)}</div>
@@ -378,7 +379,11 @@ const Test = ({ testFromState, ...props }) => {
                 : null}
               {t.ParentGroupSubScales.map((t, i) => (
                 <div key={i}>
-                  <h6>{t.ParentGroupSubScaleName}</h6>
+                  <h6>
+                    {t.ParentGroupSubScaleName === "Full Scale"
+                      ? null
+                      : t.ParentGroupSubScaleName}
+                  </h6>
                   {t.ParentScaleTitles.map((t, i) => (
                     <div key={i}>
                       {t.SubTests.length > 0 ? (
@@ -386,12 +391,9 @@ const Test = ({ testFromState, ...props }) => {
                           <div className="flex has-toggle-child">
                             <h6 className="h7">{t.ParentScaleName}</h6>
                             <Field
-                              name={`${
-                                t.Id
-                              }-${t.ParentScaleName.toLowerCase().replace(
-                                / /g,
-                                "-"
-                              )}`}
+                              name={`${t.Id}-${t.ParentScaleName.toLowerCase()
+                                .replace(/[/]/g, "-")
+                                .replace(/ /g, "-")}`}
                               type="checkbox"
                               component="input"
                             />
@@ -410,12 +412,11 @@ const Test = ({ testFromState, ...props }) => {
                                   <Field
                                     component="input"
                                     type="text"
-                                    name={`${
-                                      t.Id
-                                    }-${t.Name.toLowerCase().replace(
-                                      / /g,
-                                      "-"
-                                    )}-score`}
+                                    name={`${t.Id}-${t.Name.toLowerCase()
+                                      .replace(/[/]/g, "-")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .replace(/ /g, "-")}-score`}
                                   />
                                 </div>
                                 <div>{ReactHtmlParser(t.Description)}</div>
@@ -445,12 +446,11 @@ const Test = ({ testFromState, ...props }) => {
                         <div className="flex has-toggle-child">
                           <h6 className="h7">{t.ParentScaleName}</h6>
                           <Field
-                            name={`${
-                              t.Id
-                            }-${t.ParentScaleName.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}`}
+                            name={`${t.Id}-${t.ParentScaleName.toLowerCase()
+                              .replace(/[/]/g, "-")
+                              .replace(/[,/]/g, "")
+                              .replace(/[’]/g, "")
+                              .replace(/ /g, "-")}`}
                             type="checkbox"
                             component="input"
                           />
@@ -470,10 +470,11 @@ const Test = ({ testFromState, ...props }) => {
                               <Field
                                 component="input"
                                 type="text"
-                                name={`${t.Id}-${t.Name.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-score`}
+                                name={`${t.Id}-${t.Name.toLowerCase()
+                                  .replace(/[/]/g, "-")
+                                  .replace(/[,/]/g, "")
+                                  .replace(/[’]/g, "")
+                                  .replace(/ /g, "-")}-score`}
                               />
                             </div>
                             <div>{ReactHtmlParser(t.Description)}</div>
@@ -533,12 +534,11 @@ const Test = ({ testFromState, ...props }) => {
                                   <Field
                                     component="input"
                                     type="text"
-                                    name={`${
-                                      t.Id
-                                    }-${t.Name.toLowerCase().replace(
-                                      / /g,
-                                      "-"
-                                    )}-score`}
+                                    name={`${t.Id}-${t.Name.toLowerCase()
+                                      .replace(/[/]/g, "-")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .replace(/ /g, "-")}-score`}
                                   />
                                 </div>
                                 <div>{t.Description}</div>
@@ -584,14 +584,156 @@ const Test = ({ testFromState, ...props }) => {
                     {t.TableHeaderRowTitles.Col5 == null ? null : (
                       <div>{t.TableHeaderRowTitles.Col5}</div>
                     )}
+                    {t.TableHeaderRowTitles.Col6 == null ? null : (
+                      <div>{t.TableHeaderRowTitles.Col6}</div>
+                    )}
                   </div>
-                  {t.TestScoringTableScores.map(t => (
+                  {t.TestScoringTableScores.map((t, i) => (
                     <div key={t.Id} className="table__row">
-                      {t.Col1 == null ? <div /> : <div>{t.Col1}</div>}
-                      {t.Col2 == null ? <div /> : <div>{t.Col2}</div>}
-                      {t.Col3 == null ? <div /> : <div>{t.Col3}</div>}
-                      {t.Col4 == null ? <div /> : <div>{t.Col4}</div>}
-                      {t.Col5 == null ? null : <div>{t.Col5}</div>}
+                      {t.Col1 == null ? ( //Does Col1 = null?
+                        <div /> //...then add a blank div
+                      ) : t.Col1 === "<Field>" ? ( //Does Col1 = "<Field>"?
+                        <div>
+                          <Field
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${testFromState[
+                              i
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col1.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}`}
+                            type="text"
+                            component="input"
+                          />
+                        </div> //...then add a Redux Form Field component
+                      ) : (
+                        <div>{t.Col1}</div>
+                      ) //Fallback to insert string from DB
+                      }
+                      {t.Col2 == null ? ( //Does Col2 = null?
+                        <div /> //...then add a blank div
+                      ) : t.Col2 === "<Field>" ? ( //Does Col2 =2 "<Field>"?
+                        <div>
+                          <Field
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${testFromState[
+                              i
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col2.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}`}
+                            type="text"
+                            component="input"
+                          />
+                        </div> //...then add a Redux Form Field component
+                      ) : (
+                        <div>{t.Col2}</div>
+                      ) //Fallback to insert string from DB
+                      }
+                      {t.Col3 == null ? ( //Does Col3 = null?
+                        <div /> //...then add a blank div
+                      ) : t.Col3 === "<Field>" ? ( //Does Col3 = "<Field>"?
+                        <div>
+                          <Field
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${testFromState[
+                              i
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col3.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}`}
+                            type="text"
+                            component="input"
+                          />
+                        </div> //...then add a Redux Form Field component
+                      ) : (
+                        <div>{t.Col3}</div>
+                      ) //Fallback to insert string from DB
+                      }
+                      {t.Col4 == null ? ( //Does Col4 = null?
+                        <div /> //...then add a blank div
+                      ) : t.Col4 === "<Field>" ? ( //Does Col4 = "<Field>"?
+                        <div>
+                          <Field
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${testFromState[
+                              i
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col4.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}`}
+                            type="text"
+                            component="input"
+                          />
+                        </div> //...then add a Redux Form Field component
+                      ) : (
+                        <div>{t.Col4}</div>
+                      ) //Fallback to insert string from DB
+                      }
+                      {t.Col5 == null ? ( //Does Col5 = null?
+                        <div /> //...then add a blank div
+                      ) : t.Col5 === "<Field>" ? ( //Does Col5 = "<Field>"?
+                        <div>
+                          <Field
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${testFromState[
+                              i
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col5.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}`}
+                            type="text"
+                            component="input"
+                          />
+                        </div> //...then add a Redux Form Field component
+                      ) : (
+                        <div>{t.Col5}</div>
+                      ) //Fallback to insert string from DB
+                      }
+                      {t.Col6 == null ? ( //Does Col6 = null?
+                        <div /> //...then add a blank div
+                      ) : t.Col6 === "<Field>" ? ( //Does Col6 = "<Field>"?
+                        <div>
+                          <Field
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${testFromState[
+                              i
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col6.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}`}
+                            type="text"
+                            component="input"
+                          />
+                        </div> //...then add a Redux Form Field component
+                      ) : (
+                        <div>{t.Col6}</div>
+                      ) //Fallback to insert string from DB
+                      }
                     </div>
                   ))}
                 </div>

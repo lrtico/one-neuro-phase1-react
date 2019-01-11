@@ -863,6 +863,12 @@ form .test-table {
   width: 14.28vw;
 }
 
+.test-table.test-table--fourCols .table__row.table__header div:nth-child(6),
+.test-table.test-table--fourCols .table__row div:nth-child(6) {
+  flex: 1 1 auto;
+  width: 14.28vw;
+}
+
 /* CSS show hide visibility method in React */
 .wrap {
   opacity: 0;

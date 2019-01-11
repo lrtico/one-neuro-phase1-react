@@ -62,9 +62,9 @@ const WizardForm49Page = props => {
             tabOrder: "7"
           }
         ]}
-        label="Select to use"
-        labelBold="template"
-        labelLast="recommendations"
+        label="Would you like to use recommendation"
+        labelBold="templates"
+        labelLast="in the PDF"
         name="recommendations-group"
         classes="question question--thumbless"
       />

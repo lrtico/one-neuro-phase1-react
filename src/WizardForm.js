@@ -20,6 +20,10 @@ class WizardForm extends Component {
     };
   }
 
+  generateTestPDF = () => {
+    console.log("Make PDF go now!");
+  };
+
   startingAnimation = () => {
     console.log("starting");
     this.setState({ testState: true });
@@ -70,7 +74,7 @@ class WizardForm extends Component {
   }
 
   render() {
-    //const { onSubmit } = this.props;
+    const { onSubmit } = this.props;
     //const { page } = this.state;
     const { loading } = this.state;
     return (
@@ -88,6 +92,7 @@ class WizardForm extends Component {
                 <PageList
                   onSubmit={this.nextPage}
                   pageNumber={this.state.page}
+                  generateTest={onSubmit}
                 />
               </CCWrapper>
             </div>
