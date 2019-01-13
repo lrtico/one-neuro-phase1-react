@@ -107,6 +107,43 @@ class WizardForm47Page extends Component {
     });
   };
 
+  addToAppendix = (id, parentScaleName, abbreviation, name, event) => {
+    console.log(`
+      Make Appendix info go now!
+      Info we need:
+      - Scale name: ${parentScaleName}
+      - Abbreviation: ${abbreviation}
+      - Test Name: ${name}
+      - Id: ${id}
+      - Event: ${event.target.checked}
+    `);
+    let data = {
+      Id: id,
+      Name: name,
+      Abbreviation: abbreviation,
+      SubTests: [parentScaleName]
+    };
+
+    let checked = event.target.checked;
+
+    if (checked) {
+      console.log("payload sent to add appendix reducer: ", data);
+      store.dispatch({
+        type: "ADD_APPENDIX",
+        payload: data
+      });
+    } else {
+      console.log(
+        "payload sent to remove appendix reducer: ",
+        data.SubTests[0]
+      );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
   showFilteredTest = test => {
     let selectedTest = this.state.tests.filter(t => t.Abbreviation === test);
     store.dispatch({
@@ -272,7 +309,10 @@ class WizardForm47Page extends Component {
 
         <div className="domain__test">
           <SectionTitle titleBold="Domain-based" titleRegular="reports" />
-          <Test testFromState={this.state.testsSelected} />
+          <Test
+            testFromState={this.state.testsSelected}
+            handleAppendixAdd={this.addToAppendix}
+          />
           <DivButton divButtonLabel="Ok" show={this.showSummary} />
         </div>
 

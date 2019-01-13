@@ -9,7 +9,7 @@ const WizardForm50Page = props => {
   //console.log("Wizard50 props, ", props);
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <Appendix />
+      <Appendix values={props} />
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>
   );

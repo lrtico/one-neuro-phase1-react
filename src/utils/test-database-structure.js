@@ -136,16 +136,39 @@ tests: [
     ]
   }  
 ];
+//When a Test's group of subtests title's checkbox is clicked...
+state = {
+  appendices: [
+    {
+      Name: "test name",
+      Abbreviation: "test abbreviation",
+      SubTests: ["subtest1 name", "subtest2 name"]
+    },
+    {
+      Name: "test name",
+      Abbreviation: "test abbreviation",
+      SubTests: ["subtest1 name", "subtest2 name"]
+    }
+  ]
+};
+
+// has subtest?
+// True = remove subtest from the Array
+// if subtest.length = 0, remove the test...Array
+
+// does appendix.name = payload.name ? true = does it have the subtest ? true = remove subtest then check length = 0 true = remove test if length > 0 null 
+
+// does appendix.name = payload.name ? appendix.subtest[] = payload.subtest ? remove subtest : add subtest : add payload to appendix
 
 
-
-"Overall, (client) demonstrated a consistent performance on the WISC-V and received a Full-Scale IQ (FSIQ) score of <input type=\"text\" id=\"txtWASI4FullScaleIQScore\" /> (<input type=\"text\" id=\"txtWASI4FullScaleIQPercentile\" /> percentile), which falls within in the <input type=\"text\" id=\"txtWASI4FullScaleIQRange\" /> range of functioning."
-
-"Overall, (client) demonstrated a consistent performance on the WISC-V and received a Full-Scale IQ (FSIQ) score of <Field
-name={`${t.Id}-${testFromState[0].Abbreviation.toLowerCase().replace(/ /g, '-')}-fsiq-score`} type='text' component='input'/> (<Field name={`${t.Id}-${testFromState[0].Abbreviation.toLowerCase().replace(/ /g, '-')}-fsiq-percentile`} type='text' component='input'/> percentile), which falls within in the <Field name={`${t.Id}-${testFromState[0].Abbreviation.toLowerCase().replace(/ /g, '-')}-fsiq-range`} type='text' component='input'/> range of functioning."
-
-
-
-
-
-"Overall, (client) demonstrated a consistent performance on the WISC-V and received a Full-Scale IQ (FSIQ) score of <Field> (<Field> percentile), which falls within in the <Field> range of functioning."
+//(hasTest checks the appendix Name and the payload's name)
+//hasSubtest checks the appendix Subtest's array for the payload's subtest.parentScaleName
+{
+  hasTest && hasSubtest && appendix.subtest.length == 1     //Does the state have the test and Subtest(only that one)? 
+  ? state.filter("remove the test object")                  //True, so remove the entire object from the appendix array
+  : hasTest && hasSubtest                                   //False, so does the state have the test and the Subtest?
+    ? state.filter("remove the subtest")                    //True, so we remove the subtest from the appendix array
+    : hasTest && !hasSubtest                               //False, so does the state have the test but not the Subtest?
+      ? [...state[indexofthetest].Subtest, action.payload.ParentScaleName] //True, so we add the Subtest to the array
+      : [...state, action.payload]  //False, must not have the test or the Subtest so we add a new object to the state
+}

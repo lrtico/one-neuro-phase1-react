@@ -148,6 +148,15 @@ const Test = ({ testFromState, ...props }) => {
                             .replace("</span>", "")}`}
                           type="checkbox"
                           component="input"
+                          onChange={event =>
+                            props.handleAppendixAdd(
+                              t.Id,
+                              t.ParentScaleName,
+                              testFromState[i].Abbreviation,
+                              testFromState[i].Name,
+                              event
+                            )
+                          }
                         />
                       </div>
                       {t.ParentScaleDescription !== null &&
@@ -337,6 +346,14 @@ const Test = ({ testFromState, ...props }) => {
                               )}`}
                               type="checkbox"
                               component="input"
+                              onClick={() =>
+                                props.handleAppendixAdd(
+                                  t.Id,
+                                  t.ParentScaleName,
+                                  testFromState[i].Abbreviation,
+                                  testFromState[i].Name
+                                )
+                              }
                             />
                           </div>
                           {t.ParentScaleDescription == null ? null : (
@@ -396,6 +413,14 @@ const Test = ({ testFromState, ...props }) => {
                                 .replace(/ /g, "-")}`}
                               type="checkbox"
                               component="input"
+                              onClick={() =>
+                                props.handleAppendixAdd(
+                                  t.Id,
+                                  t.ParentScaleName,
+                                  testFromState[i].Abbreviation,
+                                  testFromState[i].Name
+                                )
+                              }
                             />
                           </div>
                           <p>{t.ParentScaleDescription}</p>
@@ -441,11 +466,11 @@ const Test = ({ testFromState, ...props }) => {
             </div>
           ))}
           {t.ParentGroupSubScales.length > 0
-            ? t.ParentGroupSubScales.map((t, i) => (
-                <div key={i}>
+            ? t.ParentGroupSubScales.map(t => (
+                <div key={t.Id}>
                   <h5>{t.ParentGroupSubScaleName}</h5>
-                  {t.ParentScaleTitles.map((t, i) => (
-                    <div key={i}>
+                  {t.ParentScaleTitles.map(t => (
+                    <div key={t.Id}>
                       <div>
                         <div className="flex has-toggle-child">
                           <h6 className="h7">{t.ParentScaleName}</h6>
@@ -457,6 +482,14 @@ const Test = ({ testFromState, ...props }) => {
                               .replace(/ /g, "-")}`}
                             type="checkbox"
                             component="input"
+                            onClick={() =>
+                              props.handleAppendixAdd(
+                                t.Id,
+                                t.ParentScaleName,
+                                testFromState[i].Abbreviation,
+                                testFromState[i].Name
+                              )
+                            }
                           />
                         </div>
                         <p>{t.ParentScaleDescription}</p>
@@ -491,17 +524,17 @@ const Test = ({ testFromState, ...props }) => {
               ))
             : null}
           {t.TestModules.length > 0
-            ? t.TestModules.map((t, i) => (
-                <div key={i}>
+            ? t.TestModules.map(t => (
+                <div key={t.Id}>
                   <h5>{t.Name}</h5>
                   <p>{t.Descriptions}</p>
-                  {t.ParentGroupScales.map((t, i) => (
-                    <div key={i}>
+                  {t.ParentGroupScales.map(t => (
+                    <div key={t.Id}>
                       <div className="test-table-heading">
                         <SectionSubHeader subHeader={t.ParentGroupScaleName} />
                       </div>
-                      {t.ParentScaleTitles.map((t, i) => (
-                        <div key={i}>
+                      {t.ParentScaleTitles.map(t => (
+                        <div key={t.Id}>
                           <SectionSubHeader
                             subHeader={t.ParentGroupScaleName}
                           />
@@ -517,6 +550,14 @@ const Test = ({ testFromState, ...props }) => {
                                 )}`}
                                 type="checkbox"
                                 component="input"
+                                onClick={() =>
+                                  props.handleAppendixAdd(
+                                    t.Id,
+                                    t.ParentScaleName,
+                                    testFromState[i].Abbreviation,
+                                    testFromState[i].Name
+                                  )
+                                }
                               />
                             </div>
                             {t.ParentScaleDescription !== null ? (

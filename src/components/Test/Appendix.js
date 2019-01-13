@@ -1,17 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Field } from "redux-form";
 import SectionTitle from "../SectionTitle/index";
 import SectionSubHeader from "../SectionSubHeader/index";
 
-const mapStateToProps = state => ({ tests: state.testsSelectedReducer });
+const mapStateToProps = state => ({
+  tests: state.testsSelectedReducer,
+  appendix: state.appendixReducer
+});
 
-const AppendixConnected = props => {
+const AppendixConnected = (props, values) => {
   console.log("store from index, ", props);
-  const { tests } = props;
+  console.log("Trying to make props go now!", values);
+  const { appendix } = props;
   return (
     <div>
       <SectionTitle titleBold="Appendix" titleRegular="of scores" />
-      {tests.map(t => (
+      {appendix.appendices.map((t, i) => (
         <div key={t.Id}>
           <div className="flex">
             <SectionSubHeader subHeader={t.Name} />
@@ -24,88 +29,32 @@ const AppendixConnected = props => {
               <div>% Rank</div>
               <div>Range</div>
             </div>
-            {t.ParentScaleTitles.length > 0
-              ? t.ParentScaleTitles.map(t => (
-                  <div key={t.Id} className="table__row">
-                    <div>{t.ParentScaleName}</div>
-                    <div>
-                      <input type="text" name="testname-score" />
-                    </div>
-                    <div>23</div>
-                    <div>Low average</div>
-                  </div>
-                ))
-              : null}
-            {t.ParentGroupScales.length > 0
-              ? t.ParentGroupScales.map(t =>
-                  t.ParentGroupSubScales.map(t =>
-                    t.ParentScaleTitles.map(t => (
-                      <div key={t.Id} className="table__row">
-                        <div>{t.ParentScaleName}</div>
-                        <div>
-                          <input type="text" name="testname-score" />
-                        </div>
-                        <div>23</div>
-                        <div>Low average</div>
-                      </div>
-                    ))
-                  )
-                )
-              : null}
-            {/* {t.TestScoringTableDetails !== null
-              ? t.TestScoringTableDetails.map(t =>
-                  t.TestScoringTableScores.map(t => (
-                    <div key={t.Id} className="table__row">
-                      <div>{t.Col1}</div>
-                      <div>
-                        <input type="text" name="testname-score" />
-                      </div>
-                      <div>23</div>
-                      <div>Low average</div>
-                    </div>
-                  ))
-                )
-              : null} */}
-            {t.ParentGroupSubScales.length > 0
-              ? t.ParentGroupSubScales.map(t =>
-                  t.ParentScaleTitles.map(t => (
-                    <div key={t.Id} className="table__row">
-                      <div>{t.ParentScaleName}</div>
-                      <div>
-                        <input type="text" name="testname-score" />
-                      </div>
-                      <div>23</div>
-                      <div>Low average</div>
-                    </div>
-                  ))
-                )
-              : null}
-            {t.SubTests.length > 0
-              ? t.SubTests.map(t => (
-                  <div key={t.Id} className="table__row">
-                    <div>{t.Name}</div>
-                    <div>
-                      <input type="text" name="testname-score" />
-                    </div>
-                    <div>23</div>
-                    <div>Low average</div>
-                  </div>
-                ))
-              : null}
-            {/* {t.TestModules.length > 0
-              ? t.TestModules.map(t =>
-                  t.ParentGroupScales.map(t => (
-                    <div key={t.Id} className="table__row">
-                      <div>{t.ParentGroupScaleName}</div>
-                      <div>
-                        <input type="text" name="testname-score" />
-                      </div>
-                      <div>23</div>
-                      <div>Low average</div>
-                    </div>
-                  ))
-                )
-              : null} */}
+
+            {t.SubTests.map(t => (
+              <div
+                key={`${appendix.appendices[i].Id}
+                    -${t.toLowerCase().replace(/ /g, "-")}`}
+                className="table__row"
+              >
+                <div>{t}</div>
+                <div>
+                  <Field
+                    component="input"
+                    type="text"
+                    name={`${
+                      appendix.appendices[i].Id
+                    }-appendix-${appendix.appendices[
+                      i
+                    ].Abbreviation.toLowerCase()}-${t
+                      .toLowerCase()
+                      .replace(/ /g, "-")
+                      .replace("/", "-")}-composite-score`}
+                  />
+                </div>
+                <div>23</div>
+                <div>Low average</div>
+              </div>
+            ))}
           </div>
         </div>
       ))}

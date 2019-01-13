@@ -1,2 +1,4 @@
 export const ADD_TEST = "ADD_TEST";
 export const REMOVE_TEST = "REMOVE_TEST";
+export const ADD_APPENDIX = "ADD_APPENDIX";
+export const REMOVE_APPENDIX_SUBTEST = "REMOVE_APPENDIX_SUBTEST";
