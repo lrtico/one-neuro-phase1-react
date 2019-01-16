@@ -346,12 +346,13 @@ const Test = ({ testFromState, ...props }) => {
                               )}`}
                               type="checkbox"
                               component="input"
-                              onClick={() =>
+                              onClick={event =>
                                 props.handleAppendixAdd(
                                   t.Id,
                                   t.ParentScaleName,
                                   testFromState[i].Abbreviation,
-                                  testFromState[i].Name
+                                  testFromState[i].Name,
+                                  event
                                 )
                               }
                             />
@@ -365,8 +366,8 @@ const Test = ({ testFromState, ...props }) => {
                               <div>Score</div>
                               <div>Description</div>
                             </div>
-                            {t.SubTests.map((t, i) => (
-                              <div key={i} className="table__row">
+                            {t.SubTests.map(t => (
+                              <div key={t.Id} className="table__row">
                                 <div>{t.Name}</div>
                                 <div>
                                   <Field
@@ -394,15 +395,15 @@ const Test = ({ testFromState, ...props }) => {
                     </div>
                   ))
                 : null}
-              {t.ParentGroupSubScales.map((t, i) => (
-                <div key={i}>
+              {t.ParentGroupSubScales.map(t => (
+                <div key={t.Id}>
                   <h6>
                     {t.ParentGroupSubScaleName === "Full Scale"
                       ? null
                       : t.ParentGroupSubScaleName}
                   </h6>
-                  {t.ParentScaleTitles.map((t, i) => (
-                    <div key={i}>
+                  {t.ParentScaleTitles.map(t => (
+                    <div key={t.Id}>
                       {t.SubTests.length > 0 ? (
                         <div>
                           <div className="flex has-toggle-child">
@@ -413,12 +414,13 @@ const Test = ({ testFromState, ...props }) => {
                                 .replace(/ /g, "-")}`}
                               type="checkbox"
                               component="input"
-                              onClick={() =>
+                              onClick={event =>
                                 props.handleAppendixAdd(
                                   t.Id,
                                   t.ParentScaleName,
                                   testFromState[i].Abbreviation,
-                                  testFromState[i].Name
+                                  testFromState[i].Name,
+                                  event
                                 )
                               }
                             />
@@ -482,12 +484,13 @@ const Test = ({ testFromState, ...props }) => {
                               .replace(/ /g, "-")}`}
                             type="checkbox"
                             component="input"
-                            onClick={() =>
+                            onClick={event =>
                               props.handleAppendixAdd(
                                 t.Id,
                                 t.ParentScaleName,
                                 testFromState[i].Abbreviation,
-                                testFromState[i].Name
+                                testFromState[i].Name,
+                                event
                               )
                             }
                           />
@@ -550,12 +553,13 @@ const Test = ({ testFromState, ...props }) => {
                                 )}`}
                                 type="checkbox"
                                 component="input"
-                                onClick={() =>
+                                onClick={event =>
                                   props.handleAppendixAdd(
                                     t.Id,
                                     t.ParentScaleName,
                                     testFromState[i].Abbreviation,
-                                    testFromState[i].Name
+                                    testFromState[i].Name,
+                                    event
                                   )
                                 }
                               />
@@ -633,7 +637,7 @@ const Test = ({ testFromState, ...props }) => {
                       <div>{t.TableHeaderRowTitles.Col6}</div>
                     )}
                   </div>
-                  {t.TestScoringTableScores.map((t, i) => (
+                  {t.TestScoringTableScores.map(t => (
                     <div key={t.Id} className="table__row">
                       {t.Col1 == null ? ( //Does Col1 = null?
                         <div /> //...then add a blank div
@@ -781,8 +785,8 @@ const Test = ({ testFromState, ...props }) => {
               ))
             : null}
           {t.TestSummaries.length > 0
-            ? t.TestSummaries.map((t, i) => (
-                <div key={i}>
+            ? t.TestSummaries.map(t => (
+                <div key={t.Id}>
                   <SectionSubHeader subHeader="Summary" />
                   {/* <p className="test__list">
                     {ReactHtmlParser(t.Descriptions)}
