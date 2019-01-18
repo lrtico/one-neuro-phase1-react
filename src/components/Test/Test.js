@@ -25,21 +25,21 @@ const replaceField = (condition, idx, a) => {
 
   let score = (
     <Field
-      name={`${i}-${a.toLowerCase()}-fsiq-score`}
+      name={`${i}-${a.toLowerCase().replace(/\(|\)/g, "")}-fsiq-score`}
       type="text"
       component="input"
     />
   );
   let percentile = (
     <Field
-      name={`${i}-${a.toLowerCase()}-fsiq-percentile`}
+      name={`${i}-${a.toLowerCase().replace(/\(|\)/g, "")}-fsiq-percentile`}
       type="text"
       component="input"
     />
   );
   let rank = (
     <Field
-      name={`${i}-${a.toLowerCase()}-fsiq-rank`}
+      name={`${i}-${a.toLowerCase().replace(/\(|\)/g, "")}-fsiq-rank`}
       type="text"
       component="input"
     />
@@ -145,7 +145,8 @@ const Test = ({ testFromState, ...props }) => {
                           name={`${t.Id}-${t.ParentScaleName.toLowerCase()
                             .replace(/ /g, "-")
                             .replace("<span>", "")
-                            .replace("</span>", "")}`}
+                            .replace("</span>", "")
+                            .replace(/\(|\)/g, "")}`}
                           type="checkbox"
                           component="input"
                           onChange={event =>
@@ -174,8 +175,9 @@ const Test = ({ testFromState, ...props }) => {
                               )}-${t.ParentScaleName.toLowerCase()
                                 .replace(/ /g, "-")
                                 .replace("<span>", "")
+                                .replace("</span>", "")
                                 .replace(
-                                  "</span>",
+                                  /\(|\)/g,
                                   ""
                                 )}-inconsistent-consistent`}
                               type="text"
@@ -197,7 +199,8 @@ const Test = ({ testFromState, ...props }) => {
                               )}-${t.ParentScaleName.toLowerCase()
                                 .replace(/ /g, "-")
                                 .replace("<span>", "")
-                                .replace("</span>", "")}-composite-score`}
+                                .replace("</span>", "")
+                                .replace(/\(|\)/g, "")}-composite-score`}
                               type="text"
                               component="input"
                             />
@@ -211,7 +214,8 @@ const Test = ({ testFromState, ...props }) => {
                               )}-${t.ParentScaleName.toLowerCase()
                                 .replace(/ /g, "-")
                                 .replace("<span>", "")
-                                .replace("</span>", "")}-composite-percentile`}
+                                .replace("</span>", "")
+                                .replace(/\(|\)/g, "")}-composite-percentile`}
                               type="text"
                               component="input"
                             />
@@ -228,7 +232,8 @@ const Test = ({ testFromState, ...props }) => {
                               )}-${t.ParentScaleName.toLowerCase()
                                 .replace(/ /g, "-")
                                 .replace("<span>", "")
-                                .replace("</span>", "")}-composite-range`}
+                                .replace("</span>", "")
+                                .replace(/\(|\)/g, "")}-composite-range`}
                               type="text"
                               component="input"
                             />
@@ -275,7 +280,10 @@ const Test = ({ testFromState, ...props }) => {
                                 t.ParentScaleTitleId
                               }-${t.Name.toLowerCase()
                                 .replace("/", "-")
-                                .replace(/ /g, "-")}-score`}
+                                .replace(/ /g, "-")
+                                .replace("{", "")
+                                .replace("}", "")
+                                .replace(/\(|\)/g, "")}-score`}
                             />
                           </div>
                           <div>
@@ -587,7 +595,8 @@ const Test = ({ testFromState, ...props }) => {
                                       .replace(/[/]/g, "-")
                                       .replace(/[,/]/g, "")
                                       .replace(/[’]/g, "")
-                                      .replace(/ /g, "-")}-score`}
+                                      .replace(/ /g, "-")
+                                      .replace(/\(|\)/g, "")}-score`}
                                   />
                                 </div>
                                 <div>{t.Description}</div>
