@@ -58,6 +58,10 @@ const replaceField = (condition, idx, a) => {
   );
 };
 
+const createMarkup = text => {
+  return { __html: text };
+};
+
 const Test = ({ testFromState, ...props }) => {
   console.log("testsSelected props, ", testFromState);
   return (
@@ -160,8 +164,7 @@ const Test = ({ testFromState, ...props }) => {
                           }
                         />
                       </div>
-                      {t.ParentScaleDescription !== null &&
-                      t.ParentScaleDescription.indexOf("<") !== -1 ? (
+                      {t.HasInput ? (
                         <div className="test__list">
                           {/* {ReactHtmlParser(t.ParentScaleDescription)} */}
                           <p>
@@ -244,7 +247,13 @@ const Test = ({ testFromState, ...props }) => {
                             </span>
                           </p>
                         </div>
-                      ) : null}
+                      ) : (
+                        <div
+                          dangerouslySetInnerHTML={createMarkup(
+                            t.ParentScaleDescription
+                          )}
+                        />
+                      )}
                     </div>
                     <div className="test-table">
                       <div className="table__row table__header">

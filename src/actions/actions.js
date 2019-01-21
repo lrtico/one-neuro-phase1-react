@@ -2,8 +2,10 @@ import {
   ADD_TEST,
   REMOVE_TEST,
   ADD_APPENDIX,
-  REMOVE_APPENDIX_SUBTEST
+  REMOVE_APPENDIX_SUBTEST,
+  ADD_RECOMMENDATION
 } from "./constants";
+import C from "./constants";
 
 export const addTest = testSelected => ({
   type: ADD_TEST,
@@ -23,4 +25,14 @@ export const addAppendix = data => ({
 export const removeAppendixSubTest = data => ({
   type: REMOVE_APPENDIX_SUBTEST,
   payload: data
+});
+
+export const addRecommendation = name => ({
+  type: ADD_RECOMMENDATION,
+  payload: name
+});
+
+export const removeRecommendation = name => ({
+  type: REMOVE_RECOMMENDATION,
+  payload: name
 });

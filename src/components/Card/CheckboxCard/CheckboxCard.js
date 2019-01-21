@@ -4,6 +4,7 @@ import "./checkboxCardStyles.css";
 import "../../../app.css";
 import "../../Card/cardStyles.css";
 import { randomId } from "../../../utils/Helpers";
+import store from "../../../store";
 
 function handleTick(event) {
   const tar = event.currentTarget;
@@ -16,6 +17,15 @@ function handleTick(event) {
 //   tar.parentNode.parentNode.firstChild.setAttribute("checked", "checked");
 //   tar.parentNode.parentNode.firstChild.value = true;
 // }
+
+const handleRecommendation = (name, i) => {
+  console.log(`Make ${name} ${i} recommendation go now!`);
+  store.dispatch({
+    type: "ADD_RECOMMENDATION",
+    payload: name
+  })
+}
+
 
 const CheckboxCard = ({
   label,
@@ -49,7 +59,7 @@ const CheckboxCard = ({
         {/* Checkboxes */}
         <ul className="question__choices question__checkboxCard flex--wrap">
           <div className="question__choice--radio-shield" />
-          {checkboxInfo.map(card => (
+          {checkboxInfo.map((card, i) => (
             <li
               key={randomId()}
               className={
@@ -64,6 +74,11 @@ const CheckboxCard = ({
                 name={card.cardName}
                 type="checkbox"
                 component="input"
+                onClick={
+                  card.recommendation
+                    ? () => handleRecommendation(card.cardLabel, i)
+                    : null
+                }
               />
               <span className="question__tick--bg" />
               <span className="question__tick" />

@@ -105,6 +105,7 @@ const WizardForm02Page = props => {
           type="input"
           tabOrder="8"
           classes="question grid__half"
+          maxCharacters={14}
         />
       </div>
       <div className="flex">

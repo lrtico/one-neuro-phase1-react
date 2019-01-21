@@ -51,8 +51,34 @@ const AppendixConnected = (props, values) => {
                       .replace("/", "-")}-composite-score`}
                   />
                 </div>
-                <div>23</div>
-                <div>Low average</div>
+                <div>
+                  <Field
+                    component="input"
+                    type="text"
+                    name={`${
+                      appendix.appendices[i].Id
+                    }-appendix-${appendix.appendices[
+                      i
+                    ].Abbreviation.toLowerCase()}-${t
+                      .toLowerCase()
+                      .replace(/ /g, "-")
+                      .replace("/", "-")}-rank`}
+                  />
+                </div>
+                <div>
+                  <Field
+                    component="input"
+                    type="text"
+                    name={`${
+                      appendix.appendices[i].Id
+                    }-appendix-${appendix.appendices[
+                      i
+                    ].Abbreviation.toLowerCase()}-${t
+                      .toLowerCase()
+                      .replace(/ /g, "-")
+                      .replace("/", "-")}-range`}
+                  />
+                </div>
               </div>
             ))}
           </div>

@@ -1,11 +1,12 @@
 import React from "react";
 import "../app.css";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import { FieldArray, reduxForm } from "redux-form";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import ButtonToggle from "../components/ButtonToggle";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
+import Recommendations from "../components/Recommendations/Recommendations";
 
 const WizardForm49Page = props => {
   const { handleSubmit } = props;
@@ -23,43 +24,50 @@ const WizardForm49Page = props => {
             cardName: "recommendation-adhd",
             cardKey: "A",
             cardLabel: "ADHD",
-            tabOrder: "1"
+            tabOrder: "1",
+            recommendation: true
           },
           {
             cardName: "recommendation-autism",
             cardKey: "B",
             cardLabel: "Autism",
-            tabOrder: "2"
+            tabOrder: "2",
+            recommendation: true
           },
           {
             cardName: "recommendation-dementia",
             cardKey: "C",
             cardLabel: "DEMENTIA",
-            tabOrder: "3"
+            tabOrder: "3",
+            recommendation: true
           },
           {
             cardName: "recommendation-dysthymia",
             cardKey: "D",
             cardLabel: "Dysthymia",
-            tabOrder: "4"
+            tabOrder: "4",
+            recommendation: true
           },
           {
             cardName: "recommendation-learning-disability-mathematics",
             cardKey: "E",
             cardLabel: "Learning Disability Mathematics",
-            tabOrder: "5"
+            tabOrder: "5",
+            recommendation: true
           },
           {
             cardName: "recommendation-learning-disability-reading",
             cardKey: "F",
             cardLabel: "Learning Disability Reading",
-            tabOrder: "6"
+            tabOrder: "6",
+            recommendation: true
           },
           {
             cardName: "recommendation-neurocognitive-disorder",
             cardKey: "G",
             cardLabel: "Neurocognitive Disorder",
-            tabOrder: "7"
+            tabOrder: "7",
+            recommendation: true
           }
         ]}
         label="Would you like to use recommendation"
@@ -68,11 +76,7 @@ const WizardForm49Page = props => {
         name="recommendations-group"
         classes="question question--thumbless"
       />
-      <div className="grid__two-thirds">
-        <label>Enter any freehand recommendations</label>
-        <Field name="recommendations-freehand" component="textarea" />
-      </div>
-
+      <Recommendations />
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>
   );

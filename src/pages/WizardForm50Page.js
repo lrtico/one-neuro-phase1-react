@@ -6,7 +6,8 @@ import Button from "../components/Button";
 import Appendix from "../components/Test/Appendix";
 
 class WizardForm50Page extends Component {
-  generatePDFTest = () => {
+  generatePDFTest = event => {
+    event.preventDefault();
     console.log("Make submission go now!");
     const TEMPLATE_ID = "tpl_kbrXFcG2zFCHQTyrSQ";
     const pdfData = {
@@ -14,7 +15,8 @@ class WizardForm50Page extends Component {
       "di-age": "8"
     };
     const options = {
-      data: pdfData
+      data: pdfData,
+      test: false
     };
 
     let formapiConfig = new FormAPI.Configuration();

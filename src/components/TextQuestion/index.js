@@ -17,6 +17,7 @@ const TextQuestion = ({
   classes,
   materialIcon,
   copyForward,
+  maxCharacters,
   meta: { touched, error }
 }) => (
   <div className={classes}>
@@ -31,6 +32,7 @@ const TextQuestion = ({
         placeholder={placeholder}
         type={type}
         tabIndex={tabOrder}
+        maxLength={maxCharacters === undefined ? null : maxCharacters}
       />
       {copyForward === undefined ? null : (
         <div className="question__input__copy-forward">
