@@ -34,6 +34,7 @@ const WizardForm06Page = props => {
           tabOrder="1"
           type="input"
           classes="question grid__half"
+          copyForward="true"
         />
         <Field
           name="bh-stepmother-yes-no"
@@ -68,6 +69,7 @@ const WizardForm06Page = props => {
           tabOrder="4"
           type="input"
           classes="question grid__half"
+          copyForward="true"
         />
         <Field
           component={TextQuestion}
@@ -77,6 +79,7 @@ const WizardForm06Page = props => {
           tabOrder="5"
           type="input"
           classes="question grid__half"
+          copyForward="true"
         />
       </div>
       <div className="flex">
@@ -92,6 +95,7 @@ const WizardForm06Page = props => {
           tabOrder="6"
           type="input"
           classes="question grid__third"
+          copyForward="true"
         />
         <Field
           alt="Phone"

@@ -87,6 +87,7 @@ const WizardForm07Page = props => {
           labelBold="Home"
           labelLast="phone"
           name="bh-father-home-phone"
+          maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="6"
           type="input"
@@ -99,6 +100,7 @@ const WizardForm07Page = props => {
           labelBold="Work"
           labelLast="phone"
           name="bh-father-work-phone"
+          maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="7"
           type="input"
@@ -111,6 +113,7 @@ const WizardForm07Page = props => {
           labelBold="Cell"
           labelLast="phone"
           name="bh-father-cell-phone"
+          maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="8"
           type="input"

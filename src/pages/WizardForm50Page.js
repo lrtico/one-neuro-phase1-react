@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { reduxForm } from "redux-form";
+import { reduxForm, getFormValues } from "redux-form";
+import { connect } from "react-redux";
 import FormAPI from "formapi";
 import validate from "../validate";
 import Button from "../components/Button";
@@ -8,15 +9,16 @@ import Appendix from "../components/Test/Appendix";
 class WizardForm50Page extends Component {
   generatePDFTest = event => {
     event.preventDefault();
-    console.log("Make submission go now!");
+    const values = this.props.values;
+    console.log("Make submission go now!", values);
     const TEMPLATE_ID = "tpl_kbrXFcG2zFCHQTyrSQ";
-    const pdfData = {
-      "di-name": "Jane Smith",
-      "di-age": "8"
-    };
+    // const pdfData = {
+    //   "di-name": "Jane Smith",
+    //   "di-age": "8"
+    // };
     const options = {
-      data: pdfData,
-      test: false
+      data: values,
+      test: true
     };
 
     let formapiConfig = new FormAPI.Configuration();
@@ -39,7 +41,8 @@ class WizardForm50Page extends Component {
 
   render() {
     //const { handleSubmit } = this.props;
-    //console.log("Wizard50 props, ", props);
+    console.log("Wizard50 props, ", this.props);
+    console.log("Wizard50 values, ", this.props.values);
     return (
       <form className="col" onSubmit={this.generatePDFTest}>
         <Appendix values={this.props} />
@@ -48,6 +51,15 @@ class WizardForm50Page extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => ({
+//   lorem: state.values
+// });
+
+// WizardForm50Page = connect(mapStateToProps)(WizardForm50Page);
+WizardForm50Page = connect(state => ({
+  values: getFormValues("wizard")(state)
+}))(WizardForm50Page);
 
 export default reduxForm({
   form: "wizard", //                 <------ same form name

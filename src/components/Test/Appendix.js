@@ -17,7 +17,7 @@ const AppendixConnected = (props, values) => {
     <div>
       <SectionTitle titleBold="Appendix" titleRegular="of scores" />
       {appendix.appendices.map((t, i) => (
-        <div key={t.Id}>
+        <div key={`${i}-${t.Id}`}>
           <div className="flex">
             <SectionSubHeader subHeader={t.Name} />
             <span className="h7">&nbsp;{t.Abbreviation}</span>
@@ -30,10 +30,11 @@ const AppendixConnected = (props, values) => {
               <div>Range</div>
             </div>
 
-            {t.SubTests.map(t => (
+            {t.SubTests.map((t, index) => (
               <div
-                key={`${appendix.appendices[i].Id}
-                    -${t.toLowerCase().replace(/ /g, "-")}`}
+                key={`${index}-${
+                  appendix.appendices[i].Id
+                }-${t.toLowerCase().replace(/ /g, "-")}`}
                 className="table__row"
               >
                 <div>{t}</div>
@@ -41,42 +42,45 @@ const AppendixConnected = (props, values) => {
                   <Field
                     component="input"
                     type="text"
-                    name={`${
+                    name={`${index}-${
                       appendix.appendices[i].Id
                     }-appendix-${appendix.appendices[
                       i
                     ].Abbreviation.toLowerCase()}-${t
                       .toLowerCase()
                       .replace(/ /g, "-")
-                      .replace("/", "-")}-composite-score`}
+                      .replace("/", "-")
+                      .replace(/\(|\)/g, "")}-composite-score`}
                   />
                 </div>
                 <div>
                   <Field
                     component="input"
                     type="text"
-                    name={`${
+                    name={`${index}-${
                       appendix.appendices[i].Id
                     }-appendix-${appendix.appendices[
                       i
                     ].Abbreviation.toLowerCase()}-${t
                       .toLowerCase()
                       .replace(/ /g, "-")
-                      .replace("/", "-")}-rank`}
+                      .replace("/", "-")
+                      .replace(/\(|\)/g, "")}-rank`}
                   />
                 </div>
                 <div>
                   <Field
                     component="input"
                     type="text"
-                    name={`${
+                    name={`${index}-${
                       appendix.appendices[i].Id
                     }-appendix-${appendix.appendices[
                       i
                     ].Abbreviation.toLowerCase()}-${t
                       .toLowerCase()
                       .replace(/ /g, "-")
-                      .replace("/", "-")}-range`}
+                      .replace("/", "-")
+                      .replace(/\(|\)/g, "")}-range`}
                   />
                 </div>
               </div>
