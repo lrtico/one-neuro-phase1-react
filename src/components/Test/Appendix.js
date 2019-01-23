@@ -30,23 +30,21 @@ const AppendixConnected = (props, values) => {
               <div>Range</div>
             </div>
 
-            {t.SubTests.map((t, index) => (
+            {t.SubTests.map(t => (
               <div
-                key={`${index}-${
-                  appendix.appendices[i].Id
-                }-${t.toLowerCase().replace(/ /g, "-")}`}
+                key={`${t.id}-${t.parentScaleName
+                  .toLowerCase()
+                  .replace(/ /g, "-")}`}
                 className="table__row"
               >
-                <div>{t}</div>
+                <div>{t.parentScaleName}</div>
                 <div>
                   <Field
                     component="input"
                     type="text"
-                    name={`${index}-${
-                      appendix.appendices[i].Id
-                    }-appendix-${appendix.appendices[
+                    name={`${t.id}-appendix-${appendix.appendices[
                       i
-                    ].Abbreviation.toLowerCase()}-${t
+                    ].Abbreviation.toLowerCase()}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
@@ -57,11 +55,9 @@ const AppendixConnected = (props, values) => {
                   <Field
                     component="input"
                     type="text"
-                    name={`${index}-${
-                      appendix.appendices[i].Id
-                    }-appendix-${appendix.appendices[
+                    name={`${t.id}-appendix-${appendix.appendices[
                       i
-                    ].Abbreviation.toLowerCase()}-${t
+                    ].Abbreviation.toLowerCase()}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
@@ -72,11 +68,9 @@ const AppendixConnected = (props, values) => {
                   <Field
                     component="input"
                     type="text"
-                    name={`${index}-${
-                      appendix.appendices[i].Id
-                    }-appendix-${appendix.appendices[
+                    name={`${t.id}-appendix-${appendix.appendices[
                       i
-                    ].Abbreviation.toLowerCase()}-${t
+                    ].Abbreviation.toLowerCase()}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")

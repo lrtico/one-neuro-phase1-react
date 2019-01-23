@@ -121,7 +121,7 @@ class WizardForm47Page extends Component {
       Id: id,
       Name: name,
       Abbreviation: abbreviation,
-      SubTests: [parentScaleName]
+      SubTests: [{ parentScaleName, id }]
     };
 
     let checked = event.target.checked;
@@ -422,11 +422,6 @@ class WizardForm47Page extends Component {
     );
   }
 }
-
-// Decorate with redux-form
-// WizardForm47Page = reduxForm({
-//   form: "wizard" // a unique identifier for this form
-// })(WizardForm47Page);
 
 // Decorate with connect to read form values
 const selector = formValueSelector("wizard"); // <-- same as form name

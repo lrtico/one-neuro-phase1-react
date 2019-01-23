@@ -52,11 +52,7 @@ class WizardForm50Page extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   lorem: state.values
-// });
-
-// WizardForm50Page = connect(mapStateToProps)(WizardForm50Page);
+// Grab the Redux Form's values and load it into props
 WizardForm50Page = connect(state => ({
   values: getFormValues("wizard")(state)
 }))(WizardForm50Page);

@@ -42,6 +42,7 @@ const appendixReducer = (state = initialState, action) => {
           - Action SubTests payload = ${JSON.stringify(
             action.payload.SubTests[0]
           )}
+          - Action payload's id = ${action.payload.Id}
           - Index of the matching test in state (-1 if none) = ${idx}
           - State = ${JSON.stringify(state)}
           - Result of hasTest = ${hasTest}
