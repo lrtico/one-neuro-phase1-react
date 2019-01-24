@@ -183,7 +183,7 @@ recommendationList: [
     recommendations: [
       {
         recommendationId: "adhd1",
-        recommendationDescription: "Similarly, CLIENT NAME would greatly benefit from continuing to learn and utilizing organizational techniques (i.e., making lists, brainstorming verbally, breaking down large tasks into smaller components) to help CLIENT NAME better manage CLIENT NAME work-related tasks."
+        RecommendationDescription: "Similarly, CLIENT NAME would greatly benefit from continuing to learn and utilizing organizational techniques (i.e., making lists, brainstorming verbally, breaking down large tasks into smaller components) to help CLIENT NAME better manage CLIENT NAME work-related tasks."
       },
       {
         id: "adhd2",

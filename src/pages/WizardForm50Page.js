@@ -11,31 +11,22 @@ class WizardForm50Page extends Component {
     event.preventDefault();
     const values = this.props.values;
     console.log("Make submission go now!", values);
-    const TEMPLATE_ID = "tpl_kbrXFcG2zFCHQTyrSQ";
-    // const pdfData = {
-    //   "di-name": "Jane Smith",
-    //   "di-age": "8"
-    // };
-    const options = {
-      data: values,
-      test: true
-    };
-
-    let formapiConfig = new FormAPI.Configuration();
+    const formapiConfig = new FormAPI.Configuration();
     formapiConfig.apiTokenId = "api_test_nK62yQ9snkS4CQqJYA";
     formapiConfig.apiTokenSecret =
       "xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg";
     const formapiClient = new FormAPI.Client(formapiConfig);
 
-    formapiClient.generatePDF(TEMPLATE_ID, options, function(error, response) {
+    const TEMPLATE_ID = "tpl_kbrXFcG2zFCHQTyrSQ";
+
+    const OPTIONS = {
+      data: values,
+      test: true
+    };
+
+    formapiClient.generatePDF(TEMPLATE_ID, OPTIONS, function(error, response) {
       if (error) throw error;
-
-      const submission = response.submission;
-
-      console.log(response.status); // "success"
-      console.log(submission.id); // "sub_********"
-      console.log(submission.state); // "processed"
-      console.log(submission.download_url); // URL to download the PDF
+      console.log("FormAPI response", response);
     });
   };
 

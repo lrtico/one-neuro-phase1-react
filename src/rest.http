@@ -1,0 +1,6 @@
+POST https://api.formapi.io/api/v1/templates/tpl_kbrXFcG2zFCHQTyrSQ/submissions
+Authorization: Basic api_test_nK62yQ9snkS4CQqJYA xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg
+
+
+# GET https://api.formapi.io/api/v1/submissions/sub_L9Dsgxth9YPxgMPYta
+# Authorization: Basic api_test_nK62yQ9snkS4CQqJYA xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg
