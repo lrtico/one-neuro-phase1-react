@@ -1,6 +1,15 @@
 POST https://api.formapi.io/api/v1/templates/tpl_kbrXFcG2zFCHQTyrSQ/submissions
 Authorization: Basic api_test_nK62yQ9snkS4CQqJYA xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg
+Content-Type: application/json
 
+{
+  "test": true,
+  "data": {
+    "di-name": "John",
+    "di-age": "4",
+    "paq-guardian": "Mother"
+  }
+}
 
 # GET https://api.formapi.io/api/v1/submissions/sub_L9Dsgxth9YPxgMPYta
 # Authorization: Basic api_test_nK62yQ9snkS4CQqJYA xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg

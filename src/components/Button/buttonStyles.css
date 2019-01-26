@@ -23,6 +23,9 @@
   -o-transition: background-color 250ms;
   transition: background-color 250ms;
 }
+.btn-wrap .btn.btn--width-auto {
+  width: unset;
+}
 .btn-wrap .btn .btn__text {
   padding: 9px;
   position: relative;
