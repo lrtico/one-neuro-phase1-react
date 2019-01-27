@@ -1,6 +1,6 @@
 import React from "react";
 import { Field } from "redux-form";
-import ReactHtmlParser from "react-html-parser";
+//import ReactHtmlParser from "react-html-parser";
 import "./Test.css";
 import SectionSubTitle from "../SectionSubTitle";
 import SectionSubHeader from "../SectionSubHeader";
@@ -74,16 +74,21 @@ const Test = ({ testFromState, ...props }) => {
             <ButtonToggle buttonToggleLabel="Remove test" />
           </div>
           <div className="test-desc">
-            <div style={{ marginBottom: "9px" }}>
-              {ReactHtmlParser(t.Descriptions)}
-            </div>
+            <div
+              style={{ marginBottom: "9px" }}
+              dangerouslySetInnerHTML={createMarkup(t.Descriptions)}
+            />
             {t.TestIndexes.map((t, i) => (
               <div key={i}>
                 {t.IndexName === "General Ability Index" ? (
                   <div className="test__list">
                     <SectionSubHeader subHeader={t.IndexName} />
                     <p>
-                      {ReactHtmlParser(t.IndexDescription)}{" "}
+                      <span
+                        dangerouslySetInnerHTML={createMarkup(
+                          t.IndexDescription
+                        )}
+                      />{" "}
                       <span>
                         Client scored a{" "}
                         <Field
@@ -142,9 +147,12 @@ const Test = ({ testFromState, ...props }) => {
                   <div key={t.Id}>
                     <div className="test-table-heading">
                       <div className="flex has-toggle-child">
-                        <h6 className="h7">
-                          {ReactHtmlParser(t.ParentScaleName)}
-                        </h6>
+                        <h6
+                          className="h7"
+                          dangerouslySetInnerHTML={createMarkup(
+                            t.ParentScaleName
+                          )}
+                        />
                         <Field
                           name={`${t.Id}-${t.ParentScaleName.toLowerCase()
                             .replace(/ /g, "-")
@@ -278,9 +286,8 @@ const Test = ({ testFromState, ...props }) => {
                                 ? "table__row__cell--wide"
                                 : null
                             }
-                          >
-                            {ReactHtmlParser(t.Name)}
-                          </div>
+                            dangerouslySetInnerHTML={createMarkup(t.Name)}
+                          />
                           <div>
                             <Field
                               component="input"
@@ -308,7 +315,11 @@ const Test = ({ testFromState, ...props }) => {
                                 )}-percentile-rank`}
                               />
                             ) : (
-                              ReactHtmlParser(t.Description)
+                              <span
+                                dangerouslySetInnerHTML={createMarkup(
+                                  t.Description
+                                )}
+                              />
                             )}
                           </div>
                         </div>
@@ -338,7 +349,9 @@ const Test = ({ testFromState, ...props }) => {
                           .replace(/ /g, "-")}-score`}
                       />
                     </div>
-                    <div>{ReactHtmlParser(t.Description)}</div>
+                    <div
+                      dangerouslySetInnerHTML={createMarkup(t.Description)}
+                    />
                   </div>
                 ))}
               </div>
@@ -467,7 +480,11 @@ const Test = ({ testFromState, ...props }) => {
                                       .replace(/ /g, "-")}-score`}
                                   />
                                 </div>
-                                <div>{ReactHtmlParser(t.Description)}</div>
+                                <div
+                                  dangerouslySetInnerHTML={createMarkup(
+                                    t.Description
+                                  )}
+                                />
                               </div>
                             ))}
                           </div>
@@ -534,7 +551,11 @@ const Test = ({ testFromState, ...props }) => {
                                   .replace(/ /g, "-")}-score`}
                               />
                             </div>
-                            <div>{ReactHtmlParser(t.Description)}</div>
+                            <div
+                              dangerouslySetInnerHTML={createMarkup(
+                                t.Description
+                              )}
+                            />
                           </div>
                         ))}
                       </div>
@@ -582,9 +603,12 @@ const Test = ({ testFromState, ...props }) => {
                               />
                             </div>
                             {t.ParentScaleDescription !== null ? (
-                              <div className="test__list">
-                                {ReactHtmlParser(t.ParentScaleDescription)}
-                              </div>
+                              <div
+                                className="test__list"
+                                dangerouslySetInnerHTML={createMarkup(
+                                  t.ParentScaleDescription
+                                )}
+                              />
                             ) : null}
                           </div>
                           <div className="test-table">
