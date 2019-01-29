@@ -13,6 +13,7 @@ import DivButton from "../components/Button/DivButton";
 import Test from "../components/Test/Test";
 import DomainsLoading from "../components/Loading/DomainsLoading";
 import store from "../store";
+import SectionSubTitle from "../components/SectionSubTitle";
 // import { addTest } from "../actions/actions";
 
 // const mapDispatchToProps = dispatch => {
@@ -28,6 +29,10 @@ class WizardForm47Page extends Component {
     matchedTests: [],
     testsSelected: [],
     domainsLoaded: false
+    // showDomains: false,
+    // showSubDomains: false,
+    // showTests: false,
+    // showSummary: false
   };
 
   showLetterFormat = () => {
@@ -37,9 +42,13 @@ class WizardForm47Page extends Component {
   };
 
   showDomainBased = () => {
-    //console.log("hide letter, domain based");
+    console.log("hide letter, domain based selected");
     document.querySelector(".letter-format").classList.remove("show");
-    document.querySelector(".domain__pick-domain").classList.add("show");
+    //document.querySelector(".domain__pick-domain").classList.add("show");
+    store.dispatch({
+      type: "SHOW_DOMAIN",
+      payload: { showDomains: true }
+    });
     document.querySelector(".domain__pick-domain").scrollIntoView({
       behavior: "smooth"
     });
@@ -47,15 +56,30 @@ class WizardForm47Page extends Component {
 
   showSubDomain = () => {
     //console.log("hide everything but pick the sub domain executing...");
-    document.querySelector(".domain__pick-sub-domain").classList.add("show");
+    // this.setState(prevState => {
+    //   return { showSubDomains: !prevState.showSubDomains };
+    // });
+    store.dispatch({
+      type: "SHOW_SUBDOMAIN",
+      payload: { showSubDomains: true }
+    });
+    //document.querySelector(".domain__pick-sub-domain").classList.add("show");
     document.querySelector(".domain__pick-sub-domain").scrollIntoView({
       behavior: "smooth"
     });
+    console.log("showSubDomain click");
   };
 
   showTests = () => {
     //console.log("Make tests go now!");
-    document.querySelector(".domain__test").classList.add("show");
+    // this.setState(prevState => {
+    //   return { showTests: !prevState.showTests };
+    // });
+    store.dispatch({
+      type: "SHOW__TESTS",
+      payload: { showTests: true }
+    });
+    //document.querySelector(".domain__test").classList.add("show");
     document.querySelector(".domain__test h4").scrollIntoView({
       behavior: "smooth"
     });
@@ -63,47 +87,16 @@ class WizardForm47Page extends Component {
 
   showSummary = () => {
     //console.log("Make summary go now!");
-    document.querySelector(".summary-findings").classList.add("show");
+    // this.setState(prevState => {
+    //   return { showSummary: !prevState.showSummary };
+    // });
+    store.dispatch({
+      type: "SHOW_SUMMARY",
+      payload: { showSummary: true }
+    });
+    //document.querySelector(".summary-findings").classList.add("show");
     document.querySelector(".summary-findings").scrollIntoView({
       behavior: "smooth"
-    });
-  };
-
-  filterTestsByDomainsSelected = card => {
-    console.log("Passed domain from checkbox child ", card);
-    this.setState(({ matchedTests, tests, ...state }) => {
-      const idx = matchedTests.map(t => t.DomainName).indexOf(card);
-
-      if (idx !== -1) {
-        //The domain is in state already so we remove it...
-        console.log("IndexOf, ", idx);
-        console.log(
-          "The domain is in state already so we remove it now! ",
-          this.state.matchedTests
-        );
-        return {
-          ...state,
-          matchedTests: matchedTests.filter(t => t.DomainName !== card)
-        };
-      } else {
-        //The domain clicked isn't in the matchedTest array, so filter the immutable all tests state
-        //by copying the test that was clicked to the matchedTest array
-        console.log("IndexOf, ", idx);
-        console.log(
-          "The domain clicked isn't in the matchedTest array so make add now! ",
-          this.state.matchedTests
-        );
-        // let newarr = matchedTests.concat(
-        //   tests.filter(t => t.DomainName === card)
-        // );
-        let handleMatches = tests.filter(t => t.DomainName === card);
-        let newarr = {
-          DomainName: card,
-          handleMatches
-        };
-        console.log("newarr, ", newarr);
-        return [matchedTests.push(newarr)];
-      }
     });
   };
 
@@ -144,11 +137,56 @@ class WizardForm47Page extends Component {
     }
   };
 
+  //Show all the tests in a domain that's clicked on
+  filterTestsByDomainsSelected = card => {
+    //console.log("Passed domain from checkbox child ", card);
+    console.log("filterTestsByDomainsSelected curr state, ", this.state);
+    this.setState(({ matchedTests, tests, ...state }) => {
+      const idx = matchedTests.map(t => t.DomainName).indexOf(card);
+
+      if (idx !== -1) {
+        //The domain is in state already so we remove it...
+        console.log("IndexOf, ", idx);
+        console.log(
+          "The domain is in state already so we remove it now! ",
+          this.state.matchedTests
+        );
+        return {
+          ...state,
+          matchedTests: matchedTests.filter(t => t.DomainName !== card)
+        };
+      } else {
+        //The domain clicked isn't in the matchedTest array, so filter the immutable all tests state
+        //by copying the test that was clicked to the matchedTest array
+        console.log("IndexOf, ", idx);
+        console.log(
+          "The domain clicked isn't in the matchedTest array so make add now! ",
+          this.state.matchedTests
+        );
+        // let newarr = matchedTests.concat(
+        //   tests.filter(t => t.DomainName === card)
+        // );
+        let handleMatches = tests.filter(t => t.DomainName === card);
+        let newarr = {
+          DomainName: card,
+          handleMatches
+        };
+        console.log("newarr, ", newarr);
+        return [matchedTests.push(newarr)];
+      }
+    });
+  };
+
+  //Show the test when clicked on
   showFilteredTest = test => {
     let selectedTest = this.state.tests.filter(t => t.Abbreviation === test);
     store.dispatch({
       type: "ADD_TEST",
       payload: selectedTest[0]
+    });
+    store.dispatch({
+      type: "SHOW_TESTS",
+      payload: { showTests: true }
     });
 
     console.log("Make show test go now!", test);
@@ -188,10 +226,10 @@ class WizardForm47Page extends Component {
       })
       .then(data => {
         this.setState({ domains: data, domainsLoaded: true });
-        console.log("Domain data from API, ", data);
+        //console.log("Domain data from API, ", data);
       })
       .catch(error => console.log("Domain API error, ", error));
-    console.log("WizardForm47 is loading");
+    //console.log("WizardForm47 is loading");
 
     //Load all the test data into state
     const allData = "http://oneneuro.azurewebsites.net/api/test/get/all";
@@ -201,7 +239,7 @@ class WizardForm47Page extends Component {
       })
       .then(d => {
         this.setState({ tests: d });
-        console.log("Test data from API, ", allData);
+        //console.log("Test data from API, ", allData);
       })
       .catch(error => console.log("Getting all data error, ", error));
   }
@@ -216,7 +254,8 @@ class WizardForm47Page extends Component {
       referral3
     } = this.props;
     const { domains, matchedTests } = this.state;
-    console.log("MatchedTests from state, ", matchedTests);
+    //console.log("MatchedTests from state, ", matchedTests);
+    //console.log("Props from the store ", this.props);
 
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -264,8 +303,14 @@ class WizardForm47Page extends Component {
           <Button onClick={handleSubmit} buttonLabel="OK" />
         </div>
 
-        <div className="domain__pick-domain">
-          <SectionTitle titleBold="Domain-based" titleRegular="reports" />
+        <div
+          className={
+            this.props.domainBasedReports.showDomains
+              ? "domain__pick-domain show"
+              : "domain__pick-domain"
+          }
+        >
+          <SectionSubTitle subTitleFirst="Domains" />
           {this.state.domainsLoaded ? (
             <FieldArray
               component={CheckboxDomainsCard}
@@ -288,8 +333,14 @@ class WizardForm47Page extends Component {
           <DivButton divButtonLabel="OK" show={this.showSubDomain} />
         </div>
 
-        <div className="domain__pick-sub-domain">
-          <SectionTitle titleBold="Domain-based" titleRegular="reports" />
+        <div
+          className={
+            this.props.domainBasedReports.showSubDomains
+              ? "domain__pick-sub-domain show"
+              : "domain__pick-sub-domain"
+          }
+        >
+          <SectionSubTitle subTitleFirst="Available" subTitleBold="tests" />
           <FieldArray
             component={CheckboxTestsCard}
             checkboxInfo={matchedTests.map(test => ({
@@ -307,8 +358,14 @@ class WizardForm47Page extends Component {
           <DivButton divButtonLabel="OK" show={this.showTests} />
         </div>
 
-        <div className="domain__test">
-          <SectionTitle titleBold="Domain-based" titleRegular="reports" />
+        <div
+          className={
+            this.props.domainBasedReports.showTests
+              ? "domain__test show"
+              : "domain__test"
+          }
+        >
+          <SectionSubTitle subTitleFirst="Selected" subTitleBold="tests" />
           <Test
             testFromState={this.state.testsSelected}
             handleAppendixAdd={this.addToAppendix}
@@ -316,7 +373,13 @@ class WizardForm47Page extends Component {
           <DivButton divButtonLabel="Ok" show={this.showSummary} />
         </div>
 
-        <div className="summary-findings">
+        <div
+          className={
+            this.props.domainBasedReports.showSummary
+              ? "summary-findings show"
+              : "summary-findings"
+          }
+        >
           <SectionTitle titleBold="Summary" titleRegular="of findings" />
           <div className="flex copy-forward-row">
             <div className="question grid__half">
@@ -422,6 +485,11 @@ class WizardForm47Page extends Component {
     );
   }
 }
+
+//Grab the state values for showing/hiding components from the store
+WizardForm47Page = connect(state => ({
+  domainBasedReports: state.domainBasedReports
+}))(WizardForm47Page);
 
 // Decorate with connect to read form values
 const selector = formValueSelector("wizard"); // <-- same as form name

@@ -8,6 +8,7 @@ import {
 import C from "./constants";
 
 export const addTest = testSelected => ({
+  //Any logic goes here...
   type: ADD_TEST,
   payload: testSelected
 });

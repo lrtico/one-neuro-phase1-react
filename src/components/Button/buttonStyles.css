@@ -94,3 +94,8 @@
   font-weight: 700;
   transition: color 0.25s linear 0.25s;
 }
+
+.domain__test .btn-wrap .btn .btn__text > span {
+  font-size: 28px;
+  font-size: 2.8rem;
+}
