@@ -1,4 +1,5 @@
 import { ADD_TEST } from "../actions/constants";
+import C from "../actions/constants";
 
 const initialState = [];
 
@@ -25,3 +26,24 @@ const testsSelectedReducer = (state = initialState, action) => {
 };
 
 export default testsSelectedReducer;
+
+export const matchedTests = (state = [], action) => {
+  switch (action.type) {
+    case C.REMOVE_TESTS:
+      return state.filter(t => t.DomainName !== action.payload);
+
+    case C.ADD_TESTS:
+      return [...state, action.payload];
+
+    default:
+      return state;
+  }
+};
+
+export const handleMatches = (state = [], action) => {
+  if (action.type === C.HANDLE_MATCHES) {
+    return action.payload;
+  } else {
+    return state;
+  }
+};

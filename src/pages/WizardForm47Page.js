@@ -29,10 +29,6 @@ class WizardForm47Page extends Component {
     matchedTests: [],
     testsSelected: [],
     domainsLoaded: false
-    // showDomains: false,
-    // showSubDomains: false,
-    // showTests: false,
-    // showSummary: false
   };
 
   showLetterFormat = () => {
@@ -141,43 +137,72 @@ class WizardForm47Page extends Component {
   filterTestsByDomainsSelected = card => {
     //console.log("Passed domain from checkbox child ", card);
     console.log("filterTestsByDomainsSelected curr state, ", this.state);
-    this.setState(({ matchedTests, tests, ...state }) => {
-      const idx = matchedTests.map(t => t.DomainName).indexOf(card);
+    console.log(`Box clicked on had the label of ${card}`);
+    //this.setState(({ matchedTests, tests, ...state }) => {
 
-      if (idx !== -1) {
-        //The domain is in state already so we remove it...
-        console.log("IndexOf, ", idx);
-        console.log(
-          "The domain is in state already so we remove it now! ",
-          this.state.matchedTests
-        );
-        return {
-          ...state,
-          matchedTests: matchedTests.filter(t => t.DomainName !== card)
-        };
-      } else {
-        //The domain clicked isn't in the matchedTest array, so filter the immutable all tests state
-        //by copying the test that was clicked to the matchedTest array
-        console.log("IndexOf, ", idx);
-        console.log(
-          "The domain clicked isn't in the matchedTest array so make add now! ",
-          this.state.matchedTests
-        );
-        // let newarr = matchedTests.concat(
-        //   tests.filter(t => t.DomainName === card)
-        // );
-        let handleMatches = tests.filter(t => t.DomainName === card);
-        let newarr = {
-          DomainName: card,
-          handleMatches
-        };
-        console.log("newarr, ", newarr);
-        return [matchedTests.push(newarr)];
-      }
-    });
+    const { tests } = this.state;
+    const { storeMatchedTests } = this.props;
+    const idx = storeMatchedTests.map(t => t.DomainName).indexOf(card);
+    console.log(`idx = ${idx}`);
+
+    if (idx !== -1) {
+      //The domain is in state already so we remove it...
+      // console.log("IndexOf, ", idx);
+      // console.log(
+      //   "The domain is in state already so we remove it now! ",
+      //   this.state.matchedTests
+      // );
+      // return {
+      //   ...state,
+      //   matchedTests: matchedTests.filter(t => t.DomainName !== card)
+      // };
+
+      //let data = matchedTests.filter(t => t.DomainName !== card);
+      console.log(
+        `The clicked domain is already in state, so we send the reducer the payload of the domain: ${card}`
+      );
+      store.dispatch({
+        type: "REMOVE_TESTS",
+        payload: card
+      });
+    } else {
+      //The domain clicked isn't in the matchedTest array, so filter the immutable all tests state
+      //by copying the test that was clicked to the matchedTest array
+      //console.log("IndexOf, ", idx);
+      // console.log(
+      //   "The domain clicked isn't in the matchedTest array so make add now! ",
+      //   this.state.matchedTests
+      // );
+      // let newarr = matchedTests.concat(
+      //   tests.filter(t => t.DomainName === card)
+      // );
+      // let handleMatches = tests.filter(t => t.DomainName === card);
+      // let newarr = {
+      //   DomainName: card,
+      //   handleMatches
+      // };
+      // console.log("newarr, ", newarr);
+      // return [matchedTests.push(newarr)];
+
+      let handleMatches = tests.filter(t => t.DomainName === card);
+      let data = {
+        DomainName: card,
+        handleMatches
+      };
+      console.log(
+        `${card} clicked is NOT in state, so we create a new data array with that clicked domain: ${JSON.stringify(
+          data
+        )}`
+      );
+      store.dispatch({
+        type: "ADD_TESTS",
+        payload: data
+      });
+    }
+    //});
   };
 
-  //Show the test when clicked on
+  //Show the test when clicked on or hide it
   showFilteredTest = test => {
     let selectedTest = this.state.tests.filter(t => t.Abbreviation === test);
     store.dispatch({
@@ -251,11 +276,14 @@ class WizardForm47Page extends Component {
       patientName,
       referral1,
       referral2,
-      referral3
+      referral3,
+      storeMatchedTests,
+      tests
     } = this.props;
-    const { domains, matchedTests } = this.state;
-    //console.log("MatchedTests from state, ", matchedTests);
-    //console.log("Props from the store ", this.props);
+    const { domains } = this.state;
+    console.log("State after render(), ", this.state);
+    console.log("Page 47's props from the store ", this.props);
+    console.log("Page 47's tests selected ", tests);
 
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -343,7 +371,7 @@ class WizardForm47Page extends Component {
           <SectionSubTitle subTitleFirst="Available" subTitleBold="tests" />
           <FieldArray
             component={CheckboxTestsCard}
-            checkboxInfo={matchedTests.map(test => ({
+            checkboxInfo={storeMatchedTests.map(test => ({
               columnHeader: test.DomainName,
               cardName: `dbr-${test.DomainName}`,
               checkboxLabels: test.handleMatches
@@ -366,10 +394,7 @@ class WizardForm47Page extends Component {
           }
         >
           <SectionSubTitle subTitleFirst="Selected" subTitleBold="tests" />
-          <Test
-            testFromState={this.state.testsSelected}
-            handleAppendixAdd={this.addToAppendix}
-          />
+          <Test testFromState={tests} handleAppendixAdd={this.addToAppendix} />
           <DivButton divButtonLabel="Ok" show={this.showSummary} />
         </div>
 
@@ -488,7 +513,9 @@ class WizardForm47Page extends Component {
 
 //Grab the state values for showing/hiding components from the store
 WizardForm47Page = connect(state => ({
-  domainBasedReports: state.domainBasedReports
+  domainBasedReports: state.domainBasedReports,
+  storeMatchedTests: state.matchedTests,
+  tests: state.testsSelectedReducer
 }))(WizardForm47Page);
 
 // Decorate with connect to read form values

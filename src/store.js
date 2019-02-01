@@ -4,13 +4,15 @@ import testsSelectedReducer from "../src/reducers/reducerTests";
 import appendixReducer from "../src/reducers/reducerAppendix";
 import recommendations from "../src/reducers/reducerRecommendation";
 import domainBasedReports from "./reducers/reducerDomains";
+import { matchedTests } from "./reducers/reducerTests";
 
 const reducer = combineReducers({
   form: reduxFormReducer, // mounted under "form"
   testsSelectedReducer, //tests selected by user
   appendixReducer, //data needed to be shown on the appendix view
   recommendations,
-  domainBasedReports //true false values to control components visibility when selecting a test
+  domainBasedReports, //true false values to control components visibility when selecting a test
+  matchedTests
 });
 const store = (window.devToolsExtension
   ? window.devToolsExtension()(createStore)

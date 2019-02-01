@@ -16,7 +16,7 @@ const CheckboxCard = ({
   ...props,
   meta: { touched, error }
 }) => {
-  console.log("checkboxinfo props, ", checkboxInfo);
+  console.log("CheckboxTestsCard props, ", checkboxInfo);
   const { handleTestFilter } = props;
   return (
     <div className={classes}>
