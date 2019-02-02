@@ -17,7 +17,7 @@ const WizardForm33Page = props => {
 
       <label>
         Has this child ever had
-        <strong> pshycology counseling or therapy</strong>?
+        <strong> psychology counseling or therapy</strong>?
       </label>
       <FieldArray
         name="counseling-group"

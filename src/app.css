@@ -1025,7 +1025,7 @@ textarea {
 
 .question__required-text span {
   font-size: 10px;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .pdf-generation-loader {

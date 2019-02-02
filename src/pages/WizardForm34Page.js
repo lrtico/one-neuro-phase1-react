@@ -16,8 +16,7 @@ const WizardForm34Page = props => {
       </div>
 
       <label>
-        Has this child ever had a
-        <strong> nuerological exam</strong>?
+        Has this child ever had a<strong> neurological exam</strong>?
       </label>
       <FieldArray
         name="nuerological-group"

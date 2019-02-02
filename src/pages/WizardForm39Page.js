@@ -100,8 +100,9 @@ const WizardForm39Page = props => {
       <Field
         alt="Ghost"
         component={TextQuestion}
-        label="Does this child have"
+        label="What"
         labelBold="fears"
+        labelLast="does this child have, if any"
         name="bt-fears"
         src="img/icons-ghost.svg"
         tabOrder="13"

@@ -107,7 +107,7 @@ const FormCardStacked = ({
                 <span onClick={handleDelete}>Delete</span>
               </div>
             </div>
-            <RequiredText requiredText="Enter an age above :)" />
+            <RequiredText requiredText="Enter required info above :)" />
             <div className="question__bg" />
           </li>
         ))}

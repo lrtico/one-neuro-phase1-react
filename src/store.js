@@ -5,6 +5,7 @@ import appendixReducer from "../src/reducers/reducerAppendix";
 import recommendations from "../src/reducers/reducerRecommendation";
 import domainBasedReports from "./reducers/reducerDomains";
 import { matchedTests } from "./reducers/reducerTests";
+import { patientAge } from "./reducers/reducers";
 
 const reducer = combineReducers({
   form: reduxFormReducer, // mounted under "form"
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   appendixReducer, //data needed to be shown on the appendix view
   recommendations,
   domainBasedReports, //true false values to control components visibility when selecting a test
-  matchedTests
+  matchedTests,
+  patientAge
 });
 const store = (window.devToolsExtension
   ? window.devToolsExtension()(createStore)

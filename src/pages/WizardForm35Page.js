@@ -17,7 +17,7 @@ const WizardForm35Page = props => {
 
       <label>
         Has this child ever had a
-        <strong> psychology or physciatric exam</strong>?
+        <strong> psychology or psychiatric exam</strong>?
       </label>
       <FieldArray
         name="psychology-group"

@@ -17,6 +17,7 @@ const TextQuestion = ({
   classes,
   materialIcon,
   copyForward,
+  age,
   maxCharacters,
   meta: { touched, error }
 }) => (
@@ -33,6 +34,7 @@ const TextQuestion = ({
         type={type}
         tabIndex={tabOrder}
         maxLength={maxCharacters === undefined ? null : maxCharacters}
+        value={age === "" ? "" : age}
       />
       {copyForward === undefined ? null : (
         <div className="question__input__copy-forward">

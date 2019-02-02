@@ -23,29 +23,17 @@ const WizardForm08Page = props => {
         <ButtonToggle buttonToggleLabel="primary caregiver" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
-      <div className="flex">
-        <Field
-          name="bh-other-parent-yes-no"
-          component={RadioCard}
-          cardInfo={[
-            {
-              cardName: "bh-other-parent-stepparent",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "1"
-            },
-            {
-              cardName: "bh-other-parent-stepparent",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "2"
-            }
-          ]}
-          label="Does this child have any other"
-          labelBold="parent(s)/stepparent(s)"
-          classes="question question--thumbless"
-        />
-      </div>
+      <Field
+        alt="Person"
+        component={TextQuestion}
+        label="Name of"
+        labelBold="primary caregiver"
+        name="bh-primary-caregiver-name"
+        src="img/icons-happy-face-name.svg"
+        tabOrder="1"
+        type="input"
+        classes="question"
+      />
       <div className="flex">
         <Field
           alt="Person"

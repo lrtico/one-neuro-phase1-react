@@ -511,7 +511,7 @@ class WizardForm47Page extends Component {
   }
 }
 
-//Grab the state values for showing/hiding components from the store
+//Grab the state values for showing/hiding components from the store and showing selected tests
 WizardForm47Page = connect(state => ({
   domainBasedReports: state.domainBasedReports,
   storeMatchedTests: state.matchedTests,
