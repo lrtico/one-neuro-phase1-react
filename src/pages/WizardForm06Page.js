@@ -8,6 +8,8 @@ import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import SectionSubHeader from "../components/SectionSubHeader";
 import ButtonToggle from "../components/ButtonToggle";
+import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
+import { normalizePhone } from "../utils/Normalize";
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
@@ -85,7 +87,7 @@ const WizardForm06Page = props => {
       <div className="flex">
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Home"
           labelLast="phone"
@@ -93,13 +95,14 @@ const WizardForm06Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="6"
-          type="input"
+          type="text"
           classes="question grid__third"
-          copyForward="true"
+          //copyForward="true"
+          normalize={normalizePhone}
         />
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Work"
           labelLast="phone"
@@ -107,12 +110,13 @@ const WizardForm06Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="7"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Cell"
           labelLast="phone"
@@ -120,8 +124,9 @@ const WizardForm06Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="8"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
       </div>
       <div className="flex">

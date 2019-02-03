@@ -8,6 +8,8 @@ import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import SectionSubHeader from "../components/SectionSubHeader";
 import ButtonToggle from "../components/ButtonToggle";
+import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
+import { normalizePhone } from "../utils/Normalize";
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
@@ -101,7 +103,7 @@ const WizardForm08Page = props => {
       <div className="flex">
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Home"
           labelLast="phone"
@@ -109,12 +111,13 @@ const WizardForm08Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="10"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Work"
           labelLast="phone"
@@ -122,12 +125,13 @@ const WizardForm08Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="11"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Cell"
           labelLast="phone"
@@ -135,8 +139,9 @@ const WizardForm08Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="12"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
       </div>
       <Field

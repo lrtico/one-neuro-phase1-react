@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import store from "../store";
 import { Field, reduxForm } from "redux-form";
 import validate from "../validate";
 import TextQuestion from "../components/TextQuestion";
+import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
-import store from "../store";
+import { normalizePhone } from "../utils/Normalize";
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
@@ -139,7 +141,7 @@ class WizardForm02Page extends Component {
           />
           <Field
             alt="Phone"
-            component={TextQuestion}
+            component={NormalizePhoneInput}
             label="What's their parent's"
             labelBold="phone"
             name="di-parent-phone"
@@ -148,6 +150,7 @@ class WizardForm02Page extends Component {
             tabOrder="8"
             classes="question grid__half"
             maxCharacters={14}
+            normalize={normalizePhone}
           />
         </div>
         <div className="flex">
@@ -208,7 +211,7 @@ class WizardForm02Page extends Component {
             />
           </div>
         </div>
-        <div className="question">
+        <div className="question grid__half">
           <Field
             alt="Calendar"
             component={TextQuestion}

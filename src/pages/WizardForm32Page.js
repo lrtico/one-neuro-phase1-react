@@ -7,6 +7,8 @@ import RadioCard from "../components/Card/RadioCard/RadioCard";
 import Button from "../components/Button";
 import ButtonToggle from "../components/ButtonToggle";
 import FormCardMultiInput from "../components/Card/FormCard/FormCardMultiInput";
+import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
+import { normalizePhone } from "../utils/Normalize";
 
 const WizardForm32Page = props => {
   const { handleSubmit } = props;
@@ -30,14 +32,15 @@ const WizardForm32Page = props => {
         />
         <Field
           alt="Building"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label="What's the doctor's"
           labelBold="phone"
           name="mc-dr-phone"
           src="img/icons-phone.svg"
           tabOrder="2"
-          type="input"
+          type="text"
           classes="question grid__half"
+          normalize={normalizePhone}
         />
       </div>
       <div className="flex">

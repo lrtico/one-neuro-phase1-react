@@ -3,8 +3,10 @@ import { Field, reduxForm } from "redux-form";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import TextQuestion from "../components/TextQuestion";
+import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import Button from "../components/Button";
+import { normalizePhone } from "../utils/Normalize";
 
 const WizardForm03Page = props => {
   const { handleSubmit } = props;
@@ -80,7 +82,7 @@ const WizardForm03Page = props => {
       <div className="flex">
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Home"
           labelLast="phone"
@@ -88,12 +90,13 @@ const WizardForm03Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="7"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Work"
           labelLast="phone"
@@ -101,12 +104,13 @@ const WizardForm03Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="8"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
         <Field
           alt="Phone"
-          component={TextQuestion}
+          component={NormalizePhoneInput}
           label=""
           labelBold="Cell"
           labelLast="phone"
@@ -114,8 +118,9 @@ const WizardForm03Page = props => {
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="9"
-          type="input"
+          type="text"
           classes="question grid__third"
+          normalize={normalizePhone}
         />
       </div>
       <Button onClick={handleSubmit} buttonLabel="OK" />
