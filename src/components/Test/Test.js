@@ -250,7 +250,7 @@ const Test = ({ testFromState, ...props }) => {
                             />
                             <span>
                               {" "}
-                              range of functioning compared to other adults
+                              range of functioning compared to other individuals
                               (his/her) age.
                             </span>
                           </p>

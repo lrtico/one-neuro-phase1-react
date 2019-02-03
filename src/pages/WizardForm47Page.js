@@ -415,11 +415,7 @@ class WizardForm47Page extends Component {
                 <Field
                   alt="Person"
                   component={TextQuestion}
-                  label="What's the patient's"
-                  labelBold="name"
                   name="di-name"
-                  src="img/icons-happy-face-name.svg"
-                  tabOrder="1"
                   type="input"
                   classes="question"
                   //copyForward="true"
@@ -434,11 +430,7 @@ class WizardForm47Page extends Component {
                 <Field
                   alt="Person"
                   component={TextQuestion}
-                  label="What's the patient's"
-                  labelBold="age"
                   name="di-age"
-                  src="img/icons-birthday-cake.svg"
-                  tabOrder="2"
                   type="input"
                   classes="question"
                   //copyForward="true"
