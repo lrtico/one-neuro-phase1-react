@@ -2,9 +2,8 @@ import React from "react";
 import "./textQuestionStyles.css";
 import "../../app.css";
 import MaterialIcon from "react-google-material-icons";
-import ButtonToggle from "../ButtonToggle";
 
-const NormalizePhoneInput = ({
+const TextQuestionCopyForward = ({
   input,
   label,
   labelBold,
@@ -16,11 +15,15 @@ const NormalizePhoneInput = ({
   alt,
   classes,
   materialIcon,
-  copyForward,
+  copyForwardData,
   maxCharacters,
+  inputName,
+  myName,
+  ...props,
   meta: { touched, error }
 }) => (
   <div className={classes}>
+  {/* {console.log("Copy Forward data, ", copyForwardData)} */}
     <label hidden={label == null ? true : false}>
       {label} <strong>{labelBold}</strong> {labelLast}?
     </label>
@@ -32,16 +35,11 @@ const NormalizePhoneInput = ({
         placeholder={placeholder}
         type={type}
         tabIndex={tabOrder}
-        maxLength={maxCharacters === undefined ? null : maxCharacters}
+        //defaultValue={copyForwardData}
       />
-      {copyForward === undefined ? null : (
-        <div className="question__input__copy-forward">
-          <ButtonToggle buttonToggleLabel="copy forward" />
-        </div>
-      )}
       {touched && error && <span>{error}</span>}
     </div>
   </div>
 );
 
-export default NormalizePhoneInput;
+export default TextQuestionCopyForward;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../app.css";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm, formValueSelector } from "redux-form";
 import { connect } from "react-redux";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
@@ -14,8 +14,7 @@ import Test from "../components/Test/Test";
 import DomainsLoading from "../components/Loading/DomainsLoading";
 import store from "../store";
 import SectionSubTitle from "../components/SectionSubTitle";
-//import TextQuestionCopyForward from "../components/TextQuestion/TextQuestionCopyForward";
-// import { load as loadAccount } from "../reducers/reducers";
+import { load as loadAccount } from "../reducers/reducers";
 
 // import { addTest } from "../actions/actions";
 
@@ -282,9 +281,9 @@ class WizardForm47Page extends Component {
       handleSubmit,
       patientAge,
       patientName,
-      // referral1,
-      // referral2,
-      // referral3,
+      referral1,
+      referral2,
+      referral3,
       storeMatchedTests,
       tests
     } = this.props;
@@ -446,48 +445,45 @@ class WizardForm47Page extends Component {
               )}
             </div>
           </div>
-          <div className="copy-forward-row question">
+          <div className="copy-forward-row question grid__two-thirds">
             <label>
               Reasons for <strong>referral</strong>
             </label>
 
-            <Field component="input" name="sof-reason-referral-1" type="text" />
-            <Field component="input" name="sof-reason-referral-2" type="text" />
-            <Field component="input" name="sof-reason-referral-3" type="text" />
-            {/* {referral1 && (
+            <Field
+              component={TextQuestion}
+              name="sof-reason-referral-1"
+              tabOrder="1"
+              type="text"
+              classes="question"
+              materialIcon="arrow_right"
+              copyForward="true"
+              onClick={this.handleCopyForward(referral1)}
+            />
+
+            {referral2 && (
               <Field
                 component={TextQuestion}
-                name="sof-reason-referral-1"
-                tabOrder="3"
-                type="text"
+                name="reason-referral-2"
+                tabOrder="4"
+                type="input"
+                classes="question"
+                materialIcon="arrow_right"
+
+                //copyForward="true"
+              />
+            )}
+            {referral3 && (
+              <Field
+                component={TextQuestion}
+                name="reason-referral-3"
+                tabOrder="5"
+                type="input"
                 classes="question"
                 materialIcon="arrow_right"
                 //copyForward="true"
               />
-            )} */}
-
-            {/* {referral2 && (
-              <Field
-                component={TextQuestion}
-                name="reason-referral-2"
-                //tabOrder="4"
-                type="text"
-                classes="question"
-                materialIcon="arrow_right"
-                copyForward="true"
-              />
-            )} */}
-            {/* {referral3 && (
-              <Field
-                component={TextQuestion}
-                name="reason-referral-3"
-                //tabOrder="5"
-                type="text"
-                classes="question"
-                materialIcon="arrow_right"
-                copyForward="true"
-              />
-            )} */}
+            )}
           </div>
           <div>
             <label>
@@ -518,23 +514,28 @@ class WizardForm47Page extends Component {
 
 // Decorate with connect to read form values
 // const selector = formValueSelector("wizard"); // <-- same as form name
-// WizardForm47Page = connect(state => {
-//   // can select values individually
-//   const patientName = selector(state, "di-name");
-//   const patientAge = selector(state, "di-age");
-//   const referral1 = selector(state, "reason-referral-1");
-//   const referral2 = selector(state, "reason-referral-2");
-//   const referral3 = selector(state, "reason-referral-3");
-//   return {
-//     patientName,
-//     patientAge,
-//     referral1,
-//     referral2,
-//     referral3
-//   };
-// })(WizardForm47Page);
+// WizardForm47Page = connect(
+//   //null,
+//   //mapDispatchToProps,
+//   state => {
+//     // select values individually
+//     const patientName = selector(state, "di-name");
+//     const patientAge = selector(state, "di-age");
+//     const referral1 = selector(state, "reason-referral-1");
+//     const referral2 = selector(state, "reason-referral-2");
+//     const referral3 = selector(state, "reason-referral-3");
+//     console.log("referral1 = ", referral1);
+//     return {
+//       patientName,
+//       patientAge,
+//       referral1,
+//       referral2,
+//       referral3
+//     };
+//   }
+// )(WizardForm47Page);
 
-WizardForm47Page = reduxForm({
+export default reduxForm({
   form: "wizard", //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
@@ -548,12 +549,12 @@ WizardForm47Page = reduxForm({
 })(WizardForm47Page);
 
 //Grab the state values for showing/hiding components from the store and showing selected tests
-export default connect(
+WizardForm47Page = connect(
   state => ({
     domainBasedReports: state.domainBasedReports,
     storeMatchedTests: state.matchedTests,
-    tests: state.testsSelectedReducer
-    //initialValues: state.copyForward // pull initial values from copyForward reducer
-  })
-  //{ load: loadAccount } // bind account loading action creator
+    tests: state.testsSelectedReducer,
+    initialValues: state.copyForward // pull initial values from copyForward reducer
+  }),
+  { load: loadAccount } // bind account loading action creator
 )(WizardForm47Page);

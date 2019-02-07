@@ -2,9 +2,22 @@ import React from "react";
 import "./textQuestionStyles.css";
 import "../../app.css";
 import MaterialIcon from "react-google-material-icons";
-import ButtonToggle from "../ButtonToggle";
+import CopyForwardButton from "../ButtonToggle/CopyForwardButton";
+import store from "../../store";
 
-const NormalizePhoneInput = ({
+const addCopyForward = event => {
+  const val = event.target.parentNode.parentNode.previousSibling.value;
+  const input = event.target.parentNode.parentNode.previousSibling;
+  console.log("Copy forward button clicked", val, input);
+  store.dispatch({
+    type: "ADD_COPY_FORWARD_DATA",
+    payload: {
+      "sof-reason-referral-1": val
+    }
+  });
+};
+
+const TextQuestionAutoCalculate = ({
   input,
   label,
   labelBold,
@@ -17,6 +30,7 @@ const NormalizePhoneInput = ({
   classes,
   materialIcon,
   copyForward,
+  age,
   maxCharacters,
   meta: { touched, error }
 }) => (
@@ -33,10 +47,14 @@ const NormalizePhoneInput = ({
         type={type}
         tabIndex={tabOrder}
         maxLength={maxCharacters === undefined ? null : maxCharacters}
+        value={age === "" ? "" : age}
       />
       {copyForward === undefined ? null : (
         <div className="question__input__copy-forward">
-          <ButtonToggle buttonToggleLabel="copy forward" />
+          <CopyForwardButton
+            buttonToggleLabel="copy forward"
+            handleCopyForward={event => addCopyForward(event)}
+          />
         </div>
       )}
       {touched && error && <span>{error}</span>}
@@ -44,4 +62,4 @@ const NormalizePhoneInput = ({
   </div>
 );
 
-export default NormalizePhoneInput;
+export default TextQuestionAutoCalculate;

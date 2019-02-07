@@ -34,6 +34,11 @@ export const addRecommendation = name => ({
 });
 
 export const removeRecommendation = name => ({
-  type: REMOVE_RECOMMENDATION,
+  type: C.REMOVE_RECOMMENDATION,
   payload: name
+});
+
+export const load = () => ({
+  type: C.ADD_COPY_FORWARD_DATA,
+  payload: { "sof-reason-referral-1": "Make copy go now!" }
 });

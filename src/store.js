@@ -4,6 +4,7 @@ import testsSelectedReducer from "../src/reducers/reducerTests";
 import appendixReducer from "../src/reducers/reducerAppendix";
 import recommendations from "../src/reducers/reducerRecommendation";
 import domainBasedReports from "./reducers/reducerDomains";
+import copyForward from "./reducers/reducerCopyForward";
 import { matchedTests } from "./reducers/reducerTests";
 import { patientAge, dsmSelectedCodes } from "./reducers/reducers";
 
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   domainBasedReports, //true false values to control components visibility when selecting a test
   matchedTests,
   patientAge,
-  dsmSelectedCodes
+  dsmSelectedCodes,
+  copyForward
 });
 const store = (window.devToolsExtension
   ? window.devToolsExtension()(createStore)
