@@ -70,8 +70,11 @@ const Test = ({ testFromState, ...props }) => {
         <div key={i}>
           <SectionSubHeader subHeader={t.DomainName} />
           <div className="flex">
-            <SectionSubTitle subTitleBold={t.Abbreviation} />
-            <ButtonToggle buttonToggleLabel="Remove test" />
+            <SectionSubTitle
+              subTitleBold={t.Name}
+              subtitleAbbreviation={t.Abbreviation}
+            />
+            {/* <ButtonToggle buttonToggleLabel="Remove test" /> */}
           </div>
           <div className="test-desc">
             <div
