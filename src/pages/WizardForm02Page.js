@@ -214,13 +214,13 @@ class WizardForm02Page extends Component {
         </div>
         <div className="question grid__half">
           <Field
-            alt="Calendar"
+            alt="Date"
             component={TextQuestion}
             label="What's the"
             labelBold="date(s)"
             labelLast="of testing"
             name="di-dateoftesting"
-            src="img/icons-calendar-large.svg"
+            src="img/icons-date-selected.svg"
             tabOrder="13"
             type="date"
             classes="question"

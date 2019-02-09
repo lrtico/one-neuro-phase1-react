@@ -19,7 +19,7 @@ class TextQuestion extends Component {
       case "reason-referral-3":
         inputName = `sof-${clickedInputName}`;
       default:
-        inputName = inputName;
+        inputName = "relevant-background-history";
     }
 
     console.log(`

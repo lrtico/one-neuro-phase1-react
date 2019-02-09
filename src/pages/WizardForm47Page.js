@@ -3,6 +3,7 @@ import "../app.css";
 import { Field, FieldArray, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import validate from "../validate";
+import MaterialIcon from "react-google-material-icons";
 import SectionTitle from "../components/SectionTitle";
 import TextQuestion from "../components/TextQuestion";
 import Button from "../components/Button";
@@ -419,7 +420,16 @@ class WizardForm47Page extends Component {
               <label>
                 Patient's <strong>name</strong>
               </label>
-              {patientName && (
+              <div className="flex question__input">
+                <MaterialIcon icon="arrow_right" />
+                <Field
+                  component="input"
+                  name="di-name"
+                  type="text"
+                  classes="question"
+                />
+              </div>
+              {/* {patientName && (
                 <Field
                   alt="Person"
                   component={TextQuestion}
@@ -428,22 +438,30 @@ class WizardForm47Page extends Component {
                   classes="question"
                   //copyForward="true"
                 />
-              )}
+              )} */}
             </div>
             <div className="question grid__half">
               <label>
                 Patient's <strong>age</strong>
               </label>
-              {patientAge && (
+              {/* {patientAge && (
                 <Field
                   alt="Person"
                   component={TextQuestion}
                   name="di-age"
                   type="input"
                   classes="question"
-                  //copyForward="true"
                 />
-              )}
+              )} */}
+              <div className="flex question__input">
+                <MaterialIcon icon="arrow_right" />
+                <Field
+                  component="input"
+                  name="di-age"
+                  type="text"
+                  classes="question"
+                />
+              </div>
             </div>
           </div>
           <div className="copy-forward-row question">
@@ -451,9 +469,30 @@ class WizardForm47Page extends Component {
               Reasons for <strong>referral</strong>
             </label>
 
-            <Field component="input" name="sof-reason-referral-1" type="text" />
-            <Field component="input" name="sof-reason-referral-2" type="text" />
-            <Field component="input" name="sof-reason-referral-3" type="text" />
+            <div className="flex question__input">
+              <MaterialIcon icon="arrow_right" />
+              <Field
+                component="input"
+                name="sof-reason-referral-1"
+                type="text"
+              />
+            </div>
+            <div className="flex question__input">
+              <MaterialIcon icon="arrow_right" />
+              <Field
+                component="input"
+                name="sof-reason-referral-2"
+                type="text"
+              />
+            </div>
+            <div className="flex question__input">
+              <MaterialIcon icon="arrow_right" />
+              <Field
+                component="input"
+                name="sof-reason-referral-3"
+                type="text"
+              />
+            </div>
             {/* {referral1 && (
               <Field
                 component={TextQuestion}

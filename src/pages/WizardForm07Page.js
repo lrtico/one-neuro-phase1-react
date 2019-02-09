@@ -155,7 +155,7 @@ const WizardForm07Page = props => {
           label="How many"
           labelBold="years"
           labelLast="has he worked there"
-          src="img/icons-calendar-large.svg"
+          src="img/icons-number.svg"
           alt="Calendar"
           name="bh-father-length-employement"
           tabOrder="11"

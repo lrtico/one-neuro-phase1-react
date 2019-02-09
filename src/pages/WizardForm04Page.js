@@ -16,9 +16,10 @@ class WizardForm04Page extends Component {
 
   render() {
     console.log("WizardPage4 props = ", this.props);
+    const { handleSubmit } = this.props;
 
     return (
-      <form className="col" onSubmit={this.handleSubmit}>
+      <form className="col" onSubmit={handleSubmit}>
         <SectionTitle titleBold="Reasons" titleRegular="for referral" />
         <Field
           component={TextQuestion}
@@ -53,7 +54,7 @@ class WizardForm04Page extends Component {
           copyForward="true"
           handleCopyForward={this.changeFieldValue}
         />
-        <Button onClick={this.handleSubmit} buttonLabel="OK" />
+        <Button onClick={handleSubmit} buttonLabel="OK" />
       </form>
     );
   }

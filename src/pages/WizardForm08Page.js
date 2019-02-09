@@ -25,27 +25,17 @@ const WizardForm08Page = props => {
         <ButtonToggle buttonToggleLabel="primary caregiver" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
-      <Field
-        alt="Person"
-        component={TextQuestion}
-        label="Name of"
-        labelBold="primary caregiver"
-        name="bh-primary-caregiver-name"
-        src="img/icons-happy-face-name.svg"
-        tabOrder="1"
-        type="input"
-        classes="question"
-      />
+
       <div className="flex">
         <Field
           alt="Person"
           component={TextQuestion}
-          label="What's the person's"
-          labelBold="name"
-          name="bh-other-parent-stepparent-name"
+          label="Name of"
+          labelBold="primary caregiver"
+          name="bh-primary-caregiver-name"
           src="img/icons-happy-face-name.svg"
-          tabOrder="3"
-          type="input"
+          tabOrder="1"
+          type="text"
           classes="question grid__three-quarters"
         />
         <Field
@@ -54,7 +44,7 @@ const WizardForm08Page = props => {
           labelBold="age"
           name="bh-other-parent-stepparent-age"
           tabOrder="4"
-          type="input"
+          type="text"
           classes="question grid__quarter"
         />
       </div>
