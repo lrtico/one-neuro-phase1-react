@@ -796,6 +796,11 @@ form .test-table {
   width: 7.14vw;
 }
 
+.test-table .table__row.table__header div.table__row__cell--wide:nth-child(2),
+.test-table .table__row div.table__row__cell--wide:nth-child(2) {
+  width: 10.71vw;
+}
+
 .test-table .table__row.table__header div:nth-child(3),
 .test-table .table__row div:nth-child(3) {
   width: 57.12vw;

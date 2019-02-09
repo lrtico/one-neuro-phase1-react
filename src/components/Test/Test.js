@@ -271,15 +271,23 @@ const Test = ({ testFromState, ...props }) => {
                         <div
                           className={
                             t.SubTests.length > 0 &&
-                            t.SubTests[0].Description == null
+                            t.SubTests[i].Description == null
                               ? "table__row__cell--wide"
                               : null
                           }
                         >
-                          {testFromState[0].SubTestType}
+                          {testFromState[i].SubTestType}
                         </div>
-                        <div>Score</div>
-                        <div>Description</div>
+                        <div
+                          className={
+                            testFromState[i].ScoreType === "T-Score"
+                              ? "table__row__cell--wide"
+                              : null
+                          }
+                        >
+                          {testFromState[i].ScoreType}
+                        </div>
+                        <div>{testFromState[i].DescriptionType}</div>
                       </div>
                       {t.SubTests.map(t => (
                         <div key={t.Id} className="table__row">
