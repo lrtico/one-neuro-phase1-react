@@ -6,6 +6,7 @@ import SectionTitle from "../components/SectionTitle";
 import SectionSubTitle from "../components/SectionSubTitle";
 import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
+import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import SectionSubHeader from "../components/SectionSubHeader";
 import ButtonToggle from "../components/ButtonToggle";
 import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
@@ -19,10 +20,13 @@ const WizardForm08Page = props => {
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Background" titleRegular="history" />
-      <SectionSubTitle subTitleFirst="Parent's" subTitleBold="information" />
+      <SectionSubTitle
+        subTitleFirst="Primary caregiver"
+        subTitleBold="if not"
+        subTitleRegular="Mother or Father"
+      />
       <div className="flex">
         <SectionSubHeader subHeader="Other" />
-        <ButtonToggle buttonToggleLabel="primary caregiver" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
 
@@ -55,32 +59,26 @@ const WizardForm08Page = props => {
             {
               cardName: "bh-other-parent-stepparent-guardian",
               cardKey: "A",
-              cardLabel: "Grandmother",
+              cardLabel: "Foster Parent",
               tabOrder: "5"
             },
             {
               cardName: "bh-other-parent-stepparent-guardian",
               cardKey: "B",
-              cardLabel: "Grandfather",
+              cardLabel: "Case Manager",
               tabOrder: "6"
             },
             {
               cardName: "bh-other-parent-stepparent-guardian",
               cardKey: "C",
-              cardLabel: "Aunt",
+              cardLabel: "Social Worker",
               tabOrder: "7"
             },
             {
               cardName: "bh-other-parent-stepparent-guardian",
               cardKey: "D",
-              cardLabel: "Uncle",
+              cardLabel: "Sibling",
               tabOrder: "8"
-            },
-            {
-              cardName: "bh-other-parent-stepparent-guardian",
-              cardKey: "E",
-              cardLabel: "Cousin",
-              tabOrder: "9"
             }
           ]}
           label="What's the"
@@ -88,6 +86,25 @@ const WizardForm08Page = props => {
           labelLast="to the child"
           name="bh-other-parent-stepparent-relationship"
           classes="question question--thumbless"
+        />
+        <Field
+          component={DescriptionCheckboxCard}
+          checkboxInfo={[
+            {
+              cardKey: "F",
+              cardLabel: "Other",
+              tabOrder: "7",
+              cardNameCheckbox: "bh-other-parent-stepparent-relationship-other",
+              cardNameDescription:
+                "bh-other-parent-stepparent-relationship-description",
+              liClasses: "question--other"
+            }
+          ]}
+          label="Other"
+          labelBold="relationship"
+          name="paq-guardian-other-group"
+          classes="question question--thumbless question__choice--full-width"
+          type="text"
         />
       </div>
       <div className="flex">

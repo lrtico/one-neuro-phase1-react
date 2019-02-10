@@ -31,6 +31,22 @@
   width: auto;
 }
 
+.question.question--thumbless
+  .question__input
+  ul.question__choices
+  > li.question__choice.question--other {
+  padding: 10px 18px 12px 15px;
+}
+
+.question.question--thumbless
+  .question__input
+  ul.question__choices
+  > li.question__choice.question--other
+  input {
+  color: #6d6d6d;
+  font-family: "Montserrat", sans-serif;
+}
+
 .question.question--thumb
   .question__input
   ul.question__choices

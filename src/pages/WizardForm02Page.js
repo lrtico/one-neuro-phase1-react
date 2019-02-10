@@ -5,11 +5,9 @@ import { Field, reduxForm } from "redux-form";
 import validate from "../validate";
 import TextQuestion from "../components/TextQuestion";
 import TextQuestionAutoCalculate from "../components/TextQuestion/TextQuestionAutoCalculate";
-import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
-import { normalizePhone } from "../utils/Normalize";
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
