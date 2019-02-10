@@ -20,6 +20,10 @@ const createMarkup = text => {
 //   });
 // };
 
+// const handleLink = event => {
+//   event.preventDefault();
+// };
+
 const RecommendationsConnected = props => {
   console.log("Recommendation props, ", props);
   const { recommendations } = props;
@@ -30,18 +34,32 @@ const RecommendationsConnected = props => {
           <div key={r.id} className="recommendations">
             <SectionSubTitle subTitleBold={r.name} />
             <div className="recommendations__recommendation">
-              {r.recommendations.map(r => (
-                <label key={r.id} className="has-toggle-child flex">
+              {r.recommendation.map(item => (
+                <label key={item.id} className="has-toggle-child flex">
                   <Field
-                    name={`${r.id}-recommendation`}
+                    name={`${item.id}-recommendation`}
                     type="checkbox"
                     component="input"
                   />
-                  <p dangerouslySetInnerHTML={createMarkup(r.text)} />
+                  <p dangerouslySetInnerHTML={createMarkup(item.text)} />
+                  {item.subtext.length > 0
+                    ? item.subtext.map(r => (
+                        <div key={r.id} className="recommendation__list">
+                          <label className="has-toggle-child flex">
+                            <Field
+                              name={`${r.id}-recommendation`}
+                              type="checkbox"
+                              component="input"
+                            />
+                            <p dangerouslySetInnerHTML={createMarkup(r.text)} />
+                          </label>
+                        </div>
+                      ))
+                    : null}
                 </label>
               ))}
               <div style={{ marginTop: "36px" }}>
-                <label>{`Enter any freehand recommendations for ${
+                <label>{`Enter additional recommendations for ${
                   r.name
                 }`}</label>
                 <Field

@@ -212,7 +212,7 @@ class WizardForm02Page extends Component {
             />
           </div>
         </div>
-        <div className="question grid__half">
+        <div className="question grid__quarter">
           <Field
             alt="Date"
             component={TextQuestion}

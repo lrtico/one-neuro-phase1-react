@@ -13,6 +13,7 @@
 
 .recommendations__recommendation label {
   cursor: pointer;
+  flex-wrap: wrap;
 }
 
 .recommendations__recommendation input[type="checkbox"] {
@@ -21,7 +22,19 @@
 }
 
 .recommendations__recommendation p {
+  flex: 1 1 80%;
   font-size: 18px;
   font-size: 1.8rem;
   line-height: 2rem;
+}
+
+.recommendations__recommendation label > div.recommendation__list {
+  border-left: 1px solid gray;
+  flex: 1 1 100%;
+  margin-left: 50px;
+  padding-left: 9px;
+}
+
+.recommendation__list ul {
+  margin: 0;
 }

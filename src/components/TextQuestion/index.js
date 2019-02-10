@@ -19,7 +19,7 @@ class TextQuestion extends Component {
       case "reason-referral-3":
         inputName = `sof-${clickedInputName}`;
       default:
-        inputName = "relevant-background-history";
+        inputName = inputName;
     }
 
     console.log(`
@@ -27,6 +27,7 @@ class TextQuestion extends Component {
       ===========================
       val = ${val}
       input = ${input}
+      clickedInputName = ${clickedInputName}
       inputName = ${inputName}
       props = ${JSON.stringify(this.props)}
     `);
