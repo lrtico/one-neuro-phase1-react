@@ -130,32 +130,7 @@ class WizardForm02Page extends Component {
           />
         </div>
         <div className="flex">
-          <Field
-            alt="Person"
-            component={TextQuestion}
-            label="What's their parent's name"
-            name="di-parent-name"
-            type="input"
-            src="img/icons-happy-face-name.svg"
-            tabOrder="7"
-            classes="question grid__half"
-          />
-          <Field
-            alt="Phone"
-            component={NormalizePhoneInput}
-            label="What's their parent's"
-            labelBold="phone"
-            name="di-parent-phone"
-            src="img/icons-phone.svg"
-            type="input"
-            tabOrder="8"
-            classes="question grid__half"
-            maxCharacters={14}
-            normalize={normalizePhone}
-          />
-        </div>
-        <div className="flex">
-          <div>
+          <div className="question grid__half">
             <Field
               name="di-gender-group"
               component={RadioCard}
@@ -180,10 +155,10 @@ class WizardForm02Page extends Component {
               label="What's the"
               labelBold="gender"
               labelLast="of this child"
-              classes="question question--thumb grid__half"
+              classes="question question--thumb"
             />
           </div>
-          <div>
+          <div className="question grid__half">
             <Field
               name="di-hand-ing"
               component={RadioCard}
@@ -208,7 +183,7 @@ class WizardForm02Page extends Component {
               label="Which"
               labelBold="hand"
               labelLast="is dominant"
-              classes="question question--thumb grid__half"
+              classes="question question--thumb"
             />
           </div>
         </div>
