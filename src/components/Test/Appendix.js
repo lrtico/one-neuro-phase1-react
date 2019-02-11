@@ -92,9 +92,9 @@ const AppendixConnected = (props, values) => {
           <div className="test-table test-table--appendix">
             <div className="table__row table__header">
               <div>Index</div>
-              <div>Composite Score</div>
+              <div>Scaled Score</div>
               <div>% Rank</div>
-              <div>Range</div>
+              <div>Classification</div>
             </div>
 
             {t.SubTests.map(t => (
