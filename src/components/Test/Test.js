@@ -311,6 +311,16 @@ const Test = ({ testFromState, ...props }) => {
                                 .replace("{", "")
                                 .replace("}", "")
                                 .replace(/\(|\)/g, "")}-score`}
+                              onBlur={event =>
+                                props.handleAppendixSubtestAdd(
+                                  t.Id,
+                                  t.Name,
+                                  testFromState[i].ParentScaleTitles[0]
+                                    .ParentScaleName,
+                                  testFromState[i].Abbreviation,
+                                  event
+                                )
+                              }
                             />
                           </div>
                           <div>

@@ -136,6 +136,389 @@ tests: [
     ]
   }  
 ];
+
+//Appendicies initial state
+state = {
+  appendicies: [
+    {
+      Abbreviation: "WISC-V",
+      Name: "Wechsler Intelligence Scale for Children – Fifth Edition",
+      Description: "",
+      Id: 1,
+      isSelected: false,
+      ParentGroupScales: [
+        {
+          Id: 1,
+          ParentGroupScaleName: "General Intelligence & Overall Cognitive Functioning",
+          ParentGroupScaleDescription: "Wechsler Intelligence Scale for Children, Fifth Edition (WISC-V)",
+          ParentScaleTitles: [ //These objects are shown through action creators onBlur event changing the isSelected flag, adding the scaled score in the payload and using it to change the PercentileRank and Range values in state
+            {
+              Id: 1,
+              ParentScaleName: "Verbal Comprehension",
+              CompositeScore: null,
+              PercentileRank: "",
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 2,
+              ParentScaleName: "Visual Spatial",
+              CompositeScore: null,
+              PercentileRank: "",
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 3,
+              ParentScaleName: "Fluid Reasoning",
+              CompositeScore: null,
+              PercentileRank: "",
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 4,
+              ParentScaleName: "Working Memory",
+              CompositeScore: null,
+              PercentileRank: "",
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 5,
+              ParentScaleName: "Processing Speed",
+              CompositeScore: null,
+              PercentileRank: "",
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 6,
+              ParentScaleName: "Full Scale IQ",
+              CompositeScore: null,
+              PercentileRank: "",
+              Range: "",
+              isSelected: false
+            }
+          ],
+          Col1Header: "Index",
+          Col2Header: "Composite Score",
+          Col3Header: "Percentile Rank",
+          Col4Header: "Range",
+          Col5Header: "",
+          Col6Header: ""
+        },
+      ],
+      ParentGroupSubTests: [
+        {
+          Id: 1,
+          ParentGroupScaleName: "Verbal and Language-Mediated Tasks and Abilities",
+          ParentGroupScaleDescription: "",
+          ParentGroupSubScales: [
+            {
+              ParentGroupSubScaleName: "Verbal Comprehension",
+              ParentGroupSubScaleDescription: "WISC-V Verbal Comprehension Subtests Score Summary",
+              SubTests: [ //These objects are shown through action creators onBlur event changing the isSelected flag, adding the scaled score in the payload and using it to change the PercentileRank and Range values in state
+                {
+                  Id: 1,
+                  Name: "Similarities",
+                  ScaledScore: number,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 2,
+                  Name: "Vocabulary",
+                  ScaledScore: number,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 3,
+                  Name: "Information",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 4,
+                  Name: "Comprehension",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                }
+              ],
+            }
+          ],
+          Col1Header: "Subtest",
+          Col2Header: "Scaled Score",
+          Col3Header: "Percentile Rank",
+          Col4Header: "Range",
+          Col5Header: "",
+          Col6Header: ""
+        },
+        {
+          Id: 2,
+          ParentGroupScaleName: "Nonverbal and Visually-Mediated Tasks and Abilities",
+          ParentGroupScaleDescription: "",
+          ParentGroupSubScales: [
+            {
+              ParentGroupSubScaleName: "Visual Spatial",
+              ParentGroupSubScaleDescription: "WISC-V Visual Spatial Subtests Score Summary",
+              SubTests: [ //These objects are shown through action creators onBlur event changing the isSelected flag, adding the scaled score in the payload and using it to change the PercentileRank and Range values in state
+                {
+                  Id: 3,
+                  Name: "Block Design",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 4,
+                  Name: "Vocabulary",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                }
+              ],
+            },
+            {
+              ParentGroupSubScaleName: "Fluid Reasoning",
+              ParentGroupSubScaleDescription: "WISC-V Fluid Reasoning Subtests Score Summary",
+              SubTests: [ //These objects are dynmaically added through action creators onBlur event
+                {
+                  Id: 5,
+                  Name: "Matrix Reasoning",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 6,
+                  Name: "Figure Weights",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 7,
+                  Name: "Picture Concepts",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 8,
+                  Name: "Arithmetic",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                }
+              ],
+            }
+          ],
+          Col1Header: "Subtest",
+          Col2Header: "Scaled Score",
+          Col3Header: "Percentile Rank",
+          Col4Header: "Range",
+          Col5Header: "",
+          Col6Header: ""
+        },
+        {
+          Id: 3,
+          ParentGroupScaleName: "Executive Functions",
+          ParentGroupScaleDescription: "",
+          ParentGroupSubScales: [
+            {
+              ParentGroupSubScaleName: "Working Memory",
+              ParentGroupSubScaleDescription: "WISC-V Working Memory Subtests Score Summary",
+              SubTests: [ //These objects are shown through action creators onBlur event changing the isSelected flag, adding the scaled score in the payload and using it to change the PercentileRank and Range values in state
+                {
+                  Id: 9,
+                  Name: "Digit Span",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 10,
+                  Name: "Picture Span",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 11,
+                  Name: "Letter-Number Sequencing",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                }
+              ],
+            },
+            {
+              ParentGroupSubScaleName: "Processing Speed",
+              ParentGroupSubScaleDescription: "WISC-V Processing Speed Subtests Score Summary",
+              SubTests: [ //These objects are shown through action creators onBlur event changing the isSelected flag, adding the scaled score in the payload and using it to change the PercentileRank and Range values in state
+                {
+                  Id: 12,
+                  Name: "Coding",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 13,
+                  Name: "Symbol Search",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                },
+                {
+                  Id: 14,
+                  Name: "Cancellation",
+                  ScaledScore: null,
+                  PercentileRank: "",
+                  Range: "",
+                  isSelected: false
+                }
+              ],
+            }
+          ],
+          Col1Header: "Subtest",
+          Col2Header: "Scaled Score",
+          Col3Header: "Percentile Rank",
+          Col4Header: "Range",
+          Col5Header: "",
+          Col6Header: ""
+        }
+      ]
+    },
+    {
+      Abbreviation: "TSCC",
+      Name: "Trauma Symptom Checklist for Children",
+      Description: "",
+      Id: 2,
+      isSelected: false,
+      ParentGroupScales: [
+        {
+          Id: 2,
+          ParentGroupScaleName: "",
+          ParentGroupScaleDescription: "",
+          ParentScaleTitles: [ //These objects are shown through action creators onBlur event changing the isSelected flag, adding the scaled score in the payload and using it to change the PercentileRank and Range values in state
+            {
+              Id: 7,
+              ParentScaleName: "Underresponse",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 8,
+              ParentScaleName: "Hyperresponse",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 9,
+              ParentScaleName: "Anxiety",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 10,
+              ParentScaleName: "Depression",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 11,
+              ParentScaleName: "Anger",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 12,
+              ParentScaleName: "Posttraumatic Stress",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 13,
+              ParentScaleName: "Dissociation",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 14,
+              ParentScaleName: "Overt Dissociation",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 15,
+              ParentScaleName: "Fantasy",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 16,
+              ParentScaleName: "Sexual Concerns",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 17,
+              ParentScaleName: "Sexual Preoccupation",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            },
+            {
+              Id: 18,
+              ParentScaleName: "Sexual Distress",
+              TScore: null,
+              Range: "",
+              isSelected: false
+            }
+          ],
+          Col1Header: "Scale",
+          Col2Header: "T-Score",
+          Col3Header: "Range",
+          Col4Header: "",
+          Col5Header: "",
+          Col6Header: ""
+        },
+      ],
+      ParentGroupSubTests: [],
+    }
+  ]
+}
+
 //When a Test's group of subtests title's checkbox is clicked...
 state = {
   appendices: [
@@ -232,3 +615,5 @@ recommendationList: [
     ]
   }
 ]
+
+

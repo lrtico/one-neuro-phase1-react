@@ -245,9 +245,9 @@ const WizardForm15Page = props => {
       <Field
         component={TextQuestion}
         label="Was"
-        labelBold="anethesia"
+        labelBold="anesthesia"
         labelLast="used during delivery? If yes, what kind"
-        name="mdh-anethesia"
+        name="mdh-anesthesia"
         tabOrder="22"
         type="input"
         classes="question"

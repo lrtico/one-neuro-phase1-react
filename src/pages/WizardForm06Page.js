@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import validate from "../validate";
 import TextQuestion from "../components/TextQuestion/";
@@ -8,206 +8,214 @@ import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import SectionSubHeader from "../components/SectionSubHeader";
 import ButtonToggle from "../components/ButtonToggle";
+import CopyForwardButton from "../components/ButtonToggle/CopyForwardButton";
 import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import { normalizePhone } from "../utils/Normalize";
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
 
-const WizardForm06Page = props => {
-  const { handleSubmit } = props;
-  return (
-    <form className="col" onSubmit={handleSubmit}>
-      <SectionTitle titleBold="Background" titleRegular="history" />
-      <SectionSubTitle subTitleFirst="Parent's" subTitleBold="information" />
-      <div className="flex">
-        <SectionSubHeader subHeader="Mother" />
-        <ButtonToggle buttonToggleLabel="primary caregiver" />
-        <ButtonToggle buttonToggleLabel="disable" />
-      </div>
-      <div className="flex">
-        <Field
-          alt="Person"
-          component={TextQuestion}
-          label="What's the mother's"
-          labelBold="name"
-          name="bh-mother-name"
-          src="img/icons-happy-face-name.svg"
-          tabOrder="1"
-          type="input"
-          classes="question grid__half"
-          copyForward="true"
-        />
-        <Field
-          name="bh-stepmother-yes-no"
-          component={RadioCard}
-          cardInfo={[
-            {
-              cardName: "bh-stepmother",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "2"
-            },
-            {
-              cardName: "bh-stepmother",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "3"
-            }
-          ]}
-          label="Is she the"
-          labelBold="stepmother"
-          classes="question question--thumbless"
-        />
-      </div>
-      <div className="flex">
-        <Field
-          alt="House"
-          component={TextQuestion}
-          label="What's her"
-          labelBold="address"
-          name="bh-mother-address"
-          src="img/icons-house.svg"
-          tabOrder="4"
-          type="input"
-          classes="question grid__half"
-          copyForward="true"
-        />
-        <Field
-          component={TextQuestion}
-          label="What's her"
-          labelBold="age"
-          name="bh-mother-age"
-          tabOrder="5"
-          type="input"
-          classes="question grid__half"
-          copyForward="true"
-        />
-      </div>
-      <div className="flex">
-        <Field
-          alt="Phone"
-          component={NormalizePhoneInput}
-          label=""
-          labelBold="Home"
-          labelLast="phone"
-          name="bh-mother-home-phone"
-          maxCharacters={14}
-          src="img/icons-phone.svg"
-          tabOrder="6"
-          type="text"
-          classes="question grid__third"
-          //copyForward="true"
-          normalize={normalizePhone}
-        />
-        <Field
-          alt="Phone"
-          component={NormalizePhoneInput}
-          label=""
-          labelBold="Work"
-          labelLast="phone"
-          name="bh-mother-work-phone"
-          maxCharacters={14}
-          src="img/icons-phone.svg"
-          tabOrder="7"
-          type="text"
-          classes="question grid__third"
-          normalize={normalizePhone}
-        />
-        <Field
-          alt="Phone"
-          component={NormalizePhoneInput}
-          label=""
-          labelBold="Cell"
-          labelLast="phone"
-          name="bh-mother-cell-phone"
-          maxCharacters={14}
-          src="img/icons-phone.svg"
-          tabOrder="8"
-          type="text"
-          classes="question grid__third"
-          normalize={normalizePhone}
-        />
-      </div>
-      <div className="flex">
-        <Field
-          alt="Woman"
-          component={TextQuestion}
-          label="What's the mother's"
-          labelBold="occupation"
-          name="bh-mother-occupation"
-          src="img/icons-woman-generic.svg"
-          tabOrder="9"
-          type="input"
-          classes="question grid__half"
-        />
-        <Field
-          component={TextQuestion}
-          label="Who's her"
-          labelBold="employer"
-          name="bh-mother-employer"
-          alt="Office"
-          src="img/icons-business-building.svg"
-          type="input"
-          tabOrder="10"
-          classes="question grid__half"
-        />
-      </div>
-      <div className="flex">
-        <Field
-          component={TextQuestion}
-          label="How many"
-          labelBold="years"
-          labelLast="has she worked there"
-          src="img/icons-number.svg"
-          alt="Calendar"
-          name="bh-mother-length-employement"
-          tabOrder="11"
-          type="input"
-          classes="question grid__half"
-        />
-        <Field
-          component={TextQuestion}
-          label="What's the"
-          labelBold="highest grade"
-          labelLast="achieved"
-          src="img/icons-graduation-cap.svg"
-          alt="Graduation cap"
-          name="bh-mother-highest-grade"
-          type="input"
-          tabOrder="12"
-          classes="question grid__half"
-        />
-      </div>
-      <div className="flex">
-        <Field
-          component={TextQuestion}
-          label="What's their"
-          labelBold="primary language"
-          src="img/icons-speech-bubble.svg"
-          alt="Speech bubble"
-          name="bh-mother-primary-language"
-          tabOrder="13"
-          type="input"
-          classes="question grid__half"
-        />
-        <Field
-          component={TextQuestion}
-          label="What's their"
-          labelBold="secondary language"
-          labelLast="achieved"
-          src="img/icons-speech-bubble.svg"
-          alt="Speech bubble"
-          name="bh-mother-secondary-language"
-          type="input"
-          tabOrder="14"
-          classes="question grid__half"
-        />
-      </div>
-      <Button onClick={handleSubmit} buttonLabel="OK" />
-    </form>
-  );
-};
+class WizardForm06Page extends Component {
+  render() {
+    const { handleSubmit } = this.props;
+    console.log("WizardPage6 props, ", this.props);
+    return (
+      <form className="col" onSubmit={handleSubmit}>
+        <SectionTitle titleBold="Background" titleRegular="history" />
+        <SectionSubTitle subTitleFirst="Parent's" subTitleBold="information" />
+        <div className="flex">
+          <SectionSubHeader subHeader="Mother" />
+          <ButtonToggle buttonToggleLabel="primary caregiver" />
+          <CopyForwardButton
+            buttonToggleLabel="copy forward"
+            // handleCopyForward={event => addCopyForward(event)}
+          />
+          <ButtonToggle buttonToggleLabel="disable" />
+        </div>
+        <div className="flex">
+          <Field
+            alt="Person"
+            component={TextQuestion}
+            label="What's the mother's"
+            labelBold="name"
+            name="bh-mother-name"
+            src="img/icons-happy-face-name.svg"
+            tabOrder="1"
+            type="input"
+            classes="question grid__half"
+            //copyForward="true"
+          />
+          <Field
+            name="bh-stepmother-yes-no"
+            component={RadioCard}
+            cardInfo={[
+              {
+                cardName: "bh-stepmother",
+                cardKey: "A",
+                cardLabel: "Yes",
+                tabOrder: "2"
+              },
+              {
+                cardName: "bh-stepmother",
+                cardKey: "B",
+                cardLabel: "No",
+                tabOrder: "3"
+              }
+            ]}
+            label="Is she the"
+            labelBold="stepmother"
+            classes="question question--thumbless"
+          />
+        </div>
+        <div className="flex">
+          <Field
+            alt="House"
+            component={TextQuestion}
+            label="What's her"
+            labelBold="address"
+            name="bh-mother-address"
+            src="img/icons-house.svg"
+            tabOrder="4"
+            type="input"
+            classes="question grid__half"
+            //copyForward="true"
+          />
+          <Field
+            component={TextQuestion}
+            label="What's her"
+            labelBold="age"
+            name="bh-mother-age"
+            tabOrder="5"
+            type="input"
+            classes="question grid__half"
+            //copyForward="true"
+          />
+        </div>
+        <div className="flex">
+          <Field
+            alt="Phone"
+            component={NormalizePhoneInput}
+            label=""
+            labelBold="Home"
+            labelLast="phone"
+            name="bh-mother-home-phone"
+            maxCharacters={14}
+            src="img/icons-phone.svg"
+            tabOrder="6"
+            type="text"
+            classes="question grid__third"
+            //copyForward="true"
+            normalize={normalizePhone}
+          />
+          <Field
+            alt="Phone"
+            component={NormalizePhoneInput}
+            label=""
+            labelBold="Work"
+            labelLast="phone"
+            name="bh-mother-work-phone"
+            maxCharacters={14}
+            src="img/icons-phone.svg"
+            tabOrder="7"
+            type="text"
+            classes="question grid__third"
+            normalize={normalizePhone}
+          />
+          <Field
+            alt="Phone"
+            component={NormalizePhoneInput}
+            label=""
+            labelBold="Cell"
+            labelLast="phone"
+            name="bh-mother-cell-phone"
+            maxCharacters={14}
+            src="img/icons-phone.svg"
+            tabOrder="8"
+            type="text"
+            classes="question grid__third"
+            normalize={normalizePhone}
+          />
+        </div>
+        <div className="flex">
+          <Field
+            alt="Woman"
+            component={TextQuestion}
+            label="What's the mother's"
+            labelBold="occupation"
+            name="bh-mother-occupation"
+            src="img/icons-woman-generic.svg"
+            tabOrder="9"
+            type="input"
+            classes="question grid__half"
+          />
+          <Field
+            component={TextQuestion}
+            label="Who's her"
+            labelBold="employer"
+            name="bh-mother-employer"
+            alt="Office"
+            src="img/icons-business-building.svg"
+            type="input"
+            tabOrder="10"
+            classes="question grid__half"
+          />
+        </div>
+        <div className="flex">
+          <Field
+            component={TextQuestion}
+            label="How many"
+            labelBold="years"
+            labelLast="has she worked there"
+            src="img/icons-number.svg"
+            alt="Calendar"
+            name="bh-mother-length-employement"
+            tabOrder="11"
+            type="input"
+            classes="question grid__half"
+          />
+          <Field
+            component={TextQuestion}
+            label="What's the"
+            labelBold="highest grade"
+            labelLast="achieved"
+            src="img/icons-graduation-cap.svg"
+            alt="Graduation cap"
+            name="bh-mother-highest-grade"
+            type="input"
+            tabOrder="12"
+            classes="question grid__half"
+          />
+        </div>
+        <div className="flex">
+          <Field
+            component={TextQuestion}
+            label="What's their"
+            labelBold="primary language"
+            src="img/icons-speech-bubble.svg"
+            alt="Speech bubble"
+            name="bh-mother-primary-language"
+            tabOrder="13"
+            type="input"
+            classes="question grid__half"
+          />
+          <Field
+            component={TextQuestion}
+            label="What's their"
+            labelBold="secondary language"
+            labelLast="achieved"
+            src="img/icons-speech-bubble.svg"
+            alt="Speech bubble"
+            name="bh-mother-secondary-language"
+            type="input"
+            tabOrder="14"
+            classes="question grid__half"
+          />
+        </div>
+        <Button onClick={handleSubmit} buttonLabel="OK" />
+      </form>
+    );
+  }
+}
 
 export default reduxForm({
   form: "wizard", //                 <------ same form name

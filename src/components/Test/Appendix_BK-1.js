@@ -12,11 +12,11 @@ const mapStateToProps = state => ({
 const AppendixConnected = (props, values) => {
   console.log("store from index, ", props);
   console.log("Trying to make props go now!", values);
-  const { appendices, domains, subtests } = props;
+  const { appendices, domains, appendix } = props;
   return (
     <div>
       <SectionTitle titleBold="Appendix" titleRegular="of scores" />
-      {appendices.domains.tests.map((t, i) => (
+      {appendices.appendix.map((t, i) => (
         <div key={`${i}-${t.Id}`}>
           <div className="flex">
             <SectionSubHeader subHeader={t.Name} />
@@ -42,7 +42,7 @@ const AppendixConnected = (props, values) => {
                   <Field
                     component="input"
                     type="text"
-                    name={`${t.id}-appendix-${appendices.domains.tests[
+                    name={`${t.id}-appendix-${appendices.appendix[
                       i
                     ].Abbreviation.toLowerCase()}-${t.parentScaleName
                       .toLowerCase()
@@ -55,7 +55,7 @@ const AppendixConnected = (props, values) => {
                   <Field
                     component="input"
                     type="text"
-                    name={`${t.id}-appendix-${appendices.domains.tests[
+                    name={`${t.id}-appendix-${appendices.appendix[
                       i
                     ].Abbreviation.toLowerCase()}-${t.parentScaleName
                       .toLowerCase()
@@ -68,71 +68,9 @@ const AppendixConnected = (props, values) => {
                   <Field
                     component="input"
                     type="text"
-                    name={`${t.id}-appendix-${appendices.domains.tests[
+                    name={`${t.id}-appendix-${appendices.appendix[
                       i
                     ].Abbreviation.toLowerCase()}-${t.parentScaleName
-                      .toLowerCase()
-                      .replace(/ /g, "-")
-                      .replace("/", "-")
-                      .replace(/\(|\)/g, "")}-range`}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-      {appendices.subtests.tests.map((t, i) => (
-        <div key={t.Id}>
-          <div className="flex">
-            <span className="h7">{t.Abbreviation}&nbsp;</span>
-            <SectionSubHeader subHeader={t.TestName} />
-            <span className="h7">&nbsp;Subtests Score Summary</span>
-          </div>
-          <div className="test-table test-table--appendix">
-            <div className="table__row table__header">
-              <div>Index</div>
-              <div>Composite Score</div>
-              <div>% Rank</div>
-              <div>Range</div>
-            </div>
-
-            {t.SubTests.map(t => (
-              <div key={t.id} className="table__row">
-                <div>{t.name}</div>
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.subtests.tests[
-                      i
-                    ].Abbreviation.toLowerCase()}-${t.name
-                      .toLowerCase()
-                      .replace(/ /g, "-")
-                      .replace("/", "-")
-                      .replace(/\(|\)/g, "")}-composite-score`}
-                  />
-                </div>
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.subtests.tests[
-                      i
-                    ].Abbreviation.toLowerCase()}-${t.name
-                      .toLowerCase()
-                      .replace(/ /g, "-")
-                      .replace("/", "-")
-                      .replace(/\(|\)/g, "")}-rank`}
-                  />
-                </div>
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.subtests.tests[
-                      i
-                    ].Abbreviation.toLowerCase()}-${t.name
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")

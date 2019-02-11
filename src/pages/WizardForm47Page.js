@@ -102,7 +102,7 @@ class WizardForm47Page extends Component {
 
   addToAppendix = (id, parentScaleName, abbreviation, name, event) => {
     console.log(`
-      Make Appendix info go now!
+      Make Appendix Domain info go now!
       Info we need:
       - Scale name: ${parentScaleName}
       - Abbreviation: ${abbreviation}
@@ -114,7 +114,7 @@ class WizardForm47Page extends Component {
       Id: id,
       Name: name,
       Abbreviation: abbreviation,
-      SubTests: [{ parentScaleName, id }]
+      DomainsOverall: [{ parentScaleName, id }]
     };
 
     let checked = event.target.checked;
@@ -122,7 +122,46 @@ class WizardForm47Page extends Component {
     if (checked) {
       console.log("payload sent to add appendix reducer: ", data);
       store.dispatch({
-        type: "ADD_APPENDIX",
+        type: "ADD_APPENDIX_DOMAIN",
+        payload: data
+      });
+    } else {
+      console.log(
+        "payload sent to remove appendix reducer: ",
+        data.DomainsOverall[0]
+      );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_DOMAIN",
+        payload: data
+      });
+    }
+  };
+
+  //Add a subtest to the appendix onBlur (when user leaves a subtest's score input)
+  addSubtestToAppendix = (id, name, parentScaleName, abbreviation, event) => {
+    console.log(`
+      Make Appendix Subtest info go now!
+      Info we need:
+      - Abbreviation: ${abbreviation}
+      - Scale name: ${parentScaleName}
+      - SubTest Name: ${name}
+      - Id: ${id}
+      - Event: ${event.target.value}
+    `);
+    let data = {
+      Id: id,
+      Abbreviation: abbreviation,
+      TestName: parentScaleName,
+      SubTests: [{ name, id }]
+    };
+
+    let notBlank = event.target.value !== "";
+    console.log("Subtest input wasn't blank: ", notBlank);
+
+    if (notBlank) {
+      console.log("payload sent to add subtest appendix reducer: ", data);
+      store.dispatch({
+        type: "ADD_APPENDIX_SUBTEST",
         payload: data
       });
     } else {
@@ -403,7 +442,11 @@ class WizardForm47Page extends Component {
           }
         >
           <SectionSubTitle subTitleFirst="Selected" subTitleBold="tests" />
-          <Test testFromState={tests} handleAppendixAdd={this.addToAppendix} />
+          <Test
+            testFromState={tests}
+            handleAppendixAdd={this.addToAppendix}
+            handleAppendixSubtestAdd={this.addSubtestToAppendix}
+          />
           <DivButton divButtonLabel="Ok" show={this.showSummary} />
         </div>
 

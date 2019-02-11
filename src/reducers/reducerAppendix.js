@@ -1,12 +1,13 @@
-import { ADD_APPENDIX, REMOVE_APPENDIX_SUBTEST } from "../actions/constants";
+import C from "../actions/constants";
+import { combineReducers } from "redux";
 
 const initialState = {
-  appendices: []
+  tests: []
 };
 
-const appendixReducer = (state = initialState, action) => {
+export const domains = (state = initialState, action) => {
   switch (action.type) {
-    case REMOVE_APPENDIX_SUBTEST:
+    case C.REMOVE_APPENDIX_DOMAIN:
       console.log("Remove appendix case: ", action.payload);
 
       //Two options. Either remove the subtest or the entire test
@@ -16,10 +17,12 @@ const appendixReducer = (state = initialState, action) => {
       // console.log("arr", arr);
       // pass a function to map
       //const map1 = array1.map(item => console.log(item));
-      let removedTest = state.appendices;
+      let removedTest = state.tests;
       removedTest.forEach(function(item) {
-        item.SubTests = item.SubTests.filter(
-          subtest => subtest !== action.payload.SubTests[0]
+        item.DomainsOverall = item.DomainsOverall.filter(
+          domain =>
+            domain.parentScaleName !==
+            action.payload.DomainsOverall[0].parentScaleName
         );
       });
 
@@ -27,20 +30,20 @@ const appendixReducer = (state = initialState, action) => {
 
       return { appendices: removedTest };
 
-    case ADD_APPENDIX:
+    case C.ADD_APPENDIX_DOMAIN:
       //Find the index of the test in state by matching it to the payload's test
-      const idx = state.appendices.findIndex(
+      const idx = state.tests.findIndex(
         t => t.Abbreviation === action.payload.Abbreviation
       );
-      const hasTest = state.appendices.some(
+      const hasTest = state.tests.some(
         t => t.Abbreviation === action.payload.Abbreviation
       );
 
       console.log(
         `
           - Action payload = ${JSON.stringify(action.payload)}
-          - Action SubTests payload = ${JSON.stringify(
-            action.payload.SubTests[0]
+          - Action DomainsOverall payload = ${JSON.stringify(
+            action.payload.DomainsOverall[0]
           )}
           - Action payload's id = ${action.payload.Id}
           - Index of the matching test in state (-1 if none) = ${idx}
@@ -57,9 +60,9 @@ const appendixReducer = (state = initialState, action) => {
       //If it is, remove it. If it isn't, add it.
       //If the abbreviations don't match, add a whole new object with the entire payload.
 
-      let newData = state.appendices.map(item => {
+      let newData = state.tests.map(item => {
         if (item.Abbreviation === action.payload.Abbreviation) {
-          item.SubTests.push(action.payload.SubTests[0]);
+          item.DomainsOverall.push(action.payload.DomainsOverall[0]);
           return item;
         }
         return item;
@@ -67,8 +70,8 @@ const appendixReducer = (state = initialState, action) => {
       console.log("New array for ADD_APPENDIX mutation: ", newData);
 
       return hasTest
-        ? { appendices: newData }
-        : { appendices: [...state.appendices, action.payload] };
+        ? { tests: newData }
+        : { tests: [...state.tests, action.payload] };
 
     // case 'update': {
     //   state.byHash[action.id] = {
@@ -139,4 +142,54 @@ const appendixReducer = (state = initialState, action) => {
   }
 };
 
-export default appendixReducer;
+export const subtests = (state = initialState, action) => {
+  switch (action.type) {
+    case C.ADD_APPENDIX_SUBTEST:
+      //Find if the subtest is already in state by matching it to the payload's test
+      const hasTest = state.tests.some(
+        t => t.Abbreviation === action.payload.Abbreviation
+      );
+
+      console.log(
+        `
+          - Action payload = ${JSON.stringify(action.payload)}
+          - Action DomainsOverall payload = ${JSON.stringify(
+            action.payload.SubTests[0]
+          )}
+          - Action payload Test Name = ${action.payload.TestName}
+          - Action payload's id = ${action.payload.Id}
+          - Result of hasTest = ${hasTest}
+        `
+      );
+
+      //If the state already has the test that was sent by the dispatch,
+      //I want to insert the payload's subtest string into the existing test's SubTest array
+      //let updateSubtestArray = state.appendices.filter();
+
+      //First, check and see if the abbreviations match. if they do, then check and see if the subtest is there.
+      //If it is, remove it. If it isn't, add it.
+      //If the abbreviations don't match, add a whole new object with the entire payload.
+
+      let newData = state.tests.map(item => {
+        if (item.Abbreviation === action.payload.Abbreviation) {
+          item.SubTests.push(action.payload.SubTests[0]);
+          return item;
+        }
+        return item;
+      });
+      console.log("New array for ADD_APPENDIX mutation: ", newData);
+
+      return hasTest
+        ? { tests: newData }
+        : { tests: [...state.tests, action.payload] };
+    default:
+      return state;
+  }
+};
+
+const appendix = combineReducers({
+  domains,
+  subtests
+});
+
+export default appendix;
