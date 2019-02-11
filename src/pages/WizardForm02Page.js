@@ -99,7 +99,7 @@ class WizardForm02Page extends Component {
             labelBold="age"
             name="di-age"
             tabOrder="4"
-            type="input"
+            type="number"
             classes="question grid__half"
             age={this.props.age}
             //copyForward="true"
