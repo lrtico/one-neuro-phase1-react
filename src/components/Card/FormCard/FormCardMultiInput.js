@@ -6,6 +6,7 @@ import "../../ButtonToggle/buttonToggleStyles.css";
 import MaterialIcon from "react-google-material-icons";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import RequiredText from "../../Required/RequiredText";
+import { normalizePhone } from "../../../utils/Normalize";
 
 class FormCardMultiInput extends Component {
   handleTick = event => {
@@ -105,6 +106,7 @@ class FormCardMultiInput extends Component {
                     className={input.inputClasses}
                     placeholder={input.inputPlaceholder}
                     onKeyUp={this.handleKeyUp}
+                    normalize={input.normalize ? normalizePhone : null}
                   />
                 ))}
                 <div

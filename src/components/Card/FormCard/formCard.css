@@ -35,6 +35,10 @@ li.question__card.question__form-card .cardTextInput {
   padding: 9px 3px;
 }
 
+li.question__card.question__form-card .toCapitalize {
+  text-transform: capitalize;
+}
+
 .question ul.question__cards li.question__card .question__key-label {
   color: rgb(3, 1, 1);
   font-family: Montserrat, sans-serif;

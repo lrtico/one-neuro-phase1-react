@@ -48,9 +48,20 @@ class WizardForm02Page extends Component {
     }
   };
 
+  makeNumber = event => {
+    // console.log(
+    //   "makeNumber function event and value of age, ",
+    //   event,
+    //   event.target.value
+    // );
+    // const input = event.target;
+    // input.value = parseFloat(event.target.value);
+    event.preventDefault();
+  };
+
   render() {
     const { handleSubmit } = this.props;
-    const { calculateAge } = this;
+    const { calculateAge, makeNumber } = this;
     console.log("Auto age should be, ", this.props.age);
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -103,6 +114,7 @@ class WizardForm02Page extends Component {
             classes="question grid__half"
             age={this.props.age}
             readOnly="readonly"
+            onBlur={makeNumber}
             //copyForward="true"
           />
         </div>

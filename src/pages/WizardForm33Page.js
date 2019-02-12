@@ -33,7 +33,7 @@ const WizardForm33Page = props => {
           {
             inputName: "mc-counseling-address",
             inputType: "text",
-            inputClasses: "cardTextInput",
+            inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Address",
             inputPlaceholder: "Address"
           },
@@ -42,7 +42,8 @@ const WizardForm33Page = props => {
             inputType: "tel",
             inputClasses: "cardTextInput",
             inputLabel: "Phone",
-            inputPlaceholder: "Phone"
+            inputPlaceholder: "Phone",
+            normalize: true
           },
           {
             inputName: "mc-counseling-reason",
