@@ -22,7 +22,7 @@ const WizardForm32Page = props => {
         <Field
           alt="Person"
           component={TextQuestion}
-          label="What's the doctor's"
+          label="What is the primary physicians"
           labelBold="name"
           name="mc-dr-name"
           src="img/icons-happy-face-name.svg"
@@ -53,7 +53,7 @@ const WizardForm32Page = props => {
           src="img/icons-counter.svg"
           tabOrder="3"
           type="input"
-          classes="question grid__half"
+          classes="question grid__third"
         />
         <Field
           alt="Calendar"
@@ -65,7 +65,17 @@ const WizardForm32Page = props => {
           src="img/icons-calendar-large.svg"
           tabOrder="4"
           type="date"
-          classes="question grid__half"
+          classes="question grid__third"
+        />
+        <Field
+          component={TextQuestion}
+          label="How"
+          labelBold="long"
+          labelLast="since last visit"
+          name="mc-dr-last-visit-months"
+          tabOrder="5"
+          type="text"
+          classes="question grid__third"
         />
       </div>
       <label>
@@ -99,13 +109,13 @@ const WizardForm32Page = props => {
               cardName: "mc-sexual-abuse",
               cardKey: "A",
               cardLabel: "Yes",
-              tabOrder: "3"
+              tabOrder: "7"
             },
             {
               cardName: "mc-sexual-abuse",
               cardKey: "B",
               cardLabel: "No",
-              tabOrder: "4"
+              tabOrder: "8"
             }
           ]}
           label="Has this child ever been"
