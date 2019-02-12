@@ -118,7 +118,7 @@ const WizardForm15Page = props => {
           component={TextQuestion}
           label=""
           labelBold="Length"
-          labelLast="of labor (# of weeks)"
+          labelLast="of labor"
           name="mdh-labor-length"
           tabOrder="9"
           type="input"
