@@ -66,12 +66,6 @@ const WizardForm27Page = props => {
               tabOrder: "7"
             },
             {
-              cardName: "md-sucks-thumb",
-              cardLabel: "Sucks thumb?",
-              cardPlaceholder: "How often?",
-              tabOrder: "8"
-            },
-            {
               cardName: "md-bangs-head",
               cardLabel: "Bangs head?",
               cardPlaceholder: "How often?",
@@ -84,7 +78,7 @@ const WizardForm27Page = props => {
               tabOrder: "10"
             },
             {
-              cardName: "md-bowel-movent",
+              cardName: "md-bowel-movement",
               cardLabel: "Bowel movements in pants/bed?",
               cardPlaceholder: "How often?",
               tabOrder: "11"
