@@ -48,7 +48,7 @@ const WizardForm17Page = props => {
           labelBold="weaned"
           name="mdh-breast-fed-weaned"
           tabOrder="3"
-          type="date"
+          type="text"
           classes="question grid__half"
         />
       </div>
@@ -80,7 +80,7 @@ const WizardForm17Page = props => {
           labelBold="weaned"
           name="mdh-bottle-fed-weaned"
           tabOrder="6"
-          type="date"
+          type="text"
           classes="question grid__half"
         />
       </div>

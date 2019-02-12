@@ -13,7 +13,7 @@ const WizardForm21Page = props => {
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Medical" titleRegular="development" />
       <div className="flex">
-        <SectionSubHeader subHeader="Respitory" />
+        <SectionSubHeader subHeader="Respiratory" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <div className="flex">

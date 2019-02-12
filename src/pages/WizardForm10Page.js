@@ -1,11 +1,12 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm } from "redux-form";
 import validate from "../validate";
 import TextQuestion from "../components/TextQuestion/";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
+import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import ButtonToggle from "../components/ButtonToggle";
 
 // const renderError = ({ meta: { touched, error } }) =>
@@ -107,29 +108,29 @@ const WizardForm10Page = props => {
       <div className="flex">
         <SectionSubHeader subHeader="If the parents are separated or divorced" />
       </div>
-      <Field
-        name="fh-custody-group"
-        component={RadioCard}
-        cardInfo={[
+      <FieldArray
+        component={CheckboxCard}
+        checkboxInfo={[
           {
-            cardName: "fh-custody",
+            cardName: "fh-custody-mother",
             cardKey: "A",
             cardLabel: "Mother",
             tabOrder: "9"
           },
           {
-            cardName: "fh-custody",
+            cardName: "fh-custody-father",
             cardKey: "B",
             cardLabel: "Father",
             tabOrder: "10"
           },
           {
-            cardName: "fh-custody",
+            cardName: "fh-custody-both",
             cardKey: "C",
             cardLabel: "Both",
             tabOrder: "11"
           }
         ]}
+        name="fh-custody-group"
         label="Who has"
         labelBold="custody"
         labelLast="of this child"
