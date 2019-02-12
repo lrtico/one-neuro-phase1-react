@@ -122,6 +122,12 @@ const WizardForm10Page = props => {
             cardKey: "B",
             cardLabel: "Father",
             tabOrder: "10"
+          },
+          {
+            cardName: "fh-custody",
+            cardKey: "C",
+            cardLabel: "Both",
+            tabOrder: "11"
           }
         ]}
         label="Who has"
@@ -137,25 +143,25 @@ const WizardForm10Page = props => {
             cardName: "fh-visitation",
             cardKey: "A",
             cardLabel: "Weekly or more often",
-            tabOrder: "11"
+            tabOrder: "12"
           },
           {
             cardName: "fh-visitation",
             cardKey: "B",
             cardLabel: "Once or twice per month",
-            tabOrder: "12"
+            tabOrder: "13"
           },
           {
             cardName: "fh-visitation",
             cardKey: "C",
             cardLabel: "Few times per year",
-            tabOrder: "13"
+            tabOrder: "14"
           },
           {
             cardName: "fh-visitation",
             cardKey: "D",
             cardLabel: "Never",
-            tabOrder: "14"
+            tabOrder: "15"
           }
         ]}
         label="How often does one parent"
