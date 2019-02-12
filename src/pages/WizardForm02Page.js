@@ -33,9 +33,9 @@ class WizardForm02Page extends Component {
       //   currMonth - birthMonth = ${x}
       // `);
       if (currMonth < birthMonth) {
-        age = currYear - birthYear - 1;
+        age = parseFloat(currYear - birthYear - 1);
       } else {
-        age = currYear - birthYear;
+        age = parseFloat(currYear - birthYear);
       }
 
       this.props.change("di-age", age);
@@ -102,6 +102,7 @@ class WizardForm02Page extends Component {
             type="number"
             classes="question grid__half"
             age={this.props.age}
+            readOnly="readonly"
             //copyForward="true"
           />
         </div>

@@ -31,6 +31,7 @@ const TextQuestionAutoCalculate = ({
   materialIcon,
   copyForward,
   age,
+  readOnly,
   maxCharacters,
   meta: { touched, error }
 }) => (
@@ -47,6 +48,7 @@ const TextQuestionAutoCalculate = ({
         type={type}
         tabIndex={tabOrder}
         maxLength={maxCharacters === undefined ? null : maxCharacters}
+        readOnly={readOnly}
         value={age === "" ? "" : age}
       />
       {copyForward === undefined ? null : (
