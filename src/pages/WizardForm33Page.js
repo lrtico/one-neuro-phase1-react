@@ -28,7 +28,7 @@ const WizardForm33Page = props => {
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Name",
-            inputPlaceholder: "Name"
+            inputPlaceholder: "*Name"
           },
           {
             inputName: "mc-counseling-address",
