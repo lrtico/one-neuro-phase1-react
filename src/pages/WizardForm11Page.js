@@ -13,7 +13,7 @@ const WizardForm11Page = props => {
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
-        <SectionTitle titleBold="Brothers &amp; Sisters" />
+        <SectionTitle titleBold="Siblings" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
 

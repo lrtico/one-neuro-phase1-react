@@ -110,28 +110,6 @@ class FormCardBrotherSister extends Component {
                 />
                 <div className="question-card__radio">
                   <Field
-                    name={`${card}.gender`}
-                    type="radio"
-                    component="input"
-                    value="Girl"
-                    className="radio-visible"
-                    id={`bs-choice-${index}-${index}`}
-                  />
-                  <label htmlFor={`bs-choice-${index}-${index}`}>Girl</label>
-                </div>
-                <div className="question-card__radio">
-                  <Field
-                    name={`${card}.gender`}
-                    type="radio"
-                    component="input"
-                    value="Boy"
-                    className="radio-visible"
-                    id={`bs-choice-${index}-${index + 1}`}
-                  />
-                  <label htmlFor={`bs-choice-${index}-${index + 1}`}>Boy</label>
-                </div>
-                <div className="question-card__radio">
-                  <Field
                     name={`${card}.relationship`}
                     type="radio"
                     component="input"
