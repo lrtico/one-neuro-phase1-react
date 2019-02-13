@@ -15,3 +15,12 @@ export const normalizePhone = value => {
     10
   )}`;
 };
+
+export const normalizeCapitalizeWords = value => {
+  if (!value) {
+    return value;
+  }
+  const capitalizeWord = value.replace(/\b\w/g, l => l.toUpperCase());
+  console.log("normalizeCapitalizeWords value = ", capitalizeWord);
+  return capitalizeWord;
+};

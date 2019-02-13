@@ -28,14 +28,16 @@ const WizardForm33Page = props => {
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Name",
-            inputPlaceholder: "*Name"
+            inputPlaceholder: "*Name",
+            normalizeCapitalizeWords: true
           },
           {
             inputName: "mc-counseling-address",
             inputType: "text",
             inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Address",
-            inputPlaceholder: "Address"
+            inputPlaceholder: "Address",
+            normalizeCapitalizeWords: true
           },
           {
             inputName: "mc-counseling-phone",
@@ -43,7 +45,7 @@ const WizardForm33Page = props => {
             inputClasses: "cardTextInput",
             inputLabel: "Phone",
             inputPlaceholder: "Phone",
-            normalize: true
+            normalizePhone: true
           },
           {
             inputName: "mc-counseling-reason",

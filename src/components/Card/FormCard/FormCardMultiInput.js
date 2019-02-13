@@ -6,7 +6,10 @@ import "../../ButtonToggle/buttonToggleStyles.css";
 import MaterialIcon from "react-google-material-icons";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import RequiredText from "../../Required/RequiredText";
-import { normalizePhone } from "../../../utils/Normalize";
+import {
+  normalizePhone,
+  normalizeCapitalizeWords
+} from "../../../utils/Normalize";
 
 class FormCardMultiInput extends Component {
   handleTick = event => {
@@ -67,6 +70,16 @@ class FormCardMultiInput extends Component {
     button.classList.toggle("toggleVis--active");
   };
 
+  // handleNormalize = (normalize, value) => {
+  //   console.log("Make normalize logic go now!");
+  //   console.log("Value of passed in input.normalize val, ", normalize);
+  //   if (normalize) {
+  //     return normalizePhone(value);
+  //   } else {
+  //     return false;
+  //   }
+  // };
+
   render() {
     const minHeight = {
       minHeight: "285px"
@@ -106,7 +119,13 @@ class FormCardMultiInput extends Component {
                     className={input.inputClasses}
                     placeholder={input.inputPlaceholder}
                     onKeyUp={this.handleKeyUp}
-                    normalize={input.normalize ? normalizePhone : null}
+                    normalize={
+                      input.normalizePhone
+                        ? normalizePhone
+                        : input.normalizeCapitalizeWords
+                        ? normalizeCapitalizeWords
+                        : null
+                    }
                   />
                 ))}
                 <div

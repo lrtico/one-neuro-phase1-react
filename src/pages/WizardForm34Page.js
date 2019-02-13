@@ -25,16 +25,18 @@ const WizardForm34Page = props => {
           {
             inputName: "mc-nuerological-name",
             inputType: "text",
-            inputClasses: "cardTextInput",
+            inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Name",
-            inputPlaceholder: "Name"
+            inputPlaceholder: "Name",
+            normalizeCapitalizeWords: true
           },
           {
             inputName: "mc-nuerological-address",
             inputType: "text",
-            inputClasses: "cardTextInput",
+            inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Address",
-            inputPlaceholder: "Address"
+            inputPlaceholder: "Address",
+            normalizeCapitalizeWords: true
           },
           {
             inputName: "mc-nuerological-date",

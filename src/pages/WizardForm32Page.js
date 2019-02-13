@@ -90,7 +90,8 @@ const WizardForm32Page = props => {
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Name",
-            inputPlaceholder: "Name"
+            inputPlaceholder: "Name",
+            normalizeCapitalizeWords: true
           },
           {
             inputName: "mc-medication-reason",

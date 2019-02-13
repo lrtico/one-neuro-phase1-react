@@ -16,8 +16,7 @@ const WizardForm35Page = props => {
       </div>
 
       <label>
-        Has this child ever had a
-        <strong> psychology or psychiatric exam</strong>?
+        Has this child ever had a<strong> Psychiatric evaluation</strong>?
       </label>
       <FieldArray
         name="psychology-group"
@@ -26,16 +25,18 @@ const WizardForm35Page = props => {
           {
             inputName: "mc-psychology-exam-name",
             inputType: "text",
-            inputClasses: "cardTextInput",
+            inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Name",
-            inputPlaceholder: "Name"
+            inputPlaceholder: "Name",
+            normalizeCapitalizeWords: true
           },
           {
             inputName: "mc-psychology-exam-city",
             inputType: "text",
-            inputClasses: "cardTextInput",
+            inputClasses: "cardTextInput toCapitalize",
             inputLabel: "City",
-            inputPlaceholder: "City"
+            inputPlaceholder: "City",
+            normalizeCapitalizeWords: true
           },
           {
             inputName: "mc-psychology-exam-date",
