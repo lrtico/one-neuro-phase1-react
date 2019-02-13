@@ -40,9 +40,9 @@ const WizardForm09Page = props => {
         tabOrder="3"
         type="input"
         classes="question"
-        label="How"
-        labelBold="many different people"
-        labelLast="care for this child (please explain)"
+        label="Who are the"
+        labelBold="different individuals"
+        labelLast="that care for this child"
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

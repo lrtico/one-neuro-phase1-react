@@ -142,16 +142,24 @@ class WizardForm07Page extends Component {
 
     this.props.change("relevant-background-history", bgHistoryCopyForward);
   };
+
+  handlePrimaryCaregiver = () => {
+    this.props.change("bh-primary-caregiver-father", true);
+    this.props.change("bh-primary-caregiver-mother", false);
+  };
+
   render() {
     const { handleSubmit } = this.props;
-    const { addCopyForward } = this;
+    const { addCopyForward, handlePrimaryCaregiver } = this;
     return (
       <form className="col" onSubmit={handleSubmit}>
         <SectionTitle titleBold="Background" titleRegular="history" />
         <SectionSubTitle subTitleFirst="Parent's" subTitleBold="information" />
         <div className="flex">
           <SectionSubHeader subHeader="Father" />
-          <ButtonToggle buttonToggleLabel="primary caregiver" />
+          <div onClick={handlePrimaryCaregiver}>
+            <ButtonToggle buttonToggleLabel="primary caregiver" />
+          </div>
           <div onClick={event => addCopyForward(event)}>
             <CopyForwardButton buttonToggleLabel="copy forward" />
           </div>
