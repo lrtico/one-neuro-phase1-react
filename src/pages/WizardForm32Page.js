@@ -33,7 +33,7 @@ const WizardForm32Page = props => {
         <Field
           alt="Building"
           component={NormalizePhoneInput}
-          label="What's the doctor's"
+          label="What's the primary physicians'"
           labelBold="phone"
           name="mc-dr-phone"
           src="img/icons-phone.svg"

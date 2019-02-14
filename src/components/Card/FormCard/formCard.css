@@ -328,6 +328,31 @@ h2 + .toggleVis {
   font-size: 1.4rem;
   line-height: 1em;
 }
+.question__form-card__inline-inputs {
+  display: flex;
+  position: relative;
+}
+
+.question__form-card__inline-inputs > input:first-of-type {
+  margin-right: 6px;
+}
+
+.question__form-card__inline-inputs__label {
+  color: #6d6d6d;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 100%;
+  width: 50%;
+}
+
+.question__form-card__inline-inputs__label:first-of-type {
+  left: 0;
+}
+
+.question__form-card__inline-inputs__label:last-of-type {
+  left: calc(50% + 6px);
+}
 
 /* Animation when adding/removing a card */
 .example-enter {

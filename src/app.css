@@ -750,6 +750,7 @@ textarea {
 
 .test__list input[type="text"] {
   width: 14.28vw;
+  width: max-content;
 }
 
 form .test-table {

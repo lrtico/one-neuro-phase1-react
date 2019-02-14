@@ -198,19 +198,35 @@ class WizardForm02Page extends Component {
             />
           </div>
         </div>
-        <div className="question grid__quarter">
-          <Field
-            alt="Date"
-            component={TextQuestion}
-            label="What's the"
-            labelBold="date(s)"
-            labelLast="of testing"
-            name="di-dateoftesting"
-            src="img/icons-date-selected.svg"
-            tabOrder="13"
-            type="date"
-            classes="question"
-          />
+        <div className="flex">
+          <div className="question grid__half">
+            <Field
+              alt="Person"
+              component={TextQuestion}
+              label="What's the"
+              labelBold="name"
+              labelLast="of the evaluator"
+              name="di-evaluator"
+              src="img/icons-happy-face-name.svg"
+              tabOrder="14"
+              type="text"
+              classes="question"
+            />
+          </div>
+          <div className="question grid__third">
+            <Field
+              alt="Date"
+              component={TextQuestion}
+              label="What's the"
+              labelBold="date(s)"
+              labelLast="of testing"
+              name="di-dateoftesting"
+              src="img/icons-date-selected.svg"
+              tabOrder="13"
+              type="date"
+              classes="question"
+            />
+          </div>
         </div>
         <Button onClick={handleSubmit} buttonLabel="OK" />
       </form>
