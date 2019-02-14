@@ -211,6 +211,12 @@ class WizardForm08Page extends Component {
                 cardKey: "D",
                 cardLabel: "Sibling",
                 tabOrder: "8"
+              },
+              {
+                cardName: "bh-other-parent-stepparent-guardian",
+                cardKey: "E",
+                cardLabel: "Other",
+                tabOrder: "9"
               }
             ]}
             label="What's the"
@@ -220,24 +226,13 @@ class WizardForm08Page extends Component {
             classes="question question--thumbless"
           />
           <Field
-            component={DescriptionCheckboxCard}
-            checkboxInfo={[
-              {
-                cardKey: "F",
-                cardLabel: "Other",
-                tabOrder: "7",
-                cardNameCheckbox:
-                  "bh-other-parent-stepparent-relationship-other",
-                cardNameDescription:
-                  "bh-other-parent-stepparent-relationship-description",
-                liClasses: "question--other"
-              }
-            ]}
+            component={TextQuestion}
             label="Other"
             labelBold="relationship"
-            name="paq-guardian-other-group"
-            classes="question question--thumbless question__choice--full-width"
-            type="text"
+            name="bh-other-parent-stepparent-guardian-other"
+            tabOrder="10"
+            type="input"
+            classes="question grid__quarter"
           />
         </div>
         <div className="flex">
@@ -250,7 +245,7 @@ class WizardForm08Page extends Component {
             name="bh-other-parent-stepparent-home-phone"
             maxCharacters={14}
             src="img/icons-phone.svg"
-            tabOrder="10"
+            tabOrder="11"
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
@@ -264,7 +259,7 @@ class WizardForm08Page extends Component {
             name="bh-other-parent-stepparent-work-phone"
             maxCharacters={14}
             src="img/icons-phone.svg"
-            tabOrder="11"
+            tabOrder="12"
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
@@ -278,7 +273,7 @@ class WizardForm08Page extends Component {
             name="bh-other-parent-stepparent-cell-phone"
             maxCharacters={14}
             src="img/icons-phone.svg"
-            tabOrder="12"
+            tabOrder="13"
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
@@ -291,7 +286,7 @@ class WizardForm08Page extends Component {
           labelBold="address"
           name="bh-other-parent-stepparent-address"
           src="img/icons-house.svg"
-          tabOrder="13"
+          tabOrder="14"
           type="input"
           classes="question"
         />

@@ -5,7 +5,6 @@ import SectionTitle from "../components/SectionTitle";
 import TextQuestion from "../components/TextQuestion";
 import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
-import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import Button from "../components/Button";
 import { normalizePhone } from "../utils/Normalize";
 
@@ -71,6 +70,12 @@ const WizardForm03Page = props => {
               cardKey: "E",
               cardLabel: "Aunt",
               tabOrder: "6"
+            },
+            {
+              cardName: "paq-guardian",
+              cardKey: "F",
+              cardLabel: "Other",
+              tabOrder: "6"
             }
           ]}
           label="What's the"
@@ -80,22 +85,13 @@ const WizardForm03Page = props => {
           classes="question question--thumbless"
         />
         <Field
-          component={DescriptionCheckboxCard}
-          checkboxInfo={[
-            {
-              cardKey: "F",
-              cardLabel: "Other",
-              tabOrder: "7",
-              cardNameCheckbox: "paq-guardian-other",
-              cardNameDescription: "paq-guardian-other-description",
-              liClasses: "question--other"
-            }
-          ]}
+          component={TextQuestion}
           label="Other"
           labelBold="relationship"
           name="paq-guardian-other-group"
-          classes="question question--thumbless question__choice--full-width"
-          type="text"
+          tabOrder="7"
+          type="input"
+          classes="question grid__quarter"
         />
       </div>
       <div className="flex">
