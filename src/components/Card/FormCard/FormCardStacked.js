@@ -13,7 +13,20 @@ function handleTextboxTickInputs(event) {
     addDeleteEl = tar.parentNode.nextSibling.children[1],
     requiredText = tar.parentNode.nextSibling.nextSibling;
   let val = tar.value;
-  if (val !== "") {
+  console.log("input value onBlur before hasValue call", val);
+  //Check both inputs values
+  //If both are "", remove the class
+  //Else add the class
+  const inputs = tar.parentNode.querySelectorAll("input");
+  const makeArr = Array.from(inputs);
+  let hasValue = false;
+  makeArr.forEach(function(input) {
+    if (input.value !== "") {
+      hasValue = true;
+    }
+  });
+
+  if (hasValue) {
     tar.parentNode.parentNode.classList.add("question__checkbox--selected");
     addDeleteEl.classList.add("question__key-text--visible");
     requiredText.classList.remove("question__required-text--visible");
