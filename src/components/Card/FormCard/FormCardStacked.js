@@ -5,9 +5,10 @@ import "../../../app.css";
 import "../../Card/cardStyles.css";
 import RequiredText from "../../Required/RequiredText";
 import { randomId } from "../../../utils/Helpers";
+import { onlyNums } from "../../../utils/Normalize";
 import MaterialIcon from "react-google-material-icons";
 
-function handleTextboxTick(event) {
+function handleTextboxTickInputs(event) {
   const tar = event.currentTarget,
     addDeleteEl = tar.parentNode.nextSibling.children[1],
     requiredText = tar.parentNode.nextSibling.nextSibling;
@@ -18,6 +19,20 @@ function handleTextboxTick(event) {
     requiredText.classList.remove("question__required-text--visible");
   } else {
     tar.parentNode.parentNode.classList.remove("question__checkbox--selected");
+    addDeleteEl.classList.remove("question__key-text--visible");
+  }
+}
+function handleTextboxTick(event) {
+  const tar = event.currentTarget,
+    addDeleteEl = tar.nextSibling.children[1],
+    requiredText = tar.nextSibling.nextSibling;
+  let val = tar.value;
+  if (val !== "") {
+    tar.parentNode.classList.add("question__checkbox--selected");
+    addDeleteEl.classList.add("question__key-text--visible");
+    requiredText.classList.remove("question__required-text--visible");
+  } else {
+    tar.parentNode.classList.remove("question__checkbox--selected");
     addDeleteEl.classList.remove("question__key-text--visible");
   }
 }
@@ -92,14 +107,16 @@ const FormCardStacked = ({
                   component="input"
                   type={undefined ? "text" : card.card1Type}
                   className="cardTextInput"
-                  onKeyUp={handleTextboxTick}
+                  onKeyUp={handleTextboxTickInputs}
+                  normalize={card.normalizeOnlyNums ? onlyNums : null}
                 />
                 <Field
                   name={card.card2Name}
                   component="input"
                   type={undefined ? "text" : card.card2Type}
                   className="cardTextInput"
-                  onKeyUp={handleTextboxTick}
+                  onKeyUp={handleTextboxTickInputs}
+                  normalize={card.normalizeOnlyNums ? onlyNums : null}
                 />
                 <div className="question__form-card__inline-inputs__label">
                   {card.card1Placeholder}

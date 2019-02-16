@@ -24,3 +24,12 @@ export const normalizeCapitalizeWords = value => {
   console.log("normalizeCapitalizeWords value = ", capitalizeWord);
   return capitalizeWord;
 };
+
+export const onlyNums = value => {
+  if (!value) {
+    return value;
+  }
+
+  const onlyNums = value.replace(/[^\d]/g, "");
+  return onlyNums;
+};
