@@ -8,8 +8,13 @@ import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/
 import Button from "../components/Button";
 import ButtonToggle from "../components/ButtonToggle";
 
+// const handleTextBoxClick = (name, props) => {
+//   console.log(`Name passed into handleTextBoxClick function ${name}`);
+//   props.change(name, true);
+// };
 const WizardForm19Page = props => {
   const { handleSubmit } = props;
+  console.log("WizardPage19 props, ", props);
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle
@@ -69,6 +74,7 @@ const WizardForm19Page = props => {
         labelLast="were there any special problems noted in the following areas"
         name="mdh-development-first-four-group"
         classes="question question--thumbless"
+        //onTextBoxClick={name => handleTextBoxClick(name)}
       />
       <div className="flex">
         <Field

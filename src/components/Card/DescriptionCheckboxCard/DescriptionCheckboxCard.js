@@ -1,5 +1,6 @@
 import React from "react";
-import { Field } from "redux-form";
+import { Field, reduxForm } from "redux-form";
+import validate from "../../../validate";
 import "./descriptionCheckboxCardStyles.css";
 import "../../../app.css";
 import "../../Card/cardStyles.css";
@@ -11,9 +12,11 @@ function handleTick(event) {
   tar.classList.toggle("question__checkbox--selected");
 }
 
-function handleTextboxTick(event) {
+const handleTextboxTick = (event, name, props) => {
   const tar = event.currentTarget;
   tar.parentNode.parentNode.classList.add("question__checkbox--selected");
+  //console.log("handleTextboxTick's props = ", event);
+  props.change(name, true);
 }
 
 const DescriptionCheckboxCard = ({
@@ -25,8 +28,10 @@ const DescriptionCheckboxCard = ({
   liClasses,
   cardName,
   cardNameDescription,
+  ...props,
   meta: { touched, error }
 }) => {
+  console.log("DescriptionCheckboxCard props = ", props);
   return (
     <div className={classes}>
       <label>
@@ -76,7 +81,9 @@ const DescriptionCheckboxCard = ({
                   component="input"
                   type="text"
                   // onClick={handleTextboxTick}
-                  onKeyPress={handleTextboxTick}
+                  //onKeyPress={(event) => props.onTextBoxClick(card.cardNameCheckbox, event.currentTarget)}
+                  //onKeyPress={() => props.change(card.cardNameCheckbox, true)}
+                  onKeyPress={(event) => handleTextboxTick(event, card.cardNameCheckbox, props)}
                 />
               </div>
               <div className="question__bg" />
@@ -88,5 +95,10 @@ const DescriptionCheckboxCard = ({
     </div>
   );
 };
-
-export default DescriptionCheckboxCard;
+export default reduxForm({
+  form: 'wizard', // <------ same form name
+  destroyOnUnmount: false, // <------ preserve form data
+  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  validate
+})(DescriptionCheckboxCard)
+//export default DescriptionCheckboxCard;

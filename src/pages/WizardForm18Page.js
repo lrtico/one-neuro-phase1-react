@@ -88,8 +88,8 @@ const WizardForm18Page = props => {
           },
           {
             cardKey: "I",
-            cardNameCheckbox: "mdh-learing-ride-bike",
-            cardNameDescription: "mdh-learing-ride-bike-description",
+            cardNameCheckbox: "mdh-learning-ride-bike",
+            cardNameDescription: "mdh-learning-ride-bike-description",
             cardLabel: "Difficulty learning to ride a bike",
             liClasses: "question__choice--full-width",
             tabOrder: "9"
