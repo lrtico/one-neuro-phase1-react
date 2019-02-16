@@ -63,7 +63,9 @@ const RecommendationsConnected = props => {
                   r.name
                 }`}</label>
                 <Field
-                  name={`${r.name.toLowerCase()}-recommendations-freehand`}
+                  name={`${r.name
+                    .toLowerCase()
+                    .replace(/ /g, "-")}-recommendations-freehand`}
                   component="textarea"
                 />
               </div>
