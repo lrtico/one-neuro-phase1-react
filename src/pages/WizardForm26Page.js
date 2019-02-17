@@ -25,31 +25,36 @@ const WizardForm26Page = props => {
               cardName: "md-frequent-rashes",
               cardLabel: "Frequent rashes?",
               cardPlaceholder: "When/where?",
-              tabOrder: "1"
+              tabOrder: "1",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-bruises",
               cardLabel: "Bruises easily?",
               cardPlaceholder: "How often?",
-              tabOrder: "2"
+              tabOrder: "2",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-sores",
               cardLabel: "Sores?",
               cardPlaceholder: "How often?",
-              tabOrder: "3"
+              tabOrder: "3",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-acne",
               cardLabel: "Severe acne?",
               cardPlaceholder: "How often?",
-              tabOrder: "4"
+              tabOrder: "4",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-itchy",
               cardLabel: "Itchy skin?",
               cardPlaceholder: "How often?",
-              tabOrder: "5"
+              tabOrder: "5",
+              normalizeCapitalizeWords: true
             }
           ]}
           label="Does this child"

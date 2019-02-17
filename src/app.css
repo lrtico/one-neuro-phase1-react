@@ -814,6 +814,17 @@ form .test-table {
   width: 72px;
 }
 
+.test-table.test-table--appendix
+  .table__row.table__header
+  div:nth-child(4)
+  input[type="text"],
+.test-table.test-table--appendix
+  .table__row
+  div:nth-child(4)
+  > input[type="text"] {
+  width: auto;
+}
+
 .test__list input:focus,
 .test-table input:focus {
   background-color: transparent;
@@ -850,7 +861,7 @@ form .test-table {
 
 .test-table.test-table--appendix .table__row.table__header div:nth-child(4),
 .test-table.test-table--appendix .table__row div:nth-child(4) {
-  width: 14.28vw;
+  flex: 1 1 auto;
 }
 
 .test-table.test-table--fourCols .table__row.table__header div:first-child,

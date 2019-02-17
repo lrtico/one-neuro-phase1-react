@@ -25,25 +25,29 @@ const WizardForm25Page = props => {
               cardName: "md-muscle-pain",
               cardLabel: "Muscle pain?",
               cardPlaceholder: "When/where?",
-              tabOrder: "1"
+              tabOrder: "1",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-clumsy-walk",
               cardLabel: "Clumsy walk?",
               cardPlaceholder: "How often?",
-              tabOrder: "2"
+              tabOrder: "2",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-poor-posture",
               cardLabel: "Poor posture?",
               cardPlaceholder: "How often?",
-              tabOrder: "3"
+              tabOrder: "3",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-other-muscle-problems",
               cardLabel: "Other muscle problems?",
               cardPlaceholder: "How often?",
-              tabOrder: "4"
+              tabOrder: "4",
+              normalizeCapitalizeWords: true
             }
           ]}
           label="Does this child"

@@ -27,61 +27,71 @@ const WizardForm27Page = props => {
               cardName: "md-seizures",
               cardLabel: "Seizures/ convulsions?",
               cardPlaceholder: "When/where?",
-              tabOrder: "1"
+              tabOrder: "1",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-speech-defects",
               cardLabel: "Speech defects?",
               cardPlaceholder: "How often?",
-              tabOrder: "2"
+              tabOrder: "2",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-accident-prone",
               cardLabel: "Accident prone?",
               cardPlaceholder: "How often?",
-              tabOrder: "3"
+              tabOrder: "3",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-nail-biter",
               cardLabel: "Bites nails?",
               cardPlaceholder: "How often?",
-              tabOrder: "4"
+              tabOrder: "4",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-sucks-thumb",
               cardLabel: "Sucks thumb?",
               cardPlaceholder: "How often?",
-              tabOrder: "5"
+              tabOrder: "5",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-grinds-teeth",
               cardLabel: "Grinds teeth?",
               cardPlaceholder: "How often?",
-              tabOrder: "6"
+              tabOrder: "6",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-twitches",
               cardLabel: "Has tics/twitches?",
               cardPlaceholder: "How often?",
-              tabOrder: "7"
+              tabOrder: "7",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-bangs-head",
               cardLabel: "Bangs head?",
               cardPlaceholder: "How often?",
-              tabOrder: "9"
+              tabOrder: "9",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-rocks",
               cardLabel: "Rocks back and forth?",
               cardPlaceholder: "How often?",
-              tabOrder: "10"
+              tabOrder: "10",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-bowel-movement",
               cardLabel: "Bowel movements in pants/bed?",
               cardPlaceholder: "How often?",
-              tabOrder: "11"
+              tabOrder: "11",
+              normalizeCapitalizeWords: true
             }
           ]}
           label="Does this child"

@@ -25,25 +25,29 @@ const WizardForm23Page = props => {
               cardName: "md-vomiting",
               cardLabel: "Excessive vomitting?",
               cardPlaceholder: "How often?",
-              tabOrder: "1"
+              tabOrder: "1",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-diarrhea",
               cardLabel: "Frequent diarrhea?",
               cardPlaceholder: "How often?",
-              tabOrder: "2"
+              tabOrder: "2",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-constipation",
               cardLabel: "Constipation?",
               cardPlaceholder: "How often?",
-              tabOrder: "3"
+              tabOrder: "3",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-stomach-pain",
               cardLabel: "Stomach pain?",
               cardPlaceholder: "How often?",
-              tabOrder: "4"
+              tabOrder: "4",
+              normalizeCapitalizeWords: true
             }
           ]}
           label="Does this child"

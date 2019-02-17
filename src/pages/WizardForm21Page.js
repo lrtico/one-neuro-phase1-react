@@ -25,31 +25,36 @@ const WizardForm21Page = props => {
               cardName: "md-colds",
               cardLabel: "Frequent colds?",
               cardPlaceholder: "How often?",
-              tabOrder: "1"
+              tabOrder: "1",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-chronic-cough",
               cardLabel: "Chronic cough?",
               cardPlaceholder: "How often?",
-              tabOrder: "2"
+              tabOrder: "2",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-asthma",
               cardLabel: "Asthma?",
               cardPlaceholder: "How often?",
-              tabOrder: "3"
+              tabOrder: "3",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-hay-fever",
               cardLabel: "Hay fever?",
               cardPlaceholder: "How often?",
-              tabOrder: "4"
+              tabOrder: "4",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-sinus-condition",
               cardLabel: "Sinus condition?",
               cardPlaceholder: "How often?",
-              tabOrder: "5"
+              tabOrder: "5",
+              normalizeCapitalizeWords: true
             }
           ]}
           label="Please indicate if this child"

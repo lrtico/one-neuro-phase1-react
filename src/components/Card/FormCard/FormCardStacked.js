@@ -5,7 +5,11 @@ import "../../../app.css";
 import "../../Card/cardStyles.css";
 import RequiredText from "../../Required/RequiredText";
 import { randomId } from "../../../utils/Helpers";
-import { onlyNums } from "../../../utils/Normalize";
+import {
+  onlyNums,
+  normalizeCapitalizeWords,
+  normalizePhone
+} from "../../../utils/Normalize";
 import MaterialIcon from "react-google-material-icons";
 
 function handleTextboxTickInputs(event) {
@@ -148,6 +152,13 @@ const FormCardStacked = ({
                 className="cardTextInput"
                 placeholder={card.cardPlaceholder}
                 onKeyUp={handleTextboxTick}
+                normalize={
+                  card.normalizePhone
+                    ? normalizePhone
+                    : card.normalizeCapitalizeWords
+                    ? normalizeCapitalizeWords
+                    : null
+                }
               />
             )}
 

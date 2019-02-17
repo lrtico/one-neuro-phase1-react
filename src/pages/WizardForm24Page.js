@@ -25,25 +25,29 @@ const WizardForm24Page = props => {
               cardName: "md-urination",
               cardLabel: "Urination in pants?",
               cardPlaceholder: "How often?",
-              tabOrder: "1"
+              tabOrder: "1",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-pain-urinating",
               cardLabel: "Pain while urinating?",
               cardPlaceholder: "How often?",
-              tabOrder: "2"
+              tabOrder: "2",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-exessive-urination",
               cardLabel: "Excessive urination?",
               cardPlaceholder: "How often?",
-              tabOrder: "3"
+              tabOrder: "3",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-urine-odor",
               cardLabel: "Strong odor to urine?",
               cardPlaceholder: "How often?",
-              tabOrder: "4"
+              tabOrder: "4",
+              normalizeCapitalizeWords: true
             }
           ]}
           label="Does this child"

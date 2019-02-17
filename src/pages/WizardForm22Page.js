@@ -26,19 +26,22 @@ const WizardForm22Page = props => {
               cardLabel:
                 "Shortness of breath or dizziness with physical exertion?",
               cardPlaceholder: "How often?",
-              tabOrder: "1"
+              tabOrder: "1",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-activity-limits",
               cardLabel: "Activity limitation due to heart condition?",
               cardPlaceholder: "How often?",
-              tabOrder: "2"
+              tabOrder: "2",
+              normalizeCapitalizeWords: true
             },
             {
               cardName: "md-heart-murmur",
               cardLabel: "Heart murmur?",
               cardPlaceholder: "How often?",
-              tabOrder: "3"
+              tabOrder: "3",
+              normalizeCapitalizeWords: true
             }
           ]}
           label="Does this child"
