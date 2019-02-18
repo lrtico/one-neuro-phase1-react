@@ -17,7 +17,7 @@ const AppendixConnected = (props, values) => {
     <div>
       <SectionTitle titleBold="Appendix" titleRegular="of scores" />
       {appendices.domains.tests.map((t, i) => (
-        <div key={`${i}-${t.Id}`}>
+        <div key={`${i}-${t.Id}-domains`}>
           <div className="flex">
             <SectionSubHeader subHeader={t.Name} />
             <span className="h7">&nbsp;{t.Abbreviation}</span>
@@ -92,7 +92,7 @@ const AppendixConnected = (props, values) => {
         </div>
       ))}
       {appendices.subtests.tests.map((t, i) => (
-        <div key={`${i}-${t.Id}`}>
+        <div key={`${i}-${t.Id}-subtests`}>
           <div className="flex">
             <span className="h7">{t.Abbreviation}&nbsp;</span>
             <SectionSubHeader subHeader={t.TestName} />
@@ -117,6 +117,7 @@ const AppendixConnected = (props, values) => {
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
+                      .replace(/[,/]/g, "")
                       .replace(/\(|\)/g, "")}-score`}
                   />
                 </div>
@@ -130,6 +131,7 @@ const AppendixConnected = (props, values) => {
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
+                      .replace(/[,/]/g, "")
                       .replace(/\(|\)/g, "")}-rank`}
                   />
                 </div>
@@ -143,6 +145,7 @@ const AppendixConnected = (props, values) => {
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
+                      .replace(/[,/]/g, "")
                       .replace(/\(|\)/g, "")}-range`}
                   />
                 </div>

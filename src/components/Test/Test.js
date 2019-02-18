@@ -167,7 +167,11 @@ const Test = ({ testFromState, ...props }) => {
                           onChange={event =>
                             props.handleAppendixAdd(
                               t.Id,
-                              t.ParentScaleName,
+                              t.ParentScaleName.toLowerCase()
+                                .replace(/ /g, "-")
+                                .replace("<span>", "")
+                                .replace("</span>", "")
+                                .replace(/\(|\)/g, ""),
                               testFromState[i].Abbreviation,
                               testFromState[i].Name,
                               event
@@ -354,8 +358,8 @@ const Test = ({ testFromState, ...props }) => {
                   <div>Score</div>
                   <div>Description</div>
                 </div>
-                {t.SubTests.map((t, i) => (
-                  <div key={i} className="table__row">
+                {t.SubTests.map(t => (
+                  <div key={t.Id} className="table__row">
                     <div>{t.Name}</div>
                     <div>
                       <Field
@@ -366,6 +370,15 @@ const Test = ({ testFromState, ...props }) => {
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
                           .replace(/ /g, "-")}-score`}
+                        onBlur={event =>
+                          props.handleAppendixSubtestAdd(
+                            t.Id,
+                            t.Name,
+                            testFromState[i].Name,
+                            testFromState[i].Abbreviation,
+                            event
+                          )
+                        }
                       />
                     </div>
                     <div
@@ -646,8 +659,8 @@ const Test = ({ testFromState, ...props }) => {
                               <div>Score</div>
                               <div>Description</div>
                             </div>
-                            {t.SubTests.map((t, i) => (
-                              <div key={i} className="table__row">
+                            {t.SubTests.map(t => (
+                              <div key={t.Id} className="table__row">
                                 <div>{t.Name}</div>
                                 <div>
                                   <Field
@@ -659,6 +672,17 @@ const Test = ({ testFromState, ...props }) => {
                                       .replace(/[’]/g, "")
                                       .replace(/ /g, "-")
                                       .replace(/\(|\)/g, "")}-score`}
+                                    onBlur={event =>
+                                      props.handleAppendixSubtestAdd(
+                                        t.Id,
+                                        t.Name,
+                                        testFromState[i].TestModules[0]
+                                          .ParentGroupScales[0]
+                                          .ParentScaleTitles[0].ParentScaleName,
+                                        testFromState[i].Abbreviation,
+                                        event
+                                      )
+                                    }
                                   />
                                 </div>
                                 <div>{t.Description}</div>

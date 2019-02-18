@@ -465,12 +465,7 @@ class WizardForm47Page extends Component {
               </label>
               <div className="flex question__input">
                 <MaterialIcon icon="arrow_right" />
-                <Field
-                  component="input"
-                  name="di-name"
-                  type="text"
-                  classes="question"
-                />
+                <Field component="input" name="di-name" type="text" />
               </div>
               {/* {patientName && (
                 <Field
@@ -498,12 +493,7 @@ class WizardForm47Page extends Component {
               )} */}
               <div className="flex question__input">
                 <MaterialIcon icon="arrow_right" />
-                <Field
-                  component="input"
-                  name="di-age"
-                  type="text"
-                  classes="question"
-                />
+                <Field component="input" name="di-age" type="text" />
               </div>
             </div>
           </div>
