@@ -4,7 +4,7 @@ import { Field } from "redux-form";
 import "./Test.css";
 import SectionSubTitle from "../SectionSubTitle";
 import SectionSubHeader from "../SectionSubHeader";
-import ButtonToggle from "../ButtonToggle";
+//import ButtonToggle from "../ButtonToggle";
 import MaterialIcon from "react-google-material-icons";
 // import HtmlParser from "react-html-parser/lib/HtmlParser";
 
@@ -303,9 +303,7 @@ const Test = ({ testFromState, ...props }) => {
                             <Field
                               component="input"
                               type="text"
-                              name={`${
-                                t.ParentScaleTitleId
-                              }-${t.Name.toLowerCase()
+                              name={`${t.Id}-${t.Name.toLowerCase()
                                 .replace("/", "-")
                                 .replace(/ /g, "-")
                                 .replace("{", "")
@@ -558,8 +556,8 @@ const Test = ({ testFromState, ...props }) => {
                           <div>Score</div>
                           <div>Description</div>
                         </div>
-                        {t.SubTests.map((t, i) => (
-                          <div key={i} className="table__row">
+                        {t.SubTests.map(t => (
+                          <div key={t.Id} className="table__row">
                             <div>{t.Name}</div>
                             <div>
                               <Field
@@ -570,6 +568,16 @@ const Test = ({ testFromState, ...props }) => {
                                   .replace(/[,/]/g, "")
                                   .replace(/[’]/g, "")
                                   .replace(/ /g, "-")}-score`}
+                                onBlur={event =>
+                                  props.handleAppendixSubtestAdd(
+                                    t.Id,
+                                    t.Name,
+                                    testFromState[i].ParentGroupSubScales[0]
+                                      .ParentScaleTitles[0].ParentScaleName,
+                                    testFromState[i].Abbreviation,
+                                    event
+                                  )
+                                }
                               />
                             </div>
                             <div

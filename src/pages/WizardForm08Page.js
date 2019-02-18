@@ -8,7 +8,6 @@ import SectionSubTitle from "../components/SectionSubTitle";
 import Button from "../components/Button";
 import CopyForwardButton from "../components/ButtonToggle/CopyForwardButton";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
-import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import SectionSubHeader from "../components/SectionSubHeader";
 import ButtonToggle from "../components/ButtonToggle";
 import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";

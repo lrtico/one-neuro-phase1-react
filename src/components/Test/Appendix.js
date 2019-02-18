@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const AppendixConnected = (props, values) => {
   console.log("store from index, ", props);
   console.log("Trying to make props go now!", values);
-  const { appendices, domains, subtests } = props;
+  const { appendices } = props;
   return (
     <div>
       <SectionTitle titleBold="Appendix" titleRegular="of scores" />
@@ -44,7 +44,10 @@ const AppendixConnected = (props, values) => {
                     type="text"
                     name={`${t.id}-appendix-${appendices.domains.tests[
                       i
-                    ].Abbreviation.toLowerCase()}-${t.parentScaleName
+                    ].Abbreviation.toLowerCase().replace(
+                      / /g,
+                      "-"
+                    )}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
@@ -57,7 +60,10 @@ const AppendixConnected = (props, values) => {
                     type="text"
                     name={`${t.id}-appendix-${appendices.domains.tests[
                       i
-                    ].Abbreviation.toLowerCase()}-${t.parentScaleName
+                    ].Abbreviation.toLowerCase().replace(
+                      / /g,
+                      "-"
+                    )}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
@@ -70,7 +76,10 @@ const AppendixConnected = (props, values) => {
                     type="text"
                     name={`${t.id}-appendix-${appendices.domains.tests[
                       i
-                    ].Abbreviation.toLowerCase()}-${t.parentScaleName
+                    ].Abbreviation.toLowerCase().replace(
+                      / /g,
+                      "-"
+                    )}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
@@ -83,7 +92,7 @@ const AppendixConnected = (props, values) => {
         </div>
       ))}
       {appendices.subtests.tests.map((t, i) => (
-        <div key={t.Id}>
+        <div key={`${i}-${t.Id}`}>
           <div className="flex">
             <span className="h7">{t.Abbreviation}&nbsp;</span>
             <SectionSubHeader subHeader={t.TestName} />
@@ -104,13 +113,11 @@ const AppendixConnected = (props, values) => {
                   <Field
                     component="input"
                     type="text"
-                    name={`${t.id}-appendix-${appendices.subtests.tests[
-                      i
-                    ].Abbreviation.toLowerCase()}-${t.name
+                    name={`${t.id}-${t.name
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
-                      .replace(/\(|\)/g, "")}-composite-score`}
+                      .replace(/\(|\)/g, "")}-score`}
                   />
                 </div>
                 <div>
@@ -119,7 +126,7 @@ const AppendixConnected = (props, values) => {
                     type="text"
                     name={`${t.id}-appendix-${appendices.subtests.tests[
                       i
-                    ].Abbreviation.toLowerCase()}-${t.name
+                    ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")
@@ -132,7 +139,7 @@ const AppendixConnected = (props, values) => {
                     type="text"
                     name={`${t.id}-appendix-${appendices.subtests.tests[
                       i
-                    ].Abbreviation.toLowerCase()}-${t.name
+                    ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
                       .toLowerCase()
                       .replace(/ /g, "-")
                       .replace("/", "-")

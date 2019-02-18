@@ -3,7 +3,7 @@ import "./textQuestionStyles.css";
 import "../../app.css";
 import MaterialIcon from "react-google-material-icons";
 import CopyForwardButton from "../ButtonToggle/CopyForwardButton";
-import store from "../../store";
+//import store from "../../store";
 
 class TextQuestion extends Component {
   addCopyForward = () => {
@@ -14,12 +14,15 @@ class TextQuestion extends Component {
     switch (clickedInputName) {
       case "reason-referral-1":
         inputName = `sof-${clickedInputName}`;
+        break;
       case "reason-referral-2":
         inputName = `sof-${clickedInputName}`;
+        break;
       case "reason-referral-3":
         inputName = `sof-${clickedInputName}`;
+        break;
       default:
-        inputName = inputName;
+        inputName = "";
     }
 
     console.log(`
@@ -39,7 +42,7 @@ class TextQuestion extends Component {
     //return val;
   };
   render() {
-    const { handleCopyForward, doThisFunction } = this.props;
+    //const { handleCopyForward, doThisFunction } = this.props;
     const {
       input,
       label,

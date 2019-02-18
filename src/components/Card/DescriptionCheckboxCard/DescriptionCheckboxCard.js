@@ -8,14 +8,15 @@ import { randomId } from "../../../utils/Helpers";
 import MaterialIcon from "react-google-material-icons";
 
 function handleTick(event) {
-  const tar = event.currentTarget;
+  const tar = event.currentTarget.parentNode;
   tar.classList.toggle("question__checkbox--selected");
+  console.log("hanleTick fired, ", event);
 }
 
 const handleTextboxTick = (event, name, props) => {
   const tar = event.currentTarget;
   tar.parentNode.parentNode.classList.add("question__checkbox--selected");
-  //console.log("handleTextboxTick's props = ", event);
+  console.log("handleTextboxTick's props = ", event);
   props.change(name, true);
 }
 
@@ -52,13 +53,14 @@ const DescriptionCheckboxCard = ({
                   ? "question__choice"
                   : `${card.liClasses} question__choice`
               }
-              tabIndex={card.tabOrder}
-              onClick={handleTick}
+              //tabIndex={card.tabOrder}
+              // onClick={handleTick}
             >
               <Field
                 name={card.cardNameCheckbox}
                 type="checkbox"
                 component="input"
+                onClick={handleTick}
               />
 
               <div className="question__tick-wrap">
@@ -80,10 +82,8 @@ const DescriptionCheckboxCard = ({
                   name={card.cardNameDescription}
                   component="input"
                   type="text"
-                  // onClick={handleTextboxTick}
-                  //onKeyPress={(event) => props.onTextBoxClick(card.cardNameCheckbox, event.currentTarget)}
-                  //onKeyPress={() => props.change(card.cardNameCheckbox, true)}
                   onKeyPress={(event) => handleTextboxTick(event, card.cardNameCheckbox, props)}
+                  //onKeyPress={() => console.log("text input key pressed")}
                 />
               </div>
               <div className="question__bg" />

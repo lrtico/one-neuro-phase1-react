@@ -4,7 +4,6 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import TextQuestion from "../components/TextQuestion";
 import Button from "../components/Button";
-import { addCopyForward } from "../components/TextQuestion";
 
 class WizardForm04Page extends Component {
   changeFieldValue = (inputName, val) => {

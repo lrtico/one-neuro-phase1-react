@@ -25,70 +25,114 @@ const WizardForm16Page = props => {
           component={FormCardStacked}
           cardInfo={[
             {
-              cardName: "mdh-turn-over",
+              cardFloat: true,
               cardLabel: "Turn over?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "1"
+              tabOrder: "1",
+              card1Name: "mdh-turn-over-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-turn-over-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-walk-down-stairs",
+              cardFloat: true,
               cardLabel: "Walk down stairs?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "2"
+              tabOrder: "2",
+              card1Name: "mdh-walk-down-stairs-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-walk-down-stairs-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-sit-alone",
+              cardFloat: true,
               cardLabel: "Sit alone?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "3"
+              tabOrder: "3",
+              card1Name: "mdh-sit-alone-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-sit-alone-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-attracted-sound",
+              cardFloat: true,
               cardLabel: "Show interest in or attraction to sound?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "4"
+              tabOrder: "4",
+              card1Name: "mdh-attracted-sound-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-attracted-sound-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-crawl",
+              cardFloat: true,
               cardLabel: "Crawl?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "5"
+              tabOrder: "5",
+              card1Name: "mdh-crawl-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-crawl-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-understand-words",
+              cardFloat: true,
               cardLabel: "Understand first words?",
-              cardPlaceholder: "X Months and years",
-              tabOrder: "6"
+              tabOrder: "6",
+              card1Name: "mdh-understand-words-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-understand-words-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-stand-alone",
+              cardFloat: true,
               cardLabel: "Stand alone?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "7"
+              tabOrder: "7",
+              card1Name: "mdh-stand-alone-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-stand-alone-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-speak-first-words",
+              cardFloat: true,
               cardLabel: "Speak first words?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "8"
+              tabOrder: "8",
+              card1Name: "mdh-speak-first-words-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-speak-first-words-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-walk-alone",
+              cardFloat: true,
               cardLabel: "Walk alone?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "9"
+              tabOrder: "9",
+              card1Name: "mdh-walk-alone-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-walk-alone-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-speak-sentences",
+              cardFloat: true,
               cardLabel: "Speak in sentences?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "10"
+              tabOrder: "10",
+              card1Name: "mdh-speak-sentences-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-speak-sentences-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             },
             {
-              cardName: "mdh-walk-up-stairs",
+              cardFloat: true,
               cardLabel: "Walk up stairs?",
-              cardPlaceholder: "X Months X years",
-              tabOrder: "11"
+              tabOrder: "11",
+              card1Name: "mdh-walk-up-stairs-months",
+              card1Placeholder: "Months",
+              card2Name: "mdh-walk-up-stairs-year",
+              card2Placeholder: "Years",
+              normalizeOnlyNums: true
             }
           ]}
           label="At what"
