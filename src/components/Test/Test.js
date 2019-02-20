@@ -167,11 +167,7 @@ const Test = ({ testFromState, ...props }) => {
                           onChange={event =>
                             props.handleAppendixAdd(
                               t.Id,
-                              t.ParentScaleName.toLowerCase()
-                                .replace(/ /g, "-")
-                                .replace("<span>", "")
-                                .replace("</span>", "")
-                                .replace(/\(|\)/g, ""),
+                              t.ParentScaleName,
                               testFromState[i].Abbreviation,
                               testFromState[i].Name,
                               event
@@ -308,6 +304,8 @@ const Test = ({ testFromState, ...props }) => {
                               component="input"
                               type="text"
                               name={`${t.Id}-${t.Name.toLowerCase()
+                                .replace("<sup>", "")
+                                .replace("</sup>", "")
                                 .replace("/", "-")
                                 .replace(/ /g, "-")
                                 .replace("{", "")
@@ -498,8 +496,8 @@ const Test = ({ testFromState, ...props }) => {
                               <div>Score</div>
                               <div>Description</div>
                             </div>
-                            {t.SubTests.map((t, i) => (
-                              <div key={i} className="table__row">
+                            {t.SubTests.map(t => (
+                              <div key={t.Id} className="table__row">
                                 <div>{t.Name}</div>
                                 <div>
                                   <Field
@@ -510,6 +508,17 @@ const Test = ({ testFromState, ...props }) => {
                                       .replace(/[,/]/g, "")
                                       .replace(/[’]/g, "")
                                       .replace(/ /g, "-")}-score`}
+                                    onBlur={event =>
+                                      props.handleAppendixSubtestAdd(
+                                        t.Id,
+                                        t.Name,
+                                        testFromState[i].ParentGroupScales[0]
+                                          .ParentGroupSubScales[0]
+                                          .ParentScaleTitles[0].ParentScaleName,
+                                        testFromState[i].Abbreviation,
+                                        event
+                                      )
+                                    }
                                   />
                                 </div>
                                 <div

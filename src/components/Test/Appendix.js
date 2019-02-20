@@ -26,18 +26,33 @@ const AppendixConnected = (props, values) => {
             <div className="table__row table__header">
               <div>Index</div>
               <div>Composite Score</div>
-              <div>% Rank</div>
-              <div>Range</div>
+              {t.Abbreviation === "PIY" ||
+              t.Abbreviation === "MCMI–IV" ||
+              t.Abbreviation === "MMPI-2" ||
+              t.Abbreviation === "TSCC" ||
+              t.Abbreviation === "MMPI-A" ? null : (
+                <div>% Rank</div>
+              )}
+              <div>Classification</div>
             </div>
 
             {t.DomainsOverall.map(t => (
               <div
                 key={`${t.id}-${t.parentScaleName
                   .toLowerCase()
-                  .replace(/ /g, "-")}`}
+                  .replace(/ /g, "-")
+                  .replace("<span>", "")
+                  .replace("</span>", "")
+                  .replace("<sup>", "")
+                  .replace("</sup>", "")
+                  .replace(/\(|\)/g, "")}`}
                 className="table__row"
               >
-                <div>{t.parentScaleName}</div>
+                <div>
+                  {t.parentScaleName
+                    .replace("<span>", "")
+                    .replace("</span>", "")}
+                </div>
                 <div>
                   <Field
                     component="input"
@@ -50,10 +65,39 @@ const AppendixConnected = (props, values) => {
                     )}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
+                      .replace("<span>", "")
+                      .replace("</span>", "")
+                      .replace("<sup>", "")
+                      .replace("</sup>", "")
                       .replace("/", "-")
                       .replace(/\(|\)/g, "")}-composite-score`}
                   />
                 </div>
+                {appendices.domains.tests[i].Abbreviation === "PIY" ||
+                appendices.domains.tests[i].Abbreviation === "MCMI–IV" ||
+                appendices.domains.tests[i].Abbreviation === "MMPI-2" ||
+                appendices.domains.tests[i].Abbreviation === "TSCC" ||
+                appendices.subtests.tests[i].Abbreviation ===
+                  "MMPI-A" ? null : (
+                  <div>
+                    <Field
+                      component="input"
+                      type="text"
+                      name={`${t.id}-appendix-${appendices.domains.tests[
+                        i
+                      ].Abbreviation.toLowerCase().replace(
+                        / /g,
+                        "-"
+                      )}-${t.parentScaleName
+                        .toLowerCase()
+                        .replace(/ /g, "-")
+                        .replace("<span>", "")
+                        .replace("</span>", "")
+                        .replace("/", "-")
+                        .replace(/\(|\)/g, "")}-rank`}
+                    />
+                  </div>
+                )}
                 <div>
                   <Field
                     component="input"
@@ -66,22 +110,10 @@ const AppendixConnected = (props, values) => {
                     )}-${t.parentScaleName
                       .toLowerCase()
                       .replace(/ /g, "-")
-                      .replace("/", "-")
-                      .replace(/\(|\)/g, "")}-rank`}
-                  />
-                </div>
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.domains.tests[
-                      i
-                    ].Abbreviation.toLowerCase().replace(
-                      / /g,
-                      "-"
-                    )}-${t.parentScaleName
-                      .toLowerCase()
-                      .replace(/ /g, "-")
+                      .replace("<span>", "")
+                      .replace("</span>", "")
+                      .replace("<sup>", "")
+                      .replace("</sup>", "")
                       .replace("/", "-")
                       .replace(/\(|\)/g, "")}-range`}
                   />
@@ -95,14 +127,25 @@ const AppendixConnected = (props, values) => {
         <div key={`${i}-${t.Id}-subtests`}>
           <div className="flex">
             <span className="h7">{t.Abbreviation}&nbsp;</span>
-            <SectionSubHeader subHeader={t.TestName} />
+            <SectionSubHeader
+              subHeader={t.TestName.replace("<span>", "").replace(
+                "</span>",
+                ""
+              )}
+            />
             <span className="h7">&nbsp;Subtests Score Summary</span>
           </div>
           <div className="test-table test-table--appendix">
             <div className="table__row table__header">
               <div>Index</div>
               <div>Scaled Score</div>
-              <div>% Rank</div>
+              {t.Abbreviation === "PIY" ||
+              t.Abbreviation === "MCMI–IV" ||
+              t.Abbreviation === "MMPI-2" ||
+              t.Abbreviation === "TSCC" ||
+              t.Abbreviation === "MMPI-A" ? null : (
+                <div>% Rank</div>
+              )}
               <div>Classification</div>
             </div>
 
@@ -115,12 +158,41 @@ const AppendixConnected = (props, values) => {
                     type="text"
                     name={`${t.id}-${t.name
                       .toLowerCase()
+                      .replace("<sup>", "")
+                      .replace("</sup>", "")
                       .replace(/ /g, "-")
                       .replace("/", "-")
                       .replace(/[,/]/g, "")
+                      .replace("{", "")
+                      .replace("}", "")
                       .replace(/\(|\)/g, "")}-score`}
                   />
                 </div>
+                {appendices.subtests.tests[i].Abbreviation === "PIY" ||
+                appendices.subtests.tests[i].Abbreviation === "MCMI–IV" ||
+                appendices.subtests.tests[i].Abbreviation === "MMPI-2" ||
+                appendices.subtests.tests[i].Abbreviation === "TSCC" ||
+                appendices.subtests.tests[i].Abbreviation ===
+                  "MMPI-A" ? null : (
+                  <div>
+                    <Field
+                      component="input"
+                      type="text"
+                      name={`${t.id}-appendix-${appendices.subtests.tests[
+                        i
+                      ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
+                        .toLowerCase()
+                        .replace(/ /g, "-")
+                        .replace("<sup>", "")
+                        .replace("</sup>", "")
+                        .replace("/", "-")
+                        .replace(/[,/]/g, "")
+                        .replace("{", "")
+                        .replace("}", "")
+                        .replace(/\(|\)/g, "")}-rank`}
+                    />
+                  </div>
+                )}
                 <div>
                   <Field
                     component="input"
@@ -130,22 +202,12 @@ const AppendixConnected = (props, values) => {
                     ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
                       .toLowerCase()
                       .replace(/ /g, "-")
+                      .replace("<sup>", "")
+                      .replace("</sup>", "")
                       .replace("/", "-")
                       .replace(/[,/]/g, "")
-                      .replace(/\(|\)/g, "")}-rank`}
-                  />
-                </div>
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.subtests.tests[
-                      i
-                    ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
-                      .toLowerCase()
-                      .replace(/ /g, "-")
-                      .replace("/", "-")
-                      .replace(/[,/]/g, "")
+                      .replace("{", "")
+                      .replace("}", "")
                       .replace(/\(|\)/g, "")}-range`}
                   />
                 </div>
