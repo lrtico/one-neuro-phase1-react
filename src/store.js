@@ -6,7 +6,7 @@ import recommendations from "../src/reducers/reducerRecommendation";
 import domainBasedReports from "./reducers/reducerDomains";
 import copyForward from "./reducers/reducerCopyForward";
 import { matchedTests } from "./reducers/reducerTests";
-import { patientAge, dsmSelectedCodes } from "./reducers/reducers";
+import { patientAge, dsmSelectedCodes, errors } from "./reducers/reducers";
 
 const reducer = combineReducers({
   form: reduxFormReducer, // mounted under "form"
@@ -17,8 +17,10 @@ const reducer = combineReducers({
   matchedTests,
   patientAge,
   dsmSelectedCodes,
-  copyForward
+  copyForward,
+  errors
 });
+
 const store = (window.devToolsExtension
   ? window.devToolsExtension()(createStore)
   : createStore)(reducer);

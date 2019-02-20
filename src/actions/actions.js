@@ -42,3 +42,16 @@ export const load = () => ({
   type: C.ADD_COPY_FORWARD_DATA,
   payload: { "sof-reason-referral-1": "Make copy go now!" }
 });
+
+export const addError = message => ({
+  type: C.ADD_ERROR,
+  payload: message
+});
+
+export const clearError = index => {
+  console.log("clearError go now!", index);
+  return {
+    type: C.CLEAR_ERROR,
+    payload: 0
+  };
+};

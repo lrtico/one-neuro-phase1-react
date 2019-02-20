@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
+import { connect } from "react-redux";
+import { clearError } from "./actions/actions";
 import CCWrapper from "./utils/PageWrapper";
 import PageList from "./PageList";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import Loading from "./components/Loading/Loading";
 import PageJump from "./components/PageJump/PageJump";
+import Toast from "./components/Toast/Toast";
 
 class WizardForm extends Component {
   constructor(props) {
@@ -16,7 +19,8 @@ class WizardForm extends Component {
       page: 47,
       pageNumber: 1,
       testState: false,
-      loading: true
+      loading: true,
+      hasError: true
     };
   }
 
@@ -69,6 +73,13 @@ class WizardForm extends Component {
     });
   };
 
+  handleClearError = index => {
+    console.log("todo: handle clear error at ", this.state.hasError);
+    this.setState(prevState => ({
+      hasError: !prevState.hasError
+    }));
+  };
+
   componentDidMount() {
     setTimeout(() => this.setState({ loading: false }), 3000);
   }
@@ -77,6 +88,7 @@ class WizardForm extends Component {
     const { onSubmit } = this.props;
     //const { page } = this.state;
     const { loading } = this.state;
+    console.log("WizardForm props, ", this.props);
     return (
       <div>
         {loading ? (
@@ -109,6 +121,11 @@ class WizardForm extends Component {
           pageNumber={this.state.pageNumber}
           handlePageNumber={this.handlePageNumber}
         />
+        <Toast
+          onClearError={this.props.onClearError}
+          errors={this.props.errors}
+          hasError={this.state.hasError}
+        />
       </div>
     );
   }
@@ -118,4 +135,21 @@ WizardForm.propTypes = {
   onSubmit: PropTypes.func.isRequired
 };
 
-export default WizardForm;
+const mapStateToProps = state => {
+  return {
+    errors: state.errors
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onClearError(index) {
+      dispatch(clearError(index));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WizardForm);
