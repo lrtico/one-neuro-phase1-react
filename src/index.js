@@ -24,7 +24,7 @@ ReactDOM.render(
       <PageTrans />
       <Hamburger />
       <WizardForm onSubmit={showResults} />
-      <Values form="wizard" />
+      {/* <Values form="wizard" /> */}
     </div>
   </Provider>,
   rootEl
