@@ -439,6 +439,16 @@ const Test = ({ testFromState, ...props }) => {
                                       / /g,
                                       "-"
                                     )}-score`}
+                                    onBlur={event =>
+                                      props.handleAppendixSubtestAdd(
+                                        t.Id,
+                                        t.Name,
+                                        testFromState[i].ParentGroupScales[0]
+                                          .ParentScaleTitles[0].ParentScaleName,
+                                        testFromState[i].Abbreviation,
+                                        event
+                                      )
+                                    }
                                   />
                                 </div>
                                 <div>{t.Description}</div>
