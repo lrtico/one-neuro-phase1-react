@@ -51,17 +51,26 @@ const DescriptionCheckboxCard = ({
               className={
                 card.liClasses == null
                   ? "question__choice"
-                  : `${card.liClasses} question__choice`
+                  : `${card.liClasses} desc-checkbox question__choice`
               }
               //tabIndex={card.tabOrder}
               // onClick={handleTick}
             >
-              <Field
-                name={card.cardNameCheckbox}
-                type="checkbox"
-                component="input"
-                onClick={handleTick}
-              />
+              <div className="desc-checkbox__checkbox question__text-wrap flex flex--center-vertical" onClick={handleTick}>
+                <div className="question__label">
+                  <div className="question__letter">
+                    <span>{card.cardKey}</span>
+                  </div>
+                </div>
+                <div className="question__text-label">{card.cardLabel}</div>
+                <Field
+                  name={card.cardNameCheckbox}
+                  type="checkbox"
+                  component="input"
+                  className="desc-checkbox__checkbox__input"
+                />
+                <div className="question__bg desc-checkbox__bg" />
+              </div>
 
               <div className="question__tick-wrap">
                 <MaterialIcon icon="check" />
@@ -71,22 +80,18 @@ const DescriptionCheckboxCard = ({
                   <img src={card.thumbnail} alt={card.thumbnailAlt} />
                 </div>
               )}
-              <div className="question__text-wrap flex flex--center-vertical">
-                <div className="question__label">
-                  <div className="question__letter">
-                    <span>{card.cardKey}</span>
-                  </div>
-                </div>
-                <div className="question__text-label">{card.cardLabel}</div>
+              <div className="desc-checkbox__desc question__text-wrap flex flex--center-vertical">
+                <div className="question__text-label">Description:</div>
                 <Field
                   name={card.cardNameDescription}
                   component="input"
                   type="text"
+                  className="desc-checkbox__desc__input"
                   onKeyPress={(event) => handleTextboxTick(event, card.cardNameCheckbox, props)}
                   //onKeyPress={() => console.log("text input key pressed")}
                 />
+                <div className="question__bg" />
               </div>
-              <div className="question__bg" />
             </li>
           ))}
           {touched && error && <span>{error}</span>}

@@ -1,5 +1,6 @@
 import React from "react";
-import { Field } from "redux-form";
+import { Field, reduxForm } from "redux-form";
+import validate from "../../../validate";
 import "./descriptionCheckboxCardStyles.css";
 import "../../../app.css";
 import "../../Card/cardStyles.css";
@@ -7,13 +8,16 @@ import { randomId } from "../../../utils/Helpers";
 import MaterialIcon from "react-google-material-icons";
 
 function handleTick(event) {
-  const tar = event.currentTarget;
+  const tar = event.currentTarget.parentNode;
   tar.classList.toggle("question__checkbox--selected");
+  console.log("hanleTick fired, ", event);
 }
 
-function handleTextboxTick(event) {
+const handleTextboxTick = (event, name, props) => {
   const tar = event.currentTarget;
   tar.parentNode.parentNode.classList.add("question__checkbox--selected");
+  console.log("handleTextboxTick's props = ", event);
+  props.change(name, true);
 }
 
 const DescriptionCheckboxCard = ({
@@ -24,8 +28,11 @@ const DescriptionCheckboxCard = ({
   classes,
   liClasses,
   cardName,
+  cardNameDescription,
+  ...props,
   meta: { touched, error }
 }) => {
+  console.log("DescriptionCheckboxCard props = ", props);
   return (
     <div className={classes}>
       <label>
@@ -46,9 +53,16 @@ const DescriptionCheckboxCard = ({
                   ? "question__choice"
                   : `${card.liClasses} question__choice`
               }
-              tabIndex={card.tabOrder}
-              onClick={handleTick}
+              //tabIndex={card.tabOrder}
+              // onClick={handleTick}
             >
+              <Field
+                name={card.cardNameCheckbox}
+                type="checkbox"
+                component="input"
+                onClick={handleTick}
+              />
+
               <div className="question__tick-wrap">
                 <MaterialIcon icon="check" />
               </div>
@@ -65,11 +79,11 @@ const DescriptionCheckboxCard = ({
                 </div>
                 <div className="question__text-label">{card.cardLabel}</div>
                 <Field
-                  name={card.cardName}
+                  name={card.cardNameDescription}
                   component="input"
                   type="text"
-                  // onClick={handleTextboxTick}
-                  onKeyPress={handleTextboxTick}
+                  onKeyPress={(event) => handleTextboxTick(event, card.cardNameCheckbox, props)}
+                  //onKeyPress={() => console.log("text input key pressed")}
                 />
               </div>
               <div className="question__bg" />
@@ -81,5 +95,10 @@ const DescriptionCheckboxCard = ({
     </div>
   );
 };
-
-export default DescriptionCheckboxCard;
+export default reduxForm({
+  form: 'wizard', // <------ same form name
+  destroyOnUnmount: false, // <------ preserve form data
+  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  validate
+})(DescriptionCheckboxCard)
+//export default DescriptionCheckboxCard;

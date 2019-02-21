@@ -292,7 +292,7 @@ class WizardForm47Page extends Component {
 
   componentDidMount() {
     //Load the domains into state
-    const url = "https://oneneuro.azurewebsites.net/api/test/domains/all";
+    const url = "http://oneneuro.azurewebsites.net/api/test/domains/all";
     fetch(url)
       .then(response => {
         return response.json();
@@ -305,7 +305,7 @@ class WizardForm47Page extends Component {
     //console.log("WizardForm47 is loading");
 
     //Load all the test data into state
-    const allData = "https://oneneuro.azurewebsites.net/api/test/get/all";
+    const allData = "http://oneneuro.azurewebsites.net/api/test/get/all";
     fetch(allData)
       .then(response => {
         return response.json();

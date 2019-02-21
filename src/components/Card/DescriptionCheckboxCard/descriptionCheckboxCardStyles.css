@@ -1,3 +1,76 @@
 .question__choice.question__choice--full-width {
   flex: 1 1 100%;
 }
+
+.question.question--thumbless
+  .question__input
+  ul.question__choices
+  > li.question__choice.desc-checkbox {
+  display: flex;
+  padding: 0;
+}
+
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .desc-checkbox__checkbox,
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .desc-checkbox__desc {
+  padding: 15px 18px 15px 15px;
+  position: relative;
+}
+
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .desc-checkbox__desc {
+  flex: 1 1 auto;
+}
+
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .question__bg.desc-checkbox__bg {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right: none;
+}
+
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .desc-checkbox__desc
+  .question__bg {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice.desc-checkbox:hover
+  .question__bg {
+  background-color: unset;
+}
+
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .desc-checkbox__checkbox:hover
+  .question__bg.desc-checkbox__bg,
+.question
+  .question__input
+  ul.question__choices
+  > li.question__choice
+  .desc-checkbox__desc:hover
+  .question__bg {
+  background-color: rgba(0, 0, 0, 0.2);
+}
