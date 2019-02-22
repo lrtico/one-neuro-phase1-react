@@ -27,7 +27,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-walking-difficulty",
             cardNameDescription: "mdh-walking-difficulty-description",
             cardLabel: "Walking difficulty",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
@@ -35,7 +35,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-unclear-speech",
             cardNameDescription: "mdh-unclear-speech-description",
             cardLabel: "Unclear speech",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
@@ -43,7 +43,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-feeding-problem",
             cardNameDescription: "mdh-feeding-problem-description",
             cardLabel: "Feeding problem",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
           },
           {
@@ -51,7 +51,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-underweight-problem",
             cardNameDescription: "mdh-underweight-problem-description",
             cardLabel: "Underweight problem",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "4"
           },
           {
@@ -59,7 +59,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-overweight-problem",
             cardNameDescription: "mdh-overweight-problem-description",
             cardLabel: "Overweight problem",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "5"
           },
           {
@@ -67,7 +67,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-colic",
             cardNameDescription: "mdh-colic-description",
             cardLabel: "Colic",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "6"
           },
           {
@@ -75,7 +75,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-sleep-problem",
             cardNameDescription: "mdh-sleep-problem-description",
             cardLabel: "Sleep problem",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "7"
           },
           {
@@ -83,7 +83,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-eating-problem",
             cardNameDescription: "mdh-eating-problem-description",
             cardLabel: "Eating problem",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "8"
           },
           {
@@ -91,7 +91,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-learning-ride-bike",
             cardNameDescription: "mdh-learning-ride-bike-description",
             cardLabel: "Difficulty learning to ride a bike",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "9"
           },
           {
@@ -99,7 +99,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-learning-skip",
             cardNameDescription: "mdh-learning-skip-description",
             cardLabel: "Difficulty learning how to skip",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "10"
           },
           {
@@ -107,7 +107,7 @@ const WizardForm18Page = props => {
             cardNameCheckbox: "mdh-learning-throw-catch",
             cardNameDescription: "mdh-learning-throw-catch-description",
             cardLabel: "Difficulty learning to throw or catch",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "11"
           }
         ]}

@@ -25,7 +25,7 @@ const WizardForm30Page = props => {
             cardNameCheckbox: "mdh-hearing-ear-infection",
             cardNameDescription: "mdh-hearing-ear-infection-description",
             cardLabel: "Ear infections",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
@@ -33,7 +33,7 @@ const WizardForm30Page = props => {
             cardNameCheckbox: "mdh-hearing-problems",
             cardNameDescription: "mdh-hearing-problems-description",
             cardLabel: "Hearing problems",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
@@ -41,7 +41,7 @@ const WizardForm30Page = props => {
             cardNameCheckbox: "mdh-hearing-tubes",
             cardNameDescription: "mdh-hearing-tubes-description",
             cardLabel: "Ear tubes",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
           }
         ]}

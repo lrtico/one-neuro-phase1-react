@@ -25,7 +25,7 @@ const WizardForm29Page = props => {
             cardNameCheckbox: "mdh-speech-stuttering",
             cardNameDescription: "mdh-speech-stuttering-description",
             cardLabel: "Stuttering",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
@@ -33,7 +33,7 @@ const WizardForm29Page = props => {
             cardNameCheckbox: "mdh-speech-unclear",
             cardNameDescription: "mdh-speech-unclear-description",
             cardLabel: "Unclear speech",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
@@ -41,7 +41,7 @@ const WizardForm29Page = props => {
             cardNameCheckbox: "mdh-speech-other",
             cardNameDescription: "mdh-speech-other-description",
             cardLabel: "Other speech problems",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
           }
         ]}

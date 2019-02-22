@@ -200,7 +200,8 @@ const WizardForm14Page = props => {
             cardLabel: "Other",
             tabOrder: "35",
             cardNameCheckbox: "mdh-other-complication",
-            cardNameDescription: "mdh-other-complication-description"
+            cardNameDescription: "mdh-other-complication-description",
+            liClasses: "desc-checkbox"
           }
         ]}
         label="Any other"

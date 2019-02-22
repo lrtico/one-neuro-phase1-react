@@ -24,7 +24,7 @@ const WizardForm28Page = props => {
             cardNameCheckbox: "mdh-allergies-medicine",
             cardNameDescription: "mdh-allergies-medicine-description",
             cardLabel: "Allergies to medicine",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
@@ -32,7 +32,7 @@ const WizardForm28Page = props => {
             cardNameCheckbox: "mdh-allergies-food",
             cardNameDescription: "mdh-allergies-food-description",
             cardLabel: "Allergies to food",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
@@ -40,7 +40,7 @@ const WizardForm28Page = props => {
             cardNameCheckbox: "mdh-allergies-other",
             cardNameDescription: "mdh-allergies-other-description",
             cardLabel: "Other allergies",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
           }
         ]}

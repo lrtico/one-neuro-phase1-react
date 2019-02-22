@@ -58,7 +58,7 @@ const DescriptionCheckboxCard = ({
               className={
                 card.liClasses == null
                   ? "question__choice"
-                  : `${card.liClasses} desc-checkbox question__choice`
+                  : `${card.liClasses} question__choice`
               }
               //tabIndex={card.tabOrder}
               // onClick={handleTick}

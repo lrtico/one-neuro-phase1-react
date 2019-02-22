@@ -25,7 +25,7 @@ const WizardForm31Page = props => {
             cardNameCheckbox: "mdh-vision-problems",
             cardNameDescription: "mdh-vision-problems-description",
             cardLabel: "Vision problems",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
@@ -33,7 +33,7 @@ const WizardForm31Page = props => {
             cardNameCheckbox: "mdh-glasses",
             cardNameDescription: "mdh-glasses-description",
             cardLabel: "Wears glasses or contacts",
-            liClasses: "question__choice--full-width",
+            liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           }
         ]}
