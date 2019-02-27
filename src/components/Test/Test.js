@@ -25,21 +25,30 @@ const replaceField = (condition, idx, a) => {
 
   let score = (
     <Field
-      name={`${i}-${a.toLowerCase().replace(/\(|\)/g, "")}-fsiq-score`}
+      name={`${i}-${a
+        .toLowerCase()
+        .replace(/\(|\)/g, "")
+        .replace(/ /g, "-")}-fsiq-score`}
       type="text"
       component="input"
     />
   );
   let percentile = (
     <Field
-      name={`${i}-${a.toLowerCase().replace(/\(|\)/g, "")}-fsiq-percentile`}
+      name={`${i}-${a
+        .toLowerCase()
+        .replace(/\(|\)/g, "")
+        .replace(/ /g, "-")}-fsiq-percentile`}
       type="text"
       component="input"
     />
   );
   let rank = (
     <Field
-      name={`${i}-${a.toLowerCase().replace(/\(|\)/g, "")}-fsiq-rank`}
+      name={`${i}-${a
+        .toLowerCase()
+        .replace(/\(|\)/g, "")
+        .replace(/ /g, "-")}-fsiq-rank`}
       type="text"
       component="input"
     />
@@ -91,18 +100,21 @@ const Test = ({ testFromState, ...props }) => {
                         dangerouslySetInnerHTML={createMarkup(
                           t.IndexDescription
                         )}
-                      />{" "}
-                      <span>
-                        Client scored a{" "}
-                        <Field
-                          name={`${t.Id}-${
-                            testFromState[0].Abbreviation
-                          }-gai-score`}
-                          type="text"
-                          component="input"
-                        />
-                        .
-                      </span>
+                      />
+                      .{" "}
+                      {t.hasInput && (
+                        <span>
+                          Client scored a{" "}
+                          <Field
+                            name={`${t.Id}-${
+                              testFromState[0].Abbreviation
+                            }-gai-score`}
+                            type="text"
+                            component="input"
+                          />
+                          .
+                        </span>
+                      )}
                     </p>
                   </div>
                 ) : (
@@ -307,6 +319,7 @@ const Test = ({ testFromState, ...props }) => {
                                 .replace("<sup>", "")
                                 .replace("</sup>", "")
                                 .replace("/", "-")
+                                .replace(" – ", "-")
                                 .replace(/ /g, "-")
                                 .replace("{", "")
                                 .replace("}", "")

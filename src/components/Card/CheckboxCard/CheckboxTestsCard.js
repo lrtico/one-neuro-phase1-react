@@ -51,7 +51,7 @@ const CheckboxCard = ({
                   //onClick={handleTick}
                 >
                   <Field
-                    name={test.Abbreviation}
+                    name={test.Abbreviation.replace(/ /g, "-")}
                     type="checkbox"
                     component="input"
                     onClick={() => handleTestFilter(test.Abbreviation)}

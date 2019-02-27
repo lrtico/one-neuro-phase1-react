@@ -150,7 +150,7 @@ const AppendixConnected = (props, values) => {
             </div>
 
             {t.SubTests.map(t => (
-              <div key={t.id} className="table__row">
+              <div key={`${t.id}-${t.name}-subtest`} className="table__row">
                 <div>{t.name}</div>
                 <div>
                   <Field
@@ -160,6 +160,7 @@ const AppendixConnected = (props, values) => {
                       .toLowerCase()
                       .replace("<sup>", "")
                       .replace("</sup>", "")
+                      .replace(" – ", "-")
                       .replace(/ /g, "-")
                       .replace("/", "-")
                       .replace(/[,/]/g, "")
