@@ -81,7 +81,10 @@ class WizardForm extends Component {
   };
 
   componentDidMount() {
-    setTimeout(() => this.setState({ loading: false }), 3000);
+    //Fake loading for dev
+    //setTimeout(() => this.setState({ loading: false }), 3000);
+
+    this.setState({ loading: false });
   }
 
   render() {

@@ -163,6 +163,7 @@ const AppendixConnected = (props, values) => {
                       .replace(" – ", "-")
                       .replace(/ /g, "-")
                       .replace("/", "-")
+                      .replace(/[’]/g, "")
                       .replace(/[,/]/g, "")
                       .replace("{", "")
                       .replace("}", "")
@@ -188,6 +189,7 @@ const AppendixConnected = (props, values) => {
                         .replace("</sup>", "")
                         .replace("/", "-")
                         .replace(/[,/]/g, "")
+                        .replace(/[’]/g, "")
                         .replace("{", "")
                         .replace("}", "")
                         .replace(/\(|\)/g, "")}-rank`}
@@ -207,6 +209,7 @@ const AppendixConnected = (props, values) => {
                       .replace("</sup>", "")
                       .replace("/", "-")
                       .replace(/[,/]/g, "")
+                      .replace(/[’]/g, "")
                       .replace("{", "")
                       .replace("}", "")
                       .replace(/\(|\)/g, "")}-range`}

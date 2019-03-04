@@ -66,6 +66,8 @@ class FormCardTextDate extends Component {
     const minHeight = {
       minHeight: "200px"
     };
+    console.log("Props passed from parent, ", this.props);
+    const { buttonText } = this.props;
     return (
       <div className="question">
         <div className="toggleVis add-button" onClick={this.addRecord}>
@@ -74,7 +76,7 @@ class FormCardTextDate extends Component {
             type="button"
             className="flex--col-vertical-center flex--wrap"
           >
-            <span>New Record</span>
+            <span>{buttonText ? buttonText : "New Record"}</span>
           </button>
         </div>
         <ul className="question__cards flex--wrap" style={minHeight}>

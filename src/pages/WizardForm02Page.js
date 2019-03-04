@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import store from "../store";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, FieldArray } from "redux-form";
 import validate from "../validate";
 import TextQuestion from "../components/TextQuestion";
 import TextQuestionAutoCalculate from "../components/TextQuestion/TextQuestionAutoCalculate";
+import FormCardTextDate from "../components/Card/FormCard/FormCardTextDate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
@@ -198,8 +199,8 @@ class WizardForm02Page extends Component {
             />
           </div>
         </div>
-        <div className="flex">
-          <div className="question grid__half">
+        <div>
+          <div className="question">
             <Field
               alt="Person"
               component={TextQuestion}
@@ -213,7 +214,7 @@ class WizardForm02Page extends Component {
               classes="question"
             />
           </div>
-          <div className="question grid__third">
+          {/* <div className="question grid__third">
             <Field
               alt="Date"
               component={TextQuestion}
@@ -226,8 +227,18 @@ class WizardForm02Page extends Component {
               type="date"
               classes="question"
             />
-          </div>
+          </div> */}
         </div>
+        <div>
+          <label>
+            What's the <strong>date(s)</strong> of testing?
+          </label>
+        </div>
+        <FieldArray
+          name="di-dateoftesting"
+          component={FormCardTextDate}
+          buttonText="Add Date"
+        />
         <Button onClick={handleSubmit} buttonLabel="OK" />
       </form>
     );
