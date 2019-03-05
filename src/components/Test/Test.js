@@ -6,6 +6,7 @@ import SectionSubTitle from "../SectionSubTitle";
 import SectionSubHeader from "../SectionSubHeader";
 //import ButtonToggle from "../ButtonToggle";
 import MaterialIcon from "react-google-material-icons";
+import { onlyNums } from "../../utils/Normalize";
 // import HtmlParser from "react-html-parser/lib/HtmlParser";
 
 const replaceField = (condition, idx, a) => {
@@ -31,6 +32,8 @@ const replaceField = (condition, idx, a) => {
         .replace(/ /g, "-")}-fsiq-score`}
       type="text"
       component="input"
+      maxLength={3}
+      normalize={onlyNums}
     />
   );
   let percentile = (
@@ -41,6 +44,8 @@ const replaceField = (condition, idx, a) => {
         .replace(/ /g, "-")}-fsiq-percentile`}
       type="text"
       component="input"
+      maxLength={3}
+      normalize={onlyNums}
     />
   );
   let rank = (
@@ -229,6 +234,8 @@ const Test = ({ testFromState, ...props }) => {
                                 .replace(/\(|\)/g, "")}-composite-score`}
                               type="text"
                               component="input"
+                              maxLength={3}
+                              normalize={onlyNums}
                             />
                             <span>&nbsp;(</span>
                             <Field
@@ -244,6 +251,8 @@ const Test = ({ testFromState, ...props }) => {
                                 .replace(/\(|\)/g, "")}-composite-percentile`}
                               type="text"
                               component="input"
+                              maxLength={3}
+                              normalize={onlyNums}
                             />
                             <span>
                               &nbsp; percentile), which falls within in
@@ -324,6 +333,8 @@ const Test = ({ testFromState, ...props }) => {
                                 .replace("{", "")
                                 .replace("}", "")
                                 .replace(/\(|\)/g, "")}-score`}
+                              maxLength={3}
+                              normalize={onlyNums}
                               onBlur={event =>
                                 props.handleAppendixSubtestAdd(
                                   t.Id,
@@ -381,6 +392,8 @@ const Test = ({ testFromState, ...props }) => {
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
                           .replace(/ /g, "-")}-score`}
+                        maxLength={3}
+                        normalize={onlyNums}
                         onBlur={event =>
                           props.handleAppendixSubtestAdd(
                             t.Id,
@@ -452,6 +465,8 @@ const Test = ({ testFromState, ...props }) => {
                                       / /g,
                                       "-"
                                     )}-score`}
+                                    maxLength={3}
+                                    normalize={onlyNums}
                                     onBlur={event =>
                                       props.handleAppendixSubtestAdd(
                                         t.Id,
@@ -531,6 +546,8 @@ const Test = ({ testFromState, ...props }) => {
                                       .replace(/[,/]/g, "")
                                       .replace(/[’]/g, "")
                                       .replace(/ /g, "-")}-score`}
+                                    maxLength={3}
+                                    normalize={onlyNums}
                                     onBlur={event =>
                                       props.handleAppendixSubtestAdd(
                                         t.Id,
@@ -613,6 +630,8 @@ const Test = ({ testFromState, ...props }) => {
                                   .replace(/[,/]/g, "")
                                   .replace(/[’]/g, "")
                                   .replace(/ /g, "-")}-score`}
+                                maxLength={3}
+                                normalize={onlyNums}
                                 onBlur={event =>
                                   props.handleAppendixSubtestAdd(
                                     t.Id,
@@ -704,6 +723,8 @@ const Test = ({ testFromState, ...props }) => {
                                       .replace(/[’]/g, "")
                                       .replace(/ /g, "-")
                                       .replace(/\(|\)/g, "")}-score`}
+                                    maxLength={3}
+                                    normalize={onlyNums}
                                     onBlur={event =>
                                       props.handleAppendixSubtestAdd(
                                         t.Id,
@@ -784,6 +805,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
+                            maxLength={3}
+                            normalize={onlyNums}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (
@@ -808,6 +831,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
+                            maxLength={3}
+                            normalize={onlyNums}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (
@@ -832,6 +857,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
+                            maxLength={3}
+                            normalize={onlyNums}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (
@@ -856,6 +883,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
+                            maxLength={3}
+                            normalize={onlyNums}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (
@@ -878,6 +907,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
+                            maxLength={3}
+                            normalize={onlyNums}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (
@@ -900,6 +931,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
+                            maxLength={3}
+                            normalize={onlyNums}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (

@@ -82,7 +82,7 @@ class TextQuestion extends Component {
             <div
               className="question__input__copy-forward"
               //onClick={() => handleCopyForward("test")}
-              onClick={this.addCopyForward}
+              onClick={this.props.handleCopyForward}
               //onClick={() => doThisFunction()}
             >
               <CopyForwardButton

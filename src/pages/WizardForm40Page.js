@@ -8,7 +8,7 @@ import RadioCard from "../components/Card/RadioCard/RadioCard";
 import ButtonToggle from "../components/ButtonToggle";
 
 const WizardForm40Page = props => {
-  const { handleSubmit, previousPage } = props;
+  const { handleSubmit } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
@@ -122,10 +122,6 @@ const WizardForm40Page = props => {
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
-
-      <button type="button" className="previous" onClick={previousPage}>
-        Previous
-      </button>
     </form>
   );
 };

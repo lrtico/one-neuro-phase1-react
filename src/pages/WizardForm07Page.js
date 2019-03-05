@@ -148,9 +148,28 @@ class WizardForm07Page extends Component {
     this.props.change("bh-primary-caregiver-mother", false);
   };
 
+  handlePaqCopyForward = () => {
+    let {
+      paqName,
+      paqAddress,
+      paqHomePhone,
+      paqWorkPhone,
+      paqCellPhone
+    } = this.props;
+    this.props.change("bh-father-name", paqName);
+    this.props.change("bh-father-address", paqAddress);
+    this.props.change("bh-father-home-phone", paqHomePhone);
+    this.props.change("bh-father-work-phone", paqWorkPhone);
+    this.props.change("bh-father-cell-phone", paqCellPhone);
+  };
+
   render() {
     const { handleSubmit } = this.props;
-    const { addCopyForward, handlePrimaryCaregiver } = this;
+    const {
+      addCopyForward,
+      handlePrimaryCaregiver,
+      handlePaqCopyForward
+    } = this;
     return (
       <form className="col" onSubmit={handleSubmit}>
         <SectionTitle titleBold="Background" titleRegular="history" />
@@ -162,6 +181,9 @@ class WizardForm07Page extends Component {
           </div>
           <div onClick={event => addCopyForward(event)}>
             <CopyForwardButton buttonToggleLabel="copy forward" />
+          </div>
+          <div onClick={handlePaqCopyForward}>
+            <CopyForwardButton buttonToggleLabel="person answering questions" />
           </div>
           <ButtonToggle buttonToggleLabel="disable" />
         </div>
@@ -396,6 +418,11 @@ WizardForm07Page = connect(state => {
     state,
     "bh-other-parent-stepparent-work-phone"
   );
+  const paqName = selector(state, "paq-name");
+  const paqAddress = selector(state, "paq-address");
+  const paqHomePhone = selector(state, "paq-home-phone");
+  const paqWorkPhone = selector(state, "paq-work-phone");
+  const paqCellPhone = selector(state, "paq-cell-phone");
   return {
     motherName,
     motherAge,
@@ -427,7 +454,12 @@ WizardForm07Page = connect(state => {
     primaryCaregiverAddress,
     primaryCaregiverHomePhone,
     primaryCaregiverCellPhone,
-    primaryCaregiverWorkPhone
+    primaryCaregiverWorkPhone,
+    paqName,
+    paqAddress,
+    paqHomePhone,
+    paqWorkPhone,
+    paqCellPhone
   };
 })(WizardForm07Page);
 

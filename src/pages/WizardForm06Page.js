@@ -10,7 +10,6 @@ import RadioCard from "../components/Card/RadioCard/RadioCard";
 import SectionSubHeader from "../components/SectionSubHeader";
 import ButtonToggle from "../components/ButtonToggle";
 import CopyForwardButton from "../components/ButtonToggle/CopyForwardButton";
-import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import { normalizePhone } from "../utils/Normalize";
 
 // const renderError = ({ meta: { touched, error } }) =>
@@ -183,9 +182,28 @@ class WizardForm06Page extends Component {
     this.props.change("bh-primary-caregiver-mother", true);
   };
 
+  handlePaqCopyForward = () => {
+    let {
+      paqName,
+      paqAddress,
+      paqHomePhone,
+      paqWorkPhone,
+      paqCellPhone
+    } = this.props;
+    this.props.change("bh-mother-name", paqName);
+    this.props.change("bh-mother-address", paqAddress);
+    this.props.change("bh-mother-home-phone", paqHomePhone);
+    this.props.change("bh-mother-work-phone", paqWorkPhone);
+    this.props.change("bh-mother-cell-phone", paqCellPhone);
+  };
+
   render() {
     const { handleSubmit } = this.props;
-    const { addCopyForward, handlePrimaryCaregiver } = this;
+    const {
+      addCopyForward,
+      handlePrimaryCaregiver,
+      handlePaqCopyForward
+    } = this;
     console.log("WizardPage6 props, ", this.props);
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -198,6 +216,9 @@ class WizardForm06Page extends Component {
           </div>
           <div onClick={event => addCopyForward(event)}>
             <CopyForwardButton buttonToggleLabel="copy forward" />
+          </div>
+          <div onClick={handlePaqCopyForward}>
+            <CopyForwardButton buttonToggleLabel="person answering questions" />
           </div>
           <ButtonToggle buttonToggleLabel="disable" />
         </div>
@@ -212,7 +233,8 @@ class WizardForm06Page extends Component {
             tabOrder="1"
             type="input"
             classes="question grid__half"
-            //copyForward="true"
+            // copyForward="true"
+            // handleCopyForward={this.copyPaqNameForward}
           />
           <Field
             name="bh-stepmother-yes-no"
@@ -247,7 +269,8 @@ class WizardForm06Page extends Component {
             tabOrder="4"
             type="input"
             classes="question grid__half"
-            //copyForward="true"
+            // copyForward="true"
+            // handleCopyForward={this.copyPaqAddressForward}
           />
           <Field
             component={TextQuestion}
@@ -263,7 +286,7 @@ class WizardForm06Page extends Component {
         <div className="flex">
           <Field
             alt="Phone"
-            component={NormalizePhoneInput}
+            component={TextQuestion}
             label=""
             labelBold="Home"
             labelLast="phone"
@@ -273,12 +296,13 @@ class WizardForm06Page extends Component {
             tabOrder="6"
             type="text"
             classes="question grid__third"
-            //copyForward="true"
+            // copyForward="true"
+            // handleCopyForward={this.copyPaqHomePhoneForward}
             normalize={normalizePhone}
           />
           <Field
             alt="Phone"
-            component={NormalizePhoneInput}
+            component={TextQuestion}
             label=""
             labelBold="Work"
             labelLast="phone"
@@ -288,11 +312,13 @@ class WizardForm06Page extends Component {
             tabOrder="7"
             type="text"
             classes="question grid__third"
+            // copyForward="true"
+            // handleCopyForward={this.copyPaqWorkPhoneForward}
             normalize={normalizePhone}
           />
           <Field
             alt="Phone"
-            component={NormalizePhoneInput}
+            component={TextQuestion}
             label=""
             labelBold="Cell"
             labelLast="phone"
@@ -302,6 +328,8 @@ class WizardForm06Page extends Component {
             tabOrder="8"
             type="text"
             classes="question grid__third"
+            // copyForward="true"
+            // handleCopyForward={this.copyPaqCellPhoneForward}
             normalize={normalizePhone}
           />
         </div>
@@ -436,6 +464,11 @@ WizardForm06Page = connect(state => {
     state,
     "bh-other-parent-stepparent-work-phone"
   );
+  const paqName = selector(state, "paq-name");
+  const paqAddress = selector(state, "paq-address");
+  const paqHomePhone = selector(state, "paq-home-phone");
+  const paqWorkPhone = selector(state, "paq-work-phone");
+  const paqCellPhone = selector(state, "paq-cell-phone");
   return {
     motherName,
     motherAge,
@@ -467,7 +500,12 @@ WizardForm06Page = connect(state => {
     primaryCaregiverAddress,
     primaryCaregiverHomePhone,
     primaryCaregiverCellPhone,
-    primaryCaregiverWorkPhone
+    primaryCaregiverWorkPhone,
+    paqName,
+    paqAddress,
+    paqHomePhone,
+    paqWorkPhone,
+    paqCellPhone
   };
 })(WizardForm06Page);
 
