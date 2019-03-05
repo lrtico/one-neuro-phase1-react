@@ -214,10 +214,10 @@ const WizardForm37Page = props => {
               tabOrder: "17"
             }
           ]}
-          label="Are there children in the neighborhood with whom this child could"
+          label="Are there children with whom this child could"
           labelBold="play"
           labelLast="with"
-          classes="question question--thumbless grid__half"
+          classes="question question--thumbless grid__two-thirds"
         />
         <Field
           alt="Speech bubble"
@@ -229,7 +229,7 @@ const WizardForm37Page = props => {
           src="img/icons-speech-bubble.svg"
           tabOrder="18"
           type="input"
-          classes="question grid__half"
+          classes="question grid__one-third"
         />
       </div>
       <Field
