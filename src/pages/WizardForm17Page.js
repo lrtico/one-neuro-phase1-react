@@ -94,7 +94,7 @@ const WizardForm17Page = props => {
           name="mdh-toilet-trained-day"
           src="img/icons-calendar-large.svg"
           tabOrder="7"
-          type="date"
+          type="text"
           classes="question grid__half"
         />
         <Field
@@ -106,7 +106,7 @@ const WizardForm17Page = props => {
           name="mdh-toilet-trained-night"
           src="img/icons-calendar-large.svg"
           tabOrder="8"
-          type="date"
+          type="text"
           classes="question grid__half"
         />
       </div>
