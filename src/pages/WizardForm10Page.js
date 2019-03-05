@@ -155,14 +155,20 @@ const WizardForm10Page = props => {
           {
             cardName: "fh-visitation",
             cardKey: "C",
-            cardLabel: "Few times per year",
+            cardLabel: "50/50",
             tabOrder: "14"
           },
           {
             cardName: "fh-visitation",
             cardKey: "D",
-            cardLabel: "Never",
+            cardLabel: "Few times per year",
             tabOrder: "15"
+          },
+          {
+            cardName: "fh-visitation",
+            cardKey: "E",
+            cardLabel: "Never",
+            tabOrder: "16"
           }
         ]}
         label="How often does one parent"

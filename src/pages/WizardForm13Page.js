@@ -225,8 +225,14 @@ const WizardForm13Page = props => {
             {
               cardName: "fr-disciplinarian",
               cardKey: "C",
-              cardLabel: "Other",
+              cardLabel: "Social Relations",
               tabOrder: "25"
+            },
+            {
+              cardName: "fr-disciplinarian",
+              cardKey: "D",
+              cardLabel: "Other",
+              tabOrder: "26"
             }
           ]}
           label="Who is mainly"
@@ -244,13 +250,13 @@ const WizardForm13Page = props => {
               cardName: "fr-agree-discipline",
               cardKey: "A",
               cardLabel: "Yes",
-              tabOrder: "26"
+              tabOrder: "27"
             },
             {
               cardName: "fr-agree-discipline",
               cardKey: "B",
               cardLabel: "No",
-              tabOrder: "27"
+              tabOrder: "28"
             }
           ]}
           label="Do all caregivers"
@@ -265,7 +271,7 @@ const WizardForm13Page = props => {
         labelBold="discipline"
         labelLast="techniques"
         name="fr-discipline-techniques"
-        tabOrder="28"
+        tabOrder="29"
         type="input"
         classes="question"
       />

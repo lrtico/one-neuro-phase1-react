@@ -216,6 +216,12 @@ class WizardForm08Page extends Component {
                 cardKey: "E",
                 cardLabel: "Other",
                 tabOrder: "9"
+              },
+              {
+                cardName: "bh-other-parent-stepparent-guardian",
+                cardKey: "F",
+                cardLabel: "State",
+                tabOrder: "10"
               }
             ]}
             label="What's the"
@@ -229,7 +235,7 @@ class WizardForm08Page extends Component {
             label="Other"
             labelBold="relationship"
             name="bh-other-parent-stepparent-guardian-other"
-            tabOrder="10"
+            tabOrder="11"
             type="input"
             classes="question grid__quarter"
           />
@@ -244,7 +250,7 @@ class WizardForm08Page extends Component {
             name="bh-other-parent-stepparent-home-phone"
             maxCharacters={14}
             src="img/icons-phone.svg"
-            tabOrder="11"
+            tabOrder="12"
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
@@ -258,7 +264,7 @@ class WizardForm08Page extends Component {
             name="bh-other-parent-stepparent-work-phone"
             maxCharacters={14}
             src="img/icons-phone.svg"
-            tabOrder="12"
+            tabOrder="13"
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
@@ -272,7 +278,7 @@ class WizardForm08Page extends Component {
             name="bh-other-parent-stepparent-cell-phone"
             maxCharacters={14}
             src="img/icons-phone.svg"
-            tabOrder="13"
+            tabOrder="14"
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
@@ -285,7 +291,7 @@ class WizardForm08Page extends Component {
           labelBold="address"
           name="bh-other-parent-stepparent-address"
           src="img/icons-house.svg"
-          tabOrder="14"
+          tabOrder="15"
           type="input"
           classes="question"
         />

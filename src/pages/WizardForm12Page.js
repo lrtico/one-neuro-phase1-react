@@ -82,6 +82,11 @@ const WizardForm12Page = props => {
               cardName: "cr-residence-length",
               cardLabel: "6",
               tabOrder: "10"
+            },
+            {
+              cardName: "cr-residence-length",
+              cardLabel: "7+",
+              tabOrder: "111"
             }
           ]}
           label="How many"

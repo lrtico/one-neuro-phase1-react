@@ -253,33 +253,39 @@ const WizardForm15Page = props => {
         classes="question"
       />
       <div className="flex">
-        <Field
+        <FieldArray
           name="mdh-mother-length-hospital-group"
           component={RadioCard}
           cardInfo={[
             {
               cardName: "mdh-mother-length-hospital",
               cardKey: "A",
-              cardLabel: "1-2 Days ",
+              cardLabel: "1-2 Days",
               tabOrder: "23"
             },
             {
               cardName: "mdh-mother-length-hospital",
               cardKey: "B",
-              cardLabel: "3-7 Days ",
+              cardLabel: "3-7 Days",
               tabOrder: "24"
             },
             {
               cardName: "mdh-mother-length-hospital",
               cardKey: "C",
-              cardLabel: "8-10 Days ",
+              cardLabel: "8-10 Days",
               tabOrder: "25"
             },
             {
               cardName: "mdh-mother-length-hospital",
               cardKey: "D",
-              cardLabel: "11+ Days ",
+              cardLabel: "11+ Days",
               tabOrder: "26"
+            },
+            {
+              cardName: "mdh-mother-length-hospital",
+              cardKey: "E",
+              cardLabel: "Undefined",
+              tabOrder: "27"
             }
           ]}
           label="Mother's"
@@ -297,25 +303,31 @@ const WizardForm15Page = props => {
               cardName: "mdh-child-length-hospital",
               cardKey: "A",
               cardLabel: "1-2 Days",
-              tabOrder: "27"
+              tabOrder: "28"
             },
             {
               cardName: "mdh-child-length-hospital",
               cardKey: "B",
               cardLabel: "3-7 Days",
-              tabOrder: "28"
+              tabOrder: "29"
             },
             {
               cardName: "mdh-child-length-hospital",
               cardKey: "C",
               cardLabel: "8-10 Days",
-              tabOrder: "29"
+              tabOrder: "30"
             },
             {
               cardName: "mdh-child-length-hospital",
               cardKey: "D",
               cardLabel: "11+ Days",
-              tabOrder: "30"
+              tabOrder: "31"
+            },
+            {
+              cardName: "mdh-child-length-hospital",
+              cardKey: "E",
+              cardLabel: "Undefined",
+              tabOrder: "32"
             }
           ]}
           label="Child's"
