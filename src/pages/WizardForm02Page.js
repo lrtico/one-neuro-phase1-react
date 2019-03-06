@@ -123,7 +123,9 @@ class WizardForm02Page extends Component {
           <Field
             alt="School"
             component={TextQuestion}
-            label="What school did they attend"
+            label="Name of"
+            labelBold="school"
+            labelLast="attending"
             name="di-school"
             src="img/icons-school.svg"
             tabOrder="5"
@@ -231,7 +233,7 @@ class WizardForm02Page extends Component {
         </div>
         <div>
           <label>
-            What's the <strong>date(s)</strong> of testing?
+            What are the <strong>date(s)</strong> testing was administered?
           </label>
         </div>
         <FieldArray

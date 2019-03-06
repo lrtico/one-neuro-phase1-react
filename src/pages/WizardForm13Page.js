@@ -13,7 +13,7 @@ const WizardForm13Page = props => {
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
-        <SectionTitle titleFirst="Family" titleBold="relations" />
+        <SectionTitle titleFirst="Family/Social" titleBold="relations" />
         <ButtonToggle buttonToggleLabel="disable" />
       </div>
       <FieldArray
@@ -80,18 +80,19 @@ const WizardForm13Page = props => {
             tabOrder: "10"
           }
         ]}
-        label="Check all the"
+        label="Check all"
         labelBold="activities"
-        labelLast="in which this child often participates with the family"
+        labelLast="in which this child often participates with family or peers:"
+        noQuestionMark={true}
         name="fr-activites-group"
         classes="question question--thumbless"
       />
       <Field
         alt="Speech bubble"
         component={TextQuestion}
-        label="What's the"
-        labelBold="language"
-        labelLast="spoken at home"
+        label="What is the"
+        labelBold="primary language"
+        labelLast="spoken in the residence"
         name="fr-spoken-language"
         src="img/icons-speech-bubble.svg"
         tabOrder="11"
@@ -136,7 +137,7 @@ const WizardForm13Page = props => {
           ]}
           label="How"
           labelBold="frequently"
-          labelLast="does this child see their grandparents (Check one)"
+          labelLast="does this child see their grandparents (check one)"
           classes="question question--thumbless"
         />
       </div>
@@ -225,20 +226,26 @@ const WizardForm13Page = props => {
             {
               cardName: "fr-disciplinarian",
               cardKey: "C",
-              cardLabel: "Social Relations",
-              tabOrder: "25"
-            },
-            {
-              cardName: "fr-disciplinarian",
-              cardKey: "D",
               cardLabel: "Other",
-              tabOrder: "26"
+              tabOrder: "25"
             }
           ]}
           label="Who is mainly"
           labelBold="in charge"
-          labelLast="of discipline in the home"
-          classes="question question--thumbless"
+          labelLast="of discipline"
+          classes="question question--thumbless grid__half"
+        />
+        <Field
+          alt="Question mark"
+          component={TextQuestion}
+          label="If"
+          labelBold="other,"
+          labelLast="please describe who"
+          name="fr-disciplinarian-other-desc"
+          src="img/icons-question-mark-plain.svg"
+          tabOrder="26"
+          type="input"
+          classes="question grid__half"
         />
       </div>
       <div className="flex">

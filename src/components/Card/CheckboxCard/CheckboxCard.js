@@ -37,6 +37,7 @@ const CheckboxCard = ({
   thumbnail,
   thumbnailAlt,
   columnHeader,
+  noQuestionMark,
   ...props,
   meta: { touched, error }
 }) => {
@@ -50,7 +51,7 @@ const CheckboxCard = ({
         {columnHeader}
       </h4>
       <label hidden={label == null ? true : false}>
-        {label} <strong>{labelBold}</strong> {labelLast}?
+        {label} <strong>{labelBold}</strong> {labelLast}{noQuestionMark ? null : "?"}
       </label>
       <div className="question__input">
         <div className="question__multiple-choice">
