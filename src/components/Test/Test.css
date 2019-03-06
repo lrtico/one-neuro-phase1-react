@@ -81,3 +81,9 @@ h6 {
 .test-table .table__row div.table__row__cell--wide {
   width: 57.12vw;
 }
+.domain__test {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
