@@ -33,3 +33,12 @@ export const onlyNums = value => {
   const onlyNums = value.replace(/[^\d]/g, "");
   return onlyNums;
 };
+
+export const onlyNumsAndRangeCharacters = value => {
+  if (!value) {
+    return value;
+  }
+
+  const onlyNumsAndRangeCharacters = value.replace(/[^\d,:,<,>]/g, "");
+  return onlyNumsAndRangeCharacters;
+};

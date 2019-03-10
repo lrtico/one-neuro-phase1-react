@@ -6,7 +6,7 @@ import SectionSubTitle from "../SectionSubTitle";
 import SectionSubHeader from "../SectionSubHeader";
 //import ButtonToggle from "../ButtonToggle";
 import MaterialIcon from "react-google-material-icons";
-import { onlyNums } from "../../utils/Normalize";
+import { onlyNums, onlyNumsAndRangeCharacters } from "../../utils/Normalize";
 // import HtmlParser from "react-html-parser/lib/HtmlParser";
 
 const replaceField = (condition, idx, a) => {
@@ -857,8 +857,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
-                            maxLength={3}
-                            normalize={onlyNums}
+                            maxLength={5}
+                            normalize={onlyNumsAndRangeCharacters}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (
@@ -883,8 +883,8 @@ const Test = ({ testFromState, ...props }) => {
                             )}`}
                             type="text"
                             component="input"
-                            maxLength={3}
-                            normalize={onlyNums}
+                            maxLength={5}
+                            normalize={onlyNumsAndRangeCharacters}
                           />
                         </div> //...then add a Redux Form Field component
                       ) : (
