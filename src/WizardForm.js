@@ -29,7 +29,7 @@ class WizardForm extends Component {
   };
 
   startingAnimation = () => {
-    console.log("starting");
+    // console.log("starting");
     this.setState({ testState: true });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -91,7 +91,7 @@ class WizardForm extends Component {
     const { onSubmit } = this.props;
     //const { page } = this.state;
     const { loading } = this.state;
-    console.log("WizardForm props, ", this.props);
+    // console.log("WizardForm props, ", this.props);
     return (
       <div>
         {loading ? (

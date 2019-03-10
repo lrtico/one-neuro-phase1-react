@@ -77,7 +77,7 @@ const createMarkup = text => {
 };
 
 const Test = ({ testFromState, ...props }) => {
-  console.log("testsFromState Tests Component's props, ", testFromState);
+  // console.log("testsFromState Tests Component's props, ", testFromState);
   return (
     <div>
       {testFromState.map((t, i) => (

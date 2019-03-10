@@ -28,11 +28,12 @@ export const domains = (state = initialState, action) => {
 
       console.log("state after removing subtest = ", state);
 
-      return { appendices: removedTest };
+      return { tests: removedTest };
 
     case C.ADD_APPENDIX_DOMAIN:
       //Find the index of the test in state by matching it to the payload's test
-      const idx = state.tests.findIndex(
+      console.log("Reducer Appendix state = ", state);
+      let idx = state.tests.findIndex(
         t => t.Abbreviation === action.payload.Abbreviation
       );
       const hasTest = state.tests.some(

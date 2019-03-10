@@ -30,7 +30,7 @@ const CheckboxCard = ({
   ...props,
   meta: { touched, error }
 }) => {
-  console.log("checkboxinfo props, ", checkboxInfo);
+  // console.log("checkboxinfo props, ", checkboxInfo);
   const { handleDomainTestFilter } = props;
   return (
     <div className={classes}>

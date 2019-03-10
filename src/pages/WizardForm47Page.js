@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import validate from "../validate";
 import MaterialIcon from "react-google-material-icons";
 import SectionTitle from "../components/SectionTitle";
-import TextQuestion from "../components/TextQuestion";
 import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import CheckboxDomainsCard from "../components/Card/CheckboxCard/CheckboxDomainsCard";
@@ -15,16 +14,6 @@ import Test from "../components/Test/Test";
 import DomainsLoading from "../components/Loading/DomainsLoading";
 import store from "../store";
 import SectionSubTitle from "../components/SectionSubTitle";
-//import TextQuestionCopyForward from "../components/TextQuestion/TextQuestionCopyForward";
-// import { load as loadAccount } from "../reducers/reducers";
-
-// import { addTest } from "../actions/actions";
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     addTest: testsSelected => dispatch(addTest(testsSelected))
-//   };
-// };
 
 class WizardForm47Page extends Component {
   state = {
@@ -42,7 +31,7 @@ class WizardForm47Page extends Component {
   };
 
   showDomainBased = () => {
-    console.log("hide letter, domain based selected");
+    // console.log("hide letter, domain based selected");
     document.querySelector(".letter-format").classList.remove("show");
     //document.querySelector(".domain__pick-domain").classList.add("show");
     store.dispatch({
@@ -67,7 +56,7 @@ class WizardForm47Page extends Component {
     document.querySelector(".domain__pick-sub-domain").scrollIntoView({
       behavior: "smooth"
     });
-    console.log("showSubDomain click");
+    // console.log("showSubDomain click");
   };
 
   showTests = () => {
@@ -179,14 +168,14 @@ class WizardForm47Page extends Component {
   //Show all the tests in a domain that's clicked on
   filterTestsByDomainsSelected = card => {
     //console.log("Passed domain from checkbox child ", card);
-    console.log("filterTestsByDomainsSelected curr state, ", this.state);
-    console.log(`Box clicked on had the label of ${card}`);
+    // console.log("filterTestsByDomainsSelected curr state, ", this.state);
+    // console.log(`Box clicked on had the label of ${card}`);
     //this.setState(({ matchedTests, tests, ...state }) => {
 
     const { tests } = this.state;
     const { storeMatchedTests } = this.props;
     const idx = storeMatchedTests.map(t => t.DomainName).indexOf(card);
-    console.log(`idx = ${idx}`);
+    // console.log(`idx = ${idx}`);
 
     if (idx !== -1) {
       //The domain is in state already so we remove it...
@@ -201,9 +190,9 @@ class WizardForm47Page extends Component {
       // };
 
       //let data = matchedTests.filter(t => t.DomainName !== card);
-      console.log(
-        `The clicked domain is already in state, so we send the reducer the payload of the domain: ${card}`
-      );
+      // console.log(
+      //   `The clicked domain is already in state, so we send the reducer the payload of the domain: ${card}`
+      // );
       store.dispatch({
         type: "REMOVE_TESTS",
         payload: card
@@ -232,11 +221,11 @@ class WizardForm47Page extends Component {
         DomainName: card,
         handleMatches
       };
-      console.log(
-        `${card} clicked is NOT in state, so we create a new data array with that clicked domain: ${JSON.stringify(
-          data
-        )}`
-      );
+      // console.log(
+      //   `${card} clicked is NOT in state, so we create a new data array with that clicked domain: ${JSON.stringify(
+      //     data
+      //   )}`
+      // );
       store.dispatch({
         type: "ADD_TESTS",
         payload: data
@@ -257,17 +246,17 @@ class WizardForm47Page extends Component {
       payload: { showTests: true }
     });
 
-    console.log("Make show test go now!", test);
+    // console.log("Make show test go now!", test);
     this.setState(({ testsSelected, tests, ...state }) => {
       const idx = testsSelected.map(t => t.Abbreviation).indexOf(test);
 
       if (idx !== -1) {
         //The abbreviation is in state already so we remove it...
-        console.log("IndexOf, ", idx);
-        console.log(
-          "The abbreviation is in state already so we remove it now! ",
-          this.state.testsSelected
-        );
+        // console.log("IndexOf, ", idx);
+        // console.log(
+        //   "The abbreviation is in state already so we remove it now! ",
+        //   this.state.testsSelected
+        // );
         return {
           ...state,
           testsSelected: testsSelected.filter(t => t.Abbreviation !== test)
@@ -275,11 +264,11 @@ class WizardForm47Page extends Component {
       } else {
         //The abbreviation clicked isn't in the testsSelected array, so filter the immutable all tests state
         //by copying the test that was clicked to the testsSelected array
-        console.log("IndexOf, ", idx);
-        console.log(
-          "The abbreviation clicked isn't in the testsSelected array so make add now! ",
-          this.state.testsSelected
-        );
+        // console.log("IndexOf, ", idx);
+        // console.log(
+        //   "The abbreviation clicked isn't in the testsSelected array so make add now! ",
+        //   this.state.testsSelected
+        // );
         return [testsSelected.push(selectedTest[0])];
       }
     });
@@ -320,8 +309,8 @@ class WizardForm47Page extends Component {
   render() {
     const {
       handleSubmit,
-      patientAge,
-      patientName,
+      // patientAge,
+      // patientName,
       // referral1,
       // referral2,
       // referral3,
@@ -329,8 +318,8 @@ class WizardForm47Page extends Component {
       tests
     } = this.props;
     const { domains } = this.state;
-    console.log("State after render(), ", this.state);
-    console.log("Page 47's props from the store ", this.props);
+    // console.log("State after render(), ", this.state);
+    // console.log("Page 47's props from the store ", this.props);
     console.log("Page 47's tests selected ", tests);
 
     return (
