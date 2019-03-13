@@ -4,14 +4,14 @@ import { Field } from "redux-form";
 import "./Test.css";
 import SectionSubTitle from "../SectionSubTitle";
 import SectionSubHeader from "../SectionSubHeader";
-//import ButtonToggle from "../ButtonToggle";
+import Textarea from "../Textarea/Textarea";
 import MaterialIcon from "react-google-material-icons";
 import { onlyNums, onlyNumsAndRangeCharacters } from "../../utils/Normalize";
 // import HtmlParser from "react-html-parser/lib/HtmlParser";
 
 const replaceField = (condition, idx, a) => {
   //Redux Form can't parse embedded <Field>s so we have to construct
-  //our own string including Field componentsand return it to the UI
+  //our own string including Field components and return it to the UI
   let str = condition;
   let i = idx;
   let abbr = a;
@@ -956,8 +956,10 @@ const Test = ({ testFromState, ...props }) => {
                       Overall, (client’s) performance on the&nbsp;
                       {testFromState[0].Abbreviation} provided a snapshot into
                       (his/her) various cognitive abilities and strengths.
-                      (He/She) demonstrated well-developed&nbsp;
+                      (He/She) demonstrated well-developed abilities
                     </span>
+                  </p>
+                  <div style={{ marginBottom: 36 }}>
                     <Field
                       name={`${
                         t.Id
@@ -966,15 +968,15 @@ const Test = ({ testFromState, ...props }) => {
                         "-"
                       )}-summary-abilities`}
                       type="text"
-                      component="input"
+                      component={Textarea}
                     />
-                    <span> abilities.</span>
-                  </p>
+                  </div>
                   <p className="test__list">
                     <span>
-                      However, (he/she) also evidenced relative challenges
-                      with&nbsp;
+                      However, (he/she) also evidenced relative challenges with
                     </span>
+                  </p>
+                  <div style={{ marginBottom: 36 }}>
                     <Field
                       name={`${
                         t.Id
@@ -983,13 +985,13 @@ const Test = ({ testFromState, ...props }) => {
                         "-"
                       )}-summary-challenges`}
                       type="text"
-                      component="input"
+                      component={Textarea}
                     />
-                    <span>
-                      . These challenges should continue to be monitored and
-                      evaluated so as to help (him/her) continue to perform at
-                      (his/her) best.
-                    </span>
+                  </div>
+                  <p>
+                    These challenges should continue to be monitored and
+                    evaluated so as to help (him/her) continue to perform at
+                    (his/her) best.
                   </p>
                 </div>
               ))
