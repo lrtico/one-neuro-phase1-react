@@ -36,12 +36,13 @@ const DescriptionCheckboxCard = ({
   classes,
   liClasses,
   cardName,
+  disabled,
   cardNameDescription,
   ...props
 }) => {
   console.log("DescriptionCheckboxCard props = ", props);
   return (
-    <div className={classes}>
+    <div className={disabled ? `${classes} content--disabled` : classes}>
       <label>
         {label} <strong>{labelBold}</strong> {labelLast}?
       </label>
@@ -51,7 +52,13 @@ const DescriptionCheckboxCard = ({
         </div>
         {/* Checkboxes */}
         <ul className="question__choices question__checkboxCard flex--wrap">
-          <div className="question__choice--radio-shield" />
+          <div
+            className={
+              disabled
+                ? "question__choice--radio-shield content--disabled"
+                : "question__choice--radio-shield"
+            }
+          />
           {checkboxInfo.map(card => (
             <li
               key={card.cardNameCheckbox}

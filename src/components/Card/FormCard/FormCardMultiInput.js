@@ -84,19 +84,28 @@ class FormCardMultiInput extends Component {
     const minHeight = {
       minHeight: "285px"
     };
+    const { disabled } = this.props;
+    //console.log("FormCardMultiInput's props received, ", this.props);
     return (
-      <div className="question">
+      <div className={disabled ? "question content--disabled" : "question"}>
         <div className="toggleVis add-button" onClick={this.addRecord}>
           <div className="btn__hover" />
           <button
             type="button"
             className="flex--col-vertical-center flex--wrap"
+            disabled={disabled ? true : false}
           >
             <span>New Record</span>
           </button>
         </div>
         <ul className="question__cards flex--wrap" style={minHeight}>
-          <div className="question__choice--radio-shield" />
+          <div
+            className={
+              disabled
+                ? "question__choice--radio-shield content--disabled"
+                : "question__choice--radio-shield"
+            }
+          />
           <ReactCSSTransitionGroup
             transitionName="fade"
             transitionEnterTimeOut={10000}

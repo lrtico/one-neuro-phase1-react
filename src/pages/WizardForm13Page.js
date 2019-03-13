@@ -5,16 +5,16 @@ import SectionTitle from "../components/SectionTitle";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import TextQuestion from "../components/TextQuestion";
 
 const WizardForm13Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(13)}>
         <SectionTitle titleFirst="Family/Social" titleBold="relations" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <FieldArray
         component={CheckboxCard}
@@ -86,6 +86,7 @@ const WizardForm13Page = props => {
         noQuestionMark={true}
         name="fr-activites-group"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Field
         alt="Speech bubble"
@@ -98,6 +99,7 @@ const WizardForm13Page = props => {
         tabOrder="11"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -139,6 +141,7 @@ const WizardForm13Page = props => {
           labelBold="frequently"
           labelLast="does this child see their grandparents (check one)"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -152,6 +155,7 @@ const WizardForm13Page = props => {
         tabOrder="17"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         alt="Question mark"
@@ -164,6 +168,7 @@ const WizardForm13Page = props => {
         tabOrder="18"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         alt="Graduation cap"
@@ -175,6 +180,7 @@ const WizardForm13Page = props => {
         tabOrder="19"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -204,6 +210,7 @@ const WizardForm13Page = props => {
           labelBold="level of education"
           labelLast="do you hope this child will complete (Check one)"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -234,6 +241,7 @@ const WizardForm13Page = props => {
           labelBold="in charge"
           labelLast="of discipline"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Question mark"
@@ -246,6 +254,7 @@ const WizardForm13Page = props => {
           tabOrder="26"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -270,6 +279,7 @@ const WizardForm13Page = props => {
           labelBold="agree"
           labelLast="on discipline"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -281,6 +291,7 @@ const WizardForm13Page = props => {
         tabOrder="29"
         type="input"
         classes="question"
+        disabled={disabled}
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

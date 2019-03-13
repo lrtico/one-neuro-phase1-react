@@ -46,3 +46,7 @@
 .toggleVis.add-button.toggleVis--active span {
   color: rgb(213, 251, 255);
 }
+
+.content--disabled .toggleVis.add-button {
+  display: none;
+}

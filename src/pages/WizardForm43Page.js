@@ -4,20 +4,20 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import Textarea from "../components/Textarea/Textarea";
 
 const WizardForm43Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle
         titleBold="Religious &amp; racial ethnic"
         titleRegular="identification"
       />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(43)}>
         <SectionSubHeader subHeader="CURRENT RELIGIOUS DENOMINATION/AFFILIATION" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="grid__half">
         <Field
@@ -27,6 +27,7 @@ const WizardForm43Page = props => {
           labelLast="in your life"
           component={Textarea}
           type="text"
+          disabled={disabled}
         />
       </div>
 

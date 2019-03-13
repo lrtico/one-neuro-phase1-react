@@ -7,18 +7,18 @@ import SectionSubHeader from "../components/SectionSubHeader";
 import Button from "../components/Button";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
 
 const WizardForm10Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(10)}>
         <SectionTitle titleBold="Family" titleRegular="history" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -42,6 +42,7 @@ const WizardForm10Page = props => {
           labelBold="closer"
           labelLast="to one parent than the other"
           classes="question question--thumbless grid__three-quarters"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -52,6 +53,7 @@ const WizardForm10Page = props => {
           tabOrder="3"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -74,6 +76,7 @@ const WizardForm10Page = props => {
         label="Has this child ever experienced any"
         labelBold="parental separations, divorces, or death"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -84,6 +87,7 @@ const WizardForm10Page = props => {
           tabOrder="6"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -94,6 +98,7 @@ const WizardForm10Page = props => {
           tabOrder="7"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -104,6 +109,7 @@ const WizardForm10Page = props => {
         tabOrder="8"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <div className="flex">
         <SectionSubHeader subHeader="If the parents are separated or divorced" />
@@ -135,6 +141,7 @@ const WizardForm10Page = props => {
         labelBold="custody"
         labelLast="of this child"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Field
         name="fh-visitation-group"
@@ -175,6 +182,7 @@ const WizardForm10Page = props => {
         labelBold="see"
         labelLast="this child (Check one)"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>

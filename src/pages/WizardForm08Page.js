@@ -9,7 +9,7 @@ import Button from "../components/Button";
 import CopyForwardButton from "../components/ButtonToggle/CopyForwardButton";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import SectionSubHeader from "../components/SectionSubHeader";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import { normalizePhone } from "../utils/Normalize";
 
@@ -143,7 +143,7 @@ class WizardForm08Page extends Component {
     this.props.change("relevant-background-history", bgHistoryCopyForward);
   };
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, handleDisable, disabled } = this.props;
     const { addCopyForward } = this;
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -158,7 +158,9 @@ class WizardForm08Page extends Component {
           <div onClick={event => addCopyForward(event)}>
             <CopyForwardButton buttonToggleLabel="copy forward" />
           </div>
-          <ButtonToggle buttonToggleLabel="disable" />
+          <div className="flex" onClick={() => handleDisable(8)}>
+            <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+          </div>
         </div>
 
         <div className="flex">
@@ -172,6 +174,7 @@ class WizardForm08Page extends Component {
             tabOrder="1"
             type="text"
             classes="question grid__three-quarters"
+            disabled={disabled}
           />
           <Field
             component={TextQuestion}
@@ -181,6 +184,7 @@ class WizardForm08Page extends Component {
             tabOrder="4"
             type="text"
             classes="question grid__quarter"
+            disabled={disabled}
           />
         </div>
         <div className="flex">
@@ -229,6 +233,7 @@ class WizardForm08Page extends Component {
             labelLast="to the child"
             name="bh-other-parent-stepparent-relationship"
             classes="question question--thumbless"
+            disabled={disabled}
           />
           <Field
             component={TextQuestion}
@@ -238,6 +243,7 @@ class WizardForm08Page extends Component {
             tabOrder="11"
             type="input"
             classes="question grid__quarter"
+            disabled={disabled}
           />
         </div>
         <div className="flex">
@@ -254,6 +260,7 @@ class WizardForm08Page extends Component {
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
+            disabled={disabled}
           />
           <Field
             alt="Phone"
@@ -268,6 +275,7 @@ class WizardForm08Page extends Component {
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
+            disabled={disabled}
           />
           <Field
             alt="Phone"
@@ -282,6 +290,7 @@ class WizardForm08Page extends Component {
             type="text"
             classes="question grid__third"
             normalize={normalizePhone}
+            disabled={disabled}
           />
         </div>
         <Field
@@ -294,6 +303,7 @@ class WizardForm08Page extends Component {
           tabOrder="15"
           type="input"
           classes="question"
+          disabled={disabled}
         />
 
         <Button onClick={handleSubmit} buttonLabel="OK" />

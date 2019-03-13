@@ -976,11 +976,12 @@ form .test-table {
 .copy-forward-row {
   margin-bottom: 54px;
 }
-.content--disabled {
+.content--disabled,
+.content--disabled * {
   color: gray;
   cursor: default;
   cursor: not-allowed;
-  opacity: 0.25;
+  opacity: 0.5;
 }
 
 input[type="radio"].content--disabled,

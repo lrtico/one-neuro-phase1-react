@@ -3,25 +3,28 @@ import { FieldArray, reduxForm } from "redux-form";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import FormCardMultiInput from "../components/Card/FormCard/FormCardMultiInput";
 
 const WizardForm33Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Medical" titleRegular="care" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(33)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
 
-      <label>
+      <label className={disabled ? "content--disabled" : null}>
         Has this child ever had
         <strong> psychology counseling or therapy</strong>?
       </label>
       <FieldArray
         name="counseling-group"
         component={FormCardMultiInput}
+        disabled={disabled}
         fieldInputs={[
           {
             inputName: "mc-counseling-name",

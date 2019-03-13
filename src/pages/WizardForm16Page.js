@@ -5,19 +5,19 @@ import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import FormCardStacked from "../components/Card/FormCard/FormCardStacked";
 import SectionSubHeader from "../components/SectionSubHeader";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm16Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle
         titleBold="Medical &amp; development"
         titleRegular="history"
       />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(16)}>
         <SectionSubHeader subHeader="Early years" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -139,6 +139,7 @@ const WizardForm16Page = props => {
           labelBold="age (i.e., 3 months 1 year)"
           labelLast="did this child do the following"
           classes="question"
+          disabled={disabled}
         />
       </div>
 

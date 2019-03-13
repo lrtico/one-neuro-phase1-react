@@ -17,9 +17,10 @@ const TextArea = ({
   classes,
   materialIcon,
   copyForward,
+  disabled,
   meta: { touched, error }
 }) => (
-  <div className={classes}>
+  <div className={disabled ? `${classes} content--disabled` : classes}>
     <label hidden={label == null ? true : false}>
       {label} <strong>{labelBold}</strong> {labelLast}?
     </label>
@@ -31,6 +32,7 @@ const TextArea = ({
         placeholder={helpertext}
         tabIndex={tabOrder}
         type={type}
+        readOnly={disabled ? true : false}
       >
         {" "}
       </textarea>

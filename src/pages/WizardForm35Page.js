@@ -4,23 +4,26 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import FormCardMultiInput from "../components/Card/FormCard/FormCardMultiInput";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm35Page = props => {
-  const { handleSubmit, previousPage } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Medical" titleRegular="care" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(35)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
 
-      <label>
+      <label className={disabled ? "content--disabled" : null}>
         Has this child ever had a<strong> Psychiatric evaluation</strong>?
       </label>
       <FieldArray
         name="psychology-group"
         component={FormCardMultiInput}
+        disabled={disabled}
         fieldInputs={[
           {
             inputName: "mc-psychology-exam-name",
@@ -56,10 +59,6 @@ const WizardForm35Page = props => {
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
-
-      <button type="button" className="previous" onClick={previousPage}>
-        Previous
-      </button>
     </form>
   );
 };

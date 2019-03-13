@@ -31,11 +31,12 @@ class RadioCard extends Component {
       labelLast,
       cardInfo,
       classes,
+      disabled,
       meta: { touched, error }
     } = this.props;
 
     return (
-      <div className={classes}>
+      <div className={disabled ? `${classes} content--disabled` : classes}>
         <label hidden={label == null ? true : false}>
           {label} <strong>{labelBold}</strong> {labelLast}?
         </label>
@@ -43,7 +44,13 @@ class RadioCard extends Component {
           <div className="question__single-choice">Pick one please</div>
           {/* Radio Buttons */}
           <ul className="question__choices flex--wrap">
-            <div className="question__choice--radio-shield" />
+            <div
+              className={
+                disabled
+                  ? "question__choice--radio-shield content--disabled"
+                  : "question__choice--radio-shield"
+              }
+            />
             {cardInfo.map(card => (
               <li
                 onClick={() => this.handleShow(card.cardKey)}

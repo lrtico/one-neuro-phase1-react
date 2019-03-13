@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
+import { reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { clearError } from "./actions/actions";
+import validate from "./validate";
 import CCWrapper from "./utils/PageWrapper";
 import PageList from "./PageList";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
@@ -16,7 +18,7 @@ class WizardForm extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.state = {
-      page: 47,
+      page: 32,
       pageNumber: 1,
       testState: false,
       loading: true,
@@ -24,9 +26,9 @@ class WizardForm extends Component {
     };
   }
 
-  generateTestPDF = () => {
-    console.log("Make PDF go now!");
-  };
+  // generateTestPDF = () => {
+  //   console.log("Make PDF go now!");
+  // };
 
   startingAnimation = () => {
     // console.log("starting");
@@ -108,6 +110,7 @@ class WizardForm extends Component {
                   onSubmit={this.nextPage}
                   pageNumber={this.state.page}
                   generateTest={onSubmit}
+                  handleDisable={this.toggleDisable}
                 />
               </CCWrapper>
             </div>
@@ -152,7 +155,14 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+WizardForm = connect(
   mapStateToProps,
   mapDispatchToProps
 )(WizardForm);
+
+export default reduxForm({
+  form: "wizard", //                 <------ same form name
+  destroyOnUnmount: false, //        <------ preserve form data
+  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  validate
+})(WizardForm);

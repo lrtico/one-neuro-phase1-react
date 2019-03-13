@@ -57,12 +57,13 @@ class TextQuestion extends Component {
       materialIcon,
       copyForward,
       maxCharacters,
+      disabled,
       meta: { touched, error }
     } = this.props;
-    console.log("TextQuestion props, ", this.props);
+    //console.log("TextQuestion props, ", this.props);
 
     return (
-      <div className={classes}>
+      <div className={disabled ? `${classes} content--disabled` : classes}>
         <label hidden={label == null ? true : false}>
           {label} <strong>{labelBold}</strong> {labelLast}?
         </label>
@@ -77,6 +78,7 @@ class TextQuestion extends Component {
             type={type}
             tabIndex={tabOrder}
             maxLength={maxCharacters === undefined ? null : maxCharacters}
+            readOnly={disabled ? true : false}
           />
           {copyForward === undefined ? null : (
             <div

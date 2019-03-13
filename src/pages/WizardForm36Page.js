@@ -6,17 +6,19 @@ import Button from "../components/Button";
 import FormCardMultiInput from "../components/Card/FormCard/FormCardMultiInput";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import TextQuestion from "../components/TextQuestion";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm36Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Family" titleRegular="history" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(36)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
-      <label>
+      <label className={disabled ? "content--disabled" : null}>
         Have any
         <strong> family members</strong> had any of the following?
       </label>
@@ -169,6 +171,7 @@ const WizardForm36Page = props => {
           name="fh-conditions-group"
           classes="question question--thumbless grid__half"
           addTick={this.makeTickMark}
+          disabled={disabled}
         />
         <FieldArray
           component={CheckboxCard}
@@ -276,6 +279,7 @@ const WizardForm36Page = props => {
           labelBold="N-Z"
           name="fh-conditions-group"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -289,6 +293,7 @@ const WizardForm36Page = props => {
         tabOrder="15"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         alt="Health"
@@ -301,14 +306,16 @@ const WizardForm36Page = props => {
         tabOrder="16"
         type="input"
         classes="question"
+        disabled={disabled}
       />
-      <label>
+      <label className={disabled ? "content--disabled" : null}>
         Has anyone in the family ever been in
         <strong> special education</strong>?
       </label>
       <FieldArray
         name="special-ed-group"
         component={FormCardMultiInput}
+        disabled={disabled}
         fieldInputs={[
           {
             inputName: "mc-special-ed-name",

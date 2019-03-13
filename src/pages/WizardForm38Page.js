@@ -4,15 +4,17 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import TextQuestion from "../components/TextQuestion";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm38Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Recreation &amp; Interests" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(38)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
       <Field
         alt="Basketball hoop"
@@ -25,6 +27,7 @@ const WizardForm38Page = props => {
         tabOrder="1"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         alt="Lego"
@@ -37,6 +40,7 @@ const WizardForm38Page = props => {
         tabOrder="2"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         alt="Question mark"
@@ -49,6 +53,7 @@ const WizardForm38Page = props => {
         tabOrder="3"
         type="input"
         classes="question"
+        disabled={disabled}
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

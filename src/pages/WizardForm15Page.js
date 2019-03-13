@@ -6,20 +6,20 @@ import SectionSubHeader from "../components/SectionSubHeader";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import TextQuestion from "../components/TextQuestion";
 
 const WizardForm15Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle
         titleBold="Medical &amp; development"
         titleRegular="history"
       />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(15)}>
         <SectionSubHeader subHeader="Birth" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -31,6 +31,7 @@ const WizardForm15Page = props => {
           tabOrder="1"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -40,6 +41,7 @@ const WizardForm15Page = props => {
           tabOrder="2"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -51,6 +53,7 @@ const WizardForm15Page = props => {
         tabOrder="3"
         type="input"
         classes="question grid__half"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -74,6 +77,7 @@ const WizardForm15Page = props => {
           labelBold="born"
           labelLast="in a hospital"
           classes="question grid__half question--thumbless"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -83,6 +87,7 @@ const WizardForm15Page = props => {
           tabOrder="6"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -97,6 +102,7 @@ const WizardForm15Page = props => {
           tabOrder="7"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Scale"
@@ -109,6 +115,7 @@ const WizardForm15Page = props => {
           tabOrder="8"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -123,6 +130,7 @@ const WizardForm15Page = props => {
           tabOrder="9"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Scorecard"
@@ -135,6 +143,7 @@ const WizardForm15Page = props => {
           tabOrder="10"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -146,6 +155,7 @@ const WizardForm15Page = props => {
         tabOrder="11"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         component={TextQuestion}
@@ -156,6 +166,7 @@ const WizardForm15Page = props => {
         tabOrder="12"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <FieldArray
         component={CheckboxCard}
@@ -190,6 +201,7 @@ const WizardForm15Page = props => {
         labelLast="that occured during birth"
         name="mdh-complications"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Field
         alt="Complications"
@@ -201,6 +213,7 @@ const WizardForm15Page = props => {
         tabOrder="17"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         alt="Calendar"
@@ -212,6 +225,7 @@ const WizardForm15Page = props => {
         tabOrder="18"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         component={TextQuestion}
@@ -221,6 +235,7 @@ const WizardForm15Page = props => {
         tabOrder="19"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         component={TextQuestion}
@@ -231,6 +246,7 @@ const WizardForm15Page = props => {
         tabOrder="20"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         component={TextQuestion}
@@ -241,6 +257,7 @@ const WizardForm15Page = props => {
         tabOrder="21"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         component={TextQuestion}
@@ -251,6 +268,7 @@ const WizardForm15Page = props => {
         tabOrder="22"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <div className="flex">
         <FieldArray
@@ -292,6 +310,7 @@ const WizardForm15Page = props => {
           labelBold="length"
           labelLast="of hospital stay"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -334,6 +353,7 @@ const WizardForm15Page = props => {
           labelBold="length"
           labelLast="of hospital stay"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
 

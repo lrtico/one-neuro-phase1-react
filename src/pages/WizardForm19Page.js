@@ -6,14 +6,14 @@ import SectionSubHeader from "../components/SectionSubHeader";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 // const handleTextBoxClick = (name, props) => {
 //   console.log(`Name passed into handleTextBoxClick function ${name}`);
 //   props.change(name, true);
 // };
 const WizardForm19Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   console.log("WizardPage19 props, ", props);
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -21,9 +21,9 @@ const WizardForm19Page = props => {
         titleBold="Medical &amp; development"
         titleRegular="history"
       />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(19)}>
         <SectionSubHeader subHeader="Development" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <Field
         component={DescriptionCheckboxCard}
@@ -74,6 +74,7 @@ const WizardForm19Page = props => {
         labelLast="were there any special problems noted in the following areas"
         name="mdh-development-first-four-group"
         classes="question question--thumbless"
+        disabled={disabled}
         //onTextBoxClick={name => handleTextBoxClick(name)}
       />
       <div className="flex">
@@ -97,6 +98,7 @@ const WizardForm19Page = props => {
           label="Has this child ever been forced to"
           labelBold="change writing hand"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
 

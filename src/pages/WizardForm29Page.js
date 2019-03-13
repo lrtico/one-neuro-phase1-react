@@ -6,16 +6,16 @@ import SectionSubHeader from "../components/SectionSubHeader";
 import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import TextQuestion from "../components/TextQuestion";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm29Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Medical" titleRegular="development" />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(29)}>
         <SectionSubHeader subHeader="Speech" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <Field
         component={DescriptionCheckboxCard}
@@ -50,6 +50,7 @@ const WizardForm29Page = props => {
         labelLast="have any of the following"
         name="mdh-speech-group"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Field
         alt="Calendar"
@@ -62,6 +63,7 @@ const WizardForm29Page = props => {
         tabOrder="4"
         type="date"
         classes="question grid__half"
+        disabled={disabled}
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

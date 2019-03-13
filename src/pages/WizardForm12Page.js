@@ -4,15 +4,15 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm12Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(12)}>
         <SectionTitle titleFirst="Child's" titleBold="residence" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -47,6 +47,7 @@ const WizardForm12Page = props => {
           labelBold="live"
           name="cr-residence-group"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -94,6 +95,7 @@ const WizardForm12Page = props => {
           labelLast="at the current address"
           name="cr-residence-length-group"
           classes="question question--thumbless question--numbers"
+          disabled={disabled}
         />
       </div>
 

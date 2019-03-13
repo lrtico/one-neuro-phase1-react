@@ -6,18 +6,22 @@ import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import TextQuestion from "../components/TextQuestion";
 import FormCardBrotherSister from "../components/Card/FormCard/FormCardBrotherSister";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm11Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(11)}>
         <SectionTitle titleBold="Siblings" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
 
-      <FieldArray name="brothers-sisters" component={FormCardBrotherSister} />
+      <FieldArray
+        name="brothers-sisters"
+        component={FormCardBrotherSister}
+        disabled={disabled}
+      />
 
       <div className="question">
         <Field
@@ -29,6 +33,7 @@ const WizardForm11Page = props => {
           tabOrder="8"
           type="input"
           classes="question"
+          disabled={disabled}
         />
       </div>
 

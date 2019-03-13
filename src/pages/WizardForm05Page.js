@@ -4,17 +4,21 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import FormCardTextDate from "../components/Card/FormCard/FormCardTextDate";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm05Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(5)}>
         <SectionTitle titleBold="Records" titleRegular="reviewed" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
-      <FieldArray name="records-reviewed" component={FormCardTextDate} />
+      <FieldArray
+        name="records-reviewed"
+        component={FormCardTextDate}
+        disabled={disabled}
+      />
       <Button onClick={handleSubmit} buttonLabel="OK" />
     </form>
   );

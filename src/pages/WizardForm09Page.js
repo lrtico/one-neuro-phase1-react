@@ -4,15 +4,15 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import TextQuestion from "../components/TextQuestion";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm09Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(9)}>
         <SectionTitle titleBold="Childcare" titleRegular="info" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <Field
         component={TextQuestion}
@@ -23,6 +23,7 @@ const WizardForm09Page = props => {
         label="Who"
         labelBold="takes care"
         labelLast="of this child if the caregivers are gone"
+        disabled={disabled}
       />
       <Field
         component={TextQuestion}
@@ -33,6 +34,7 @@ const WizardForm09Page = props => {
         label="How"
         labelBold="many hours per day"
         labelLast="is this child in a childcare setting"
+        disabled={disabled}
       />
       <Field
         component={TextQuestion}
@@ -43,6 +45,7 @@ const WizardForm09Page = props => {
         label="Who are the"
         labelBold="different individuals"
         labelLast="that care for this child"
+        disabled={disabled}
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

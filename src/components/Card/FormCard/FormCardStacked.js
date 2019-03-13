@@ -89,10 +89,11 @@ const FormCardStacked = ({
   labelLast,
   cardInfo,
   classes,
+  disabled,
   meta: { touched, error }
 }) => {
   return (
-    <div className={classes}>
+    <div className={disabled ? `${classes} content--disabled` : classes}>
       <label>
         {label} <strong>{labelBold}</strong> {labelLast}?
       </label>
@@ -101,7 +102,13 @@ const FormCardStacked = ({
       </div>
       {/* Cards */}
       <ul className="question__cards flex--wrap flex--stretch-vertical">
-        <div className="question__choice--radio-shield" />
+        <div
+          className={
+            disabled
+              ? "question__choice--radio-shield content--disabled"
+              : "question__choice--radio-shield"
+          }
+        />
         {cardInfo.map((card, index) => (
           <li
             key={randomId()}

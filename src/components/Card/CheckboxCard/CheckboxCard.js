@@ -38,12 +38,13 @@ const CheckboxCard = ({
   thumbnailAlt,
   columnHeader,
   noQuestionMark,
+  disabled,
   ...props,
   meta: { touched, error }
 }) => {
   console.log("checkboxinfo props, ", checkboxInfo);
   return (
-    <div className={classes}>
+    <div className={disabled ? `${classes} content--disabled` : classes}>
       <h4
         className="question__col-header"
         hidden={columnHeader == null ? true : false}
@@ -59,7 +60,11 @@ const CheckboxCard = ({
         </div>
         {/* Checkboxes */}
         <ul className="question__choices question__checkboxCard flex--wrap">
-          <div className="question__choice--radio-shield" />
+          <div className={
+              disabled
+                ? "question__choice--radio-shield content--disabled"
+                : "question__choice--radio-shield"
+            } />
           {checkboxInfo.map((card, i) => (
             <li
               key={randomId()}

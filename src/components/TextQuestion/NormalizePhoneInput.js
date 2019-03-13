@@ -18,9 +18,10 @@ const NormalizePhoneInput = ({
   materialIcon,
   copyForward,
   maxCharacters,
+  disabled,
   meta: { touched, error }
 }) => (
-  <div className={classes}>
+  <div className={disabled ? `${classes} content--disabled` : classes}>
     <label hidden={label == null ? true : false}>
       {label} <strong>{labelBold}</strong> {labelLast}?
     </label>
@@ -33,6 +34,7 @@ const NormalizePhoneInput = ({
         type={type}
         tabIndex={tabOrder}
         maxLength={maxCharacters === undefined ? null : maxCharacters}
+        readOnly={disabled ? true : false}
       />
       {copyForward === undefined ? null : (
         <div className="question__input__copy-forward">

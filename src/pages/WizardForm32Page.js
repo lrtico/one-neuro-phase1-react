@@ -5,18 +5,23 @@ import SectionTitle from "../components/SectionTitle";
 import TextQuestion from "../components/TextQuestion";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
 import FormCardMultiInput from "../components/Card/FormCard/FormCardMultiInput";
 import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import { normalizePhone } from "../utils/Normalize";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+
+// const handleClick = () => {
+//   console.log("Disable button clicked");
+// };
 
 const WizardForm32Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
+  console.log("Props from PageList state disabled = ", disabled);
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(32)}>
         <SectionTitle titleBold="Medical" titleRegular="care" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -29,6 +34,7 @@ const WizardForm32Page = props => {
           tabOrder="1"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Building"
@@ -41,6 +47,7 @@ const WizardForm32Page = props => {
           type="text"
           classes="question grid__half"
           normalize={normalizePhone}
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -54,6 +61,7 @@ const WizardForm32Page = props => {
           tabOrder="3"
           type="input"
           classes="question grid__third"
+          disabled={disabled}
         />
         <Field
           alt="Calendar"
@@ -66,6 +74,7 @@ const WizardForm32Page = props => {
           tabOrder="4"
           type="date"
           classes="question grid__third"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -76,14 +85,16 @@ const WizardForm32Page = props => {
           tabOrder="5"
           type="text"
           classes="question grid__third"
+          disabled={disabled}
         />
       </div>
-      <label>
+      <label className={disabled ? "content--disabled" : null}>
         List any medication this child is <strong>currently</strong> taking.
       </label>
       <FieldArray
         name="medication-list-group"
         component={FormCardMultiInput}
+        disabled={disabled}
         fieldInputs={[
           {
             inputName: "mc-medication-name",
@@ -124,6 +135,7 @@ const WizardForm32Page = props => {
           labelLast="abused"
           name="mc-sexual-abuse-group"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
 

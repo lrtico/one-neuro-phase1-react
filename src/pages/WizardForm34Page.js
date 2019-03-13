@@ -4,23 +4,27 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import FormCardMultiInput from "../components/Card/FormCard/FormCardMultiInput";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm34Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
+  console.log("Props from PageList state disabled = ", disabled);
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Medical" titleRegular="care" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(34)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
 
-      <label>
+      <label className={disabled ? "content--disabled" : null}>
         Has this child ever had a<strong> neurological exam</strong>?
       </label>
       <FieldArray
         name="nuerological-group"
         component={FormCardMultiInput}
+        disabled={disabled}
         fieldInputs={[
           {
             inputName: "mc-nuerological-name",

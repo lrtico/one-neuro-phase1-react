@@ -7,19 +7,19 @@ import RadioCard from "../components/Card/RadioCard/RadioCard";
 import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm14Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle
         titleBold="Medical &amp; development"
         titleRegular="history"
       />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(14)}>
         <SectionSubHeader subHeader="Pregnancy" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -43,6 +43,7 @@ const WizardForm14Page = props => {
           labelBold="planned"
           labelLast="pregnancy"
           classes="question grid__half question--thumbless"
+          disabled={disabled}
         />
         <Field
           name="mdh-dr-care-group"
@@ -65,6 +66,7 @@ const WizardForm14Page = props => {
           labelBold="doctor's"
           labelLast="care"
           classes="question grid__half question--thumbless"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -107,6 +109,7 @@ const WizardForm14Page = props => {
           labelLast="pregnancies/miscarriages"
           name="mdh-total-pregnancies-group"
           classes="question question--thumbless question--numbers"
+          disabled={disabled}
         />
       </div>
       <FieldArray
@@ -191,6 +194,7 @@ const WizardForm14Page = props => {
         labelLast="that occured during pregnancy"
         name="mdh-complications-pregnancy-group"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Field
         component={DescriptionCheckboxCard}
@@ -210,6 +214,7 @@ const WizardForm14Page = props => {
         name="mdh-complications-pregnancy-group"
         classes="question question--thumbless question__choice--full-width"
         type="text"
+        disabled={disabled}
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

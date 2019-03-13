@@ -5,18 +5,18 @@ import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import Button from "../components/Button";
 import FormCardStacked from "../components/Card/FormCard/FormCardStacked";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import TextQuestion from "../components/TextQuestion";
 
 const WizardForm27Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Medical" titleRegular="development" />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(27)}>
         <SectionSubHeader subHeader="Neurological" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -98,6 +98,7 @@ const WizardForm27Page = props => {
           labelBold="currently"
           labelLast="have any of the following problems"
           classes="question"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -122,6 +123,7 @@ const WizardForm27Page = props => {
           labelBold="taken medication"
           labelLast="to increase activity"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -133,6 +135,7 @@ const WizardForm27Page = props => {
           tabOrder="14"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -142,6 +145,7 @@ const WizardForm27Page = props => {
           tabOrder="15"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -166,6 +170,7 @@ const WizardForm27Page = props => {
           labelBold="taken tranquilizer"
           labelLast="medication"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -177,6 +182,7 @@ const WizardForm27Page = props => {
           tabOrder="18"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -186,6 +192,7 @@ const WizardForm27Page = props => {
           tabOrder="19"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -210,6 +217,7 @@ const WizardForm27Page = props => {
           labelBold="taken medication for"
           labelLast="ADD, ADHD, or similar problems"
           classes="question question--thumbless"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -221,6 +229,7 @@ const WizardForm27Page = props => {
           tabOrder="22"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -230,6 +239,7 @@ const WizardForm27Page = props => {
           tabOrder="23"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
 

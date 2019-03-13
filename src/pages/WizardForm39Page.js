@@ -5,15 +5,17 @@ import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
 import TextQuestion from "../components/TextQuestion";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm39Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Behavior &amp; Temperment" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(39)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
       <FieldArray
         component={CheckboxCard}
@@ -96,6 +98,7 @@ const WizardForm39Page = props => {
         labelLast="any of the following"
         name="bt-exhibit-group"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Field
         alt="Ghost"
@@ -108,6 +111,7 @@ const WizardForm39Page = props => {
         tabOrder="13"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         alt="Bomb"
@@ -119,6 +123,7 @@ const WizardForm39Page = props => {
         tabOrder="14"
         type="input"
         classes="question"
+        disabled={disabled}
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />

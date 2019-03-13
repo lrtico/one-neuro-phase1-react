@@ -4,21 +4,21 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import SectionSubHeader from "../components/SectionSubHeader";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import TextQuestion from "../components/TextQuestion";
 
 const WizardForm17Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle
         titleBold="Medical &amp; development"
         titleRegular="history"
       />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(17)}>
         <SectionSubHeader subHeader="Early years" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -41,6 +41,7 @@ const WizardForm17Page = props => {
           label="Was this child"
           labelBold="breast-fed"
           classes="question grid__half question--thumbless"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -50,6 +51,7 @@ const WizardForm17Page = props => {
           tabOrder="3"
           type="text"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -73,6 +75,7 @@ const WizardForm17Page = props => {
           label="Was this child"
           labelBold="bottle-fed"
           classes="question grid__half question--thumbless"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -82,6 +85,7 @@ const WizardForm17Page = props => {
           tabOrder="6"
           type="text"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -96,6 +100,7 @@ const WizardForm17Page = props => {
           tabOrder="7"
           type="text"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Calendar"
@@ -108,6 +113,7 @@ const WizardForm17Page = props => {
           tabOrder="8"
           type="text"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -132,6 +138,7 @@ const WizardForm17Page = props => {
           labelBold="bed-wetting"
           labelLast="occur after toilet training"
           classes="question grid__half question--thumbless"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -141,6 +148,7 @@ const WizardForm17Page = props => {
           tabOrder="11"
           type="text"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -165,6 +173,7 @@ const WizardForm17Page = props => {
           labelBold="bed-soiling"
           labelLast="occur after toilet training"
           classes="question grid__half question--thumbless"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -174,6 +183,7 @@ const WizardForm17Page = props => {
           tabOrder="14"
           type="text"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -198,6 +208,7 @@ const WizardForm17Page = props => {
           labelBold="medical reasons"
           labelLast="for bed-wetting or bed-soiling"
           classes="question grid__two-thirds question--thumbless"
+          disabled={disabled}
         />
         <Field
           component={TextQuestion}
@@ -207,6 +218,7 @@ const WizardForm17Page = props => {
           tabOrder="17"
           type="text"
           classes="question grid__third"
+          disabled={disabled}
         />
       </div>
 

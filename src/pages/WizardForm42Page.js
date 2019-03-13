@@ -4,20 +4,20 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 
 const WizardForm42Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle
         titleBold="Religious &amp; racial ethnic"
         titleRegular="identification"
       />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(42)}>
         <SectionSubHeader subHeader="Current religious denomination/affiliation" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <Field
         name="rda-religon-affiliation-group"
@@ -67,6 +67,7 @@ const WizardForm42Page = props => {
           }
         ]}
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -103,6 +104,7 @@ const WizardForm42Page = props => {
           labelLast="with 1 being not very and 5 being very involved"
           name="rda-religon-involvment-group"
           classes="question question--thumbless question--numbers"
+          disabled={disabled}
         />
       </div>
 

@@ -4,18 +4,20 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import TextQuestion from "../components/TextQuestion";
 
 const WizardForm41Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Educational" titleRegular="history" />
       <div className="flex">
         <SectionSubHeader subHeader="Elementary/High School" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(41)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
       <div className="flex">
         <Field
@@ -39,6 +41,7 @@ const WizardForm41Page = props => {
           labelBold="for reasons"
           labelLast="other than normal academic progression"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -51,6 +54,7 @@ const WizardForm41Page = props => {
           tabOrder="3"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -75,6 +79,7 @@ const WizardForm41Page = props => {
           labelBold="retained"
           labelLast="a grade in school"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -87,6 +92,7 @@ const WizardForm41Page = props => {
           tabOrder="6"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -111,6 +117,7 @@ const WizardForm41Page = props => {
           labelBold="skipped"
           labelLast="a grade in school"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -123,6 +130,7 @@ const WizardForm41Page = props => {
           tabOrder="9"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -146,6 +154,7 @@ const WizardForm41Page = props => {
           label="Does this child have"
           labelBold="difficulty reading"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -158,6 +167,7 @@ const WizardForm41Page = props => {
           tabOrder="12"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -181,6 +191,7 @@ const WizardForm41Page = props => {
           label="Does this child"
           labelBold="difficulty with math"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -193,6 +204,7 @@ const WizardForm41Page = props => {
           tabOrder="15"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -217,6 +229,7 @@ const WizardForm41Page = props => {
           labelBold="poor"
           labelLast="grades"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -229,6 +242,7 @@ const WizardForm41Page = props => {
           tabOrder="18"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <div className="flex">
@@ -253,6 +267,7 @@ const WizardForm41Page = props => {
           labelBold="tested"
           labelLast="for special education"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -265,6 +280,7 @@ const WizardForm41Page = props => {
           tabOrder="21"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -287,6 +303,7 @@ const WizardForm41Page = props => {
         label="Currently is placed in"
         labelBold="special education"
         classes="question question--thumbless grid__half"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -299,6 +316,7 @@ const WizardForm41Page = props => {
           tabOrder="24"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Question mark"
@@ -311,6 +329,7 @@ const WizardForm41Page = props => {
           tabOrder="25"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -334,6 +353,7 @@ const WizardForm41Page = props => {
         labelBold="Dislikes"
         labelLast="going to school"
         classes="question question--thumbless grid__half"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -357,6 +377,7 @@ const WizardForm41Page = props => {
           labelBold="absent"
           labelLast="from school frequently"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -369,6 +390,7 @@ const WizardForm41Page = props => {
           tabOrder="30"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -382,6 +404,7 @@ const WizardForm41Page = props => {
         tabOrder="31"
         type="date"
         classes="question"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -405,6 +428,7 @@ const WizardForm41Page = props => {
           labelBold="quality"
           labelLast="of this child's teachers"
           classes="question question--thumbless grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Speech bubble"
@@ -417,6 +441,7 @@ const WizardForm41Page = props => {
           tabOrder="34"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
 

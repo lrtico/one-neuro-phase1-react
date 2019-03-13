@@ -4,15 +4,15 @@ import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import FormCardStacked from "../components/Card/FormCard/FormCardStacked";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm20Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(20)}>
         <SectionTitle titleBold="Medical" titleRegular="history" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -194,6 +194,7 @@ const WizardForm20Page = props => {
           labelBold="age (i.e., 3 months 1 year)"
           labelLast="did this child have any the following illnesses"
           classes="question"
+          disabled={disabled}
         />
       </div>
 

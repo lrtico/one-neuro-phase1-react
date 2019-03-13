@@ -5,16 +5,16 @@ import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
 import Button from "../components/Button";
 import FormCardStacked from "../components/Card/FormCard/FormCardStacked";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm21Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <SectionTitle titleBold="Medical" titleRegular="development" />
-      <div className="flex">
+      <div className="flex" onClick={() => handleDisable(21)}>
         <SectionSubHeader subHeader="Respiratory" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <div className="flex">
         <Field
@@ -61,6 +61,7 @@ const WizardForm21Page = props => {
           labelBold="currently"
           labelLast="has any of the following problems. If yes, how often"
           classes="question"
+          disabled={disabled}
         />
       </div>
 

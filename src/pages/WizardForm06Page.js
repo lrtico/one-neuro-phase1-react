@@ -10,6 +10,7 @@ import RadioCard from "../components/Card/RadioCard/RadioCard";
 import SectionSubHeader from "../components/SectionSubHeader";
 import ButtonToggle from "../components/ButtonToggle";
 import CopyForwardButton from "../components/ButtonToggle/CopyForwardButton";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import { normalizePhone } from "../utils/Normalize";
 
 // const renderError = ({ meta: { touched, error } }) =>
@@ -198,7 +199,7 @@ class WizardForm06Page extends Component {
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, handleDisable, disabled } = this.props;
     const {
       addCopyForward,
       handlePrimaryCaregiver,
@@ -220,7 +221,9 @@ class WizardForm06Page extends Component {
           <div onClick={handlePaqCopyForward}>
             <CopyForwardButton buttonToggleLabel="person answering questions" />
           </div>
-          <ButtonToggle buttonToggleLabel="disable" />
+          <div className="flex" onClick={() => handleDisable(6)}>
+            <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+          </div>
         </div>
         <div className="flex">
           <Field
@@ -233,6 +236,7 @@ class WizardForm06Page extends Component {
             tabOrder="1"
             type="input"
             classes="question grid__half"
+            disabled={disabled}
             // copyForward="true"
             // handleCopyForward={this.copyPaqNameForward}
           />
@@ -256,6 +260,7 @@ class WizardForm06Page extends Component {
             label="Is she the"
             labelBold="stepmother"
             classes="question question--thumbless"
+            disabled={disabled}
           />
         </div>
         <div className="flex">
@@ -269,6 +274,7 @@ class WizardForm06Page extends Component {
             tabOrder="4"
             type="input"
             classes="question grid__half"
+            disabled={disabled}
             // copyForward="true"
             // handleCopyForward={this.copyPaqAddressForward}
           />
@@ -280,6 +286,7 @@ class WizardForm06Page extends Component {
             tabOrder="5"
             type="input"
             classes="question grid__half"
+            disabled={disabled}
             //copyForward="true"
           />
         </div>
@@ -299,6 +306,7 @@ class WizardForm06Page extends Component {
             // copyForward="true"
             // handleCopyForward={this.copyPaqHomePhoneForward}
             normalize={normalizePhone}
+            disabled={disabled}
           />
           <Field
             alt="Phone"
@@ -315,6 +323,7 @@ class WizardForm06Page extends Component {
             // copyForward="true"
             // handleCopyForward={this.copyPaqWorkPhoneForward}
             normalize={normalizePhone}
+            disabled={disabled}
           />
           <Field
             alt="Phone"
@@ -331,6 +340,7 @@ class WizardForm06Page extends Component {
             // copyForward="true"
             // handleCopyForward={this.copyPaqCellPhoneForward}
             normalize={normalizePhone}
+            disabled={disabled}
           />
         </div>
         <div className="flex">
@@ -344,6 +354,7 @@ class WizardForm06Page extends Component {
             tabOrder="9"
             type="input"
             classes="question grid__half"
+            disabled={disabled}
           />
           <Field
             component={TextQuestion}
@@ -355,6 +366,7 @@ class WizardForm06Page extends Component {
             type="input"
             tabOrder="10"
             classes="question grid__half"
+            disabled={disabled}
           />
         </div>
         <div className="flex">
@@ -369,6 +381,7 @@ class WizardForm06Page extends Component {
             tabOrder="11"
             type="input"
             classes="question grid__half"
+            disabled={disabled}
           />
           <Field
             component={TextQuestion}
@@ -381,6 +394,7 @@ class WizardForm06Page extends Component {
             type="input"
             tabOrder="12"
             classes="question grid__half"
+            disabled={disabled}
           />
         </div>
         <div className="flex">
@@ -394,6 +408,7 @@ class WizardForm06Page extends Component {
             tabOrder="13"
             type="input"
             classes="question grid__half"
+            disabled={disabled}
           />
           <Field
             component={TextQuestion}
@@ -406,6 +421,7 @@ class WizardForm06Page extends Component {
             type="input"
             tabOrder="14"
             classes="question grid__half"
+            disabled={disabled}
           />
         </div>
         <Button onClick={handleSubmit} buttonLabel="OK" />

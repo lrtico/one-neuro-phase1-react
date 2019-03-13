@@ -5,15 +5,17 @@ import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import TextQuestion from "../components/TextQuestion";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
-import ButtonToggle from "../components/ButtonToggle";
+import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 
 const WizardForm40Page = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex">
         <SectionTitle titleBold="Educational" titleRegular="history" />
-        <ButtonToggle buttonToggleLabel="disable" />
+        <div onClick={() => handleDisable(40)}>
+          <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
+        </div>
       </div>
       <Field
         name="eh-daycare-yes-no"
@@ -36,6 +38,7 @@ const WizardForm40Page = props => {
         labelBold="attend"
         labelLast="preschool/daycare"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <div className="flex">
         <Field
@@ -48,6 +51,7 @@ const WizardForm40Page = props => {
           tabOrder="4"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
         <Field
           alt="Clock"
@@ -60,6 +64,7 @@ const WizardForm40Page = props => {
           tabOrder="5"
           type="input"
           classes="question grid__half"
+          disabled={disabled}
         />
       </div>
       <Field
@@ -73,6 +78,7 @@ const WizardForm40Page = props => {
         tabOrder="6"
         type="input"
         classes="question grid__half"
+        disabled={disabled}
       />
       <Field
         alt="Bomb"
@@ -85,6 +91,7 @@ const WizardForm40Page = props => {
         tabOrder="7"
         type="input"
         classes="question"
+        disabled={disabled}
       />
       <Field
         name="eh-kindergarten-yes-no"
@@ -107,6 +114,7 @@ const WizardForm40Page = props => {
         labelBold="attend"
         labelLast="kindergarten"
         classes="question question--thumbless"
+        disabled={disabled}
       />
       <Field
         alt="Bomb"
@@ -119,6 +127,7 @@ const WizardForm40Page = props => {
         tabOrder="10"
         type="input"
         classes="question"
+        disabled={disabled}
       />
 
       <Button onClick={handleSubmit} buttonLabel="OK" />
