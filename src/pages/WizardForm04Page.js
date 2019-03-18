@@ -28,9 +28,6 @@ class WizardForm04Page extends Component {
           classes="question"
           materialIcon="arrow_right"
           copyForward="true"
-          doThisFunction={() =>
-            console.log("Child called parent onChange prop")
-          }
           handleCopyForward={this.changeFieldValue}
         />
         <Field
