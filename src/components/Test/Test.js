@@ -105,15 +105,22 @@ const Test = ({ testFromState, ...props }) => {
                         dangerouslySetInnerHTML={createMarkup(
                           t.IndexDescription
                         )}
-                      />
-                      .{" "}
-                      {t.hasInput && (
+                      />{" "}
+                      {t.HasInput && (
                         <span>
-                          Client scored a{" "}
+                          Client name's GAI places him/her in the{" "}
                           <Field
-                            name={`${t.Id}-${
-                              testFromState[0].Abbreviation
-                            }-gai-score`}
+                            name={`${
+                              t.Id
+                            }-${testFromState[0].Abbreviation.toLowerCase()}-gai-range`}
+                            type="text"
+                            component="input"
+                          />
+                          and at the{" "}
+                          <Field
+                            name={`${
+                              t.Id
+                            }-${testFromState[0].Abbreviation.toLowerCase()}-gai-percentile`}
                             type="text"
                             component="input"
                           />
@@ -121,6 +128,63 @@ const Test = ({ testFromState, ...props }) => {
                         </span>
                       )}
                     </p>
+                  </div>
+                ) : t.IndexName === "General Conceptual Ability" ? (
+                  <div>
+                    <SectionSubHeader subHeader={t.IndexName} />
+                    <div className="test__list">
+                      CLIENT NAME's GCA score on the DAS-II places him/her in
+                      the{" "}
+                      <Field
+                        name={`${
+                          t.Id
+                        }-${testFromState[0].Abbreviation.toLowerCase()}-gca-range`}
+                        type="text"
+                        component="input"
+                      />{" "}
+                      range DAS-II GCA score of
+                      <Field
+                        name={`${
+                          t.Id
+                        }-${testFromState[0].Abbreviation.toLowerCase()}-gca-score`}
+                        type="text"
+                        component="input"
+                      />
+                      {", "}
+                      <Field
+                        name={`${
+                          t.Id
+                        }-${testFromState[0].Abbreviation.toLowerCase()}-gca-percentile`}
+                        type="text"
+                        component="input"
+                      />{" "}
+                      percentile while his/her Special Nonverbal Composite SNC
+                      score placed in the{" "}
+                      <Field
+                        name={`${
+                          t.Id
+                        }-${testFromState[0].Abbreviation.toLowerCase()}-snc-range`}
+                        type="text"
+                        component="input"
+                      />{" "}
+                      range DAS-II SNC score of{" "}
+                      <Field
+                        name={`${
+                          t.Id
+                        }-${testFromState[0].Abbreviation.toLowerCase()}-snc-score`}
+                        type="text"
+                        component="input"
+                      />
+                      {", "}
+                      <Field
+                        name={`${
+                          t.Id
+                        }-${testFromState[0].Abbreviation.toLowerCase()}-snc-percentile`}
+                        type="text"
+                        component="input"
+                      />{" "}
+                      percentile.
+                    </div>
                   </div>
                 ) : (
                   <div>
