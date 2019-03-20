@@ -105,7 +105,8 @@ const Test = ({ testFromState, ...props }) => {
                         dangerouslySetInnerHTML={createMarkup(
                           t.IndexDescription
                         )}
-                      />{" "}
+                      />
+                      .{" "}
                       {t.HasInput && (
                         <span>
                           Client name's GAI places him/her in the{" "}
@@ -116,7 +117,7 @@ const Test = ({ testFromState, ...props }) => {
                             type="text"
                             component="input"
                           />
-                          and at the{" "}
+                          range and at the{" "}
                           <Field
                             name={`${
                               t.Id
@@ -124,7 +125,7 @@ const Test = ({ testFromState, ...props }) => {
                             type="text"
                             component="input"
                           />
-                          .
+                          percentile.
                         </span>
                       )}
                     </p>
