@@ -1021,10 +1021,13 @@ const Test = ({ testFromState, ...props }) => {
                       Overall, (client’s) performance on the&nbsp;
                       {testFromState[0].Abbreviation} provided a snapshot into
                       (his/her) various cognitive abilities and strengths.
-                      (He/She) demonstrated well-developed abilities
+                      (He/She) demonstrated well-developed
                     </span>
                   </p>
-                  <div style={{ marginBottom: 36 }}>
+                  <div
+                    className="flex"
+                    style={{ marginBottom: 36, alignItems: "flex-end" }}
+                  >
                     <Field
                       name={`${
                         t.Id
@@ -1034,7 +1037,10 @@ const Test = ({ testFromState, ...props }) => {
                       )}-summary-abilities`}
                       type="text"
                       component={Textarea}
+                      classes="domain__test__summary-textarea"
+                      rows="1"
                     />
+                    <span>&nbsp;abilities.</span>
                   </div>
                   <p className="test__list">
                     <span>
@@ -1051,6 +1057,8 @@ const Test = ({ testFromState, ...props }) => {
                       )}-summary-challenges`}
                       type="text"
                       component={Textarea}
+                      classes="domain__test__summary-textarea"
+                      rows="1"
                     />
                   </div>
                   <p>

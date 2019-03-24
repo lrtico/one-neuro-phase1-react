@@ -17,6 +17,7 @@ const TextArea = ({
   classes,
   materialIcon,
   copyForward,
+  rows,
   disabled,
   meta: { touched, error }
 }) => (
@@ -33,6 +34,7 @@ const TextArea = ({
         tabIndex={tabOrder}
         type={type}
         readOnly={disabled ? true : false}
+        rows={rows}
       >
         {" "}
       </textarea>

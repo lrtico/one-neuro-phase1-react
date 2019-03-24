@@ -87,3 +87,9 @@ h6 {
   -ms-user-select: none;
   user-select: none;
 }
+.domain__test__summary-textarea {
+  flex-grow: 2;
+}
+.domain__test__summary-textarea textarea {
+  padding: 9px 0;
+}
