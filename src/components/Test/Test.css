@@ -42,6 +42,7 @@ h6 {
 
 .has-toggle-child input {
   background-color: rgba(255, 0, 0, 0.8);
+  border-bottom: none;
   border-radius: 50%;
   height: 20px;
   margin-left: 9px;
@@ -71,11 +72,18 @@ h6 {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.has-toggle-child input:hover {
+.has-toggle-child input:hover,
+.has-toggle-child input:focus {
   background-color: rgba(0, 0, 0, 0.4);
 }
 .has-toggle-child input:checked {
   background-color: #13b913;
+}
+.has-toggle-child--label {
+  color: #666;
+}
+.has-toggle-child input:checked + .has-toggle-child--label {
+  color: black;
 }
 .test-table .table__row.table__header div.table__row__cell--wide,
 .test-table .table__row div.table__row__cell--wide {

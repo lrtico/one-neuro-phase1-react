@@ -236,6 +236,7 @@ class WizardForm47Page extends Component {
 
   //Show the test when clicked on or hide it
   showFilteredTest = test => {
+    console.log("showFilteredTest fired ", this.state);
     let selectedTest = this.state.tests.filter(t => t.Abbreviation === test);
     store.dispatch({
       type: "ADD_TEST",
@@ -304,6 +305,9 @@ class WizardForm47Page extends Component {
         //console.log("Test data from API, ", allData);
       })
       .catch(error => console.log("Getting all data error, ", error));
+
+    console.log("Selected tests from the global store are: ", this.props.tests);
+    this.setState({ testsSelected: this.props.tests });
   }
 
   render() {

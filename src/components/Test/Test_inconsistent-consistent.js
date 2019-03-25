@@ -262,43 +262,27 @@ const Test = ({ testFromState, ...props }) => {
                           {/* {ReactHtmlParser(t.ParentScaleDescription)} */}
                           <p>
                             <span>(Client) demonstrated a relatively</span>
-                            <span className="has-toggle-child">
-                              <Field
-                                name={`${
-                                  t.Id
-                                }-${testFromState[0].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.ParentScaleName.toLowerCase()
-                                  .replace(/ /g, "-")
-                                  .replace("<span>", "")
-                                  .replace("</span>", "")
-                                  .replace(/\(|\)/g, "")}-inconsistent`}
-                                type="checkbox"
-                                component="input"
-                              />
-                              <span className="has-toggle-child--label">
-                                inconsistent
-                              </span>
-                              <Field
-                                name={`${
-                                  t.Id
-                                }-${testFromState[0].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.ParentScaleName.toLowerCase()
-                                  .replace(/ /g, "-")
-                                  .replace("<span>", "")
-                                  .replace("</span>", "")
-                                  .replace(/\(|\)/g, "")}-consistent`}
-                                type="checkbox"
-                                component="input"
-                              />
-                              <span className="has-toggle-child--label">
-                                consistent
-                              </span>
+                            <Field
+                              name={`${
+                                t.Id
+                              }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                / /g,
+                                "-"
+                              )}-${t.ParentScaleName.toLowerCase()
+                                .replace(/ /g, "-")
+                                .replace("<span>", "")
+                                .replace("</span>", "")
+                                .replace(
+                                  /\(|\)/g,
+                                  ""
+                                )}-inconsistent-consistent`}
+                              type="text"
+                              component="input"
+                            />
+                            <span>
+                              (inconsistent/consistent) performance on the
+                              subtests.
                             </span>
-                            <span> performance on the subtests.</span>
                           </p>
                           <p>
                             <span>(Client) received a Composite score of </span>
@@ -373,7 +357,7 @@ const Test = ({ testFromState, ...props }) => {
                         <div
                           className={
                             t.SubTests.length > 0 &&
-                            t.SubTests.Description == null
+                            t.SubTests[i].Description == null
                               ? "table__row__cell--wide"
                               : null
                           }
