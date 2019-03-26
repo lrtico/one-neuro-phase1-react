@@ -14,12 +14,12 @@ const replaceField = (condition, idx, a) => {
   //our own string including Field components and return it to the UI
   let str = condition;
   let i = idx;
-  let abbr = a;
-  console.log(`
-    *** The replaceField() string passed in is ${str}.
-    The id of the clicked test condition is ${i}.
-    The Abbreviation is ${abbr}.
-  `);
+  //let abbr = a;
+  // console.log(`
+  //   *** The replaceField() string passed in is ${str}.
+  //   The id of the clicked test condition is ${i}.
+  //   The Abbreviation is ${abbr}.
+  // `);
 
   //Strip out the first part of the condition string to capture the name of the test
   let output = str.substring(0, str.indexOf("<"));

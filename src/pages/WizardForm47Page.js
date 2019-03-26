@@ -280,15 +280,27 @@ class WizardForm47Page extends Component {
     console.log(`Data passed to the copy forward function = `, data);
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    Object.entries(this.props).forEach(
+      ([key, val]) =>
+        prevProps[key] !== val && console.log(`Prop '${key}' changed`)
+    );
+    Object.entries(this.state).forEach(
+      ([key, val]) =>
+        prevState[key] !== val && console.log(`State '${key}' changed`)
+    );
+  }
+
   componentDidMount() {
     //Load the domains into state
+    console.log("componentDidMount firing");
     const url = "http://oneneuro.azurewebsites.net/api/test/domains/all";
     fetch(url)
       .then(response => {
         return response.json();
       })
       .then(data => {
-        this.setState({ domains: data, domainsLoaded: true });
+        this.setState({ domains: data });
         //console.log("Domain data from API, ", data);
       })
       .catch(error => console.log("Domain API error, ", error));
@@ -301,13 +313,24 @@ class WizardForm47Page extends Component {
         return response.json();
       })
       .then(d => {
-        this.setState({ tests: d });
+        this.setState({ tests: d, domainsLoaded: true });
         //console.log("Test data from API, ", allData);
       })
       .catch(error => console.log("Getting all data error, ", error));
 
     console.log("Selected tests from the global store are: ", this.props.tests);
     this.setState({ testsSelected: this.props.tests });
+  }
+
+  shouldComponentUpdate(nextState) {
+    if (
+      this.state.tests !== nextState.tests ||
+      this.state.domainsLoaded !== nextState.domainsLoaded ||
+      this.state.domains !== nextState.domains
+    ) {
+      return true;
+    }
+    return false;
   }
 
   render() {
@@ -324,7 +347,7 @@ class WizardForm47Page extends Component {
     const { domains } = this.state;
     // console.log("State after render(), ", this.state);
     // console.log("Page 47's props from the store ", this.props);
-    console.log("Page 47's tests selected ", tests);
+    console.log("Page 47 render just fired");
 
     return (
       <form className="col" onSubmit={handleSubmit}>
