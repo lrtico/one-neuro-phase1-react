@@ -10,10 +10,10 @@ import Recommendations from "../components/Recommendations/Recommendations";
 
 class WizardForm49Page extends Component {
   onCheckboxClick = input => {
-    console.log(
-      "Recommendation's passed argument from onCheckboxClick ",
-      input
-    );
+    // console.log(
+    //   "Recommendation's passed argument from onCheckboxClick ",
+    //   input
+    // );
     this.props.change(input.name, !input.checked);
   };
   render() {
@@ -75,6 +75,20 @@ class WizardForm49Page extends Component {
               cardKey: "G",
               cardLabel: "Neurocognitive Disorder",
               tabOrder: "7",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-visual-processing-children-adults",
+              cardKey: "H",
+              cardLabel: "Visual Processing Weakness for Children & Adults",
+              tabOrder: "8",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-visual-processing-children",
+              cardKey: "I",
+              cardLabel: "Visual Processing Weakness for Children",
+              tabOrder: "9",
               recommendation: true
             }
           ]}

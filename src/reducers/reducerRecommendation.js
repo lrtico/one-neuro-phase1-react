@@ -682,6 +682,114 @@ let recommendations = [
         subtext: []
       }
     ]
+  },
+  {
+    id: 8,
+    name: "Visual Processing Weakness for Children & Adults",
+    selected: false,
+    recommendation: [
+      {
+        id: "visual-processing-children-adults1",
+        text:
+          "Results from the assessment report should be shared with others invested in the client’s treatment and wellbeing (e.g. physicians, caregivers, educators, therapists, etc.) to encourage a multi-disciplinary, oriented treatment approach.",
+        subtext: []
+      },
+      {
+        id: "visual-processing-children-adults2",
+        text:
+          "Given that the client’s adaptive functioning is impacted by a visual processing weakness, they may benefit from working with a psychotherapist to process frustration and an impacted self-esteem around this. The client would benefit from meeting with a therapist to address these issues on a weekly basis for a minimum of 45 minutes. Another area that may be addressed within the client’s work with a therapist building upon frustration tolerance around the client’s current areas of difficulty.",
+        subtext: []
+      },
+      {
+        id: "visual-processing-children-adults3",
+        text:
+          "The client would benefit from an evaluation with an optometrist, ophthalmologist, or behavioral optometrist to gain diagnostic clarification around ocular functioning surrounding or informing the client’s apparent visual processing weakness. Additionally, the client would benefit from engaging in recommended interventions put forward by them.",
+        subtext: []
+      },
+      {
+        id: "visual-processing-children-adults4",
+        text:
+          "The client may benefit from an evaluation with an Occupational Therapist around possible deficits in visual-motor tasks given their visual processing weaknesses. Furthermore they may benefit from suggested appropriate sensory-related recommendations put forward.",
+        subtext: []
+      },
+      {
+        id: "visual-processing-children-adults5",
+        text:
+          "The client may also benefit from consulting with professionals at Irlen testing centers to address a potential visual processing deficit. More info regarding the services offered at these centers can be found at: https://irlen.com/find-an-irlen-test-center/.",
+        subtext: []
+      },
+      {
+        id: "visual-processing-children-adults6",
+        text:
+          "Re-assessment and monitoring the client’s progress around their challenges in visual processing weaknesses is recommended to re-evaluate current strengths and weakness, and to provide updated appropriate treatment intervention recommendations.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 9,
+    name: "Visual Processing Weakness for Children",
+    selected: false,
+    recommendation: [
+      {
+        id: "visual-processing-children1",
+        text:
+          "The client’s caregivers can choose to convene a meeting with the Committee on Special Education (CSE) to consider establishing an Individualized Education Program (IEP) under the classification of Specific Learning Disability (SLD), given the client’s symptoms are significantly impacting their access to the curriculum and educational performance.",
+        subtext: [
+          {
+            id: "visual-processing-children2-1",
+            text:
+              "Given the client’s overall cognitive abilities, they should be placed in a school setting with students of the same or higher intellectual potential."
+          },
+          {
+            id: "visual-processing-children2-2",
+            text:
+              "Consider seating the client at the front of the classroom, close to the teacher."
+          },
+          {
+            id: "visual-processing-children2-3",
+            text:
+              "The client should receive extra time when completing reading-based tasks."
+          },
+          {
+            id: "visual-processing-children2-4",
+            text:
+              "The client may benefit from access to multi-sensory learning materials, which may allow them to take in information in various ways. These may include audio-books."
+          },
+          {
+            id: "visual-processing-children2-5",
+            text:
+              "Consider providing the client with jobs or classroom chores to foster their sense of inclusion, responsibility, and engagement in the class despite their academic challenges."
+          },
+          {
+            id: "visual-processing-children2-6",
+            text:
+              "The client would benefit from receiving instructional support within small groups and a low student-to-teacher ratio specifically around writing tasks."
+          },
+          {
+            id: "visual-processing-children2-7",
+            text:
+              "It is suggested that the client be allowed to re-read and refer back to the text."
+          },
+          {
+            id: "visual-processing-children2-8",
+            text:
+              "The client may benefit from strategies derived from approaches such as Orton-Gillingham or Lindamood Bell to enhance any impairment in reading. This multisensory remediation approach to improve reading decoding may assist the client if faced with difficulties in processing written information."
+          },
+          {
+            id: "visual-processing-children2-9",
+            text:
+              "If recommended the use of colored inlay sheets to assist mitigate visual processing deficits by Irlen testing centers, the client should be able to utilize throughout academic tasks in their learning environment."
+          }
+        ]
+      },
+      {
+        id: "visual-processing-children2",
+        text:
+          "The client’s caregivers should play an active role in understanding the client’s visual processing weaknesses and associated limitations given their current difficulties in writing. In turn, the client’s caregivers should maintain realistic expectations and ensure not to punish or reprimand the client for failure to complete associated tasks.",
+        subtext: []
+      }
+    ]
   }
 ];
 
