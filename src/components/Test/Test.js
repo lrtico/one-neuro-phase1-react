@@ -297,6 +297,20 @@ const Test = ({ testFromState, ...props }) => {
                               <span className="has-toggle-child--label">
                                 consistent
                               </span>
+                              <Field
+                                name={`${
+                                  t.Id
+                                }-${testFromState[0].Abbreviation.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}-${t.ParentScaleName.toLowerCase()
+                                  .replace(/ /g, "-")
+                                  .replace("<span>", "")
+                                  .replace("</span>", "")
+                                  .replace(/\(|\)/g, "")}-freehand-performance`}
+                                type="text"
+                                component="input"
+                              />
                             </span>
                             <span> performance on the subtests.</span>
                           </p>
