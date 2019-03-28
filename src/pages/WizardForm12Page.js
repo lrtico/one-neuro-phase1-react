@@ -56,38 +56,43 @@ const WizardForm12Page = props => {
           cardInfo={[
             {
               cardName: "cr-residence-length",
-              cardLabel: "1",
+              cardLabel: "Less than 1",
               tabOrder: "5"
             },
             {
               cardName: "cr-residence-length",
-              cardLabel: "2",
+              cardLabel: "1",
               tabOrder: "6"
             },
             {
               cardName: "cr-residence-length",
-              cardLabel: "3",
+              cardLabel: "2",
               tabOrder: "7"
             },
             {
               cardName: "cr-residence-length",
-              cardLabel: "4",
+              cardLabel: "3",
               tabOrder: "8"
             },
             {
               cardName: "cr-residence-length",
-              cardLabel: "5",
+              cardLabel: "4",
               tabOrder: "9"
             },
             {
               cardName: "cr-residence-length",
-              cardLabel: "6",
+              cardLabel: "5",
               tabOrder: "10"
             },
             {
               cardName: "cr-residence-length",
+              cardLabel: "6",
+              tabOrder: "11"
+            },
+            {
+              cardName: "cr-residence-length",
               cardLabel: "7+",
-              tabOrder: "111"
+              tabOrder: "12"
             }
           ]}
           label="How many"
