@@ -96,7 +96,7 @@ class WizardForm02Page extends Component {
           <Field
             alt="Cake"
             component={TextQuestion}
-            label="What's their"
+            label="What is their"
             labelBold="date of birth"
             name="di-dateofbirth"
             src="img/icons-birthday-cake.svg"
