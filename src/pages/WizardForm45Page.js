@@ -22,7 +22,7 @@ const WizardForm45Page = props => {
       <Field
         alt="Face"
         component={TextQuestion}
-        label="What's the patient's"
+        label="What is the patient's"
         labelBold="ethnicity"
         name="rda-ethnicity"
         src="img/icons-happy-face-name.svg"
@@ -34,7 +34,7 @@ const WizardForm45Page = props => {
       <Field
         alt="Face"
         component={TextQuestion}
-        label="What's the patient's"
+        label="What is the patient's"
         labelBold="race"
         name="rda-race"
         src="img/icons-happy-face-name.svg"

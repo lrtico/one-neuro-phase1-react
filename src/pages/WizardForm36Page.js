@@ -285,7 +285,7 @@ const WizardForm36Page = props => {
       <Field
         alt="Health"
         component={TextQuestion}
-        label="What's the father's"
+        label="What is the father's"
         labelBold="present"
         labelLast="health"
         name="fh-fathers-health"
@@ -298,7 +298,7 @@ const WizardForm36Page = props => {
       <Field
         alt="Health"
         component={TextQuestion}
-        label="What's the mother's"
+        label="What is the mother's"
         labelBold="present"
         labelLast="health"
         name="fh-mothers-health"

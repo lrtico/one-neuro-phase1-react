@@ -194,7 +194,7 @@ class WizardForm07Page extends Component {
           <Field
             alt="Person"
             component={TextQuestion}
-            label="What's the father's"
+            label="What is the father's"
             labelBold="name"
             name="bh-father-name"
             src="img/icons-happy-face-name.svg"
@@ -230,7 +230,7 @@ class WizardForm07Page extends Component {
           <Field
             alt="House"
             component={TextQuestion}
-            label="What's his"
+            label="What is his"
             labelBold="address"
             name="bh-father-address"
             src="img/icons-house.svg"
@@ -241,7 +241,7 @@ class WizardForm07Page extends Component {
           />
           <Field
             component={TextQuestion}
-            label="What's his"
+            label="What is his"
             labelBold="age"
             name="bh-father-age"
             tabOrder="5"
@@ -301,7 +301,7 @@ class WizardForm07Page extends Component {
           <Field
             alt="Man"
             component={TextQuestion}
-            label="What's the father's"
+            label="What is the father's"
             labelBold="occupation"
             name="bh-father-occupation"
             src="img/icons-man-generic.svg"
@@ -312,7 +312,7 @@ class WizardForm07Page extends Component {
           />
           <Field
             component={TextQuestion}
-            label="Who's his"
+            label="Who is his"
             labelBold="employer"
             name="bh-father-employer"
             alt="Office"
@@ -339,7 +339,7 @@ class WizardForm07Page extends Component {
           />
           <Field
             component={TextQuestion}
-            label="What's the"
+            label="What is the"
             labelBold="highest grade"
             labelLast="achieved"
             src="img/icons-graduation-cap.svg"
@@ -354,7 +354,7 @@ class WizardForm07Page extends Component {
         <div className="flex">
           <Field
             component={TextQuestion}
-            label="What's their"
+            label="What is their"
             labelBold="primary language"
             src="img/icons-speech-bubble.svg"
             alt="Speech bubble"
@@ -366,7 +366,7 @@ class WizardForm07Page extends Component {
           />
           <Field
             component={TextQuestion}
-            label="What's their"
+            label="What is their"
             labelBold="secondary language"
             labelLast="achieved"
             src="img/icons-speech-bubble.svg"

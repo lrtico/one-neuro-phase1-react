@@ -178,7 +178,7 @@ class WizardForm08Page extends Component {
           />
           <Field
             component={TextQuestion}
-            label="What's their"
+            label="What is their"
             labelBold="age"
             name="bh-other-parent-stepparent-age"
             tabOrder="4"
@@ -228,7 +228,7 @@ class WizardForm08Page extends Component {
                 tabOrder: "10"
               }
             ]}
-            label="What's the"
+            label="What is the"
             labelBold="relationship"
             labelLast="to the child"
             name="bh-other-parent-stepparent-relationship"
@@ -296,7 +296,7 @@ class WizardForm08Page extends Component {
         <Field
           alt="House"
           component={TextQuestion}
-          label="What's their"
+          label="What is their"
           labelBold="address"
           name="bh-other-parent-stepparent-address"
           src="img/icons-house.svg"

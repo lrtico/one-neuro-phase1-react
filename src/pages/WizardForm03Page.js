@@ -17,7 +17,7 @@ const WizardForm03Page = props => {
         <Field
           alt="Person"
           component={TextQuestion}
-          label="What's the person's"
+          label="What is the person's"
           labelBold="name"
           name="paq-name"
           src="img/icons-happy-face-name.svg"
@@ -28,7 +28,7 @@ const WizardForm03Page = props => {
         <Field
           alt="Building"
           component={TextQuestion}
-          label="What's the person's"
+          label="What is the person's"
           labelBold="address"
           name="paq-address"
           src="img/icons-house.svg"
@@ -78,7 +78,7 @@ const WizardForm03Page = props => {
               tabOrder: "6"
             }
           ]}
-          label="What's the"
+          label="What is the"
           labelBold="relationship"
           labelLast="to the child"
           name="paq-relationship"

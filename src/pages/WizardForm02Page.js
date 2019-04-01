@@ -71,7 +71,7 @@ class WizardForm02Page extends Component {
           <Field
             alt="Person"
             component={TextQuestion}
-            label="What's the patient's"
+            label="What is the patient's"
             labelBold="name"
             name="di-name"
             src="img/icons-happy-face-name.svg"
@@ -107,7 +107,7 @@ class WizardForm02Page extends Component {
           />
           <Field
             component={TextQuestionAutoCalculate}
-            label="What's their"
+            label="What is their"
             labelBold="age"
             name="di-age"
             tabOrder="4"
@@ -166,7 +166,7 @@ class WizardForm02Page extends Component {
                   tabOrder: "10"
                 }
               ]}
-              label="What's the"
+              label="What is the"
               labelBold="gender"
               labelLast="of this child"
               classes="question question--thumb"
@@ -206,7 +206,7 @@ class WizardForm02Page extends Component {
             <Field
               alt="Person"
               component={TextQuestion}
-              label="What's the"
+              label="What is the"
               labelBold="name"
               labelLast="of the evaluator"
               name="di-evaluator"
