@@ -90,6 +90,38 @@ class WizardForm49Page extends Component {
               cardLabel: "Visual Processing Weakness for Children",
               tabOrder: "9",
               recommendation: true
+            },
+            {
+              cardName:
+                "recommendation-learning-disability-writing-children-adults",
+              cardKey: "J",
+              cardLabel:
+                "Learning Disability in Writing Diagnosis for Children & Adults",
+              tabOrder: "10",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-learning-disability-writing-children",
+              cardKey: "K",
+              cardLabel:
+                "Learning Disability in Writing Diagnosis for Children",
+              tabOrder: "11",
+              recommendation: true
+            },
+            {
+              cardName:
+                "recommendation-auditory-processing-weakness-children-adults",
+              cardKey: "L",
+              cardLabel: "Auditory Processing Weakness for Children & Adults",
+              tabOrder: "12",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-auditory-processing-weakness-children",
+              cardKey: "M",
+              cardLabel: "Auditory Processing Weakness for Children",
+              tabOrder: "13",
+              recommendation: true
             }
           ]}
           label="Would you like to use recommendation"

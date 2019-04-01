@@ -71,7 +71,9 @@ class Recommendations extends Component {
                   <Field
                     name={`${r.name
                       .toLowerCase()
-                      .replace(/ /g, "-")}-recommendations-freehand`}
+                      .replace(/ /g, "-")
+                      .replace("&", "")
+                      .replace("--", "-")}-recommendations-freehand`}
                     component="textarea"
                   />
                 </div>

@@ -790,6 +790,257 @@ let recommendations = [
         subtext: []
       }
     ]
+  },
+  {
+    id: 10,
+    name: "Learning Disability in Writing Diagnosis for Children & Adults",
+    selected: false,
+    recommendation: [
+      {
+        id: "learning-disability-writing-children-adults1",
+        text:
+          "Results from the assessment report should be shared with others invested in the client’s treatment and wellbeing (e.g. physicians, caregivers, educators, therapists, etc.) to encourage a multi-disciplinary, oriented treatment approach.",
+        subtext: []
+      },
+      {
+        id: "learning-disability-writing-children-adults2",
+        text:
+          "Given that the client’s adaptive functioning is negatively impacted by specific challenges in writing, they may benefit from working with a psychotherapist to process frustration and an impacted self-esteem around this. The client would benefit from meeting with a therapist to address these issues on a weekly basis for a minimum of 45 minutes. Another area that may be addressed within the client’s work with a therapist are building upon frustration tolerance around the client’s current areas of difficulty.",
+        subtext: []
+      },
+      {
+        id: "learning-disability-writing-children-adults3",
+        text:
+          "The client would benefit from an evaluation with an optometrist, ophthalmologist, or behavioral optometrist to rule out any visual deficits, which may be negatively impacting the client’s writing abilities. Furthermore, the client would benefit from engaging in recommended interventions put forward by them.",
+        subtext: []
+      },
+      {
+        id: "learning-disability-writing-children-adults4",
+        text:
+          "The client may benefit from an assessment with an Occupational Therapist to consider any sensory implications that may be impacting their ongoing writing difficulties as well as potential sensory-related interventions that may further assist them in this domain.",
+        subtext: []
+      },
+      {
+        id: "learning-disability-writing-children-adults5",
+        text:
+          "Re-assessment and monitoring the client’s progress around their challenges in writing is recommended to re-evaluate current strengths and weakness, and to provide updated appropriate treatment intervention recommendations.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 11,
+    name: "Learning Disability in Writing Diagnosis for Children",
+    selected: false,
+    recommendation: [
+      {
+        id: "learning-disability-writing-children1",
+        text:
+          "The client’s caregivers can choose to convene a meeting with the Committee on Special Education (CSE) to consider establishing an Individualized Education Program (IEP) under the classification of Specific Learning Disability (SLD), given the client’s symptoms are significantly impacting their access to the curriculum and educational performance.",
+        subtext: [
+          {
+            id: "learning-disability-writing-children1-1",
+            text:
+              "Given the client’s overall cognitive abilities, they should be placed in a school setting with students of the same or higher intellectual potential."
+          },
+          {
+            id: "learning-disability-writing-children1-2",
+            text:
+              "Consider seating the client at the front of the classroom, close to the teacher."
+          },
+          {
+            id: "learning-disability-writing-children1-3",
+            text:
+              "The client should receive extra time when completing writing-based tasks."
+          },
+          {
+            id: "learning-disability-writing-children1-4",
+            text:
+              "The client should have access to text-to-speech technology such as Kurzweil 3000."
+          },
+          {
+            id: "learning-disability-writing-children1-5",
+            text:
+              "The client would benefit from engaging in evidence-based strategies that can be implemented to address the various cognitive processes that can cause writing difficulties. Given that the nature of writing difficulties varies from case to case (sensory/kinesthetic, sensory/motor integration, or pure motor problem), targeted evidence-based interventions should address individual child needs. These evidence-based strategies include:<ul><li>Strategies for improving spelling accuracy<ul><li>Utilizing graph paper to assist motor coordination and visual-motor integration of handwriting (grades 1-5, or older children with spatial handwriting disability)</li><li>Cover-Copy-Compare: increases spelling proficiency through training and repetition (grades 2+)</li><li>Stay-Trace-Write Model: Uses oral language to assist with the learning of words with motor scripts</li><li>Self-Correction with Verbal Cues: Uses verbal self-talk to enhance written spelling accuracy (grades 2+)</li></ul><li>Strategies for Promoting Written Expression</li><ul><li>TOWER with COPS: Planning, organization, monitoring, and revision of work using TOWER (Thing, Organize, Write, Edit, Rewrite) approach when starting a writing task and COPS (Capitalization, Overall Appearance, Punctuation, Spelling) upon concluding writing task (grade 1+)</li><li>Sentence Combining: Using simple, active, affirmative declarative sentences with only one verb to develop more diverse and complex sentences using direct instruction (grades 2+)</li><li>Teacher-Directed Strategy Instruction: Teacher-directed strategy instruction of goal-setting, brainstorming, and organizing to assist in the writing process (grade 4)</li><li>Integrated Writing Instruction: Authentic sentences about life experiences to increase student engagement and motivation in writing (grade 6+)</li><li>PLEASE: A metacognitive strategy for idea generation, organization, composition and editing within writing (grade 6+)</li><li>PLAN and WRITE: Metacognitive strategy that helps student plan/organize their ideas. Helps students refer back to the goal of the assignment to aid in the writing process (grade 6-12)</li></ul></li></ul>"
+          },
+          {
+            id: "learning-disability-writing-children1-6",
+            text:
+              "Consider providing the client with jobs or classroom chores to foster their sense of inclusion, responsibility, and engagement in the class despite their academic challenges."
+          },
+          {
+            id: "learning-disability-writing-children1-7",
+            text:
+              "The client would benefit from receiving instructional support within small groups and a low student-to-teacher ratio specifically around writing tasks."
+          }
+        ]
+      },
+      {
+        id: "learning-disability-writing-children2",
+        text:
+          "The client’s caregivers should play an active role in understanding the client’s challenges and limitations given their current difficulties in writing. In turn, the client’s caregivers should maintain realistic expectations and ensure not to punish or reprimand the client for failure to complete tasks associated with high written demand.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 12,
+    name: "Auditory Processing Weakness for Children & Adults",
+    selected: false,
+    recommendation: [
+      {
+        id: "auditory-processing-weakness-children-adults1",
+        text:
+          "Results from the assessment report should be shared with others invested in the client’s treatment and wellbeing (e.g. physicians, caregivers, educators, therapists, etc.) to encourage a multi-disciplinary, oriented treatment approach.",
+        subtext: []
+      },
+      {
+        id: "auditory-processing-weakness-children-adults2",
+        text:
+          "Given that the client’s adaptive functioning is impacted by an auditory processing weakness, they may benefit from working with a psychotherapist to process frustration and an impacted self-esteem around this. The client would benefit from meeting with a therapist to address these issues on a weekly basis for a minimum of 45 minutes. Another area that may be addressed within the client’s work with a therapist building upon frustration tolerance around the client’s current areas of difficulty.",
+        subtext: []
+      },
+      {
+        id: "auditory-processing-weakness-children-adults3",
+        text:
+          "Psychotherapeutic / behavioral interventions aimed at improving the client’s assertiveness around their auditory processing limitations is recommended. These strategies may include the following:",
+        subtext: [
+          {
+            id: "auditory-processing-weakness-children-adults3-1",
+            text:
+              "Paraphrasing heard information during conversations to allow for better auditory processing."
+          },
+          {
+            id: "auditory-processing-weakness-children-adults3-2",
+            text: "Requesting others to repeat their statements."
+          },
+          {
+            id: "auditory-processing-weakness-children-adults3-3",
+            text:
+              "Asking for background noise, such as music, to be turned off or lowered."
+          }
+        ]
+      },
+      {
+        id: "auditory-processing-weakness-children-adults4",
+        text:
+          "A consultation with a speech and language therapist is advised. Specifically, an evaluation with one such provider should focus on levels of phoneme perception and ability to appropriately use language in social settings. Following one such evaluation, appropriate interventions around improving active listening skills, phoneme perception, and adaptive communication, if any, should be recommended.",
+        subtext: []
+      },
+      {
+        id: "auditory-processing-weakness-children-adults5",
+        text:
+          "The client may benefit from participating in a social skills group that focuses on improving verbal and non-verbal communication strategies. Within this context, the client may learn various ways to adaptively interact with others given challenges in auditory processing.",
+        subtext: []
+      },
+      {
+        id: "auditory-processing-weakness-children-adults6",
+        text:
+          "The client is strongly advised to undergo an evaluation with an audiologist. Although auditory processing weaknesses are identified within the current testing data, an audiologist can only make the diagnosis of an auditory processing disorder. The client would also benefit from this evaluation to rule our organic auditory limitations and determine the appropriateness of supportive interventions or assistive devices.",
+        subtext: []
+      },
+      {
+        id: "auditory-processing-weakness-children-adults7",
+        text:
+          "Re-assessment and monitoring the client’s progress around their challenges in visual processing weaknesses is recommended to re-evaluate current strengths and weakness, and to provide updated appropriate treatment intervention recommendations.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 13,
+    name: "Auditory Processing Weakness for Children",
+    selected: false,
+    recommendation: [
+      {
+        id: "auditory-processing-weakness-children1",
+        text:
+          "The client’s caregivers can choose to convene a meeting with the Committee on Special Education (CSE) to consider establishing an Individualized Education Program (IEP) under the classification of Specific Learning Disability (SLD), given the client’s symptoms are significantly impacting their access to the curriculum and educational performance.",
+        subtext: [
+          {
+            id: "auditory-processing-weakness-children3-1",
+            text:
+              "Given the client’s overall cognitive abilities, they should be placed in a school setting with students of the same or higher intellectual potential."
+          },
+          {
+            id: "auditory-processing-weakness-children3-2",
+            text:
+              "Consider seating the client at the front of the classroom, close to the teacher."
+          },
+          {
+            id: "auditory-processing-weakness-children3-3",
+            text:
+              "The client should receive extra time when completing reading-based tasks."
+          },
+          {
+            id: "auditory-processing-weakness-children3-4",
+            text:
+              "The client may benefit from access to multi-sensory learning materials, which may allow them to take in information in various ways. These may include audio-books."
+          },
+          {
+            id: "auditory-processing-weakness-children3-5",
+            text:
+              "Consider providing the client with jobs or classroom chores to foster their sense of inclusion, responsibility, and engagement in the class despite their academic challenges."
+          },
+          {
+            id: "auditory-processing-weakness-children3-6",
+            text:
+              "The client would benefit from receiving instructional support within small groups and a low student-to-teacher ratio specifically around writing tasks."
+          },
+          {
+            id: "auditory-processing-weakness-children3-7",
+            text:
+              "It is suggested that the client be allowed to re-read and refer back to the text."
+          },
+          {
+            id: "auditory-processing-weakness-children3-8",
+            text:
+              "The client would benefit from academic instruction within an environment free from extraneous noises. This may entail ensuring other student’s making less noise, or other environmental modifications."
+          },
+          {
+            id: "auditory-processing-weakness-children3-9",
+            text:
+              "Instructors should aim to rephrase and repeat task instructions to the client when needed. Additionally, they should request for the client to repeat back task instructions either silently or out loud to ensure appropriate engagement despite sensory processing weaknesses."
+          },
+          {
+            id: "auditory-processing-weakness-children3-10",
+            text:
+              "Instructors should accommodate the client’s slower response time to auditory stimuli to allow them adequate time to process this information."
+          },
+          {
+            id: "auditory-processing-weakness-children3-11",
+            text:
+              "Providing the client with a routine and predictable structure within the academic setting will allow the client to better engage with the curriculum."
+          },
+          {
+            id: "auditory-processing-weakness-children3-12",
+            text:
+              "Instructors should proactively and frequently summarize and emphasize key information. To do so, utilizing a “chunking” strategy would be beneficial."
+          },
+          {
+            id: "auditory-processing-weakness-children3-13",
+            text:
+              "The client should have access to visual cues on tasks if and when appropriate."
+          },
+          {
+            id: "auditory-processing-weakness-children3-14",
+            text:
+              "When presented with homework tasks, the client should receive written instructions."
+          },
+          {
+            id: "auditory-processing-weakness-children3-15",
+            text:
+              "The client’s academic instructors should be receptive to the assertive requests put forward by the student so as to ensure an environment to best support their ability to adequately process auditory information."
+          }
+        ]
+      },
+      {
+        id: "auditory-processing-weakness-children2",
+        text:
+          "The client’s caregivers should play an active role in understanding the client’s auditory processing weaknesses and associated limitations given their current difficulties in writing. In turn, the client’s caregivers should maintain realistic expectations and ensure not to punish or reprimand the client for failure to complete associated tasks.",
+        subtext: []
+      }
+    ]
   }
 ];
 
