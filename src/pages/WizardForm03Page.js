@@ -74,13 +74,19 @@ const WizardForm03Page = props => {
             {
               cardName: "paq-guardian",
               cardKey: "F",
+              cardLabel: "Self",
+              tabOrder: "7"
+            },
+            {
+              cardName: "paq-guardian",
+              cardKey: "G",
               cardLabel: "Other",
-              tabOrder: "6"
+              tabOrder: "8"
             }
           ]}
           label="What is the"
           labelBold="relationship"
-          labelLast="to the child"
+          labelLast="to the client"
           name="paq-relationship"
           classes="question question--thumbless"
         />
