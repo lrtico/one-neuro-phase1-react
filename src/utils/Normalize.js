@@ -42,3 +42,12 @@ export const onlyNumsAndRangeCharacters = value => {
   const onlyNumsAndRangeCharacters = value.replace(/[^\d,:,<,>]/g, "");
   return onlyNumsAndRangeCharacters;
 };
+
+export const normalizeNumber = value => {
+  if (!value) {
+    return value;
+  }
+
+  const convertToNum = Number(value);
+  return convertToNum;
+};

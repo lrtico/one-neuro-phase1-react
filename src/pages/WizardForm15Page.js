@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Field, FieldArray, reduxForm, formValueSelector } from "redux-form";
 import { connect } from "react-redux";
+import { normalizeNumber } from "../utils/Normalize";
 import validate from "../validate";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubHeader from "../components/SectionSubHeader";
@@ -17,12 +18,12 @@ class WizardForm15Page extends Component {
       fatherAge = this.props.fatherAge;
     console.log(`Mother's age = ${motherAge}, father's age = ${fatherAge}`);
     if (motherAge !== undefined && patientAge !== undefined) {
-      let motherAgeAtBirth = motherAge - patientAge;
+      let motherAgeAtBirth = Number(motherAge - patientAge);
       console.log(`Mother's age at birth = ${motherAgeAtBirth}`);
       this.props.change("mdh-mothers-age", motherAgeAtBirth);
     }
     if (fatherAge !== undefined && patientAge !== undefined) {
-      let fatherAgeAtBirth = fatherAge - patientAge;
+      let fatherAgeAtBirth = Number(fatherAge - patientAge);
       console.log(`Father's age at birth = ${fatherAgeAtBirth}`);
       this.props.change("mdh-fathers-age", fatherAgeAtBirth);
     }
@@ -61,6 +62,7 @@ class WizardForm15Page extends Component {
             type="input"
             classes="question grid__half"
             disabled={disabled}
+            normalize={normalizeNumber}
           />
           <Field
             alt="Speech bubble"
@@ -71,6 +73,7 @@ class WizardForm15Page extends Component {
             type="input"
             classes="question grid__half"
             disabled={disabled}
+            normalize={normalizeNumber}
           />
         </div>
         <Field
