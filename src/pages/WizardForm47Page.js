@@ -155,28 +155,68 @@ class WizardForm47Page extends Component {
     let notBlank = event.target.value !== "";
     console.log("Subtest input wasn't blank: ", notBlank);
 
+    //Check to see if any sibling subtests have a value
+    let sibsNotBlank = event => {
+      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        "input"
+      );
+      console.log("all sibs, ", sibsArr);
+      let sibsTest;
+      // while (sib) {
+      //   if (sib.nodeType === 1 && sib !== event.target) {
+      //     sibsArr.push(sib);
+      //   }
+      //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
+      // }
+      for (let item of sibsArr) {
+        if (item.value !== "") {
+          sibsTest = true;
+          return sibsTest;
+        } else {
+          sibsTest = false;
+          return sibsTest;
+        }
+      }
+    };
+    console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
+
     if (notBlank) {
       console.log("payload sent to add subtest appendix reducer: ", data);
       store.dispatch({
         type: "ADD_APPENDIX_SUBTEST",
         payload: data
       });
-      //Automatically add a domain to the appendix and visually check the radio button
+      //Automatically change the domain's field property and visually check the radio button
       console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
         .replace(/ /g, "-")}`;
       console.log(`Domain name = ${domainName}`);
       this.props.change(domainName, true);
+    } else if (sibsNotBlank(event)) {
+      //   const domainName = `${parentScaleTitleId}-${parentScaleName
+      //     .toLowerCase()
+      //     .replace(/ /g, "-")}`;
+      //   console.log(`Domain name = ${domainName}`);
+      //   this.props.change(domainName, true);
+      console.log(
+        "Sibs not blank but payload sent to remove appendix reducer: ",
+        data.SubTests[0]
+      );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
     } else {
+      //Automatically change the domain's field property and visually check the radio button
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
         .replace(/ /g, "-")}`;
+      this.props.change(domainName, false);
       console.log(
         "payload sent to remove appendix reducer: ",
         data.SubTests[0]
       );
-      this.props.change(domainName, false);
       store.dispatch({
         type: "REMOVE_APPENDIX_SUBTEST",
         payload: data
