@@ -95,8 +95,8 @@ const Test = ({ testFromState, ...props }) => {
               style={{ marginBottom: "9px" }}
               dangerouslySetInnerHTML={createMarkup(t.Descriptions)}
             />
-            {t.TestIndexes.map((t, i) => (
-              <div key={i}>
+            {t.TestIndexes.map(t => (
+              <div key={t.Id}>
                 {t.IndexName === "General Ability Index" ? (
                   <div className="test__list">
                     <SectionSubHeader subHeader={t.IndexName} />
@@ -111,17 +111,17 @@ const Test = ({ testFromState, ...props }) => {
                         <span>
                           Client name's GAI places him/her in the{" "}
                           <Field
-                            name={`${
-                              t.Id
-                            }-${testFromState[0].Abbreviation.toLowerCase()}-gai-range`}
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase()}-gai-range`}
                             type="text"
                             component="input"
                           />
                           range and at the{" "}
                           <Field
-                            name={`${
-                              t.Id
-                            }-${testFromState[0].Abbreviation.toLowerCase()}-gai-percentile`}
+                            name={`${t.Id}-${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase()}-gai-percentile`}
                             type="text"
                             component="input"
                           />
@@ -137,50 +137,50 @@ const Test = ({ testFromState, ...props }) => {
                       CLIENT NAME's GCA score on the DAS-II places him/her in
                       the{" "}
                       <Field
-                        name={`${
-                          t.Id
-                        }-${testFromState[0].Abbreviation.toLowerCase()}-gca-range`}
+                        name={`${t.Id}-${testFromState[
+                          i
+                        ].Abbreviation.toLowerCase()}-gca-range`}
                         type="text"
                         component="input"
                       />{" "}
                       range DAS-II GCA score of
                       <Field
-                        name={`${
-                          t.Id
-                        }-${testFromState[0].Abbreviation.toLowerCase()}-gca-score`}
+                        name={`${t.Id}-${testFromState[
+                          i
+                        ].Abbreviation.toLowerCase()}-gca-score`}
                         type="text"
                         component="input"
                       />
                       {", "}
                       <Field
-                        name={`${
-                          t.Id
-                        }-${testFromState[0].Abbreviation.toLowerCase()}-gca-percentile`}
+                        name={`${t.Id}-${testFromState[
+                          i
+                        ].Abbreviation.toLowerCase()}-gca-percentile`}
                         type="text"
                         component="input"
                       />{" "}
                       percentile while his/her Special Nonverbal Composite SNC
                       score placed in the{" "}
                       <Field
-                        name={`${
-                          t.Id
-                        }-${testFromState[0].Abbreviation.toLowerCase()}-snc-range`}
+                        name={`${t.Id}-${testFromState[
+                          i
+                        ].Abbreviation.toLowerCase()}-snc-range`}
                         type="text"
                         component="input"
                       />{" "}
                       range DAS-II SNC score of{" "}
                       <Field
-                        name={`${
-                          t.Id
-                        }-${testFromState[0].Abbreviation.toLowerCase()}-snc-score`}
+                        name={`${t.Id}-${testFromState[
+                          i
+                        ].Abbreviation.toLowerCase()}-snc-score`}
                         type="text"
                         component="input"
                       />
                       {", "}
                       <Field
-                        name={`${
-                          t.Id
-                        }-${testFromState[0].Abbreviation.toLowerCase()}-snc-percentile`}
+                        name={`${t.Id}-${testFromState[
+                          i
+                        ].Abbreviation.toLowerCase()}-snc-percentile`}
                         type="text"
                         component="input"
                       />{" "}
@@ -195,7 +195,7 @@ const Test = ({ testFromState, ...props }) => {
                 )}
 
                 {t.IndexConditions.length > 0
-                  ? t.IndexConditions.map((t, i) => (
+                  ? t.IndexConditions.map(t => (
                       <div key={t.Id}>
                         <div className="flex flex--center-vertical has-toggle-child">
                           <h5>{t.Condition}</h5>
@@ -228,7 +228,7 @@ const Test = ({ testFromState, ...props }) => {
               </div>
             ))}
             {t.ParentScaleTitles.length > 0
-              ? t.ParentScaleTitles.map(t => (
+              ? t.ParentScaleTitles.map((t, idx) => (
                   <div key={t.Id}>
                     <div className="test-table-heading">
                       <div className="flex has-toggle-child">
@@ -405,7 +405,7 @@ const Test = ({ testFromState, ...props }) => {
                         </div>
                         <div>{testFromState[i].DescriptionType}</div>
                       </div>
-                      {t.SubTests.map(t => (
+                      {t.SubTests.map((t, index) => (
                         <div key={t.Id} className="table__row">
                           <div
                             className={
@@ -434,10 +434,11 @@ const Test = ({ testFromState, ...props }) => {
                                 props.handleAppendixSubtestAdd(
                                   t.Id,
                                   t.Name,
-                                  testFromState[i].ParentScaleTitles[0]
+                                  testFromState[i].ParentScaleTitles[idx]
                                     .ParentScaleName,
                                   testFromState[i].Abbreviation,
-                                  event
+                                  event,
+                                  t.ParentScaleTitleId
                                 )
                               }
                             />
@@ -508,11 +509,11 @@ const Test = ({ testFromState, ...props }) => {
               </div>
             ) : null}
           </div>
-          {t.ParentGroupScales.map(t => (
+          {t.ParentGroupScales.map((t, pgsIdx) => (
             <div key={t.Id}>
               <h5>{t.ParentGroupScaleName}</h5>
               {t.ParentScaleTitles.length > 0
-                ? t.ParentScaleTitles.map(t => (
+                ? t.ParentScaleTitles.map((t, pstIdx) => (
                     <div key={t.Id}>
                       {t.SubTests.length > 0 ? (
                         <div>
@@ -566,10 +567,13 @@ const Test = ({ testFromState, ...props }) => {
                                       props.handleAppendixSubtestAdd(
                                         t.Id,
                                         t.Name,
-                                        testFromState[i].ParentGroupScales[0]
-                                          .ParentScaleTitles[0].ParentScaleName,
+                                        testFromState[i].ParentGroupScales[
+                                          pgsIdx
+                                        ].ParentScaleTitles[pstIdx]
+                                          .ParentScaleName,
                                         testFromState[i].Abbreviation,
-                                        event
+                                        event,
+                                        t.ParentScaleTitleId
                                       )
                                     }
                                   />
@@ -588,14 +592,14 @@ const Test = ({ testFromState, ...props }) => {
                     </div>
                   ))
                 : null}
-              {t.ParentGroupSubScales.map(t => (
+              {t.ParentGroupSubScales.map((t, pgssIdx) => (
                 <div key={t.Id}>
                   <h6>
                     {t.ParentGroupSubScaleName === "Full Scale"
                       ? null
                       : t.ParentGroupSubScaleName}
                   </h6>
-                  {t.ParentScaleTitles.map(t => (
+                  {t.ParentScaleTitles.map((t, pstIdx) => (
                     <div key={t.Id}>
                       {t.SubTests.length > 0 ? (
                         <div>
@@ -624,7 +628,7 @@ const Test = ({ testFromState, ...props }) => {
                               <div>
                                 {t.Id === 85
                                   ? "Index"
-                                  : testFromState[0].SubTestType}
+                                  : testFromState[i].SubTestType}
                               </div>
                               <div>Score</div>
                               <div>Description</div>
@@ -647,11 +651,14 @@ const Test = ({ testFromState, ...props }) => {
                                       props.handleAppendixSubtestAdd(
                                         t.Id,
                                         t.Name,
-                                        testFromState[i].ParentGroupScales[0]
-                                          .ParentGroupSubScales[0]
-                                          .ParentScaleTitles[0].ParentScaleName,
+                                        testFromState[i].ParentGroupScales[
+                                          pgsIdx
+                                        ].ParentGroupSubScales[pgssIdx]
+                                          .ParentScaleTitles[pstIdx]
+                                          .ParentScaleName,
                                         testFromState[i].Abbreviation,
-                                        event
+                                        event,
+                                        t.ParentScaleTitleId
                                       )
                                     }
                                   />
@@ -678,10 +685,10 @@ const Test = ({ testFromState, ...props }) => {
             </div>
           ))}
           {t.ParentGroupSubScales.length > 0
-            ? t.ParentGroupSubScales.map(t => (
+            ? t.ParentGroupSubScales.map((t, pgssIdx) => (
                 <div key={t.Id}>
                   <h5>{t.ParentGroupSubScaleName}</h5>
-                  {t.ParentScaleTitles.map(t => (
+                  {t.ParentScaleTitles.map((t, pstIdx) => (
                     <div key={t.Id}>
                       <div>
                         <div className="flex has-toggle-child">
@@ -731,10 +738,12 @@ const Test = ({ testFromState, ...props }) => {
                                   props.handleAppendixSubtestAdd(
                                     t.Id,
                                     t.Name,
-                                    testFromState[i].ParentGroupSubScales[0]
-                                      .ParentScaleTitles[0].ParentScaleName,
+                                    testFromState[i].ParentGroupSubScales[
+                                      pgssIdx
+                                    ].ParentScaleTitles[pstIdx].ParentScaleName,
                                     testFromState[i].Abbreviation,
-                                    event
+                                    event,
+                                    t.ParentScaleTitleId
                                   )
                                 }
                               />
@@ -753,16 +762,16 @@ const Test = ({ testFromState, ...props }) => {
               ))
             : null}
           {t.TestModules.length > 0
-            ? t.TestModules.map(t => (
+            ? t.TestModules.map((t, tmIdx) => (
                 <div key={t.Id}>
                   <h5>{t.Name}</h5>
                   <p>{t.Descriptions}</p>
-                  {t.ParentGroupScales.map(t => (
+                  {t.ParentGroupScales.map((t, pgsIdx) => (
                     <div key={t.Id}>
                       <div className="test-table-heading">
                         <SectionSubHeader subHeader={t.ParentGroupScaleName} />
                       </div>
-                      {t.ParentScaleTitles.map(t => (
+                      {t.ParentScaleTitles.map((t, pstIdx) => (
                         <div key={t.Id}>
                           <SectionSubHeader
                             subHeader={t.ParentGroupScaleName}
@@ -824,11 +833,13 @@ const Test = ({ testFromState, ...props }) => {
                                       props.handleAppendixSubtestAdd(
                                         t.Id,
                                         t.Name,
-                                        testFromState[i].TestModules[0]
-                                          .ParentGroupScales[0]
-                                          .ParentScaleTitles[0].ParentScaleName,
+                                        testFromState[i].TestModules[tmIdx]
+                                          .ParentGroupScales[pgsIdx]
+                                          .ParentScaleTitles[pstIdx]
+                                          .ParentScaleName,
                                         testFromState[i].Abbreviation,
-                                        event
+                                        event,
+                                        t.ParentScaleTitleId
                                       )
                                     }
                                   />

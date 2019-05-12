@@ -127,7 +127,14 @@ class WizardForm47Page extends Component {
   };
 
   //Add a subtest to the appendix onBlur (when user leaves a subtest's score input)
-  addSubtestToAppendix = (id, name, parentScaleName, abbreviation, event) => {
+  addSubtestToAppendix = (
+    id,
+    name,
+    parentScaleName,
+    abbreviation,
+    event,
+    parentScaleTitleId
+  ) => {
     console.log(`
       Make Appendix Subtest info go now!
       Info we need:
@@ -136,6 +143,7 @@ class WizardForm47Page extends Component {
       - SubTest Name: ${name}
       - Id: ${id}
       - Event: ${event.target.value}
+      - ParentScale Id: ${parentScaleTitleId}
     `);
     let data = {
       Id: id,
@@ -153,11 +161,22 @@ class WizardForm47Page extends Component {
         type: "ADD_APPENDIX_SUBTEST",
         payload: data
       });
+      //Automatically add a domain to the appendix and visually check the radio button
+      console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      console.log(`Domain name = ${domainName}`);
+      this.props.change(domainName, true);
     } else {
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
       console.log(
         "payload sent to remove appendix reducer: ",
         data.SubTests[0]
       );
+      this.props.change(domainName, false);
       store.dispatch({
         type: "REMOVE_APPENDIX_SUBTEST",
         payload: data
