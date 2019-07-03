@@ -767,6 +767,11 @@ form .test-table {
   padding-bottom: 18px;
 }
 
+.test-table.test-table--appendix .table__row {
+  border-bottom: none;
+  padding-bottom: 6px;
+}
+
 .table__row.table__header {
   /* border-top: 1px solid #a3a3a3; */
   border-bottom: 1px solid #a3a3a3;
@@ -822,7 +827,11 @@ form .test-table {
   .table__row
   div:nth-child(4)
   > input[type="text"] {
-  width: auto;
+  width: 100%;
+}
+
+.test-table.test-table--appendix .table__row div > input[type="text"] {
+  width: 100%;
 }
 
 .test__list input:focus,
@@ -847,20 +856,28 @@ form .test-table {
 .test-table.test-table--appendix .table__row.table__header div:first-child,
 .test-table.test-table--appendix .table__row div:first-child {
   width: 28.56vw;
+  flex: 0 0 28.56vw;
 }
 
 .test-table.test-table--appendix .table__row.table__header div:nth-child(2),
 .test-table.test-table--appendix .table__row div:nth-child(2) {
   width: 14.28vw;
+  flex: 0 0 9.28vw;
 }
 
 .test-table.test-table--appendix .table__row.table__header div:nth-child(3),
 .test-table.test-table--appendix .table__row div:nth-child(3) {
   width: 14.28vw;
+  flex: 0 0 9.28vw;
 }
 
 .test-table.test-table--appendix .table__row.table__header div:nth-child(4),
 .test-table.test-table--appendix .table__row div:nth-child(4) {
+  flex: 0 0 12.14vw;
+}
+
+.test-table.test-table--appendix .table__row.table__header div:last-of-type,
+.test-table.test-table--appendix .table__row div:last-of-type {
   flex: 1 1 auto;
 }
 
@@ -898,6 +915,10 @@ form .test-table {
 .test-table.test-table--fourCols .table__row div:nth-child(6) {
   flex: 1 1 auto;
   width: 14.28vw;
+}
+
+.test-table.test-table--appendix h4 {
+  text-transform: none;
 }
 
 /* CSS show hide visibility method in React */
@@ -1058,6 +1079,17 @@ textarea {
 .question__required-text span {
   font-size: 10px;
   font-size: 1rem;
+}
+
+.question__required-text.question__required-text--pagejump {
+  top: 0px;
+  left: 54px;
+  width: max-content;
+}
+
+.question__required-text.question__required-text--pagejump.question__required-text--visible {
+  top: 9px;
+  left: 54px;
 }
 
 .pdf-generation-loader {

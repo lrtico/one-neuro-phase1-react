@@ -56,8 +56,8 @@ const WizardForm40Page = props => {
         <Field
           alt="Clock"
           component={TextQuestion}
-          label="Amount of"
-          labelBold="time"
+          label="How many"
+          labelBold="hours"
           labelLast="per week"
           name="eh-daycare-time"
           src="img/icons-stopwatch.svg"

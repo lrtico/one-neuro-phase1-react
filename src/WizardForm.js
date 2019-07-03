@@ -18,11 +18,12 @@ class WizardForm extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.state = {
-      page: 49,
+      page: 47,
       pageNumber: 1,
       testState: false,
       loading: true,
-      hasError: true
+      hasError: true,
+      pageJumpOutOfRange: false
     };
   }
 
@@ -63,9 +64,17 @@ class WizardForm extends Component {
   handlePageNumber = e => {
     console.log("Make page jump now!");
     let x = e.target.value - 0;
-    this.setState({
-      pageNumber: x
-    });
+    if (x < 0 || x > 50) {
+      console.log("Make out of range page jump message go now!");
+      this.setState({
+        pageJumpOutOfRange: true
+      });
+    } else {
+      this.setState({
+        pageNumber: x,
+        pageJumpOutOfRange: false
+      });
+    }
   };
 
   handleJumpToPage = () => {
@@ -126,6 +135,7 @@ class WizardForm extends Component {
           handlePageJump={this.handleJumpToPage}
           pageNumber={this.state.pageNumber}
           handlePageNumber={this.handlePageNumber}
+          pageJumpOutOfRange={this.state.pageJumpOutOfRange}
         />
         <Toast
           onClearError={this.props.onClearError}

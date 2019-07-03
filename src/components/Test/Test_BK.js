@@ -9,33 +9,24 @@ import MaterialIcon from "react-google-material-icons";
 import { onlyNums, onlyNumsAndRangeCharacters } from "../../utils/Normalize";
 // import HtmlParser from "react-html-parser/lib/HtmlParser";
 
-const createNameIterator = (id, b = 0) => {
-  let newId = id + b;
-  return newId;
-};
-
-const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
+const replaceField = (condition, idx, a) => {
   //Redux Form can't parse embedded <Field>s so we have to construct
   //our own string including Field components and return it to the UI
-  let str = d;
-  let id = i;
-  let abbr = a;
-  let name = n;
-  let testName = tn;
-  console.log(`
-    *** The replaceField() string passed in is ${str}.
-    The id of the clicked test condition is ${id}.
-    The Abbreviation is ${a}.
-    The IndexName is ${name}.
-    The TestName is ${testName}.
-  `);
+  let str = condition;
+  let i = idx;
+  //let abbr = a;
+  // console.log(`
+  //   *** The replaceField() string passed in is ${str}.
+  //   The id of the clicked test condition is ${i}.
+  //   The Abbreviation is ${abbr}.
+  // `);
 
   //Strip out the first part of the condition string to capture the name of the test
   let output = str.substring(0, str.indexOf("<"));
 
   let score = (
     <Field
-      name={`${id}-${abbr
+      name={`${i}-${a
         .toLowerCase()
         .replace(/\(|\)/g, "")
         .replace(/ /g, "-")}-fsiq-score`}
@@ -43,14 +34,11 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
       component="input"
       maxLength={3}
       normalize={onlyNums}
-      onBlur={event =>
-        props.handleAppendixTestIndexesAdd(id, testName, abbr, name, event)
-      }
     />
   );
   let percentile = (
     <Field
-      name={`${id}-${abbr
+      name={`${i}-${a
         .toLowerCase()
         .replace(/\(|\)/g, "")
         .replace(/ /g, "-")}-fsiq-percentile`}
@@ -58,22 +46,16 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
       component="input"
       maxLength={3}
       normalize={onlyNums}
-      onBlur={event =>
-        props.handleAppendixTestIndexesAdd(id, testName, abbr, name, event)
-      }
     />
   );
   let rank = (
     <Field
-      name={`${id}-${abbr
+      name={`${i}-${a
         .toLowerCase()
         .replace(/\(|\)/g, "")
         .replace(/ /g, "-")}-fsiq-rank`}
       type="text"
       component="input"
-      onBlur={event =>
-        props.handleAppendixTestIndexesAdd(id, testName, abbr, name, event)
-      }
     />
   );
 
@@ -113,7 +95,7 @@ const Test = ({ testFromState, ...props }) => {
               style={{ marginBottom: "9px" }}
               dangerouslySetInnerHTML={createMarkup(t.Descriptions)}
             />
-            {t.TestIndexes.map((t, tiIdx) => (
+            {t.TestIndexes.map(t => (
               <div key={t.Id}>
                 {t.IndexName === "General Ability Index" ? (
                   <div className="test__list">
@@ -134,15 +116,6 @@ const Test = ({ testFromState, ...props }) => {
                             ].Abbreviation.toLowerCase()}-gai-range`}
                             type="text"
                             component="input"
-                            onBlur={event =>
-                              props.handleAppendixTestIndexesAdd(
-                                t.Id,
-                                testFromState[i].Name,
-                                testFromState[i].Abbreviation,
-                                t.IndexName,
-                                event
-                              )
-                            }
                           />
                           range and at the{" "}
                           <Field
@@ -151,15 +124,6 @@ const Test = ({ testFromState, ...props }) => {
                             ].Abbreviation.toLowerCase()}-gai-percentile`}
                             type="text"
                             component="input"
-                            onBlur={event =>
-                              props.handleAppendixTestIndexesAdd(
-                                t.Id,
-                                testFromState[i].Name,
-                                testFromState[i].Abbreviation,
-                                t.IndexName,
-                                event
-                              )
-                            }
                           />
                           percentile.
                         </span>
@@ -178,15 +142,6 @@ const Test = ({ testFromState, ...props }) => {
                         ].Abbreviation.toLowerCase()}-gca-range`}
                         type="text"
                         component="input"
-                        onBlur={event =>
-                          props.handleAppendixTestIndexesAdd(
-                            t.Id,
-                            testFromState[i].Name,
-                            testFromState[i].Abbreviation,
-                            t.IndexName,
-                            event
-                          )
-                        }
                       />{" "}
                       range DAS-II GCA score of
                       <Field
@@ -195,15 +150,6 @@ const Test = ({ testFromState, ...props }) => {
                         ].Abbreviation.toLowerCase()}-gca-score`}
                         type="text"
                         component="input"
-                        onBlur={event =>
-                          props.handleAppendixTestIndexesAdd(
-                            t.Id,
-                            testFromState[i].Name,
-                            testFromState[i].Abbreviation,
-                            t.IndexName,
-                            event
-                          )
-                        }
                       />
                       {", "}
                       <Field
@@ -212,15 +158,6 @@ const Test = ({ testFromState, ...props }) => {
                         ].Abbreviation.toLowerCase()}-gca-percentile`}
                         type="text"
                         component="input"
-                        onBlur={event =>
-                          props.handleAppendixTestIndexesAdd(
-                            t.Id,
-                            testFromState[i].Name,
-                            testFromState[i].Abbreviation,
-                            t.IndexName,
-                            event
-                          )
-                        }
                       />{" "}
                       percentile while his/her Special Nonverbal Composite SNC
                       score placed in the{" "}
@@ -230,15 +167,6 @@ const Test = ({ testFromState, ...props }) => {
                         ].Abbreviation.toLowerCase()}-snc-range`}
                         type="text"
                         component="input"
-                        onBlur={event =>
-                          props.handleAppendixTestIndexesAdd(
-                            t.Id,
-                            testFromState[i].Name,
-                            testFromState[i].Abbreviation,
-                            t.IndexName,
-                            event
-                          )
-                        }
                       />{" "}
                       range DAS-II SNC score of{" "}
                       <Field
@@ -247,15 +175,6 @@ const Test = ({ testFromState, ...props }) => {
                         ].Abbreviation.toLowerCase()}-snc-score`}
                         type="text"
                         component="input"
-                        onBlur={event =>
-                          props.handleAppendixTestIndexesAdd(
-                            t.Id,
-                            testFromState[i].Name,
-                            testFromState[i].Abbreviation,
-                            t.IndexName,
-                            event
-                          )
-                        }
                       />
                       {", "}
                       <Field
@@ -264,15 +183,6 @@ const Test = ({ testFromState, ...props }) => {
                         ].Abbreviation.toLowerCase()}-snc-percentile`}
                         type="text"
                         component="input"
-                        onBlur={event =>
-                          props.handleAppendixTestIndexesAdd(
-                            t.Id,
-                            testFromState[i].Name,
-                            testFromState[i].Abbreviation,
-                            t.IndexName,
-                            event
-                          )
-                        }
                       />{" "}
                       percentile.
                     </div>
@@ -302,22 +212,13 @@ const Test = ({ testFromState, ...props }) => {
                           <MaterialIcon icon="arrow_right" />
                           <p>
                             {t.Condition === "If FSIQ is meaningful" ||
-                            t.Condition === "If GIA is meaningful" ? (
-                              <ReplaceField
-                                d={t.ConditionDescription}
-                                i={t.Id}
-                                a={testFromState[i].Abbreviation}
-                                n={
-                                  testFromState[i].TestIndexes[tiIdx].IndexName
-                                }
-                                tn={testFromState[i].Name}
-                                handleAppendixTestIndexesAdd={
-                                  props.handleAppendixTestIndexesAdd
-                                }
-                              />
-                            ) : (
-                              t.ConditionDescription
-                            )}
+                            t.Condition === "If GIA is meaningful"
+                              ? replaceField(
+                                  t.ConditionDescription,
+                                  t.Id,
+                                  testFromState[i].Abbreviation
+                                )
+                              : t.ConditionDescription}
                           </p>
                         </div>
                         <hr />
@@ -356,9 +257,6 @@ const Test = ({ testFromState, ...props }) => {
                           }
                         />
                       </div>
-                      {t.ParentScaleDescription !== null && (
-                        <div>{t.ParentScaleDescription}</div>
-                      )}
                       {t.HasInput ? (
                         <div className="test__list">
                           {/* {ReactHtmlParser(t.ParentScaleDescription)} */}
@@ -366,9 +264,9 @@ const Test = ({ testFromState, ...props }) => {
                             <span>(Client) demonstrated a relatively</span>
                             <span className="has-toggle-child">
                               <Field
-                                name={`${t.Id}-${testFromState[
-                                  i
-                                ].Abbreviation.toLowerCase().replace(
+                                name={`${
+                                  t.Id
+                                }-${testFromState[0].Abbreviation.toLowerCase().replace(
                                   / /g,
                                   "-"
                                 )}-${t.ParentScaleName.toLowerCase()
@@ -383,9 +281,9 @@ const Test = ({ testFromState, ...props }) => {
                                 inconsistent
                               </span>
                               <Field
-                                name={`${t.Id}-${testFromState[
-                                  i
-                                ].Abbreviation.toLowerCase().replace(
+                                name={`${
+                                  t.Id
+                                }-${testFromState[0].Abbreviation.toLowerCase().replace(
                                   / /g,
                                   "-"
                                 )}-${t.ParentScaleName.toLowerCase()
@@ -400,9 +298,9 @@ const Test = ({ testFromState, ...props }) => {
                                 consistent
                               </span>
                               <Field
-                                name={`${t.Id}-${testFromState[
-                                  i
-                                ].Abbreviation.toLowerCase().replace(
+                                name={`${
+                                  t.Id
+                                }-${testFromState[0].Abbreviation.toLowerCase().replace(
                                   / /g,
                                   "-"
                                 )}-${t.ParentScaleName.toLowerCase()
@@ -419,9 +317,9 @@ const Test = ({ testFromState, ...props }) => {
                           <p>
                             <span>(Client) received a Composite score of </span>
                             <Field
-                              name={`${t.Id}-${testFromState[
-                                i
-                              ].Abbreviation.toLowerCase().replace(
+                              name={`${
+                                t.Id
+                              }-${testFromState[0].Abbreviation.toLowerCase().replace(
                                 / /g,
                                 "-"
                               )}-${t.ParentScaleName.toLowerCase()
@@ -433,15 +331,6 @@ const Test = ({ testFromState, ...props }) => {
                               component="input"
                               maxLength={3}
                               normalize={onlyNums}
-                              onBlur={event =>
-                                props.handleAppendixTestIndexesAdd(
-                                  t.Id,
-                                  testFromState[i].Name,
-                                  testFromState[i].Abbreviation,
-                                  t.ParentScaleName,
-                                  event
-                                )
-                              }
                             />
                             <span>&nbsp;(</span>
                             <Field
@@ -498,7 +387,7 @@ const Test = ({ testFromState, ...props }) => {
                         <div
                           className={
                             t.SubTests.length > 0 &&
-                            t.SubTests[0].Description === null
+                            t.SubTests.Description == null
                               ? "table__row__cell--wide"
                               : null
                           }
@@ -520,7 +409,7 @@ const Test = ({ testFromState, ...props }) => {
                         <div key={t.Id} className="table__row">
                           <div
                             className={
-                              t.Description === null
+                              t.Description == null
                                 ? "table__row__cell--wide"
                                 : null
                             }
@@ -542,7 +431,7 @@ const Test = ({ testFromState, ...props }) => {
                               maxLength={3}
                               normalize={onlyNums}
                               onBlur={event =>
-                                props.handleAppendixParentScaleTitleSubtestAdd(
+                                props.handleAppendixSubtestAdd(
                                   t.Id,
                                   testFromState[i].Name,
                                   t.Name,
@@ -585,10 +474,8 @@ const Test = ({ testFromState, ...props }) => {
               <div className="test-table">
                 <div className="table__row table__header">
                   <div>{testFromState[i].SubTestType}</div>
-                  <div>{testFromState[i].ScoreType}</div>
-                  {testFromState[i].Abbreviation === "TOMM" ? null : (
-                    <div>Description</div>
-                  )}
+                  <div>Score</div>
+                  <div>Description</div>
                 </div>
                 {t.SubTests.map(t => (
                   <div key={t.Id} className="table__row">
@@ -606,11 +493,10 @@ const Test = ({ testFromState, ...props }) => {
                         normalize={onlyNums}
                         onBlur={event =>
                           props.handleAppendixSubtestAdd(
-                            testFromState[i].Id,
-                            testFromState[i].Name,
-                            testFromState[i].Abbreviation,
                             t.Id,
                             t.Name,
+                            testFromState[i].Name,
+                            testFromState[i].Abbreviation,
                             event
                           )
                         }
@@ -679,23 +565,17 @@ const Test = ({ testFromState, ...props }) => {
                                     maxLength={3}
                                     normalize={onlyNums}
                                     onBlur={event =>
-                                      props.handleAppendixParentGroupScalesParentScaleTitleSubtestAdd(
-                                        testFromState[i].Abbreviation,
+                                      props.handleAppendixSubtestAdd(
+                                        t.Id,
                                         testFromState[i].Name,
-                                        testFromState[i].ParentGroupScales[
-                                          pgsIdx
-                                        ].Id,
-                                        testFromState[i].ParentGroupScales[
-                                          pgsIdx
-                                        ].ParentGroupScaleName,
-                                        t.ParentScaleTitleId,
+                                        t.Name,
                                         testFromState[i].ParentGroupScales[
                                           pgsIdx
                                         ].ParentScaleTitles[pstIdx]
                                           .ParentScaleName,
-                                        t.Id,
-                                        t.Name,
-                                        event
+                                        testFromState[i].Abbreviation,
+                                        event,
+                                        t.ParentScaleTitleId
                                       )
                                     }
                                   />
@@ -770,34 +650,18 @@ const Test = ({ testFromState, ...props }) => {
                                     maxLength={3}
                                     normalize={onlyNums}
                                     onBlur={event =>
-                                      props.handleAppendixParentGroupScalesParentGroupSubScaleSubtestAdd(
-                                        testFromState[i].Abbreviation,
+                                      props.handleAppendixSubtestAdd(
+                                        t.Id,
                                         testFromState[i].Name,
-                                        testFromState[i].ParentGroupScales[
-                                          pgsIdx
-                                        ].Id,
-                                        testFromState[i].ParentGroupScales[
-                                          pgsIdx
-                                        ].ParentGroupScaleName,
-                                        testFromState[i].ParentGroupScales[
-                                          pgsIdx
-                                        ].ParentGroupSubScales[pgssIdx].Id,
-                                        testFromState[i].ParentGroupScales[
-                                          pgsIdx
-                                        ].ParentGroupSubScales[pgssIdx]
-                                          .ParentGroupSubScaleName,
-                                        testFromState[i].ParentGroupScales[
-                                          pgsIdx
-                                        ].ParentGroupSubScales[pgssIdx]
-                                          .ParentScaleTitles[pstIdx].Id,
+                                        t.Name,
                                         testFromState[i].ParentGroupScales[
                                           pgsIdx
                                         ].ParentGroupSubScales[pgssIdx]
                                           .ParentScaleTitles[pstIdx]
                                           .ParentScaleName,
-                                        t.Id,
-                                        t.Name,
-                                        event
+                                        testFromState[i].Abbreviation,
+                                        event,
+                                        t.ParentScaleTitleId
                                       )
                                     }
                                   />
@@ -1062,7 +926,7 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col1 === "<Field>" ? ( //Does Col1 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(t.Id)}-${testFromState[
+                            name={`${t.Id}-${testFromState[
                               i
                             ].Abbreviation.toLowerCase().replace(
                               / /g,
@@ -1083,7 +947,7 @@ const Test = ({ testFromState, ...props }) => {
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].Name,
-                                createNameIterator(t.Id),
+                                t.Id,
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].TableHeaderRowTitles.Col1,
@@ -1101,10 +965,7 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col2 === "<Field>" ? ( //Does Col2 =2 "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
-                              t.Id,
-                              1
-                            )}-${testFromState[
+                            name={`${t.Id}-${testFromState[
                               i
                             ].Abbreviation.toLowerCase().replace(
                               / /g,
@@ -1125,7 +986,7 @@ const Test = ({ testFromState, ...props }) => {
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].Name,
-                                createNameIterator(t.Id, 1),
+                                t.Id,
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].TableHeaderRowTitles.Col2,
@@ -1143,10 +1004,7 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col3 === "<Field>" ? ( //Does Col3 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
-                              t.Id,
-                              2
-                            )}-${testFromState[
+                            name={`${t.Id}-${testFromState[
                               i
                             ].Abbreviation.toLowerCase().replace(
                               / /g,
@@ -1167,7 +1025,7 @@ const Test = ({ testFromState, ...props }) => {
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].Name,
-                                createNameIterator(t.Id, 2),
+                                t.Id,
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].TableHeaderRowTitles.Col3,
@@ -1185,10 +1043,7 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col4 === "<Field>" ? ( //Does Col4 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
-                              t.Id,
-                              3
-                            )}-${testFromState[
+                            name={`${t.Id}-${testFromState[
                               i
                             ].Abbreviation.toLowerCase().replace(
                               / /g,
@@ -1209,7 +1064,7 @@ const Test = ({ testFromState, ...props }) => {
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].Name,
-                                createNameIterator(t.Id, 3),
+                                t.Id,
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].TableHeaderRowTitles.Col4,
@@ -1225,10 +1080,7 @@ const Test = ({ testFromState, ...props }) => {
                       {t.Col5 == null ? null : t.Col5 === "<Field>" ? ( //Does Col5 = null? //...then skip it //Does Col5 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
-                              t.Id,
-                              4
-                            )}-${testFromState[
+                            name={`${t.Id}-${testFromState[
                               i
                             ].Abbreviation.toLowerCase().replace(
                               / /g,
@@ -1249,7 +1101,7 @@ const Test = ({ testFromState, ...props }) => {
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].Name,
-                                createNameIterator(t.Id, 4),
+                                t.Id,
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].TableHeaderRowTitles.Col5,
@@ -1265,10 +1117,7 @@ const Test = ({ testFromState, ...props }) => {
                       {t.Col6 == null ? null : t.Col6 === "<Field>" ? ( //Does Col6 = null? //...then skip it //Does Col6 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
-                              t.Id,
-                              5
-                            )}-${testFromState[
+                            name={`${t.Id}-${testFromState[
                               i
                             ].Abbreviation.toLowerCase().replace(
                               / /g,
@@ -1289,7 +1138,7 @@ const Test = ({ testFromState, ...props }) => {
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].Name,
-                                createNameIterator(t.Id, 5),
+                                t.Id,
                                 testFromState[i].TestScoringTableDetails[
                                   tstdIdx
                                 ].TableHeaderRowTitles.Col6,

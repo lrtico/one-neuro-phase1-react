@@ -11,8 +11,17 @@
   top: 0;
   left: 0;
   width: 42px;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); */
+}
+#page-jump:after {
+  border-bottom: 12px solid transparent;
+  border-left: 21px solid rgb(142, 161, 163);
+  border-right: 21px solid rgb(142, 161, 163);
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
 }
 #page-jump input {
   color: white;

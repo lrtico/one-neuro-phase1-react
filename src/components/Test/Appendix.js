@@ -1,13 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field } from "redux-form";
-import SectionTitle from "../SectionTitle/index";
-import SectionSubHeader from "../SectionSubHeader/index";
+import SectionTitle from "../SectionTitle/";
+import SectionSubTitle from "../SectionSubTitle/";
 
 const mapStateToProps = state => ({
   tests: state.testsSelectedReducer,
   appendices: state.appendixReducer
 });
+
+const createMarkup = text => {
+  return { __html: text };
+};
 
 const AppendixConnected = (props, values) => {
   console.log("store from index, ", props);
@@ -16,208 +20,1219 @@ const AppendixConnected = (props, values) => {
   return (
     <div>
       <SectionTitle titleBold="Appendix" titleRegular="of scores" />
-      {appendices.domains.tests.map((t, i) => (
-        <div key={`${i}-${t.Id}-domains`}>
-          <div className="flex">
-            <SectionSubHeader subHeader={t.Name} />
-            <span className="h7">&nbsp;{t.Abbreviation}</span>
-          </div>
-          <div className="test-table test-table--appendix">
-            <div className="table__row table__header">
-              <div>Index</div>
-              <div>Composite Score</div>
-              {t.Abbreviation === "PIY" ||
-              t.Abbreviation === "MCMI–IV" ||
-              t.Abbreviation === "MMPI-2" ||
-              t.Abbreviation === "TSCC" ||
-              t.Abbreviation === "MMPI-A" ? null : (
-                <div>% Rank</div>
-              )}
-              <div>Classification</div>
-            </div>
 
-            {t.DomainsOverall.map(t => (
-              <div
-                key={`${t.id}-${t.parentScaleName
-                  .toLowerCase()
-                  .replace(/ /g, "-")
-                  .replace("<span>", "")
-                  .replace("</span>", "")
-                  .replace("<sup>", "")
-                  .replace("</sup>", "")
-                  .replace(/\(|\)/g, "")}`}
-                className="table__row"
-              >
-                <div>
-                  {t.parentScaleName
+      {appendices.Tests.map((t, i) => (
+        <div key={`${i}-${t.Id}-subtests`}>
+          <div className="flex">
+            <SectionSubTitle
+              subTitleBold={t.TestName.replace("<span>", "").replace(
+                "</span>",
+                ""
+              )}
+              subtitleAbbreviation={t.Abbreviation}
+            />
+          </div>
+
+          {t.TestIndexes !== undefined && t.TestIndexes.length > 0 ? (
+            <div className="test-table test-table--appendix">
+              <div className="table__row table__header">
+                <div>Index</div>
+                <div>Composite Score</div>
+                <div>% Rank</div>
+                <div>Classification</div>
+              </div>
+              {t.TestIndexes.map(t => (
+                <div
+                  key={`${t.Id}-${t.IndexName.toLowerCase()
+                    .replace(" – ", "-")
+                    .replace(/ /g, "-")
                     .replace("<span>", "")
-                    .replace("</span>", "")}
+                    .replace("</span>", "")
+                    .replace(/\(|\)/g, "")}}`}
+                  className="table__row"
+                >
+                  <div>
+                    {t.IndexName.replace("<span>", "").replace("</span>", "")}
+                  </div>
+                  <div>
+                    {t.IndexName === "Full Scale IQ-4" ||
+                    t.IndexName === "Full Scale IQ" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-fsiq-score`}
+                      />
+                    ) : t.IndexName === "General Ability Index" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-gai-range`}
+                      />
+                    ) : t.IndexName === "General Conceptual Ability (GCA)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-gca-score`}
+                      />
+                    ) : t.IndexName === "Special Nonverbal Composite (SNC)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-snc-score`}
+                      />
+                    ) : (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-${t.IndexName.toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<span>", "")
+                          .replace("</span>", "")
+                          .replace(/\(|\)/g, "")}-composite-score`}
+                      />
+                    )}
+                  </div>
+                  <div>
+                    {t.IndexName === "Full Scale IQ-4" ||
+                    t.IndexName === "Full Scale IQ" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-fsiq-percentile`}
+                      />
+                    ) : t.IndexName === "General Ability Index" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-gai-percentile`}
+                      />
+                    ) : t.IndexName === "General Conceptual Ability (GCA)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-gca-percentile`}
+                      />
+                    ) : t.IndexName === "Special Nonverbal Composite (SNC)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-snc-percentile`}
+                      />
+                    ) : (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-${t.IndexName.toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<span>", "")
+                          .replace("</span>", "")
+                          .replace(/\(|\)/g, "")}-composite-percentile`}
+                      />
+                    )}
+                  </div>
+                  <div>
+                    {t.IndexName === "Full Scale IQ-4" ||
+                    t.IndexName === "Full Scale IQ" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-fsiq-rank`}
+                      />
+                    ) : t.IndexName === "General Ability Index" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-gai-rank`}
+                      />
+                    ) : t.IndexName === "General Conceptual Ability (GCA)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-gca-range`}
+                      />
+                    ) : t.IndexName === "Special Nonverbal Composite (SNC)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-snc-range`}
+                      />
+                    ) : (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`${t.Id}-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/\(|\)/g, "")
+                          .replace(/ /g, "-")}-${t.IndexName.toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<span>", "")
+                          .replace("</span>", "")
+                          .replace(/\(|\)/g, "")}-composite-range`}
+                      />
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.domains.tests[
-                      i
-                    ].Abbreviation.toLowerCase().replace(
-                      / /g,
-                      "-"
-                    )}-${t.parentScaleName
-                      .toLowerCase()
-                      .replace(/ /g, "-")
-                      .replace("<span>", "")
-                      .replace("</span>", "")
-                      .replace("<sup>", "")
-                      .replace("</sup>", "")
-                      .replace("/", "-")
-                      .replace(/\(|\)/g, "")}-composite-score`}
-                  />
+              ))}
+            </div>
+          ) : null}
+
+          {t.ParentGroupSubScales !== undefined &&
+          t.ParentGroupSubScales.length > 0
+            ? t.ParentGroupSubScales.map(t => (
+                <div key={t.Id}>
+                  <h5>{t.ParentGroupSubScaleName}</h5>
+                  {t.ParentScale.map((t, psIdx) => (
+                    <div key={t.Id} className="test-table test-table--appendix">
+                      <h4>{t.ParentScaleTitle}</h4>
+                      <div className="table__row table__header">
+                        <div>Index</div>
+                        <div>Score</div>
+                        {appendices.Tests[i].Abbreviation === "PIY" ||
+                        appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                        appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                        appendices.Tests[i].Abbreviation === "TSCC" ||
+                        appendices.Tests[i].Abbreviation === "MMPI-A" ? null : (
+                          <div>% Rank</div>
+                        )}
+                        {appendices.Tests[i].Abbreviation === "WIAT-III" ? (
+                          <div>Grade Eqv.</div>
+                        ) : null}
+                        {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                          <div>Classification</div>
+                        ) : null}
+                      </div>
+
+                      {t.SubTests.map(t => (
+                        <div
+                          key={`${t.id}-${t.name}-subtest`}
+                          className="table__row"
+                        >
+                          <div>{t.name}</div>
+                          <div>
+                            <Field
+                              component="input"
+                              type="text"
+                              maxLength={3}
+                              name={`${t.id}-${t.name
+                                .toLowerCase()
+                                .replace("<sup>", "")
+                                .replace("</sup>", "")
+                                .replace(" – ", "-")
+                                .replace(/ /g, "-")
+                                .replace("/", "-")
+                                .replace(/[’]/g, "")
+                                .replace(/[,/]/g, "")
+                                .replace("{", "")
+                                .replace("}", "")
+                                .replace(/\(|\)/g, "")}-score`}
+                            />
+                          </div>
+                          {appendices.Tests[i].Abbreviation === "PIY" ||
+                          appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                          appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                          appendices.Tests[i].Abbreviation === "TSCC" ||
+                          appendices.Tests[i].Abbreviation ===
+                            "MMPI-A" ? null : (
+                            <div>
+                              <Field
+                                component="input"
+                                type="text"
+                                maxLength={4}
+                                name={`${t.id}-appendix-${appendices.Tests[
+                                  i
+                                ].Abbreviation.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}-${t.name
+                                  .toLowerCase()
+                                  .replace(/ /g, "-")
+                                  .replace("<sup>", "")
+                                  .replace("</sup>", "")
+                                  .replace("/", "-")
+                                  .replace(/[,/]/g, "")
+                                  .replace(/[’]/g, "")
+                                  .replace("{", "")
+                                  .replace("}", "")
+                                  .replace(/\(|\)/g, "")}-rank`}
+                              />
+                            </div>
+                          )}
+                          {appendices.Tests[i].Abbreviation === "WIAT-III" ? (
+                            <div>
+                              <Field
+                                component="input"
+                                type="text"
+                                maxLength={5}
+                                name={`${t.id}-appendix-${appendices.Tests[
+                                  i
+                                ].Abbreviation.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}-${t.name
+                                  .toLowerCase()
+                                  .replace(/ /g, "-")
+                                  .replace("<sup>", "")
+                                  .replace("</sup>", "")
+                                  .replace("/", "-")
+                                  .replace(/[,/]/g, "")
+                                  .replace(/[’]/g, "")
+                                  .replace("{", "")
+                                  .replace("}", "")
+                                  .replace(/\(|\)/g, "")}-grade-equivalent`}
+                              />
+                            </div>
+                          ) : null}
+                          {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                            <div>
+                              <Field
+                                component="input"
+                                type="text"
+                                maxLength={15}
+                                name={`${t.id}-appendix-${appendices.Tests[
+                                  i
+                                ].Abbreviation.toLowerCase().replace(
+                                  / /g,
+                                  "-"
+                                )}-${t.name
+                                  .toLowerCase()
+                                  .replace(/ /g, "-")
+                                  .replace("<sup>", "")
+                                  .replace("</sup>", "")
+                                  .replace("/", "-")
+                                  .replace(/[,/]/g, "")
+                                  .replace(/[’]/g, "")
+                                  .replace("{", "")
+                                  .replace("}", "")
+                                  .replace(/\(|\)/g, "")}-range`}
+                              />
+                            </div>
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                  {appendices.Tests[i].Abbreviation === "RBANS" ? (
+                    <div>
+                      <div
+                        key={t.Id}
+                        className="test-table test-table--appendix"
+                      >
+                        <h4>Total Scale Score</h4>
+                        <div className="table__row table__header">
+                          <div>Total Scale Score</div>
+                          <div>Scaled Score</div>
+                          <div>% Rank</div>
+                          <div>Classification</div>
+                        </div>
+                        <div className="table__row">
+                          <div>
+                            <Field
+                              component="input"
+                              type="text"
+                              maxLength={3}
+                              name="rbans-total-scale-score"
+                            />
+                          </div>
+                          <div>
+                            <Field
+                              component="input"
+                              type="text"
+                              maxLength={5}
+                              name="rbans-total-scale-score-scaled-score"
+                            />
+                          </div>
+                          <div>
+                            <Field
+                              component="input"
+                              type="text"
+                              maxLength={5}
+                              name="rbans-total-scale-score-percentile-rank"
+                            />
+                          </div>
+                          <div>
+                            <Field
+                              component="input"
+                              type="text"
+                              maxLength={15}
+                              name="rbans-total-scale-score-range"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
-                {appendices.domains.tests[i].Abbreviation === "PIY" ||
-                appendices.domains.tests[i].Abbreviation === "MCMI–IV" ||
-                appendices.domains.tests[i].Abbreviation === "MMPI-2" ||
-                appendices.domains.tests[i].Abbreviation === "TSCC" ||
-                appendices.subtests.tests[i].Abbreviation ===
-                  "MMPI-A" ? null : (
+              ))
+            : null}
+
+          {t.ParentGroupScales !== undefined && t.ParentGroupScales.length > 0
+            ? t.ParentGroupScales.map(t => (
+                <div key={t.Id}>
+                  <h5>{t.ParentGroupScaleName}</h5>
+                  {t.ParentScaleTitles !== undefined
+                    ? t.ParentScaleTitles.map((t, pstIdx) => (
+                        <div
+                          key={t.Id}
+                          className="test-table test-table--appendix"
+                        >
+                          <h4>{t.ParentScaleName}</h4>
+                          <div className="table__row table__header">
+                            <div>Scale</div>
+                            <div>T-Score</div>
+                            {appendices.Tests[i].Abbreviation === "PIY" ||
+                            appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                            appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                            appendices.Tests[i].Abbreviation === "TSCC" ||
+                            appendices.Tests[i].Abbreviation ===
+                              "MMPI-A" ? null : (
+                              <div>% Rank</div>
+                            )}
+                            {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                              <div>Classification</div>
+                            ) : null}
+                          </div>
+
+                          {t.SubTests.map(t => (
+                            <div
+                              key={`${t.id}-${t.name}-subtest`}
+                              className="table__row"
+                            >
+                              <div>{t.name}</div>
+                              <div>
+                                <Field
+                                  component="input"
+                                  type="text"
+                                  maxLength={3}
+                                  name={`${t.id}-${t.name
+                                    .toLowerCase()
+                                    .replace("<sup>", "")
+                                    .replace("</sup>", "")
+                                    .replace(" – ", "-")
+                                    .replace(/ /g, "-")
+                                    .replace("/", "-")
+                                    .replace(/[’]/g, "")
+                                    .replace(/[,/]/g, "")
+                                    .replace("{", "")
+                                    .replace("}", "")
+                                    .replace(/\(|\)/g, "")}-score`}
+                                />
+                              </div>
+                              {appendices.Tests[i].Abbreviation === "PIY" ||
+                              appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                              appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                              appendices.Tests[i].Abbreviation === "TSCC" ||
+                              appendices.Tests[i].Abbreviation ===
+                                "MMPI-A" ? null : (
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    maxLength={4}
+                                    name={`${t.id}-appendix-${appendices.Tests[
+                                      i
+                                    ].Abbreviation.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-${t.name
+                                      .toLowerCase()
+                                      .replace(/ /g, "-")
+                                      .replace("<sup>", "")
+                                      .replace("</sup>", "")
+                                      .replace("/", "-")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .replace("{", "")
+                                      .replace("}", "")
+                                      .replace(/\(|\)/g, "")}-rank`}
+                                  />
+                                </div>
+                              )}
+                              {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    maxLength={15}
+                                    name={`${t.id}-appendix-${appendices.Tests[
+                                      i
+                                    ].Abbreviation.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-${t.name
+                                      .toLowerCase()
+                                      .replace(/ /g, "-")
+                                      .replace("<sup>", "")
+                                      .replace("</sup>", "")
+                                      .replace("/", "-")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .replace("{", "")
+                                      .replace("}", "")
+                                      .replace(/\(|\)/g, "")}-range`}
+                                  />
+                                </div>
+                              ) : null}
+                            </div>
+                          ))}
+                        </div>
+                      ))
+                    : t.ParentGroupSubScales.map((t, pgssIdx) => (
+                        <div
+                          key={t.Id}
+                          className="test-table test-table--appendix"
+                        >
+                          <h4>{t.ParentGroupSubScaleName}</h4>
+                          {t.ParentScaleTitles.map((t, pstIdx) => (
+                            <div key={t.Id}>
+                              <div className="table__row table__header">
+                                <div>Scale</div>
+                                <div>T-Score</div>
+                                {appendices.Tests[i].Abbreviation === "PIY" ||
+                                appendices.Tests[i].Abbreviation ===
+                                  "MCMI–IV" ||
+                                appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                                appendices.Tests[i].Abbreviation === "TSCC" ||
+                                appendices.Tests[i].Abbreviation ===
+                                  "MMPI-A" ? null : (
+                                  <div>% Rank</div>
+                                )}
+                                {appendices.Tests[i].Abbreviation !==
+                                "BRIEF" ? (
+                                  <div>Classification</div>
+                                ) : null}
+                              </div>
+
+                              {t.SubTests.map(t => (
+                                <div
+                                  key={`${t.id}-${t.name}-subtest`}
+                                  className="table__row"
+                                >
+                                  <div>{t.name}</div>
+                                  <div>
+                                    <Field
+                                      component="input"
+                                      type="text"
+                                      maxLength={3}
+                                      name={`${t.id}-${t.name
+                                        .toLowerCase()
+                                        .replace("<sup>", "")
+                                        .replace("</sup>", "")
+                                        .replace(" – ", "-")
+                                        .replace(/ /g, "-")
+                                        .replace("/", "-")
+                                        .replace(/[’]/g, "")
+                                        .replace(/[,/]/g, "")
+                                        .replace("{", "")
+                                        .replace("}", "")
+                                        .replace(/\(|\)/g, "")}-score`}
+                                    />
+                                  </div>
+                                  {appendices.Tests[i].Abbreviation === "PIY" ||
+                                  appendices.Tests[i].Abbreviation ===
+                                    "MCMI–IV" ||
+                                  appendices.Tests[i].Abbreviation ===
+                                    "MMPI-2" ||
+                                  appendices.Tests[i].Abbreviation === "TSCC" ||
+                                  appendices.Tests[i].Abbreviation ===
+                                    "MMPI-A" ? null : (
+                                    <div>
+                                      <Field
+                                        component="input"
+                                        type="text"
+                                        maxLength={4}
+                                        name={`${
+                                          t.id
+                                        }-appendix-${appendices.Tests[
+                                          i
+                                        ].Abbreviation.toLowerCase().replace(
+                                          / /g,
+                                          "-"
+                                        )}-${t.name
+                                          .toLowerCase()
+                                          .replace(/ /g, "-")
+                                          .replace("<sup>", "")
+                                          .replace("</sup>", "")
+                                          .replace("/", "-")
+                                          .replace(/[,/]/g, "")
+                                          .replace(/[’]/g, "")
+                                          .replace("{", "")
+                                          .replace("}", "")
+                                          .replace(/\(|\)/g, "")}-rank`}
+                                      />
+                                    </div>
+                                  )}
+                                  {appendices.Tests[i].Abbreviation !==
+                                  "BRIEF" ? (
+                                    <div>
+                                      <Field
+                                        component="input"
+                                        type="text"
+                                        maxLength={15}
+                                        name={`${
+                                          t.id
+                                        }-appendix-${appendices.Tests[
+                                          i
+                                        ].Abbreviation.toLowerCase().replace(
+                                          / /g,
+                                          "-"
+                                        )}-${t.name
+                                          .toLowerCase()
+                                          .replace(/ /g, "-")
+                                          .replace("<sup>", "")
+                                          .replace("</sup>", "")
+                                          .replace("/", "-")
+                                          .replace(/[,/]/g, "")
+                                          .replace(/[’]/g, "")
+                                          .replace("{", "")
+                                          .replace("}", "")
+                                          .replace(/\(|\)/g, "")}-range`}
+                                      />
+                                    </div>
+                                  ) : null}
+                                </div>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                </div>
+              ))
+            : null}
+
+          {t.ParentScale !== undefined && t.ParentScale.length > 0
+            ? t.ParentScale.map(t => (
+                <div key={t.Id} className="test-table test-table--appendix">
+                  <h4>
+                    {t.ParentScaleTitle.replace("<span>", "").replace(
+                      "</span>",
+                      ""
+                    )}
+                  </h4>
+                  <div className="table__row table__header">
+                    {appendices.Tests[i].Abbreviation === "BRIEF" ? (
+                      <div>Scale</div>
+                    ) : (
+                      <div>Subtest</div>
+                    )}
+                    <div>Score</div>
+                    {appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                    appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                    appendices.Tests[i].Abbreviation === "TSCC" ||
+                    appendices.Tests[i].Abbreviation === "D-KEFS" ||
+                    appendices.Tests[i].Abbreviation === "MMPI-A" ? null : (
+                      <div>% Rank</div>
+                    )}
+                    {appendices.Tests[i].Abbreviation === "WIAT-III" ? (
+                      <div>Grade Eqv.</div>
+                    ) : null}
+                    {appendices.Tests[i].Abbreviation === "Vineland-II" ? (
+                      <div>Descriptive Category</div>
+                    ) : appendices.Tests[i].Abbreviation === "PIY" ? null : (
+                      <div>Classification</div>
+                    )}
+                  </div>
+
+                  {t.SubTests.map(t => (
+                    <div
+                      key={`${t.id}-${t.name}-subtest`}
+                      className="table__row"
+                    >
+                      {appendices.Tests[i].Abbreviation === "MMPI-2" ? (
+                        <div dangerouslySetInnerHTML={createMarkup(t.name)} />
+                      ) : (
+                        <div>{t.name}</div>
+                      )}
+                      <div>
+                        <Field
+                          component="input"
+                          type="text"
+                          maxLength={3}
+                          name={`${t.id}-${t.name
+                            .toLowerCase()
+                            .replace("<sup>", "")
+                            .replace("</sup>", "")
+                            .replace(" – ", "-")
+                            .replace(/ /g, "-")
+                            .replace("/", "-")
+                            .replace(/[’]/g, "")
+                            .replace(/[,/]/g, "")
+                            .replace("{", "")
+                            .replace("}", "")
+                            .replace(/\(|\)/g, "")}-score`}
+                        />
+                      </div>
+                      {appendices.Tests[i].Abbreviation === "PIY" ||
+                      appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                      appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                      appendices.Tests[i].Abbreviation === "D-KEFS" ||
+                      appendices.Tests[i].Abbreviation === "TSCC" ||
+                      appendices.Tests[i].Abbreviation === "MMPI-A" ? null : (
+                        <div>
+                          <Field
+                            component="input"
+                            type="text"
+                            maxLength={4}
+                            name={`${t.id}-appendix-${appendices.Tests[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${t.name
+                              .toLowerCase()
+                              .replace(/ /g, "-")
+                              .replace("<sup>", "")
+                              .replace("</sup>", "")
+                              .replace("/", "-")
+                              .replace(/[,/]/g, "")
+                              .replace(/[’]/g, "")
+                              .replace("{", "")
+                              .replace("}", "")
+                              .replace(/\(|\)/g, "")}-rank`}
+                          />
+                        </div>
+                      )}
+                      {appendices.Tests[i].Abbreviation === "WIAT-III" ? (
+                        <div>
+                          <Field
+                            component="input"
+                            type="text"
+                            maxLength={5}
+                            name={`${t.id}-appendix-${appendices.Tests[
+                              i
+                            ].Abbreviation.toLowerCase().replace(
+                              / /g,
+                              "-"
+                            )}-${t.name
+                              .toLowerCase()
+                              .replace(/ /g, "-")
+                              .replace("<sup>", "")
+                              .replace("</sup>", "")
+                              .replace("/", "-")
+                              .replace(/[,/]/g, "")
+                              .replace(/[’]/g, "")
+                              .replace("{", "")
+                              .replace("}", "")
+                              .replace(/\(|\)/g, "")}-grade-equivalent`}
+                          />
+                        </div>
+                      ) : null}
+                      <div>
+                        <Field
+                          component="input"
+                          type="text"
+                          maxLength={15}
+                          name={`${t.id}-appendix-${appendices.Tests[
+                            i
+                          ].Abbreviation.toLowerCase().replace(
+                            / /g,
+                            "-"
+                          )}-${t.name
+                            .toLowerCase()
+                            .replace(/ /g, "-")
+                            .replace("<sup>", "")
+                            .replace("</sup>", "")
+                            .replace("/", "-")
+                            .replace(/[,/]/g, "")
+                            .replace(/[’]/g, "")
+                            .replace("{", "")
+                            .replace("}", "")
+                            .replace(/\(|\)/g, "")}-range`}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))
+            : null}
+
+          {t.SubTests !== undefined && t.SubTests.length > 0 ? (
+            <div className="test-table test-table--appendix">
+              <div className="table__row table__header">
+                <div>Subtest</div>
+                <div>Scaled Score</div>
+                {appendices.Tests[i].Abbreviation === "PIY" ||
+                appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                appendices.Tests[i].Abbreviation === "TSCC" ||
+                appendices.Tests[i].Abbreviation === "MMPI-A" ? null : (
+                  <div>% Rank</div>
+                )}
+                {appendices.Tests[i].Abbreviation === "BRIEF" ||
+                appendices.Tests[i].Abbreviation === "Nelson-Denny" ||
+                appendices.Tests[i].Abbreviation === "GORT-5" ? null : (
+                  <div>Classification</div>
+                )}
+                {appendices.Tests[i].Abbreviation === "Nelson-Denny" ||
+                appendices.Tests[i].Abbreviation === "GORT-5" ? (
+                  <div>Grade Equivalent</div>
+                ) : null}
+              </div>
+              {t.SubTests.map(t => (
+                <div key={`${t.Id}-${t.Name}-subtest`} className="table__row">
+                  <div>{t.Name}</div>
                   <div>
                     <Field
                       component="input"
                       type="text"
-                      name={`${t.id}-appendix-${appendices.domains.tests[
+                      maxLength={3}
+                      name={`${t.Id}-${t.Name.toLowerCase()
+                        .replace("<sup>", "")
+                        .replace("</sup>", "")
+                        .replace(" – ", "-")
+                        .replace(/ /g, "-")
+                        .replace("/", "-")
+                        .replace(/[’]/g, "")
+                        .replace(/[,/]/g, "")
+                        .replace("{", "")
+                        .replace("}", "")
+                        .replace(/\(|\)/g, "")}-score`}
+                    />
+                  </div>
+                  {appendices.Tests[i].Abbreviation === "PIY" ? null : (
+                    <div>
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={4}
+                        name={`${t.Id}-appendix-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase().replace(
+                          / /g,
+                          "-"
+                        )}-${t.Name.toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<sup>", "")
+                          .replace("</sup>", "")
+                          .replace("/", "-")
+                          .replace(/[,/]/g, "")
+                          .replace(/[’]/g, "")
+                          .replace("{", "")
+                          .replace("}", "")
+                          .replace(/\(|\)/g, "")}-rank`}
+                      />
+                    </div>
+                  )}
+                  {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                    <div>
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={15}
+                        name={`${t.Id}-appendix-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase().replace(
+                          / /g,
+                          "-"
+                        )}-${t.Name.toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<sup>", "")
+                          .replace("</sup>", "")
+                          .replace("/", "-")
+                          .replace(/[,/]/g, "")
+                          .replace(/[’]/g, "")
+                          .replace("{", "")
+                          .replace("}", "")
+                          .replace(/\(|\)/g, "")}-range`}
+                      />
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+              {appendices.Tests[i].Abbreviation === "GORT-5" ? (
+                <div className="table__row">
+                  <div>ORI (Oral Reading Index)</div>
+                  <div>
+                    <Field
+                      component="input"
+                      type="text"
+                      maxLength={3}
+                      name={`${t.Id}-ORI-score`}
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      component="input"
+                      type="text"
+                      maxLength={5}
+                      name={`${t.Id}-appendix-${appendices.Tests[
                         i
                       ].Abbreviation.toLowerCase().replace(
                         / /g,
                         "-"
-                      )}-${t.parentScaleName
-                        .toLowerCase()
-                        .replace(/ /g, "-")
-                        .replace("<span>", "")
-                        .replace("</span>", "")
-                        .replace("/", "-")
-                        .replace(/\(|\)/g, "")}-rank`}
+                      )}-ORI-rank`}
                     />
                   </div>
-                )}
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.domains.tests[
-                      i
-                    ].Abbreviation.toLowerCase().replace(
-                      / /g,
-                      "-"
-                    )}-${t.parentScaleName
-                      .toLowerCase()
-                      .replace(/ /g, "-")
-                      .replace("<span>", "")
-                      .replace("</span>", "")
-                      .replace("<sup>", "")
-                      .replace("</sup>", "")
-                      .replace("/", "-")
-                      .replace(/\(|\)/g, "")}-range`}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-      {appendices.subtests.tests.map((t, i) => (
-        <div key={`${i}-${t.Id}-subtests`}>
-          <div className="flex">
-            <span className="h7">{t.Abbreviation}&nbsp;</span>
-            <SectionSubHeader
-              subHeader={t.TestName.replace("<span>", "").replace(
-                "</span>",
-                ""
-              )}
-            />
-            <span className="h7">&nbsp;Subtests Score Summary</span>
-          </div>
-          <div className="test-table test-table--appendix">
-            <div className="table__row table__header">
-              <div>Index</div>
-              <div>Scaled Score</div>
-              {t.Abbreviation === "PIY" ||
-              t.Abbreviation === "MCMI–IV" ||
-              t.Abbreviation === "MMPI-2" ||
-              t.Abbreviation === "TSCC" ||
-              t.Abbreviation === "MMPI-A" ? null : (
-                <div>% Rank</div>
-              )}
-              <div>Classification</div>
-            </div>
-
-            {t.SubTests.map(t => (
-              <div key={`${t.id}-${t.name}-subtest`} className="table__row">
-                <div>{t.name}</div>
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-${t.name
-                      .toLowerCase()
-                      .replace("<sup>", "")
-                      .replace("</sup>", "")
-                      .replace(" – ", "-")
-                      .replace(/ /g, "-")
-                      .replace("/", "-")
-                      .replace(/[’]/g, "")
-                      .replace(/[,/]/g, "")
-                      .replace("{", "")
-                      .replace("}", "")
-                      .replace(/\(|\)/g, "")}-score`}
-                  />
-                </div>
-                {appendices.subtests.tests[i].Abbreviation === "PIY" ||
-                appendices.subtests.tests[i].Abbreviation === "MCMI–IV" ||
-                appendices.subtests.tests[i].Abbreviation === "MMPI-2" ||
-                appendices.subtests.tests[i].Abbreviation === "TSCC" ||
-                appendices.subtests.tests[i].Abbreviation ===
-                  "MMPI-A" ? null : (
                   <div>
                     <Field
                       component="input"
                       type="text"
-                      name={`${t.id}-appendix-${appendices.subtests.tests[
+                      maxLength={15}
+                      name={`${t.Id}-appendix-${appendices.Tests[
+                        i
+                      ].Abbreviation.toLowerCase().replace(
+                        / /g,
+                        "-"
+                      )}-ORI-grade-equivalent`}
+                    />
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+
+          {t.TestModules !== undefined && t.TestModules.length > 0
+            ? t.TestModules.map(t => (
+                <div key={`${t.Id}-${t.Name}`}>
+                  <h5>{t.Name}</h5>
+                  {t.ParentGroupScales.map((t, pgsIdx) => (
+                    <div key={t.Id} className="test-table test-table--appendix">
+                      <h4>{t.ParentGroupScaleName}</h4>
+                      {t.ParentScaleTitles.map((t, pstIdx) => (
+                        <div key={t.Id}>
+                          <h6>{t.ParentScaleTitle}</h6>
+                          <div className="table__row table__header">
+                            <div>Scale</div>
+                            <div>Score</div>
+                            {appendices.Tests[i].Abbreviation === "PIY" ||
+                            appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                            appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                            appendices.Tests[i].Abbreviation === "TSCC" ||
+                            appendices.Tests[i].Abbreviation === "MMPI-A" ||
+                            appendices.Tests[i].Abbreviation ===
+                              "ADOS-2" ? null : (
+                              <div>% Rank</div>
+                            )}
+                            {appendices.Tests[i].Abbreviation === "ADOS-2" ? (
+                              <div>Positive Findings</div>
+                            ) : null}
+                            {appendices.Tests[i].Abbreviation === "WIAT-III" ? (
+                              <div>Grade Eqv.</div>
+                            ) : null}
+                            {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                              <div>Comparison Score</div>
+                            ) : null}
+                          </div>
+
+                          {t.SubTests.map(t => (
+                            <div
+                              key={`${t.id}-${t.name}-subtest`}
+                              className="table__row"
+                            >
+                              <div>{t.name}</div>
+                              <div>
+                                <Field
+                                  component="input"
+                                  type="text"
+                                  maxLength={3}
+                                  name={`${t.id}-${t.name
+                                    .toLowerCase()
+                                    .replace("<sup>", "")
+                                    .replace("</sup>", "")
+                                    .replace(" – ", "-")
+                                    .replace(/ /g, "-")
+                                    .replace("/", "-")
+                                    .replace(/[’]/g, "")
+                                    .replace(/[,/]/g, "")
+                                    .replace("{", "")
+                                    .replace("}", "")
+                                    .replace(/\(|\)/g, "")}-score`}
+                                />
+                              </div>
+                              {appendices.Tests[i].Abbreviation === "PIY" ||
+                              appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                              appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                              appendices.Tests[i].Abbreviation === "TSCC" ||
+                              appendices.Tests[i].Abbreviation === "MMPI-A" ||
+                              appendices.Tests[i].Abbreviation ===
+                                "ADOS-2" ? null : (
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    maxLength={4}
+                                    name={`${t.id}-appendix-${appendices.Tests[
+                                      i
+                                    ].Abbreviation.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-${t.name
+                                      .toLowerCase()
+                                      .replace(/ /g, "-")
+                                      .replace("<sup>", "")
+                                      .replace("</sup>", "")
+                                      .replace("/", "-")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .replace("{", "")
+                                      .replace("}", "")
+                                      .replace(/\(|\)/g, "")}-rank`}
+                                  />
+                                </div>
+                              )}
+                              {appendices.Tests[i].Abbreviation === "ADOS-2" ? (
+                                <div>Positive findings go here</div>
+                              ) : null}
+                              {appendices.Tests[i].Abbreviation ===
+                              "WIAT-III" ? (
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    maxLength={5}
+                                    name={`${t.id}-appendix-${appendices.Tests[
+                                      i
+                                    ].Abbreviation.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-${t.name
+                                      .toLowerCase()
+                                      .replace(/ /g, "-")
+                                      .replace("<sup>", "")
+                                      .replace("</sup>", "")
+                                      .replace("/", "-")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .replace("{", "")
+                                      .replace("}", "")
+                                      .replace(/\(|\)/g, "")}-grade-equivalent`}
+                                  />
+                                </div>
+                              ) : null}
+                              {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                                <div>
+                                  <Field
+                                    component="input"
+                                    type="text"
+                                    maxLength={15}
+                                    name={`${t.id}-appendix-${appendices.Tests[
+                                      i
+                                    ].Abbreviation.toLowerCase().replace(
+                                      / /g,
+                                      "-"
+                                    )}-${t.name
+                                      .toLowerCase()
+                                      .replace(/ /g, "-")
+                                      .replace("<sup>", "")
+                                      .replace("</sup>", "")
+                                      .replace("/", "-")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .replace("{", "")
+                                      .replace("}", "")
+                                      .replace(/\(|\)/g, "")}-range`}
+                                  />
+                                </div>
+                              ) : null}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              ))
+            : null}
+
+          {t.TestScoringTableScores !== undefined &&
+          t.TestScoringTableScores.length > 0 ? (
+            <div className="test-table test-table--appendix">
+              <div className="table__row table__header">
+                <div>Subtest</div>
+                <div>Score</div>
+                {appendices.Tests[i].Abbreviation === "PIY" ||
+                appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                appendices.Tests[i].Abbreviation === "TSCC" ||
+                appendices.Tests[i].Abbreviation === "MMPI-A" ? null : (
+                  <div>% Rank</div>
+                )}
+                {appendices.Tests[i].Abbreviation === "WIAT-III" ? (
+                  <div>Grade Eqv.</div>
+                ) : null}
+                {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                  <div>Classification</div>
+                ) : null}
+              </div>
+
+              {t.TestScoringTableScores.map(t => (
+                <div key={`${t.id}-${t.name}`} className="table__row">
+                  <div>{t.name}</div>
+                  <div>
+                    <Field
+                      component="input"
+                      type="text"
+                      maxLength={3}
+                      name={`${t.id}-${appendices.Tests[
                         i
                       ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
                         .toLowerCase()
-                        .replace(/ /g, "-")
                         .replace("<sup>", "")
                         .replace("</sup>", "")
+                        .replace(" – ", "-")
+                        .replace(/ /g, "-")
                         .replace("/", "-")
-                        .replace(/[,/]/g, "")
                         .replace(/[’]/g, "")
+                        .replace(/[,/]/g, "")
                         .replace("{", "")
                         .replace("}", "")
-                        .replace(/\(|\)/g, "")}-rank`}
+                        .replace(/\(|\)/g, "")}-score`}
                     />
                   </div>
-                )}
-                <div>
-                  <Field
-                    component="input"
-                    type="text"
-                    name={`${t.id}-appendix-${appendices.subtests.tests[
-                      i
-                    ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
-                      .toLowerCase()
-                      .replace(/ /g, "-")
-                      .replace("<sup>", "")
-                      .replace("</sup>", "")
-                      .replace("/", "-")
-                      .replace(/[,/]/g, "")
-                      .replace(/[’]/g, "")
-                      .replace("{", "")
-                      .replace("}", "")
-                      .replace(/\(|\)/g, "")}-range`}
-                  />
+                  {appendices.Tests[i].Abbreviation === "PIY" ||
+                  appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                  appendices.Tests[i].Abbreviation === "MMPI-2" ||
+                  appendices.Tests[i].Abbreviation === "TSCC" ||
+                  appendices.Tests[i].Abbreviation === "MMPI-A" ? null : (
+                    <div>
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={4}
+                        name={`${t.id}-appendix-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase().replace(
+                          / /g,
+                          "-"
+                        )}-${t.name
+                          .toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<sup>", "")
+                          .replace("</sup>", "")
+                          .replace("/", "-")
+                          .replace(/[,/]/g, "")
+                          .replace(/[’]/g, "")
+                          .replace("{", "")
+                          .replace("}", "")
+                          .replace(/\(|\)/g, "")}-rank`}
+                      />
+                    </div>
+                  )}
+                  {appendices.Tests[i].Abbreviation === "WIAT-III" ? (
+                    <div>
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={5}
+                        name={`${t.id}-appendix-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase().replace(
+                          / /g,
+                          "-"
+                        )}-${t.name
+                          .toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<sup>", "")
+                          .replace("</sup>", "")
+                          .replace("/", "-")
+                          .replace(/[,/]/g, "")
+                          .replace(/[’]/g, "")
+                          .replace("{", "")
+                          .replace("}", "")
+                          .replace(/\(|\)/g, "")}-grade-equivalent`}
+                      />
+                    </div>
+                  ) : null}
+                  {appendices.Tests[i].Abbreviation !== "BRIEF" ? (
+                    <div>
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={15}
+                        name={`${t.id}-appendix-${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase().replace(
+                          / /g,
+                          "-"
+                        )}-${t.name
+                          .toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace("<sup>", "")
+                          .replace("</sup>", "")
+                          .replace("/", "-")
+                          .replace(/[,/]/g, "")
+                          .replace(/[’]/g, "")
+                          .replace("{", "")
+                          .replace("}", "")
+                          .replace(/\(|\)/g, "")}-range`}
+                      />
+                    </div>
+                  ) : null}
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       ))}
     </div>

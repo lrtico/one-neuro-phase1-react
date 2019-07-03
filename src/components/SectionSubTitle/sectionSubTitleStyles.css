@@ -5,8 +5,9 @@ h3.h3--sib-h4 {
   margin-bottom: 18px;
 }
 .test-abbreviation {
+  color: black;
   font-family: "Montserrat", serif;
-  font-size: 23px;
-  font-size: 2.3rem;
+  font-size: 25px;
+  font-size: 2.5rem;
   font-weight: 700;
 }

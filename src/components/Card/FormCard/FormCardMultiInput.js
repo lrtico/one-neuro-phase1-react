@@ -149,7 +149,10 @@ class FormCardMultiInput extends Component {
                     <span onClick={this.handleDelete}>Delete</span>
                   </div>
                 </div>
-                <RequiredText requiredText="Enter required info above :)" />
+                <RequiredText
+                  requiredText="Enter required info above :)"
+                  customRequiredTextClass="question__required-text"
+                />
                 <div className="question__bg" />
               </li>
             ))}

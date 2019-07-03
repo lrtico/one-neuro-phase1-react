@@ -56,7 +56,11 @@ const NormalizePhoneInput = ({
           <ButtonToggle buttonToggleLabel="copy forward" />
         </div>
       )}
-      <RequiredText requiredText="Please enter 10 digits :)" left="63" />
+      <RequiredText
+        requiredText="Please enter 10 digits :)"
+        left="63"
+        customRequiredTextClass="question__required-text"
+      />
       {touched && error && <span>{error}</span>}
     </div>
   </div>

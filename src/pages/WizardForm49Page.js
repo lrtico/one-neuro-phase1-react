@@ -122,6 +122,48 @@ class WizardForm49Page extends Component {
               cardLabel: "Auditory Processing Weakness for Children",
               tabOrder: "13",
               recommendation: true
+            },
+            {
+              cardName: "recommendation-trauma-ptsd",
+              cardKey: "N",
+              cardLabel: "Trauma/PTSD",
+              tabOrder: "14",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-psychosis",
+              cardKey: "O",
+              cardLabel: "Psychosis",
+              tabOrder: "15",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-behavior-challenges",
+              cardKey: "P",
+              cardLabel: "Behavior Challenges",
+              tabOrder: "16",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-sports-concussion",
+              cardKey: "Q",
+              cardLabel: "Sports Concussion",
+              tabOrder: "17",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-reactive-attachment-disorder",
+              cardKey: "R",
+              cardLabel: "Reactive Attachment Disorder",
+              tabOrder: "18",
+              recommendation: true
+            },
+            {
+              cardName: "recommendation-traumatic-brain-injury",
+              cardKey: "S",
+              cardLabel: "Traumatic Brain Injury",
+              tabOrder: "19",
+              recommendation: true
             }
           ]}
           label="Would you like to use recommendation"

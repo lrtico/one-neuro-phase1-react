@@ -89,6 +89,7 @@ class WizardForm47Page extends Component {
     });
   };
 
+  //Add a composite score domain to the appendix (not used anymore)
   addToAppendix = (id, parentScaleName, abbreviation, name, event) => {
     console.log(`
       Make Appendix Domain info go now!
@@ -126,41 +127,49 @@ class WizardForm47Page extends Component {
     }
   };
 
-  //Add a subtest to the appendix onBlur (when user leaves a subtest's score input)
+  //Add a subtest inside a testSelected[0].SubTests to the appendix onBlur (when user leaves a subtest's score input)
   addSubtestToAppendix = (
     id,
-    name,
-    parentScaleName,
+    testName,
     abbreviation,
-    event,
-    parentScaleTitleId
+    subtestId,
+    subtestName,
+    event
   ) => {
     console.log(`
       Make Appendix Subtest info go now!
       Info we need:
-      - Abbreviation: ${abbreviation}
-      - Scale name: ${parentScaleName}
-      - SubTest Name: ${name}
-      - Id: ${id}
+      - Test Id: ${id}
+      - Test name: ${testName}
+      - Test Abbreviation: ${abbreviation}
+      - SubTest Id: ${subtestId}
+      - SubTest Name: ${subtestName}
       - Event: ${event.target.value}
-      - ParentScale Id: ${parentScaleTitleId}
     `);
+
     let data = {
       Id: id,
+      TestName: testName,
       Abbreviation: abbreviation,
-      TestName: parentScaleName,
-      SubTests: [{ name, id }]
+      SubTests: [
+        {
+          Id: subtestId,
+          Name: subtestName
+        }
+      ]
     };
 
+    console.log("ParentScale payload sent to appendix reducer, ", data);
+
     let notBlank = event.target.value !== "";
-    console.log("Subtest input wasn't blank: ", notBlank);
+    // console.log("Subtest input wasn't blank: ", notBlank);
 
     //Check to see if any sibling subtests have a value
     let sibsNotBlank = event => {
       let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
         "input"
       );
-      console.log("all sibs, ", sibsArr);
+      // console.log("all sibs, ", sibsArr);
       let sibsTest;
       // while (sib) {
       //   if (sib.nodeType === 1 && sib !== event.target) {
@@ -178,20 +187,125 @@ class WizardForm47Page extends Component {
         }
       }
     };
-    console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
+    // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
 
     if (notBlank) {
-      console.log("payload sent to add subtest appendix reducer: ", data);
+      // console.log("payload sent to add subtest appendix reducer: ", data);
+      // store.dispatch({
+      //   type: "ADD_APPENDIX_SUBTEST",
+      //   payload: data
+      // });
       store.dispatch({
-        type: "ADD_APPENDIX_SUBTEST",
+        type: "ADD_APPENDIX_TEST",
+        payload: data
+      });
+    } else if (sibsNotBlank(event)) {
+      //   const domainName = `${parentScaleTitleId}-${parentScaleName
+      //     .toLowerCase()
+      //     .replace(/ /g, "-")}`;
+      //   console.log(`Domain name = ${domainName}`);
+      //   this.props.change(domainName, true);
+      // console.log(
+      //   "Sibs not blank but payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    } else {
+      // console.log(
+      //   "payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
+  //Add a subtest inside a ParentScaleTitle to the appendix onBlur (when user leaves a subtest's score input)
+  addParentScaleTitleSubtestToAppendix = (
+    id,
+    testName,
+    name,
+    parentScaleName,
+    abbreviation,
+    event,
+    parentScaleTitleId
+  ) => {
+    console.log(`
+      Make Appendix Subtest info go now!
+      Info we need:
+      - Test name: ${testName}
+      - Abbreviation: ${abbreviation}
+      - Scale name: ${parentScaleName}
+      - SubTest Name: ${name}
+      - Id: ${id}
+      - Event: ${event.target.value}
+      - ParentScale Id: ${parentScaleTitleId}
+    `);
+
+    let data = {
+      Id: id,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      ParentScale: [
+        {
+          Id: parentScaleTitleId,
+          ParentScaleTitle: parentScaleName,
+          SubTests: [{ name, id }]
+        }
+      ]
+    };
+
+    console.log("ParentScale payload sent to appendix reducer, ", data);
+
+    let notBlank = event.target.value !== "";
+    // console.log("Subtest input wasn't blank: ", notBlank);
+
+    //Check to see if any sibling subtests have a value
+    let sibsNotBlank = event => {
+      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        "input"
+      );
+      // console.log("all sibs, ", sibsArr);
+      let sibsTest;
+      // while (sib) {
+      //   if (sib.nodeType === 1 && sib !== event.target) {
+      //     sibsArr.push(sib);
+      //   }
+      //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
+      // }
+      for (let item of sibsArr) {
+        if (item.value !== "") {
+          sibsTest = true;
+          return sibsTest;
+        } else {
+          sibsTest = false;
+          return sibsTest;
+        }
+      }
+    };
+    // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
+
+    if (notBlank) {
+      // console.log("payload sent to add subtest appendix reducer: ", data);
+      // store.dispatch({
+      //   type: "ADD_APPENDIX_SUBTEST",
+      //   payload: data
+      // });
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
         payload: data
       });
       //Automatically change the domain's field property and visually check the radio button
-      console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
+      // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
         .replace(/ /g, "-")}`;
-      console.log(`Domain name = ${domainName}`);
+      // console.log(`Domain name = ${domainName}`);
       this.props.change(domainName, true);
     } else if (sibsNotBlank(event)) {
       //   const domainName = `${parentScaleTitleId}-${parentScaleName
@@ -199,10 +313,10 @@ class WizardForm47Page extends Component {
       //     .replace(/ /g, "-")}`;
       //   console.log(`Domain name = ${domainName}`);
       //   this.props.change(domainName, true);
-      console.log(
-        "Sibs not blank but payload sent to remove appendix reducer: ",
-        data.SubTests[0]
-      );
+      // console.log(
+      //   "Sibs not blank but payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
       store.dispatch({
         type: "REMOVE_APPENDIX_SUBTEST",
         payload: data
@@ -213,10 +327,636 @@ class WizardForm47Page extends Component {
         .toLowerCase()
         .replace(/ /g, "-")}`;
       this.props.change(domainName, false);
-      console.log(
-        "payload sent to remove appendix reducer: ",
-        data.SubTests[0]
+      // console.log(
+      //   "payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
+  //Add a subtest inside a ParentGroupSubScale to the appendix onBlur (when user leaves a subtest's score input)
+  addParentGroupSubScaleSubtestToAppendix = (
+    abbreviation,
+    testName,
+    parentGroupSubScaleId,
+    parentGroupSubScaleName,
+    parentScaleTitleId,
+    parentScaleName,
+    id,
+    name,
+    event
+  ) => {
+    console.log(`
+      Make ParentGroupSubScale's Appendix Subtest info go now!
+      Info we need:
+      - Abbreviation: ${abbreviation}
+      - Test name: ${testName}
+      - ParentGroupSubScale Id: ${parentGroupSubScaleId}
+      - ParentGoupSubScale Name: ${parentGroupSubScaleName}
+      - ParentScale Id: ${parentScaleTitleId}
+      - ParentScale Name: ${parentScaleName}
+      - Id: ${id}
+      - SubTest Name: ${name}
+      - Event: ${event.target.value}
+    `);
+    let data = {
+      Id: id,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      ParentGroupSubScales: [
+        {
+          Id: parentGroupSubScaleId,
+          ParentGroupSubScaleName: parentGroupSubScaleName,
+          ParentScale: [
+            {
+              Id: parentScaleTitleId,
+              ParentScaleTitle: parentScaleName,
+              SubTests: [{ name, id }]
+            }
+          ]
+        }
+      ]
+    };
+
+    let notBlank = event.target.value !== "";
+    // console.log("Subtest input wasn't blank: ", notBlank);
+
+    //Check to see if any sibling subtests have a value
+    let sibsNotBlank = event => {
+      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        "input"
       );
+      // console.log("all sibs, ", sibsArr);
+      let sibsTest;
+      // while (sib) {
+      //   if (sib.nodeType === 1 && sib !== event.target) {
+      //     sibsArr.push(sib);
+      //   }
+      //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
+      // }
+      for (let item of sibsArr) {
+        if (item.value !== "") {
+          sibsTest = true;
+          return sibsTest;
+        } else {
+          sibsTest = false;
+          return sibsTest;
+        }
+      }
+    };
+    // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
+
+    if (notBlank) {
+      // console.log("payload sent to add subtest appendix reducer: ", data);
+      // store.dispatch({
+      //   type: "ADD_APPENDIX_SUBTEST",
+      //   payload: data
+      // });
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
+        payload: data
+      });
+      //Automatically change the domain's field property and visually check the radio button
+      // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      // console.log(`Domain name = ${domainName}`);
+      this.props.change(domainName, true);
+    } else if (sibsNotBlank(event)) {
+      //   const domainName = `${parentScaleTitleId}-${parentScaleName
+      //     .toLowerCase()
+      //     .replace(/ /g, "-")}`;
+      //   console.log(`Domain name = ${domainName}`);
+      //   this.props.change(domainName, true);
+      // console.log(
+      //   "Sibs not blank but payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    } else {
+      //Automatically change the domain's field property and visually check the radio button
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      this.props.change(domainName, false);
+      // console.log(
+      //   "payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
+  //Add a subtest inside a ParentScaleTitle inside a ParentGroupScale to the appendix onBlur (when user leaves a subtest's score input)
+  addParentGroupScaleParentScaleTitleSubtestToAppendix = (
+    abbreviation,
+    testName,
+    parentGroupScaleId,
+    parentGroupScaleName,
+    parentScaleTitleId,
+    parentScaleName,
+    id,
+    name,
+    event
+  ) => {
+    console.log(`
+      Make ParentGroupScale ParentScaleTitle's Appendix Subtest info go now!
+      Info we need:
+      - Abbreviation: ${abbreviation}
+      - Test name: ${testName}
+      - ParentGroupScale Id: ${parentGroupScaleId}
+      - ParentGoupScale Name: ${parentGroupScaleName}
+      - ParentScale Id: ${parentScaleTitleId}
+      - ParentScale Name: ${parentScaleName}
+      - Id: ${id}
+      - SubTest Name: ${name}
+      - Event: ${event.target.value}
+    `);
+    let data = {
+      Id: id,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      ParentGroupScales: [
+        {
+          Id: parentGroupScaleId,
+          ParentGroupScaleName: parentGroupScaleName,
+          ParentScaleTitles: [
+            {
+              Id: parentScaleTitleId,
+              ParentScaleName: parentScaleName,
+              SubTests: [{ name, id }]
+            }
+          ]
+        }
+      ]
+    };
+
+    let notBlank = event.target.value !== "";
+    // console.log("Subtest input wasn't blank: ", notBlank);
+
+    //Check to see if any sibling subtests have a value
+    let sibsNotBlank = event => {
+      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        "input"
+      );
+      // console.log("all sibs, ", sibsArr);
+      let sibsTest;
+      // while (sib) {
+      //   if (sib.nodeType === 1 && sib !== event.target) {
+      //     sibsArr.push(sib);
+      //   }
+      //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
+      // }
+      for (let item of sibsArr) {
+        if (item.value !== "") {
+          sibsTest = true;
+          return sibsTest;
+        } else {
+          sibsTest = false;
+          return sibsTest;
+        }
+      }
+    };
+    // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
+
+    if (notBlank) {
+      // console.log("payload sent to add subtest appendix reducer: ", data);
+      // store.dispatch({
+      //   type: "ADD_APPENDIX_SUBTEST",
+      //   payload: data
+      // });
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
+        payload: data
+      });
+      //Automatically change the domain's field property and visually check the radio button
+      // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      // console.log(`Domain name = ${domainName}`);
+      this.props.change(domainName, true);
+    } else if (sibsNotBlank(event)) {
+      //   const domainName = `${parentScaleTitleId}-${parentScaleName
+      //     .toLowerCase()
+      //     .replace(/ /g, "-")}`;
+      //   console.log(`Domain name = ${domainName}`);
+      //   this.props.change(domainName, true);
+      // console.log(
+      //   "Sibs not blank but payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    } else {
+      //Automatically change the domain's field property and visually check the radio button
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      this.props.change(domainName, false);
+      // console.log(
+      //   "payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
+  //Add a subtest inside a ParentGroupSubScale inside a ParentGroupScale to the appendix onBlur (when user leaves a subtest's score input)
+  addParentGroupScaleParentGroupSubScaleSubtestToAppendix = (
+    abbreviation,
+    testName,
+    parentGroupScaleId,
+    parentGroupScaleName,
+    parentGroupSubScaleId,
+    parentGroupSubScaleName,
+    parentScaleTitleId,
+    parentScaleName,
+    id,
+    name,
+    event
+  ) => {
+    console.log(`
+      Make ParentGroupScale ParentGroupSubScale's Appendix Subtest info go now!
+      Info we need:
+      - Abbreviation: ${abbreviation}
+      - Test name: ${testName}
+      - ParentGroupScale Id: ${parentGroupScaleId}
+      - ParentGoupScale Name: ${parentGroupScaleName}
+      - ParentGroupSubScale Id: ${parentGroupSubScaleId}
+      - ParentGoupSubScale Name: ${parentGroupSubScaleName}
+      - ParentScale Id: ${parentScaleTitleId}
+      - ParentScale Name: ${parentScaleName}
+      - Id: ${id}
+      - SubTest Name: ${name}
+      - Event: ${event.target.value}
+    `);
+    let data = {
+      Id: id,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      ParentGroupScales: [
+        {
+          Id: parentGroupScaleId,
+          ParentGroupScaleName: parentGroupScaleName,
+          ParentGroupSubScales: [
+            {
+              Id: parentGroupSubScaleId,
+              ParentGroupSubScaleName: parentGroupSubScaleName,
+              ParentScaleTitles: [
+                {
+                  Id: parentScaleTitleId,
+                  ParentScaleName: parentScaleName,
+                  SubTests: [{ name, id }]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    let notBlank = event.target.value !== "";
+    // console.log("Subtest input wasn't blank: ", notBlank);
+
+    //Check to see if any sibling subtests have a value
+    let sibsNotBlank = event => {
+      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        "input"
+      );
+      // console.log("all sibs, ", sibsArr);
+      let sibsTest;
+      // while (sib) {
+      //   if (sib.nodeType === 1 && sib !== event.target) {
+      //     sibsArr.push(sib);
+      //   }
+      //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
+      // }
+      for (let item of sibsArr) {
+        if (item.value !== "") {
+          sibsTest = true;
+          return sibsTest;
+        } else {
+          sibsTest = false;
+          return sibsTest;
+        }
+      }
+    };
+    // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
+
+    if (notBlank) {
+      // console.log("payload sent to add subtest appendix reducer: ", data);
+      // store.dispatch({
+      //   type: "ADD_APPENDIX_SUBTEST",
+      //   payload: data
+      // });
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
+        payload: data
+      });
+      //Automatically change the domain's field property and visually check the radio button
+      // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      // console.log(`Domain name = ${domainName}`);
+      this.props.change(domainName, true);
+    } else if (sibsNotBlank(event)) {
+      //   const domainName = `${parentScaleTitleId}-${parentScaleName
+      //     .toLowerCase()
+      //     .replace(/ /g, "-")}`;
+      //   console.log(`Domain name = ${domainName}`);
+      //   this.props.change(domainName, true);
+      // console.log(
+      //   "Sibs not blank but payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    } else {
+      //Automatically change the domain's field property and visually check the radio button
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      this.props.change(domainName, false);
+      // console.log(
+      //   "payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
+  //Add a subtest inside a TestModule to the appendix onBlur (when user leaves a subtest's score input)
+  addTestModuleSubtestToAppendix = (
+    testId,
+    abbreviation,
+    testName,
+    testModuleId,
+    testModuleName,
+    parentGroupScaleId,
+    parentGroupScaleName,
+    parentScaleTitleId,
+    parentScaleName,
+    id,
+    name,
+    event
+  ) => {
+    console.log(`
+      Make TestModules's Appendix Subtest info go now!
+      Info we need:
+      - Test Id: ${testId}
+      - Abbreviation: ${abbreviation}
+      - Test name: ${testName}
+      - TestModule Id: ${testModuleId}
+      - TestModule Name: ${testModuleName}
+      - ParentGroupSubScale Id: ${parentGroupScaleId}
+      - ParentGoupSubScale Name: ${parentGroupScaleName}
+      - ParentScale Id: ${parentScaleTitleId}
+      - ParentScale Name: ${parentScaleName}
+      - SubTest Id: ${id}
+      - SubTest Name: ${name}
+      - Event: ${event.target.value}
+    `);
+
+    let data = {
+      Id: testId,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      TestModules: [
+        {
+          Id: testModuleId,
+          Name: testModuleName,
+          ParentGroupScales: [
+            {
+              Id: parentGroupScaleId,
+              ParentGroupScaleName: parentGroupScaleName,
+              ParentScaleTitles: [
+                {
+                  Id: parentScaleTitleId,
+                  ParentScaleTitle: parentScaleName,
+                  SubTests: [
+                    {
+                      name,
+                      id
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    console.log("TestModule payload sent to appendix reducer, ", data);
+
+    let notBlank = event.target.value !== "";
+    // console.log("Subtest input wasn't blank: ", notBlank);
+
+    //Check to see if any sibling subtests have a value
+    let sibsNotBlank = event => {
+      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        "input"
+      );
+      // console.log("all sibs, ", sibsArr);
+      let sibsTest;
+      // while (sib) {
+      //   if (sib.nodeType === 1 && sib !== event.target) {
+      //     sibsArr.push(sib);
+      //   }
+      //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
+      // }
+      for (let item of sibsArr) {
+        if (item.value !== "") {
+          sibsTest = true;
+          return sibsTest;
+        } else {
+          sibsTest = false;
+          return sibsTest;
+        }
+      }
+    };
+    // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
+
+    if (notBlank) {
+      // console.log("payload sent to add subtest appendix reducer: ", data);
+      // store.dispatch({
+      //   type: "ADD_APPENDIX_SUBTEST",
+      //   payload: data
+      // });
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
+        payload: data
+      });
+      //Automatically change the domain's field property and visually check the radio button
+      // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      // console.log(`Domain name = ${domainName}`);
+      this.props.change(domainName, true);
+    } else if (sibsNotBlank(event)) {
+      //   const domainName = `${parentScaleTitleId}-${parentScaleName
+      //     .toLowerCase()
+      //     .replace(/ /g, "-")}`;
+      //   console.log(`Domain name = ${domainName}`);
+      //   this.props.change(domainName, true);
+      // console.log(
+      //   "Sibs not blank but payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    } else {
+      //Automatically change the domain's field property and visually check the radio button
+      const domainName = `${parentScaleTitleId}-${parentScaleName
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      this.props.change(domainName, false);
+      // console.log(
+      //   "payload sent to remove appendix reducer: ",
+      //   data.ParentScale[0].SubTests[0]
+      // );
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
+  //Add a TableHeaderRowTitle inside a TestScoringTableDetail to the appendix onBlur (when user leaves a score input)
+  addTestScoringTableScoresToAppendix = (
+    abbreviation,
+    testName,
+    id,
+    name,
+    event
+  ) => {
+    console.log(`
+      Make TestScoringTableScore's Appendix Subtest info go now!
+      Info we need:
+      - Abbreviation: ${abbreviation}
+      - Test name: ${testName}
+      - Id: ${id}
+      - SubTest Name: ${name}
+      - Event: ${event.target.value}
+    `);
+
+    let data = {
+      Id: id,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      TestScoringTableScores: [
+        {
+          name,
+          id
+        }
+      ]
+    };
+
+    console.log(
+      "TestScoringTableScore payload sent to appendix reducer, ",
+      data
+    );
+
+    let notBlank = event.target.value !== "";
+    // console.log("Subtest input wasn't blank: ", notBlank);
+
+    //The field just left has a value so add it to the global state
+    if (notBlank) {
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
+        payload: data
+      });
+    } else {
+      store.dispatch({
+        type: "REMOVE_APPENDIX_SUBTEST",
+        payload: data
+      });
+    }
+  };
+
+  //Add an IndexName inside a TestIndex to the appendix onBlur (when user leaves a score input)
+  addTestIndexToAppendix = (id, testName, abbreviation, indexName, event) => {
+    console.log(`
+      Make IndexName's Appendix info go now!
+      Info we need:
+      - Id: ${id}
+      - Test name: ${testName}
+      - Abbreviation: ${abbreviation}
+      - Index Name: ${indexName}
+      - Event: ${event.target.value}
+    `);
+
+    let data = {
+      Id: id,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      TestIndexes: [
+        {
+          Id: id,
+          IndexName: indexName
+        }
+      ]
+    };
+
+    let gcaData = {
+      Id: id,
+      TestName: testName,
+      Abbreviation: abbreviation,
+      TestIndexes: [
+        {
+          Id: id,
+          IndexName: "General Conceptual Ability (GCA)"
+        },
+        {
+          Id: id,
+          IndexName: "Special Nonverbal Composite (SNC)"
+        }
+      ]
+    };
+
+    console.log("IndexName payload sent to appendix reducer, ", data);
+
+    let notBlank = event.target.value !== "";
+    // console.log("Subtest input wasn't blank: ", notBlank);
+
+    //The field just left has a value so add it to the global state
+    if (notBlank && indexName !== "General Conceptual Ability") {
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
+        payload: data
+      });
+    } else if (notBlank && indexName === "General Conceptual Ability") {
+      store.dispatch({
+        type: "ADD_APPENDIX_TEST",
+        payload: gcaData
+      });
+    } else {
       store.dispatch({
         type: "REMOVE_APPENDIX_SUBTEST",
         payload: data
@@ -521,6 +1261,25 @@ class WizardForm47Page extends Component {
             testFromState={tests}
             handleAppendixAdd={this.addToAppendix}
             handleAppendixSubtestAdd={this.addSubtestToAppendix}
+            handleAppendixParentGroupSubScaleSubtestAdd={
+              this.addParentGroupSubScaleSubtestToAppendix
+            }
+            handleAppendixTestScoringTableScoresAdd={
+              this.addTestScoringTableScoresToAppendix
+            }
+            handleAppendixTestModulesSubtestAdd={
+              this.addTestModuleSubtestToAppendix
+            }
+            handleAppendixTestIndexesAdd={this.addTestIndexToAppendix}
+            handleAppendixParentScaleTitleSubtestAdd={
+              this.addParentScaleTitleSubtestToAppendix
+            }
+            handleAppendixParentGroupScalesParentGroupSubScaleSubtestAdd={
+              this.addParentGroupScaleParentGroupSubScaleSubtestToAppendix
+            }
+            handleAppendixParentGroupScalesParentScaleTitleSubtestAdd={
+              this.addParentGroupScaleParentScaleTitleSubtestToAppendix
+            }
           />
           <DivButton divButtonLabel="Ok" show={this.showSummary} />
         </div>

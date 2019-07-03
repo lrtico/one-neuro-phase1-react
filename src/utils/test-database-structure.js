@@ -519,22 +519,141 @@ state = {
   ]
 }
 
-//When a Test's group of subtests title's checkbox is clicked...
-state = {
-  appendices: [
+//Appendix tree
+appendixReducer = {
+  allTests: [
     {
-      Name: "test name",
-      Abbreviation: "test abbreviation",
-      SubTests: ["subtest1 name", "subtest2 name"]
-    },
-    {
-      Name: "test name",
-      Abbreviation: "test abbreviation",
-      SubTests: ["subtest1 name", "subtest2 name"]
+      Abbreviation: "WJ-IV ACH",
+      Id: 616,
+      TestName: "Woodcock Johnson IV ACH",
+      ParentScales: [
+        {
+          Id: 144,
+          ParentScaleTitle: "BASIC READING SKILLS",
+          SubTests: [
+            {
+              name: "Letter-Word Identification",
+              id: 616,
+            },
+            {
+              name: "Word Attack",
+              id: 617,
+            }
+          ] 
+        }
+      ],
+      ParentGroupScales: [
+        {
+          Id: 10,
+          ParentGroupScaleName: "SRP Composite Scales",
+          ParentScaleTitles: [
+            {
+              Id: 66,
+              ParentScaleName: "Validity Indexes",
+              SubTests: [
+                {
+                  name: "F Index", 
+                  id: 283,
+                },
+                {
+                  name: "L Index", 
+                  id: 284,
+                }
+              ] 
+            } 
+          ],
+          ParentGroupSubScales: [
+            {
+              Id: 12,
+              ParentGroupSubScaleName: "SRP-C",
+              ParentScaleTitles: [
+                {
+                  Id: 70,
+                  ParentScaleName: "School Problems",
+                  SubTests: [
+                    {
+                      name: "Letter-Word Identification", 
+                      id: 616,
+                    },
+                    {
+                      name: "Word Attack", 
+                      id: 617,
+                    }
+                  ] 
+                } 
+              ]
+            }
+          ]
+        }
+      ],
+      ParentGroupSubScales: [
+        {
+          Id: 3,
+          ParentGroupSubScaleName: "Parent",
+          ParentScale: [
+            {
+              Id: 144,
+              ParentScaleTitle: "BASIC READING SKILLS",
+              SubTests: [
+                {
+                  name: "Letter-Word Identification", 
+                  id: 616,
+                },
+                {
+                  name: "Word Attack", 
+                  id: 617,
+                }
+              ] 
+            }
+          ]
+        }
+      ],
+      TestModules: [
+        {
+          Id: 1,
+          Name: "Module 1",
+          ParentGroupScales: [
+            {
+              Id: 2,
+              ParentGroupScaleName: "Social Affect (SA)",
+              ParentScaleTitles: [
+                {
+                  Id: 6,
+                  ParentScaleName: "Communication",
+                  SubTests: [
+                    {
+                      Id: 17,
+                      Name: "Frequency of Spontaneous Vocalization Directed to Others (A-2)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      TestScoringTableDetails: [
+        {
+          Id: id,
+          TestName: testName,
+          Abbreviation: abbreviation,
+          TestScoringTableScores: [
+            {
+              name,
+              id
+            }
+          ]
+        }
+      ],
+      TestIndexes: [
+        {
+          Id: id,
+          IndexName: indexName,
+        }
+      ]
     }
   ]
-};
-
+}
 // has subtest?
 // True = remove subtest from the Array
 // if subtest.length = 0, remove the test...Array

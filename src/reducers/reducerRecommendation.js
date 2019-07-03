@@ -1041,6 +1041,348 @@ let recommendations = [
         subtext: []
       }
     ]
+  },
+  {
+    id: 14,
+    name: "Trauma/PTSD",
+    selected: false,
+    recommendation: [
+      {
+        id: "trauma-ptsd1",
+        text:
+          "CLIENT NAME should receive continued individual therapy to address her trauma and resulting in depression, anxiety, and difficulty in social situations. CLIENT NAME might benefit from a trauma-specific treatment such as Trauma-Focused Cognitive Behavioral Therapy (TF-CBT). However, given her complex and chronic trauma, she might also benefit from long-term exploratory treatment.",
+        subtext: []
+      },
+      {
+        id: "trauma-ptsd2",
+        text:
+          "Methods of discipline should also be a focus of family therapy. It seems as though CLIENT NAME has experienced discipline that is applied inconsistently and may not be effective, particularly for a child with a traumatic history (e.g., spanking, threatening, excessive yelling).",
+        subtext: []
+      },
+      {
+        id: "trauma-ptsd3",
+        text:
+          "The client would benefit from caregivers providing a consistent and predictable environment surrounding him/her. This would include reducing transitions between living environments.",
+        subtext: []
+      },
+      {
+        id: "trauma-ptsd4",
+        text:
+          "Seeking Safety. CLIENT NAMEwould benefit from participating in Seeking Safety. This is an evidence-based treatment model that treats co-occurring diagnoses of PTSD and substance abuse. This treatment paradigm may incorporate individualized and group-format interventions that address both trauma and substance use symptoms.",
+        subtext: []
+      },
+      {
+        id: "trauma-ptsd5",
+        text:
+          "Release Play Therapy. This is a structured approach. Children engage in free play until they become comfortable in the playroom. Therapists then use play to re-enact stressful situations. The goal of this intervention was to bring about the release of troubling emotions children experience (depending on development, this therapeutic approach is most commonly utilized with children 3-11).",
+        subtext: []
+      },
+      {
+        id: "trauma-ptsd6",
+        text:
+          "Internal Family Systems Therapy for adults. This approach is great for trauma treatment for both individuals and couples work in which one of the partner’s has complex and/or acute trauma history. This treatment approach helps engage traumatized parts of the client in a way that is less confronting while also allowing beginning steps towards eventual trauma reintegration.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 15,
+    name: "Psychosis",
+    selected: false,
+    recommendation: [
+      {
+        id: "psychosis1",
+        text:
+          "Support and ongoing treatment with a psychiatrist who specializes in treating psychosis and engages in a holistic approach to client care.",
+        subtext: []
+      },
+      {
+        id: "psychosis2",
+        text:
+          "Adherence to taking medication as prescribed to foster stabilization and safety for self and others.",
+        subtext: []
+      },
+      {
+        id: "psychosis3",
+        text:
+          "Provide psychoeducation and support systems for clients around common side effects on antipsychotic medications as not being adherent to medication as prescribed is one of the greatest vulnerabilities and risk factors for those suffering from psychotic disorders.",
+        subtext: []
+      },
+      {
+        id: "psychosis4",
+        text: "Group therapy around healthy coping skills.",
+        subtext: []
+      },
+      {
+        id: "psychosis5",
+        text:
+          "Art and other expressive outlets to combat social isolation and internalizing behaviors.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 16,
+    name: "Behavior Challenges",
+    selected: false,
+    recommendation: [
+      {
+        id: "behavior-challenges1",
+        text:
+          "The client’s caregivers can choose to convene a meeting with the Committee on Special Education (CSE) to consider establishing an Individualized Education Program (IEP) under the classification of Specific Learning Disability (SLD), given the client’s symptoms are significantly impacting their access to the curriculum and educational performance.",
+        subtext: []
+      },
+      {
+        id: "behavior-challenges2",
+        text:
+          "The client’s caregivers should play an active role in understanding the client’s auditory processing weaknesses and associated limitations given their current difficulties in writing. In turn, the client’s caregivers should maintain realistic expectations and ensure not to punish or reprimand the client for failure to complete associated tasks.",
+        subtext: []
+      },
+      {
+        id: "behavior-challenges3",
+        text:
+          "The client’s caregivers should play an active role in understanding the client’s auditory processing weaknesses and associated limitations given their current difficulties in writing. In turn, the client’s caregivers should maintain realistic expectations and ensure not to punish or reprimand the client for failure to complete associated tasks.",
+        subtext: []
+      },
+      {
+        id: "behavior-challenges4",
+        text:
+          "The client’s caregivers should play an active role in understanding the client’s auditory processing weaknesses and associated limitations given their current difficulties in writing. In turn, the client’s caregivers should maintain realistic expectations and ensure not to punish or reprimand the client for failure to complete associated tasks.",
+        subtext: [
+          {
+            id: "behavior-challenges4-1",
+            text:
+              " Maintain a daily schedule with routine activities at the same time of day."
+          },
+          {
+            id: "behavior-challenges4-2",
+            text:
+              " Create an organization plan for the home environment and have specific spots for leaving work, toys, clothes, etc."
+          },
+          {
+            id: "behavior-challenges4-3",
+            text:
+              "Set small, attainable goals. Develop and use a visual system when possible."
+          },
+          {
+            id: "behavior-challenges4-4",
+            text:
+              "Help Client Name stay on task with simple instructions and friendly reminders; congratulate client when they follow through."
+          },
+          {
+            id: "behavior-challenges4-5",
+            text:
+              "Limit choices. Providing an option is useful, but consider limiting them to two or three in order to help reduce frustration and feelings of being overwhelmed."
+          },
+          {
+            id: "behavior-challenges4-6",
+            text:
+              "Find something that Client Name is good at and promote it (such as drawing, reading, puzzles, Lego’s)."
+          },
+          {
+            id: "behavior-challenges4-7",
+            text:
+              "Reward positive behavior. Kind words, praise, hugs, and small rewards both promote appropriate behavior and help children feel good about themselves."
+          }
+        ]
+      },
+      {
+        id: "behavior-challenges5",
+        text:
+          "Parent training may be highly beneficial for the Client Name’s parents in assisting them to understand the factors that maintain Client Name’s behaviors, including their role in reinforcing any of his/her problem behaviors. This can allow Client Name to become aware of the consequences of his actions, and thereby gradually cease the behaviors altogether.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 17,
+    name: "Sports Concussion",
+    selected: false,
+    recommendation: [
+      {
+        id: "sports-concussion1",
+        text: "Medical evaluation with a Brain Rehabilitation physician.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion2",
+        text:
+          "Concussion specific MRI or other radiological imaging, as indicated.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion3",
+        text: "Musculoskeletal evaluation and treatment (neck, back, etc.).",
+        subtext: []
+      },
+      {
+        id: "sports-concussion4",
+        text: "Balance/dizziness/vestibular evaluation and treatment.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion5",
+        text: "Headache and pain management.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion6",
+        text: "Sleep/fatigue management.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion7",
+        text: "Vision screening.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion8",
+        text: "Cognitive-communication rehabilitation.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion9",
+        text:
+          "Neuropsychological evaluation (mood, cognition, behavior changes).",
+        subtext: []
+      },
+      {
+        id: "sports-concussion10",
+        text: "Psychometric testing.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion11",
+        text: "Concussion education.",
+        subtext: []
+      },
+      {
+        id: "sports-concussion12",
+        text:
+          "Care coordination and follow up a referral to sub-specialists as indicated (Headache Neurology, Sleep Medicine, Neuro-Optometry/Ophthalmology, ENT/Balance, Psychiatry).",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 18,
+    name: "Reactive Attachment Disorder",
+    selected: false,
+    recommendation: [
+      {
+        id: "reactive-attachment-disorder1",
+        text:
+          "The most effective treatment focuses on identifying issues with and improving the child-caregiver relationship.",
+        subtext: []
+      },
+      {
+        id: "reactive-attachment-disorder2",
+        text:
+          "Treatment should focus on improving the child’s understanding of emotions and social cues, affect regulation and impulse control.",
+        subtext: []
+      },
+      {
+        id: "reactive-attachment-disorder",
+        text:
+          "Treatment should work on behavior management including appropriate relations with strangers.",
+        subtext: []
+      },
+      {
+        id: "reactive-attachment-disorder4",
+        text:
+          "Treatment should consider the possibility that the child may have experienced trauma; this is common, given their experience with pathogenic care.",
+        subtext: []
+      },
+      {
+        id: "reactive-attachment-disorder5",
+        text:
+          "Caregiver support should be considered. This may include respite care, individual or couple psychotherapy. Additionally, caregivers may benefit from participating in a support group.",
+        subtext: []
+      },
+      {
+        id: "reactive-attachment-disorder6",
+        text:
+          "Child-Parent Psychotherapy (CPP) This intervention is for children who have experienced trauma Works on strengthening the child-parent relationship to protect the mental health of the child. http://www.cebc4cw.org/program/child-parent-psychotherapy.",
+        subtext: []
+      },
+      {
+        id: "reactive-attachment-disorder7",
+        text:
+          "Parent-Child Interaction Therapy (PCIT) This program was designed for children experiencing behavioral and emotional problems. It teaches new parenting skills and helps strengthen the child-parent relationship. http://www.cebc4cw.org/program/parent-child-interaction-therapy.",
+        subtext: []
+      },
+      {
+        id: "reactive-attachment-disorder8",
+        text:
+          "Circle of Security Intervention (COS) This intervention teaches the basics of attachment theory, helps parents to observe interactions with their child and understand how to respond to their children’s needs in a sensitive manner.. http://www.cebc4cw.org/program/circle-of-security.",
+        subtext: []
+      }
+    ]
+  },
+  {
+    id: 19,
+    name: "Traumatic Brain Injury",
+    selected: false,
+    recommendation: [
+      {
+        id: "traumatic-brain-injury1",
+        text:
+          "Client Name requires additional intensive and consistent individualized support as it pertains to decisional capacity, problem-solving skills and ability to communicate needs and desires.",
+        subtext: []
+      },
+      {
+        id: "traumatic-brain-injury2",
+        text:
+          "It is recommended that interventions also explore relaxation techniques and equipping Client Name with more helpful adaptive coping skills.",
+        subtext: [
+          {
+            id: "traumatic-brain-injury2-1",
+            text:
+              "As Client Name has some difficulty with attentiveness and emotion regulation, mindfulness could help him become more attuned with his body regulation and the present moment. Consider using scripts that incorporate sensory components and that are interesting to him, as this may help increase Client Name's active participation."
+          },
+          {
+            id: "traumatic-brain-injury2-2",
+            text:
+              "For example, utilizing a Mindfulness script incorporates using several senses, including tactile, auditory, and olfactory senses."
+          },
+          {
+            id: "traumatic-brain-injury2-3",
+            text:
+              "Other adaptive relaxation techniques include deep breathing and progressive muscle relaxation."
+          }
+        ]
+      },
+      {
+        id: "traumatic-brain-injury3",
+        text:
+          "It is important for the client to have regular meetings with a neurologist to assess functioning over time. These meetings may result in recommendations for neuro-imaging.",
+        subtext: []
+      },
+      {
+        id: "traumatic-brain-injury4",
+        text:
+          "The client would benefit from receiving ongoing psychoeducation from care providers who are aware of his neurological condition. This would allow the client to gain a greater awareness of his/her difficulties as well as the importance of ways in which to address and mitigate these.",
+        subtext: []
+      },
+      {
+        id: "traumatic-brain-injury5",
+        text:
+          "Engage in specific independent living skills (e.g. self-care grooming, financial planning, budgeting, self-directed capacity and ability to do tasks and responsibilities even when he does not want to or is fatigued) building as to assess where Client Name is in those areas now and a desired movement over the next 2-3 years.",
+        subtext: []
+      },
+      {
+        id: "traumatic-brain-injury6",
+        text:
+          "Exposure to introduction to vocational training to assess the career feasibility for Client Name and the level of supervision, training, and teaching he may require given the challenges his TBI has presented him with while also continue to strengthen those skills that are strengths like his visual special skills, perceptual reasoning, and tasks that allow Client Name to work with his hands while having access to both auditory and visual information/instruction such as graphs, pictures, blueprints, etc.",
+        subtext: []
+      },
+      {
+        id: "traumatic-brain-injury7",
+        text:
+          "Re-assessment and monitoring in 2-3 years are recommended to re-evaluate current strengths and weaknesses and provide updated and appropriate educational, vocational and treatment intervention recommendations.",
+        subtext: []
+      }
+    ]
   }
 ];
 
