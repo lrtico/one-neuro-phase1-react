@@ -19,7 +19,7 @@ const WizardForm03Page = props => {
           component={TextQuestion}
           label="What is the person's"
           labelBold="name"
-          name="paq-name"
+          name="paqName"
           src="img/icons-happy-face-name.svg"
           tabOrder="1"
           type="input"
@@ -30,7 +30,7 @@ const WizardForm03Page = props => {
           component={TextQuestion}
           label="What is the person's"
           labelBold="address"
-          name="paq-address"
+          name="paqAddress"
           src="img/icons-house.svg"
           tabOrder="2"
           type="input"
@@ -42,43 +42,43 @@ const WizardForm03Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "paq-guardian",
+              cardName: "paqGuardian",
               cardKey: "A",
               cardLabel: "Mother",
               tabOrder: "3"
             },
             {
-              cardName: "paq-guardian",
+              cardName: "paqGuardian",
               cardKey: "B",
               cardLabel: "Father",
               tabOrder: "4"
             },
             {
-              cardName: "paq-guardian",
+              cardName: "paqGuardian",
               cardKey: "C",
               cardLabel: "Grandmother",
               tabOrder: "5"
             },
             {
-              cardName: "paq-guardian",
+              cardName: "paqGuardian",
               cardKey: "D",
               cardLabel: "Grandfather",
               tabOrder: "5"
             },
             {
-              cardName: "paq-guardian",
+              cardName: "paqGuardian",
               cardKey: "E",
               cardLabel: "Aunt",
               tabOrder: "6"
             },
             {
-              cardName: "paq-guardian",
+              cardName: "paqGuardian",
               cardKey: "F",
               cardLabel: "Self",
               tabOrder: "7"
             },
             {
-              cardName: "paq-guardian",
+              cardName: "paqGuardian",
               cardKey: "G",
               cardLabel: "Other",
               tabOrder: "8"
@@ -87,14 +87,14 @@ const WizardForm03Page = props => {
           label="What is the"
           labelBold="relationship"
           labelLast="to the client"
-          name="paq-relationship"
+          name="paqRelationship"
           classes="question question--thumbless"
         />
         <Field
           component={TextQuestion}
           label="Other"
           labelBold="relationship"
-          name="paq-guardian-other-group"
+          name="paqGuardianOtherGroup"
           tabOrder="7"
           type="input"
           classes="question grid__quarter"
@@ -107,7 +107,7 @@ const WizardForm03Page = props => {
           label=""
           labelBold="Home"
           labelLast="phone"
-          name="paq-home-phone"
+          name="paqHomePhone"
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="8"
@@ -121,7 +121,7 @@ const WizardForm03Page = props => {
           label=""
           labelBold="Work"
           labelLast="phone"
-          name="paq-work-phone"
+          name="paqWorkPhone"
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="9"
@@ -135,7 +135,7 @@ const WizardForm03Page = props => {
           label=""
           labelBold="Cell"
           labelLast="phone"
-          name="paq-cell-phone"
+          name="paqCellPhone"
           maxCharacters={14}
           src="img/icons-phone.svg"
           tabOrder="10"
