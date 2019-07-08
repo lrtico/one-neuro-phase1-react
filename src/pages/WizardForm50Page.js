@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { reduxForm, getFormValues } from "redux-form";
 import { connect } from "react-redux";
-import FormAPI from "formapi";
+import axios from "axios";
+import { saveAs } from "file-saver";
+// import FormAPI from "formapi";
 import validate from "../validate";
 import "../app.css";
 import Button from "../components/Button";
@@ -14,66 +16,56 @@ class WizardForm50Page extends Component {
 
   generatePDFTest = event => {
     event.preventDefault();
-    const values = this.props.values;
+    const values = {
+      values: this.props.values,
+      appendixReducer: this.props.appendices.Tests,
+      testSelectedReducer: this.props.tests,
+      recommendations: this.props.recommendations
+    };
+    console.log("generatePDFTest values, ", values);
 
     this.setState({ loading: true });
 
-    const formapiConfig = new FormAPI.Configuration();
-    formapiConfig.apiTokenId = "api_test_nK62yQ9snkS4CQqJYA";
-    formapiConfig.apiTokenSecret =
-      "xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg";
-    const formapiClient = new FormAPI.Client(formapiConfig);
-    const TEMPLATE_ID = "tpl_kbrXFcG2zFCHQTyrSQ";
-    const OPTIONS = {
-      data: values,
-      test: true
-    };
+    //use axios' post method to the create-pdf route passing the data from state
+    //blobs are immutable objects the represent raw data, like our PDF
+    axios
+      .post("/create-pdf", values)
+      .then(() => axios.get("fetch-pdf", { responseType: "blob" }))
+      .then(res => {
+        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+        saveAs(pdfBlob, "newPDF.pdf");
+        this.setState({ loading: false });
+      });
 
-    formapiClient.generatePDF(TEMPLATE_ID, OPTIONS, function(error, response) {
-      let downloadURL = response.submission.download_url;
-      let status = response.submission.state;
-      console.log("FormAPI response", response);
-      console.log("Make download go now!", downloadURL);
+    // const formapiConfig = new FormAPI.Configuration();
+    // formapiConfig.apiTokenId = "api_test_nK62yQ9snkS4CQqJYA";
+    // formapiConfig.apiTokenSecret =
+    //   "xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg";
+    // const formapiClient = new FormAPI.Client(formapiConfig);
+    // const TEMPLATE_ID = "tpl_kbrXFcG2zFCHQTyrSQ";
+    // const OPTIONS = {
+    //   data: values,
+    //   test: true
+    // };
 
-      if (error) throw error;
+    // formapiClient.generatePDF(TEMPLATE_ID, OPTIONS, function(error, response) {
+    //   let downloadURL = response.submission.download_url;
+    //   let status = response.submission.state;
+    //   console.log("FormAPI response", response);
+    //   console.log("Make download go now!", downloadURL);
 
-      status !== "processed"
-        ? console.log("API is processing")
-        : downloadPDF(downloadURL);
-    });
+    //   if (error) throw error;
 
-    const downloadPDF = url => {
-      console.log("API is done");
-      window.open(url);
-      this.setState({ loading: false });
-    };
+    //   status !== "processed"
+    //     ? console.log("API is processing")
+    //     : downloadPDF(downloadURL);
+    // });
 
-    // const URL =
-    //   "https://api.formapi.io/api/v1/templates/tpl_kbrXFcG2zFCHQTyrSQ/submissions";
-    // const TOKENID = "api_test_nK62yQ9snkS4CQqJYA";
-    // const TOKENSECRET = "xO7QZdhq_CqdfJHdPx8wWqwZrwrncNO2I5LNvOZe6Pg";
-    // headers.set('Authorization', 'Basic ' + Buffer.from(TOKENID + ":" + TOKENSECRET).toString('base64'))
-    // let headers = new Headers();
-    // headers.append(
-    //   "Authorization",
-    //   "Basic " + window.btoa(TOKENID + ":" + TOKENSECRET)
-    // );
-    // fetch(URL, {
-    //   method: "POST", // or 'PUT'
-    //   body: JSON.stringify(OPTIONS), // data can be `string` or {object}!
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //     Authorization: "Basic " + window.btoa(TOKENID + ":" + TOKENSECRET)
-    //   }
-    // })
-    //   .then(response => {
-    //     return response.json();
-    //   })
-    //   .then(jsonResponse => {
-    //     console.log(jsonResponse);
-    //   })
-    //   .catch(error => console.error("Error:", error));
+    // const downloadPDF = url => {
+    //   console.log("API is done");
+    //   window.open(url);
+    //   this.setState({ loading: false });
+    // };
   };
 
   render() {
@@ -107,7 +99,9 @@ class WizardForm50Page extends Component {
 
 // Grab the Redux Form's values and load it into props
 WizardForm50Page = connect(state => ({
-  values: getFormValues("wizard")(state)
+  values: getFormValues("wizard")(state),
+  tests: state.testsSelectedReducer,
+  appendices: state.appendixReducer
 }))(WizardForm50Page);
 
 export default reduxForm({

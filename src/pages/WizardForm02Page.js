@@ -39,7 +39,7 @@ class WizardForm02Page extends Component {
         age = parseFloat(currYear - birthYear);
       }
 
-      this.props.change("di-age", age);
+      this.props.change("diAge", age);
       store.dispatch({
         type: "ADD_PATIENT_AGE",
         payload: age
@@ -73,7 +73,7 @@ class WizardForm02Page extends Component {
             component={TextQuestion}
             label="What is the patient's"
             labelBold="name"
-            name="di-name"
+            name="diName"
             src="img/icons-happy-face-name.svg"
             tabOrder="1"
             type="input"
@@ -85,7 +85,7 @@ class WizardForm02Page extends Component {
             component={TextQuestion}
             label="Where were they"
             labelBold="evaluated"
-            name="di-evaluationlocation"
+            name="diEvaluationlocation"
             src="img/icons-office-building.svg"
             tabOrder="2"
             type="input"
@@ -98,7 +98,7 @@ class WizardForm02Page extends Component {
             component={TextQuestion}
             label="What is their"
             labelBold="date of birth"
-            name="di-dateofbirth"
+            name="diDateofbirth"
             src="img/icons-birthday-cake.svg"
             tabOrder="3"
             type="date"
@@ -109,7 +109,7 @@ class WizardForm02Page extends Component {
             component={TextQuestionAutoCalculate}
             label="What is their"
             labelBold="age"
-            name="di-age"
+            name="diAge"
             tabOrder="4"
             type="number"
             classes="question grid__half"
@@ -126,7 +126,7 @@ class WizardForm02Page extends Component {
             label="Name of"
             labelBold="school"
             labelLast="attending"
-            name="di-school"
+            name="diSchool"
             src="img/icons-school.svg"
             tabOrder="5"
             type="input"
@@ -137,7 +137,7 @@ class WizardForm02Page extends Component {
             label="What"
             labelBold="grade"
             labelLast="are they in"
-            name="di-grade"
+            name="diGrade"
             type="input"
             tabOrder="6"
             classes="question grid__half"
@@ -146,13 +146,13 @@ class WizardForm02Page extends Component {
         <div className="flex">
           <div className="question grid__half">
             <Field
-              name="di-gender-group"
+              name="diGenderGroup"
               component={RadioCard}
               cardInfo={[
                 {
                   thumbnail: "img/icons-woman-generic.svg",
                   thumbnailAlt: "Girl",
-                  cardName: "di-gender",
+                  cardName: "diGender",
                   cardKey: "A",
                   cardLabel: "Girl",
                   tabOrder: "9"
@@ -160,7 +160,7 @@ class WizardForm02Page extends Component {
                 {
                   thumbnail: "img/icons-man-generic.svg",
                   thumbnailAlt: "Boy",
-                  cardName: "di-gender",
+                  cardName: "diGender",
                   cardKey: "B",
                   cardLabel: "Boy",
                   tabOrder: "10"
@@ -174,13 +174,13 @@ class WizardForm02Page extends Component {
           </div>
           <div className="question grid__half">
             <Field
-              name="di-hand-ing"
+              name="diHandGroup"
               component={RadioCard}
               cardInfo={[
                 {
                   thumbnail: "img/icons-hand-left.svg",
                   thumbnailAlt: "Left hand",
-                  cardName: "di-handedness",
+                  cardName: "diHandedness",
                   cardKey: "A",
                   cardLabel: "Left",
                   tabOrder: "13"
@@ -188,7 +188,7 @@ class WizardForm02Page extends Component {
                 {
                   thumbnail: "img/icons-hand-right.svg",
                   thumbnailAlt: "Right hand",
-                  cardName: "di-handedness",
+                  cardName: "diHandedness",
                   cardKey: "B",
                   cardLabel: "Right",
                   tabOrder: "14"
@@ -209,7 +209,7 @@ class WizardForm02Page extends Component {
               label="What is the"
               labelBold="name"
               labelLast="of the evaluator"
-              name="di-evaluator"
+              name="diEvaluator"
               src="img/icons-happy-face-name.svg"
               tabOrder="14"
               type="text"
@@ -237,7 +237,7 @@ class WizardForm02Page extends Component {
           </label>
         </div>
         <FieldArray
-          name="di-dateoftesting"
+          name="diDateoftesting"
           component={FormCardTextDate}
           buttonText="Add Date"
         />
