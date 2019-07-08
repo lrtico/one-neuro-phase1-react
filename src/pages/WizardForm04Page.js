@@ -22,7 +22,7 @@ class WizardForm04Page extends Component {
         <SectionTitle titleBold="Reasons" titleRegular="for referral" />
         <Field
           component={TextQuestion}
-          name="reason-referral-1"
+          name="reasonReferral1"
           tabOrder="1"
           type="input"
           classes="question"
@@ -32,7 +32,7 @@ class WizardForm04Page extends Component {
         />
         <Field
           component={TextQuestion}
-          name="reason-referral-2"
+          name="reasonReferral2"
           tabOrder="2"
           type="input"
           classes="question"
@@ -42,7 +42,7 @@ class WizardForm04Page extends Component {
         />
         <Field
           component={TextQuestion}
-          name="reason-referral-3"
+          name="reasonReferral3"
           tabOrder="3"
           type="input"
           classes="question"
