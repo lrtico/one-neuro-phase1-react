@@ -15,7 +15,7 @@ const WizardForm05Page = props => {
         <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <FieldArray
-        name="records-reviewed"
+        name="recordsReviewed"
         component={FormCardTextDate}
         disabled={disabled}
       />
