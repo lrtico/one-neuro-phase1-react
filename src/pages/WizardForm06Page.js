@@ -179,8 +179,8 @@ class WizardForm06Page extends Component {
   };
 
   handlePrimaryCaregiver = () => {
-    this.props.change("bh-primary-caregiver-father", false);
-    this.props.change("bh-primary-caregiver-mother", true);
+    this.props.change("bhPrimaryCaregiverFather", false);
+    this.props.change("bhPrimaryCaregiverMother", true);
   };
 
   handlePaqCopyForward = () => {
@@ -191,11 +191,11 @@ class WizardForm06Page extends Component {
       paqWorkPhone,
       paqCellPhone
     } = this.props;
-    this.props.change("bh-mother-name", paqName);
-    this.props.change("bh-mother-address", paqAddress);
-    this.props.change("bh-mother-home-phone", paqHomePhone);
-    this.props.change("bh-mother-work-phone", paqWorkPhone);
-    this.props.change("bh-mother-cell-phone", paqCellPhone);
+    this.props.change("bhMotherName", paqName);
+    this.props.change("bhMotherAddress", paqAddress);
+    this.props.change("bhMotherHomePhone", paqHomePhone);
+    this.props.change("bhMotherWorkPhone", paqWorkPhone);
+    this.props.change("bhMotherCellPhone", paqCellPhone);
   };
 
   render() {
@@ -231,7 +231,7 @@ class WizardForm06Page extends Component {
             component={TextQuestion}
             label="What is the mother's"
             labelBold="name"
-            name="bh-mother-name"
+            name="bhMotherName"
             src="img/icons-happy-face-name.svg"
             tabOrder="1"
             type="input"
@@ -241,17 +241,17 @@ class WizardForm06Page extends Component {
             // handleCopyForward={this.copyPaqNameForward}
           />
           <Field
-            name="bh-stepmother-yes-no"
+            name="bhStepmotherYesNo"
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "bh-stepmother",
+                cardName: "bhStepmother",
                 cardKey: "A",
                 cardLabel: "Yes",
                 tabOrder: "2"
               },
               {
-                cardName: "bh-stepmother",
+                cardName: "bhStepmother",
                 cardKey: "B",
                 cardLabel: "No",
                 tabOrder: "3"
@@ -269,7 +269,7 @@ class WizardForm06Page extends Component {
             component={TextQuestion}
             label="What is her"
             labelBold="address"
-            name="bh-mother-address"
+            name="bhMotherAddress"
             src="img/icons-house.svg"
             tabOrder="4"
             type="input"
@@ -282,7 +282,7 @@ class WizardForm06Page extends Component {
             component={TextQuestion}
             label="What is her"
             labelBold="age"
-            name="bh-mother-age"
+            name="bhMotherAge"
             tabOrder="5"
             type="input"
             classes="question grid__half"
@@ -297,7 +297,7 @@ class WizardForm06Page extends Component {
             label=""
             labelBold="Home"
             labelLast="phone"
-            name="bh-mother-home-phone"
+            name="bhMotherHomePhone"
             maxCharacters={14}
             src="img/icons-phone.svg"
             tabOrder="6"
@@ -314,7 +314,7 @@ class WizardForm06Page extends Component {
             label=""
             labelBold="Work"
             labelLast="phone"
-            name="bh-mother-work-phone"
+            name="bhMotherWorkPhone"
             maxCharacters={14}
             src="img/icons-phone.svg"
             tabOrder="7"
@@ -331,7 +331,7 @@ class WizardForm06Page extends Component {
             label=""
             labelBold="Cell"
             labelLast="phone"
-            name="bh-mother-cell-phone"
+            name="bhMotherCellPhone"
             maxCharacters={14}
             src="img/icons-phone.svg"
             tabOrder="8"
@@ -349,7 +349,7 @@ class WizardForm06Page extends Component {
             component={TextQuestion}
             label="What is the mother's"
             labelBold="occupation"
-            name="bh-mother-occupation"
+            name="bhMotherOccupation"
             src="img/icons-woman-generic.svg"
             tabOrder="9"
             type="input"
@@ -360,7 +360,7 @@ class WizardForm06Page extends Component {
             component={TextQuestion}
             label="Who is her"
             labelBold="employer"
-            name="bh-mother-employer"
+            name="bhMotherEmployer"
             alt="Office"
             src="img/icons-business-building.svg"
             type="input"
@@ -377,7 +377,7 @@ class WizardForm06Page extends Component {
             labelLast="has she worked there"
             src="img/icons-number.svg"
             alt="Calendar"
-            name="bh-mother-length-employement"
+            name="bhMotherLengthEmployement"
             tabOrder="11"
             type="input"
             classes="question grid__half"
@@ -390,7 +390,7 @@ class WizardForm06Page extends Component {
             labelLast="achieved"
             src="img/icons-graduation-cap.svg"
             alt="Graduation cap"
-            name="bh-mother-highest-grade"
+            name="bhMotherHighestGrade"
             type="input"
             tabOrder="12"
             classes="question grid__half"
@@ -404,7 +404,7 @@ class WizardForm06Page extends Component {
             labelBold="primary language"
             src="img/icons-speech-bubble.svg"
             alt="Speech bubble"
-            name="bh-mother-primary-language"
+            name="bhMotherPrimaryLanguage"
             tabOrder="13"
             type="input"
             classes="question grid__half"
@@ -417,7 +417,7 @@ class WizardForm06Page extends Component {
             labelLast="achieved"
             src="img/icons-speech-bubble.svg"
             alt="Speech bubble"
-            name="bh-mother-secondary-language"
+            name="bhMotherSecondaryLanguage"
             type="input"
             tabOrder="14"
             classes="question grid__half"
@@ -434,57 +434,57 @@ class WizardForm06Page extends Component {
 const selector = formValueSelector("wizard"); // <-- same as form name
 WizardForm06Page = connect(state => {
   // can select values individually
-  const motherName = selector(state, "bh-mother-name");
-  const motherAge = selector(state, "bh-mother-age");
-  const stepmother = selector(state, "bh-stepmother");
-  const motherAddress = selector(state, "bh-mother-address");
-  const motherHomePhone = selector(state, "bh-mother-home-phone");
-  const motherCellPhone = selector(state, "bh-mother-work-phone");
-  const motherWorkPhone = selector(state, "bh-mother-cell-phone");
-  const motherWorkLength = selector(state, "bh-mother-length-employement");
-  const motherEmployer = selector(state, "bh-mother-employer");
-  const motherOccupation = selector(state, "bh-mother-occupation");
-  const motherPrimaryLang = selector(state, "bh-mother-primary-language");
-  const motherSecondaryLang = selector(state, "bh-mother-secondary-language");
-  const fatherName = selector(state, "bh-father-name");
-  const fatherAge = selector(state, "bh-father-age");
-  const faepmother = selector(state, "bh-stepfather");
-  const fatherAddress = selector(state, "bh-father-address");
-  const fatherHomePhone = selector(state, "bh-father-home-phone");
-  const fatherCellPhone = selector(state, "bh-father-work-phone");
-  const fatherWorkPhone = selector(state, "bh-father-cell-phone");
-  const fatherWorkLength = selector(state, "bh-father-length-employement");
-  const fatherEmployer = selector(state, "bh-father-employer");
-  const fatherOccupation = selector(state, "bh-father-occupation");
-  const fatherPrimaryLang = selector(state, "bh-father-primary-language");
-  const fatherSecondaryLang = selector(state, "bh-father-secondary-language");
-  const primaryCaregiverName = selector(state, "bh-primary-caregiver-name");
-  const primaryCaregiverAge = selector(state, "bh-other-parent-stepparent-age");
+  const motherName = selector(state, "bhMotherName");
+  const motherAge = selector(state, "bhMotherAge");
+  const stepmother = selector(state, "bhStepmother");
+  const motherAddress = selector(state, "bhMotherAddress");
+  const motherHomePhone = selector(state, "bhMotherHomePhone");
+  const motherCellPhone = selector(state, "bhMotherWorkPhone");
+  const motherWorkPhone = selector(state, "bhMotherCellPhone");
+  const motherWorkLength = selector(state, "bhMotherLengthEmployement");
+  const motherEmployer = selector(state, "bhMotherEmployer");
+  const motherOccupation = selector(state, "bhMotherOccupation");
+  const motherPrimaryLang = selector(state, "bhMotherPrimaryLanguage");
+  const motherSecondaryLang = selector(state, "bhMotherSecondaryLanguage");
+  const fatherName = selector(state, "bhFatherName");
+  const fatherAge = selector(state, "bhFatherAge");
+  const faepmother = selector(state, "bhStepfather");
+  const fatherAddress = selector(state, "bhFatherAddress");
+  const fatherHomePhone = selector(state, "bhFatherHomePhone");
+  const fatherCellPhone = selector(state, "bhFatherWorkPhone");
+  const fatherWorkPhone = selector(state, "bhFatherCellPhone");
+  const fatherWorkLength = selector(state, "bhFatherLengthEmployement");
+  const fatherEmployer = selector(state, "bhFatherEmployer");
+  const fatherOccupation = selector(state, "bhFatherOccupation");
+  const fatherPrimaryLang = selector(state, "bhFatherPrimaryLanguage");
+  const fatherSecondaryLang = selector(state, "bhFatherSecondaryLanguage");
+  const primaryCaregiverName = selector(state, "bhPrimaryCaregiverName");
+  const primaryCaregiverAge = selector(state, "bhOtherParentStepparentAge");
   const primaryCaregiverRelationship = selector(
     state,
-    "bh-other-parent-stepparent-guardian"
+    "bhOtherParentStepparentGuardian"
   );
   const primaryCaregiverAddress = selector(
     state,
-    "bh-other-parent-stepparent-address"
+    "bhOtherParentStepparentAddress"
   );
   const primaryCaregiverHomePhone = selector(
     state,
-    "bh-other-parent-stepparent-home-phone"
+    "bhOtherParentStepparentHomePhone"
   );
   const primaryCaregiverCellPhone = selector(
     state,
-    "bh-other-parent-stepparent-cell-phone"
+    "bhOtherParentStepparentCellPhone"
   );
   const primaryCaregiverWorkPhone = selector(
     state,
-    "bh-other-parent-stepparent-work-phone"
+    "bhOtherParentStepparentWorkPhone"
   );
-  const paqName = selector(state, "paq-name");
-  const paqAddress = selector(state, "paq-address");
-  const paqHomePhone = selector(state, "paq-home-phone");
-  const paqWorkPhone = selector(state, "paq-work-phone");
-  const paqCellPhone = selector(state, "paq-cell-phone");
+  const paqName = selector(state, "paqName");
+  const paqAddress = selector(state, "paqAddress");
+  const paqHomePhone = selector(state, "paqHomePhone");
+  const paqWorkPhone = selector(state, "paqWorkPhone");
+  const paqCellPhone = selector(state, "paqCellPhone");
   return {
     motherName,
     motherAge,
