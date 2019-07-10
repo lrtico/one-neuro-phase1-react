@@ -23,17 +23,17 @@ const WizardForm14Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="mdh-planned-pregnancy-group"
+          name="mdhPlannedPregnancyGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-planned-pregnancy",
+              cardName: "mdhPlannedPregnancy",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "1"
             },
             {
-              cardName: "mdh-planned-pregnancy",
+              cardName: "mdhPlannedPregnancy",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "2"
@@ -46,17 +46,17 @@ const WizardForm14Page = props => {
           disabled={disabled}
         />
         <Field
-          name="mdh-dr-care-group"
+          name="mdhDrCareGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-dr-care",
+              cardName: "mdhDrCare",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "3"
             },
             {
-              cardName: "mdh-dr-care",
+              cardName: "mdhDrCare",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "4"
@@ -74,40 +74,45 @@ const WizardForm14Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-total-pregnancies",
-              cardLabel: "1",
+              cardName: "mdhTotalPregnancies",
+              cardLabel: "0",
               tabOrder: "5"
             },
             {
-              cardName: "mdh-total-pregnancies",
-              cardLabel: "2",
+              cardName: "mdhTotalPregnancies",
+              cardLabel: "1",
               tabOrder: "6"
             },
             {
-              cardName: "mdh-total-pregnancies",
-              cardLabel: "3",
+              cardName: "mdhTotalPregnancies",
+              cardLabel: "2",
               tabOrder: "7"
             },
             {
-              cardName: "mdh-total-pregnancies",
-              cardLabel: "4",
-              tabOrder: "8"
-            },
-            {
-              cardName: "mdh-total-pregnancies",
-              cardLabel: "5",
+              cardName: "mdhTotalPregnancies",
+              cardLabel: "3",
               tabOrder: "9"
             },
             {
-              cardName: "mdh-total-pregnancies",
-              cardLabel: "6",
+              cardName: "mdhTotalPregnancies",
+              cardLabel: "4",
+              tabOrder: "9"
+            },
+            {
+              cardName: "mdhTotalPregnancies",
+              cardLabel: "5",
               tabOrder: "10"
+            },
+            {
+              cardName: "mdhTotalPregnancies",
+              cardLabel: "6",
+              tabOrder: "11"
             }
           ]}
           label="The number of"
           labelBold="previous"
           labelLast="pregnancies/miscarriages"
-          name="mdh-total-pregnancies-group"
+          name="mdhTotalPregnanciesGroup"
           classes="question question--thumbless question--numbers"
           disabled={disabled}
         />
@@ -117,82 +122,82 @@ const WizardForm14Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardName: "mdh-pregnancy-difficult-conception",
+            cardName: "mdhPregnancyDifficultConception",
             cardLabel: "Difficulty in conception",
-            tabOrder: "11"
-          },
-          {
-            cardKey: "B",
-            cardName: "mdh-pregnancy-toxemia",
-            cardLabel: "Toxemia",
             tabOrder: "12"
           },
           {
-            cardKey: "C",
-            cardName: "mdh-pregnancy-weight-gain",
-            cardLabel: "Abnormal weight gain",
+            cardKey: "B",
+            cardName: "mdhPregnancyToxemia",
+            cardLabel: "Toxemia",
             tabOrder: "13"
           },
           {
-            cardKey: "D",
-            cardName: "mdh-pregnancy-vomiting",
-            cardLabel: "Excessive vomiting",
+            cardKey: "C",
+            cardName: "mdhPregnancyWeightGain",
+            cardLabel: "Abnormal weight gain",
             tabOrder: "14"
           },
           {
-            cardName: "mdh-pregnancy-german-measels",
-            cardKey: "E",
-            cardLabel: "German measels",
+            cardKey: "D",
+            cardName: "mdhPregnancyVomiting",
+            cardLabel: "Excessive vomiting",
             tabOrder: "15"
           },
           {
-            cardKey: "F",
-            cardName: "mdh-pregnancy-swelling",
-            cardLabel: "Excessive swelling",
+            cardName: "mdhPregnancyGermanMeasels",
+            cardKey: "E",
+            cardLabel: "German measels",
             tabOrder: "16"
           },
           {
-            cardKey: "G",
-            cardName: "mdh-pregnancy-emotional",
-            cardLabel: "Emotional problems",
+            cardKey: "F",
+            cardName: "mdhPregnancySwelling",
+            cardLabel: "Excessive swelling",
             tabOrder: "17"
           },
           {
-            cardKey: "H",
-            cardName: "mdh-pregnancy-vaginal-bleeding",
-            cardLabel: "Vaginal bleeding",
+            cardKey: "G",
+            cardName: "mdhPregnancyEmotional",
+            cardLabel: "Emotional problems",
             tabOrder: "18"
           },
           {
-            cardKey: "I",
-            cardName: "mdh-pregnancy-flu",
-            cardLabel: "Flu",
+            cardKey: "H",
+            cardName: "mdhPregnancyVaginalBleeding",
+            cardLabel: "Vaginal bleeding",
             tabOrder: "19"
           },
           {
-            cardKey: "J",
-            cardName: "mdh-pregnancy-anemia",
-            cardLabel: "Anemia",
+            cardKey: "I",
+            cardName: "mdhPregnancyFlu",
+            cardLabel: "Flu",
             tabOrder: "20"
           },
           {
-            cardKey: "K",
-            cardName: "mdh-pregnancy-blood-pressure",
-            cardLabel: "High blood pressure",
+            cardKey: "J",
+            cardName: "mdhPregnancyAnemia",
+            cardLabel: "Anemia",
             tabOrder: "21"
           },
           {
-            cardKey: "B",
-            cardName: "mdh-pregnancy-injury",
+            cardKey: "K",
+            cardName: "mdhPregnancyBloodPressure",
+            cardLabel: "High blood pressure",
+            tabOrder: "22"
+          },
+          {
+            cardKey: "L",
+            cardName: "mdhPregnancyInjury",
             cardLabel: "Maternal injury",
             tabOrder: "23",
-            cardDescription: "mdh-maternal-injury-description"
+            cardDescription: "mdhMaternalInjuryDescription"
           }
         ]}
         label="Check any of the following"
         labelBold="complications"
         labelLast="that occured during pregnancy"
-        name="mdh-complications-pregnancy-group"
+        name="mdhComplicationsPregnancyGroup"
         classes="question question--thumbless"
         disabled={disabled}
       />
@@ -202,16 +207,16 @@ const WizardForm14Page = props => {
           {
             cardKey: "B",
             cardLabel: "Other",
-            tabOrder: "35",
-            cardNameCheckbox: "mdh-other-complication",
-            cardNameDescription: "mdh-other-complication-description",
+            tabOrder: "24",
+            cardNameCheckbox: "mdhOtherComplication",
+            cardNameDescription: "mdhOtherComplicationDescription",
             liClasses: "desc-checkbox"
           }
         ]}
         label="Any other"
         labelBold="complications"
         labelLast="during pregnancy"
-        name="mdh-complications-pregnancy-group"
+        name="mdhComplicationsPregnancyGroup"
         classes="question question--thumbless question__choice--full-width"
         type="text"
         disabled={disabled}
