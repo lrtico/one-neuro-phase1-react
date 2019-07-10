@@ -24,88 +24,88 @@ const WizardForm18Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardNameCheckbox: "mdh-walking-difficulty",
-            cardNameDescription: "mdh-walking-difficulty-description",
+            cardNameCheckbox: "mdhWalkingDifficulty",
+            cardNameDescription: "mdhWalkingDifficultyDescription",
             cardLabel: "Walking difficulty",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardNameCheckbox: "mdh-unclear-speech",
-            cardNameDescription: "mdh-unclear-speech-description",
+            cardNameCheckbox: "mdhUnclearSpeech",
+            cardNameDescription: "mdhUnclearSpeechDescription",
             cardLabel: "Unclear speech",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardNameCheckbox: "mdh-feeding-problem",
-            cardNameDescription: "mdh-feeding-problem-description",
+            cardNameCheckbox: "mdhFeedingProblem",
+            cardNameDescription: "mdhFeedingProblemDescription",
             cardLabel: "Feeding problem",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
           },
           {
             cardKey: "D",
-            cardNameCheckbox: "mdh-underweight-problem",
-            cardNameDescription: "mdh-underweight-problem-description",
+            cardNameCheckbox: "mdhUnderweightProblem",
+            cardNameDescription: "mdhUnderweightProblemDescription",
             cardLabel: "Underweight problem",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "4"
           },
           {
             cardKey: "E",
-            cardNameCheckbox: "mdh-overweight-problem",
-            cardNameDescription: "mdh-overweight-problem-description",
+            cardNameCheckbox: "mdhOverweightProblem",
+            cardNameDescription: "mdhOverweightProblemDescription",
             cardLabel: "Overweight problem",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "5"
           },
           {
             cardKey: "F",
-            cardNameCheckbox: "mdh-colic",
-            cardNameDescription: "mdh-colic-description",
+            cardNameCheckbox: "mdhColic",
+            cardNameDescription: "mdhColicDescription",
             cardLabel: "Colic",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "6"
           },
           {
             cardKey: "G",
-            cardNameCheckbox: "mdh-sleep-problem",
-            cardNameDescription: "mdh-sleep-problem-description",
+            cardNameCheckbox: "mdhSleepProblem",
+            cardNameDescription: "mdhSleepProblemDescription",
             cardLabel: "Sleep problem",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "7"
           },
           {
             cardKey: "H",
-            cardNameCheckbox: "mdh-eating-problem",
-            cardNameDescription: "mdh-eating-problem-description",
+            cardNameCheckbox: "mdhEatingProblem",
+            cardNameDescription: "mdhEatingProblemDescription",
             cardLabel: "Eating problem",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "8"
           },
           {
             cardKey: "I",
-            cardNameCheckbox: "mdh-learning-ride-bike",
-            cardNameDescription: "mdh-learning-ride-bike-description",
+            cardNameCheckbox: "mdhLearningRideBike",
+            cardNameDescription: "mdhLearningRideBikeDescription",
             cardLabel: "Difficulty learning to ride a bike",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "9"
           },
           {
             cardKey: "J",
-            cardNameCheckbox: "mdh-learning-skip",
-            cardNameDescription: "mdh-learning-skip-description",
+            cardNameCheckbox: "mdhLearningSkip",
+            cardNameDescription: "mdhLearningSkipDescription",
             cardLabel: "Difficulty learning how to skip",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "10"
           },
           {
             cardKey: "K",
-            cardNameCheckbox: "mdh-learning-throw-catch",
-            cardNameDescription: "mdh-learning-throw-catch-description",
+            cardNameCheckbox: "mdhLearningThrowCatch",
+            cardNameDescription: "mdhLearningThrowCatchDescription",
             cardLabel: "Difficulty learning to throw or catch",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "11"
@@ -114,7 +114,7 @@ const WizardForm18Page = props => {
         label="Has this child"
         labelBold="experienced"
         labelLast="any of the following"
-        name="mdh-development-issues-group"
+        name="mdhDevelopmentIssuesGroup"
         classes="question question--thumbless"
         disabled={disabled}
       />
