@@ -26,20 +26,20 @@ const WizardForm17Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-breast-fed",
+              cardName: "mdhBreastFed",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "1"
             },
             {
-              cardName: "mdh-breast-fed",
+              cardName: "mdhBreastFed",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "2"
             }
           ]}
           label="Was this child"
-          labelBold="breast-fed"
+          labelBold="breastFed"
           classes="question grid__half question--thumbless"
           disabled={disabled}
         />
@@ -47,7 +47,7 @@ const WizardForm17Page = props => {
           component={TextQuestion}
           label="When"
           labelBold="weaned"
-          name="mdh-breast-fed-weaned"
+          name="mdhBreastFedWeaned"
           tabOrder="3"
           type="text"
           classes="question grid__half"
@@ -56,24 +56,24 @@ const WizardForm17Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="mdh-bottle-fed-group"
+          name="mdhBottleFedGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-bottle-fed",
+              cardName: "mdhBottleFed",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "4"
             },
             {
-              cardName: "mdh-bottle-fed",
+              cardName: "mdhBottleFed",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "5"
             }
           ]}
           label="Was this child"
-          labelBold="bottle-fed"
+          labelBold="bottleFed"
           classes="question grid__half question--thumbless"
           disabled={disabled}
         />
@@ -81,7 +81,7 @@ const WizardForm17Page = props => {
           component={TextQuestion}
           label="When"
           labelBold="weaned"
-          name="mdh-bottle-fed-weaned"
+          name="mdhBottleFedWeaned"
           tabOrder="6"
           type="text"
           classes="question grid__half"
@@ -95,7 +95,7 @@ const WizardForm17Page = props => {
           label="When was this child"
           labelBold="toilet trained"
           labelLast="(daytime)"
-          name="mdh-toilet-trained-day"
+          name="mdhToiletTrainedDay"
           src="img/icons-calendar-large.svg"
           tabOrder="7"
           type="text"
@@ -108,7 +108,7 @@ const WizardForm17Page = props => {
           label="When was this child"
           labelBold="toilet trained"
           labelLast="(nighttime)"
-          name="mdh-toilet-trained-night"
+          name="mdhToiletTrainedNight"
           src="img/icons-calendar-large.svg"
           tabOrder="8"
           type="text"
@@ -118,17 +118,17 @@ const WizardForm17Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="mdh-bed-wetting-group"
+          name="mdhBedWettingGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-bed-wetting",
+              cardName: "mdhBedWetting",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "9"
             },
             {
-              cardName: "mdh-bed-wetting",
+              cardName: "mdhBedWetting",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "10"
@@ -144,7 +144,7 @@ const WizardForm17Page = props => {
           component={TextQuestion}
           label="If yes, until what"
           labelBold="age"
-          name="mdh-bed-wetting-stop"
+          name="mdhBedWettingStop"
           tabOrder="11"
           type="text"
           classes="question grid__half"
@@ -153,17 +153,17 @@ const WizardForm17Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="mdh-bed-soiling-group"
+          name="mdhBedSoilingGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-bed-soiling",
+              cardName: "mdhBedSoiling",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "12"
             },
             {
-              cardName: "mdh-bed-soiling",
+              cardName: "mdhBedSoiling",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "13"
@@ -179,7 +179,7 @@ const WizardForm17Page = props => {
           component={TextQuestion}
           label="If yes, until what"
           labelBold="age"
-          name="mdh-bed-soiling-stop"
+          name="mdhBedSoilingStop"
           tabOrder="14"
           type="text"
           classes="question grid__half"
@@ -188,17 +188,17 @@ const WizardForm17Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="mdh-bed-wetting-medical-reasons-group"
+          name="mdhBedWettingMedicalReasonsGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-bed-wetting-medical-reasons",
+              cardName: "mdhBedWettingMedicalReasons",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "15"
             },
             {
-              cardName: "mdh-bed-wetting-medical-reasons",
+              cardName: "mdhBedWettingMedicalReasons",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "16"
@@ -214,7 +214,7 @@ const WizardForm17Page = props => {
           component={TextQuestion}
           label="If yes, please"
           labelBold="describe"
-          name="mdh-bed-wetting-medical-reasons-description"
+          name="mdhBedWettingMedicalReasonsDescription"
           tabOrder="17"
           type="text"
           classes="question grid__third"
