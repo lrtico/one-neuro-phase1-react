@@ -22,17 +22,17 @@ const WizardForm10Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="fh-parental-closeness"
+          name="fhParentalCloseness"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fh-closeness",
+              cardName: "fhCloseness",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "1"
             },
             {
-              cardName: "fh-closeness",
+              cardName: "fhCloseness",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "2"
@@ -49,7 +49,7 @@ const WizardForm10Page = props => {
           label="If"
           labelBold="yes"
           labelLast=", which one"
-          name="fh-parental-closeness-choice"
+          name="fhParentalClosenessChoice"
           tabOrder="3"
           type="input"
           classes="question grid__half"
@@ -57,17 +57,17 @@ const WizardForm10Page = props => {
         />
       </div>
       <Field
-        name="fh-life-experiences"
+        name="fhLifeExperiences"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "fh-experienced",
+            cardName: "fhExperienced",
             cardKey: "A",
             cardLabel: "Yes",
             tabOrder: "4"
           },
           {
-            cardName: "fh-experienced",
+            cardName: "fhExperienced",
             cardKey: "B",
             cardLabel: "No",
             tabOrder: "5"
@@ -83,7 +83,7 @@ const WizardForm10Page = props => {
           component={TextQuestion}
           label="If yes,"
           labelBold="when"
-          name="fh-life-experiences-date"
+          name="fhLifeExperiencesDate"
           tabOrder="6"
           type="input"
           classes="question grid__half"
@@ -94,7 +94,7 @@ const WizardForm10Page = props => {
           label="Child's"
           labelBold="age"
           labelLast="at the time"
-          name="fh-life-experiences-age"
+          name="fhLifeExperiencesAge"
           tabOrder="7"
           type="input"
           classes="question grid__half"
@@ -105,7 +105,7 @@ const WizardForm10Page = props => {
         component={TextQuestion}
         label="Please describe the"
         labelBold="circumstances"
-        name="fh-life-experiences-details"
+        name="fhLifeExperiencesDetails"
         tabOrder="8"
         type="input"
         classes="question"
@@ -118,25 +118,25 @@ const WizardForm10Page = props => {
         component={CheckboxCard}
         checkboxInfo={[
           {
-            cardName: "fh-custody-mother",
+            cardName: "fhCustodyMother",
             cardKey: "A",
             cardLabel: "Mother",
             tabOrder: "9"
           },
           {
-            cardName: "fh-custody-father",
+            cardName: "fhCustodyFather",
             cardKey: "B",
             cardLabel: "Father",
             tabOrder: "10"
           },
           {
-            cardName: "fh-custody-both",
+            cardName: "fhCustodyBoth",
             cardKey: "C",
             cardLabel: "Both",
             tabOrder: "11"
           }
         ]}
-        name="fh-custody-group"
+        name="fhCustodyGroup"
         label="Who has"
         labelBold="custody"
         labelLast="of this child"
@@ -144,35 +144,35 @@ const WizardForm10Page = props => {
         disabled={disabled}
       />
       <Field
-        name="fh-visitation-group"
+        name="fhVisitationGroup"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "fh-visitation",
+            cardName: "fhVisitation",
             cardKey: "A",
             cardLabel: "Weekly or more often",
             tabOrder: "12"
           },
           {
-            cardName: "fh-visitation",
+            cardName: "fhVisitation",
             cardKey: "B",
             cardLabel: "Once or twice per month",
             tabOrder: "13"
           },
           {
-            cardName: "fh-visitation",
+            cardName: "fhVisitation",
             cardKey: "C",
             cardLabel: "50/50",
             tabOrder: "14"
           },
           {
-            cardName: "fh-visitation",
+            cardName: "fhVisitation",
             cardKey: "D",
             cardLabel: "Few times per year",
             tabOrder: "15"
           },
           {
-            cardName: "fh-visitation",
+            cardName: "fhVisitation",
             cardKey: "E",
             cardLabel: "Never",
             tabOrder: "16"
