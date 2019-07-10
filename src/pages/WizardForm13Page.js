@@ -20,61 +20,61 @@ const WizardForm13Page = props => {
         component={CheckboxCard}
         checkboxInfo={[
           {
-            cardName: "fr-movies",
+            cardName: "frMovies",
             cardKey: "A",
             cardLabel: "Movies",
             tabOrder: "1"
           },
           {
-            cardName: "fr-games",
+            cardName: "frGames",
             cardKey: "B",
             cardLabel: "Games",
             tabOrder: "2"
           },
           {
-            cardName: "fr-meals",
+            cardName: "frMeals",
             cardKey: "C",
             cardLabel: "Meals",
             tabOrder: "3"
           },
           {
-            cardName: "fr-sports",
+            cardName: "frSports",
             cardKey: "D",
             cardLabel: "Sports",
             tabOrder: "4"
           },
           {
-            cardName: "fr-conversations",
+            cardName: "frConversations",
             cardKey: "E",
             cardLabel: "Conversations",
             tabOrder: "5"
           },
           {
-            cardName: "fr-trips",
+            cardName: "frTrips",
             cardKey: "F",
             cardLabel: "Trips",
             tabOrder: "6"
           },
           {
-            cardName: "fr-visits-with-relatives",
+            cardName: "frVisitsWithRelatives",
             cardKey: "G",
             cardLabel: "Visits with relatives",
             tabOrder: "7"
           },
           {
-            cardName: "fr-television",
+            cardName: "frTelevision",
             cardKey: "H",
             cardLabel: "Television",
             tabOrder: "8"
           },
           {
-            cardName: "fr-church",
+            cardName: "frChurch",
             cardKey: "I",
             cardLabel: "Church",
             tabOrder: "9"
           },
           {
-            cardName: "fr-other",
+            cardName: "frOther",
             cardKey: "J",
             cardLabel: "Other",
             tabOrder: "10"
@@ -84,7 +84,7 @@ const WizardForm13Page = props => {
         labelBold="activities"
         labelLast="in which this child often participates with family or peers:"
         noQuestionMark={true}
-        name="fr-activites-group"
+        name="frActivitesGroup"
         classes="question question--thumbless"
         disabled={disabled}
       />
@@ -94,7 +94,7 @@ const WizardForm13Page = props => {
         label="What is the"
         labelBold="primary language"
         labelLast="spoken in the residence"
-        name="fr-spoken-language"
+        name="frSpokenLanguage"
         src="img/icons-speech-bubble.svg"
         tabOrder="11"
         type="input"
@@ -103,35 +103,35 @@ const WizardForm13Page = props => {
       />
       <div className="flex">
         <Field
-          name="fr-grandparent-frequency-group"
+          name="frGrandparentFrequencyGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fr-grandparent-frequency",
+              cardName: "frGrandparentFrequency",
               cardKey: "A",
               cardLabel: "Weekly or more often",
               tabOrder: "12"
             },
             {
-              cardName: "fr-grandparent-frequency",
+              cardName: "frGrandparentFrequency",
               cardKey: "B",
               cardLabel: "Once or twice per month",
               tabOrder: "13"
             },
             {
-              cardName: "fr-grandparent-frequency",
+              cardName: "frGrandparentFrequency",
               cardKey: "C",
               cardLabel: "Few times per year",
               tabOrder: "14"
             },
             {
-              cardName: "fr-grandparent-frequency",
+              cardName: "frGrandparentFrequency",
               cardKey: "D",
               cardLabel: "Never",
               tabOrder: "15"
             },
             {
-              cardName: "fr-grandparent-frequency",
+              cardName: "frGrandparentFrequency",
               cardKey: "E",
               cardLabel: "No grandparents living",
               tabOrder: "16"
@@ -150,7 +150,7 @@ const WizardForm13Page = props => {
         label="What do you"
         labelBold="enjoy most"
         labelLast="about this child"
-        name="fr-enjoy"
+        name="frEnjoy"
         src="img/icons-heart-love.svg"
         tabOrder="17"
         type="input"
@@ -163,7 +163,7 @@ const WizardForm13Page = props => {
         label="What do you find"
         labelBold="most difficult"
         labelLast="about raising this child"
-        name="fr-difficult"
+        name="frDifficult"
         src="img/icons-question-mark-plain.svg"
         tabOrder="18"
         type="input"
@@ -175,7 +175,7 @@ const WizardForm13Page = props => {
         component={TextQuestion}
         label="What would you like this child to be when he/she"
         labelBold="grows up"
-        name="fr-career"
+        name="frCareer"
         src="img/icons-graduation-cap.svg"
         tabOrder="19"
         type="input"
@@ -184,23 +184,23 @@ const WizardForm13Page = props => {
       />
       <div className="flex">
         <Field
-          name="fr-education-level-group"
+          name="frEducationLevelGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fr-education-level",
+              cardName: "frEducationLevel",
               cardKey: "A",
               cardLabel: "Technical or vocational school",
               tabOrder: "20"
             },
             {
-              cardName: "fr-education-level",
+              cardName: "frEducationLevel",
               cardKey: "B",
               cardLabel: "College",
               tabOrder: "21"
             },
             {
-              cardName: "fr-education-level",
+              cardName: "frEducationLevel",
               cardKey: "C",
               cardLabel: "Law, medical, or other advanced studies",
               tabOrder: "22"
@@ -215,23 +215,23 @@ const WizardForm13Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="fr-disciplinarian-group"
+          name="frDisciplinarianGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fr-disciplinarian",
+              cardName: "frDisciplinarian",
               cardKey: "A",
               cardLabel: "Mother",
               tabOrder: "23"
             },
             {
-              cardName: "fr-disciplinarian",
+              cardName: "frDisciplinarian",
               cardKey: "B",
               cardLabel: "Father",
               tabOrder: "24"
             },
             {
-              cardName: "fr-disciplinarian",
+              cardName: "frDisciplinarian",
               cardKey: "C",
               cardLabel: "Other",
               tabOrder: "25"
@@ -249,7 +249,7 @@ const WizardForm13Page = props => {
           label="If"
           labelBold="other,"
           labelLast="please describe who"
-          name="fr-disciplinarian-other-desc"
+          name="frDisciplinarianOtherDesc"
           src="img/icons-question-mark-plain.svg"
           tabOrder="26"
           type="input"
@@ -259,17 +259,17 @@ const WizardForm13Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="fr-agree-discipline-group"
+          name="frAgreeDisciplineGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fr-agree-discipline",
+              cardName: "frAgreeDiscipline",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "27"
             },
             {
-              cardName: "fr-agree-discipline",
+              cardName: "frAgreeDiscipline",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "28"
@@ -287,7 +287,7 @@ const WizardForm13Page = props => {
         label="Please describe"
         labelBold="discipline"
         labelLast="techniques"
-        name="fr-discipline-techniques"
+        name="frDisciplineTechniques"
         tabOrder="29"
         type="input"
         classes="question"
