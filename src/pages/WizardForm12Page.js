@@ -19,25 +19,25 @@ const WizardForm12Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "cr-residence",
+              cardName: "crResidence",
               cardKey: "A",
               cardLabel: "Apartment",
               tabOrder: "1"
             },
             {
-              cardName: "cr-residence",
+              cardName: "crResidence",
               cardKey: "B",
               cardLabel: "Single-family home",
               tabOrder: "2"
             },
             {
-              cardName: "cr-residence",
+              cardName: "crResidence",
               cardKey: "C",
               cardLabel: "Townhome",
               tabOrder: "3"
             },
             {
-              cardName: "cr-residence",
+              cardName: "crResidence",
               cardKey: "D",
               cardLabel: "Other",
               tabOrder: "4"
@@ -45,7 +45,7 @@ const WizardForm12Page = props => {
           ]}
           label="Where does this child"
           labelBold="live"
-          name="cr-residence-group"
+          name="crResidenceGroup"
           classes="question question--thumbless"
           disabled={disabled}
         />
@@ -55,42 +55,42 @@ const WizardForm12Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "Less than 1",
               tabOrder: "5"
             },
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "1",
               tabOrder: "6"
             },
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "2",
               tabOrder: "7"
             },
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "3",
               tabOrder: "8"
             },
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "4",
               tabOrder: "9"
             },
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "5",
               tabOrder: "10"
             },
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "6",
               tabOrder: "11"
             },
             {
-              cardName: "cr-residence-length",
+              cardName: "crResidenceLength",
               cardLabel: "7+",
               tabOrder: "12"
             }
@@ -98,7 +98,7 @@ const WizardForm12Page = props => {
           label="How many"
           labelBold="years living"
           labelLast="at the current address"
-          name="cr-residence-length-group"
+          name="crResidenceLengthGroup"
           classes="question question--thumbless question--numbers"
           disabled={disabled}
         />
