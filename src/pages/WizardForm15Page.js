@@ -20,12 +20,12 @@ class WizardForm15Page extends Component {
     if (motherAge !== undefined && patientAge !== undefined) {
       let motherAgeAtBirth = Number(motherAge - patientAge);
       console.log(`Mother's age at birth = ${motherAgeAtBirth}`);
-      this.props.change("mdh-mothers-age", motherAgeAtBirth);
+      this.props.change("mdhMothersAge", motherAgeAtBirth);
     }
     if (fatherAge !== undefined && patientAge !== undefined) {
       let fatherAgeAtBirth = Number(fatherAge - patientAge);
       console.log(`Father's age at birth = ${fatherAgeAtBirth}`);
-      this.props.change("mdh-fathers-age", fatherAgeAtBirth);
+      this.props.change("mdhFathersAge", fatherAgeAtBirth);
     }
   }
 
@@ -57,7 +57,7 @@ class WizardForm15Page extends Component {
             label="At this"
             labelBold="child's birth,"
             labelLast="what was the mother's age"
-            name="mdh-mothers-age"
+            name="mdhMothersAge"
             tabOrder="1"
             type="input"
             classes="question grid__half"
@@ -68,7 +68,7 @@ class WizardForm15Page extends Component {
             alt="Speech bubble"
             component={TextQuestion}
             label="Father's"
-            name="mdh-fathers-age"
+            name="mdhFathersAge"
             tabOrder="2"
             type="input"
             classes="question grid__half"
@@ -81,7 +81,7 @@ class WizardForm15Page extends Component {
           label="Mother's"
           labelBold="age at birth,"
           labelLast="of first child"
-          name="mdh-mothers-age-first-child"
+          name="mdhMothersAgeFirstChild"
           tabOrder="3"
           type="input"
           classes="question grid__half"
@@ -89,17 +89,17 @@ class WizardForm15Page extends Component {
         />
         <div className="flex">
           <Field
-            name="mdh-hospital-birth-group"
+            name="mdhHospitalBirthGroup"
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "mdh-hospital-birth",
+                cardName: "mdhHospitalBirth",
                 cardKey: "A",
                 cardLabel: "Yes",
                 tabOrder: "4"
               },
               {
-                cardName: "mdh-hospital-birth",
+                cardName: "mdhHospitalBirth",
                 cardKey: "B",
                 cardLabel: "No",
                 tabOrder: "5"
@@ -115,7 +115,7 @@ class WizardForm15Page extends Component {
             component={TextQuestion}
             label="If no,"
             labelBold="where"
-            name="mdh-birth-location"
+            name="mdhBirthLocation"
             tabOrder="6"
             type="input"
             classes="question grid__half"
@@ -130,7 +130,7 @@ class WizardForm15Page extends Component {
             label=""
             labelBold="Length"
             labelLast="of pregnancy (# of weeks)"
-            name="mdh-pregnancy-length"
+            name="mdhPregnancyLength"
             tabOrder="7"
             type="input"
             classes="question grid__half"
@@ -143,7 +143,7 @@ class WizardForm15Page extends Component {
             label="Birth"
             labelBold="weight"
             labelLast="(lbs &amp; oz)"
-            name="mdh-birth-weight"
+            name="mdhBirthWeight"
             tabOrder="8"
             type="input"
             classes="question grid__half"
@@ -158,7 +158,7 @@ class WizardForm15Page extends Component {
             label=""
             labelBold="Length"
             labelLast="of labor"
-            name="mdh-labor-length"
+            name="mdhLaborLength"
             tabOrder="9"
             type="input"
             classes="question grid__half"
@@ -171,7 +171,7 @@ class WizardForm15Page extends Component {
             label=""
             labelBold="Apgar"
             labelLast="score"
-            name="mdh-apgar-score"
+            name="mdhApgarScore"
             tabOrder="10"
             type="input"
             classes="question grid__half"
@@ -183,7 +183,7 @@ class WizardForm15Page extends Component {
           label="Child's"
           labelBold="condition"
           labelLast="at birth"
-          name="mdh-birth-condition-child"
+          name="mdhBirthConditionChild"
           tabOrder="11"
           type="input"
           classes="question"
@@ -194,7 +194,7 @@ class WizardForm15Page extends Component {
           label="Mother's"
           labelBold="condition"
           labelLast="at birth"
-          name="mdh-birth-condition-mother"
+          name="mdhBirthConditionMother"
           tabOrder="12"
           type="input"
           classes="question"
@@ -204,25 +204,25 @@ class WizardForm15Page extends Component {
           component={CheckboxCard}
           checkboxInfo={[
             {
-              cardName: "mdh-forceps",
+              cardName: "mdhForceps",
               cardKey: "A",
               cardLabel: "Forceps used",
               tabOrder: "13"
             },
             {
-              cardName: "mdh-breech",
+              cardName: "mdhBreech",
               cardKey: "B",
               cardLabel: "Breech birth",
               tabOrder: "14"
             },
             {
-              cardName: "mdh-induced",
+              cardName: "mdhInduced",
               cardKey: "C",
               cardLabel: "Labor induced",
               tabOrder: "15"
             },
             {
-              cardName: "mdh-ceasarean",
+              cardName: "mdhCeasarean",
               cardKey: "D",
               cardLabel: "Ceasarean delivery",
               tabOrder: "16"
@@ -231,7 +231,7 @@ class WizardForm15Page extends Component {
           label="Check any of the following"
           labelBold="complications"
           labelLast="that occured during birth"
-          name="mdh-complications"
+          name="mdhComplications"
           classes="question question--thumbless"
           disabled={disabled}
         />
@@ -240,7 +240,7 @@ class WizardForm15Page extends Component {
           component={TextQuestion}
           label="Other"
           labelBold="delivery complications"
-          name="mdh-delivery-complications"
+          name="mdhDeliveryComplications"
           src="img/icons-problem-triangle.svg"
           tabOrder="17"
           type="input"
@@ -252,7 +252,7 @@ class WizardForm15Page extends Component {
           component={TextQuestion}
           label="Incubator:"
           labelBold="How long"
-          name="mdh-incubator"
+          name="mdhIncubator"
           src="img/icons-calendar-large.svg"
           tabOrder="18"
           type="input"
@@ -263,7 +263,7 @@ class WizardForm15Page extends Component {
           component={TextQuestion}
           label="Jaundiced: Bilirubin lights?"
           labelBold="How long"
-          name="mdh-jaundiced"
+          name="mdhJaundiced"
           tabOrder="19"
           type="input"
           classes="question"
@@ -274,7 +274,7 @@ class WizardForm15Page extends Component {
           label=""
           labelBold="Breathing problems"
           labelLast="right after birth"
-          name="mdh-breathing-problems"
+          name="mdhBreathingProblems"
           tabOrder="20"
           type="input"
           classes="question"
@@ -285,7 +285,7 @@ class WizardForm15Page extends Component {
           label=""
           labelBold="Supplemental oxygen?"
           labelLast="If yes, how long"
-          name="mdh-supplemental-oxygen"
+          name="mdhSupplementalOxygen"
           tabOrder="21"
           type="input"
           classes="question"
@@ -296,7 +296,7 @@ class WizardForm15Page extends Component {
           label="Was"
           labelBold="anesthesia"
           labelLast="used during delivery? If yes, what kind"
-          name="mdh-anesthesia"
+          name="mdhAnesthesia"
           tabOrder="22"
           type="input"
           classes="question"
@@ -304,35 +304,35 @@ class WizardForm15Page extends Component {
         />
         <div className="flex">
           <FieldArray
-            name="mdh-mother-length-hospital-group"
+            name="mdhMotherLengthHospitalGroup"
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "mdh-mother-length-hospital",
+                cardName: "mdhMotherLengthHospital",
                 cardKey: "A",
                 cardLabel: "1-2 Days",
                 tabOrder: "23"
               },
               {
-                cardName: "mdh-mother-length-hospital",
+                cardName: "mdhMotherLengthHospital",
                 cardKey: "B",
                 cardLabel: "3-7 Days",
                 tabOrder: "24"
               },
               {
-                cardName: "mdh-mother-length-hospital",
+                cardName: "mdhMotherLengthHospital",
                 cardKey: "C",
                 cardLabel: "8-10 Days",
                 tabOrder: "25"
               },
               {
-                cardName: "mdh-mother-length-hospital",
+                cardName: "mdhMotherLengthHospital",
                 cardKey: "D",
                 cardLabel: "11+ Days",
                 tabOrder: "26"
               },
               {
-                cardName: "mdh-mother-length-hospital",
+                cardName: "mdhMotherLengthHospital",
                 cardKey: "E",
                 cardLabel: "Undefined",
                 tabOrder: "27"
@@ -347,35 +347,35 @@ class WizardForm15Page extends Component {
         </div>
         <div className="flex">
           <Field
-            name="mdh-child-length-hospital-group"
+            name="mdhChildLengthHospitalGroup"
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "mdh-child-length-hospital",
+                cardName: "mdhChildLengthHospital",
                 cardKey: "A",
                 cardLabel: "1-2 Days",
                 tabOrder: "28"
               },
               {
-                cardName: "mdh-child-length-hospital",
+                cardName: "mdhChildLengthHospital",
                 cardKey: "B",
                 cardLabel: "3-7 Days",
                 tabOrder: "29"
               },
               {
-                cardName: "mdh-child-length-hospital",
+                cardName: "mdhChildLengthHospital",
                 cardKey: "C",
                 cardLabel: "8-10 Days",
                 tabOrder: "30"
               },
               {
-                cardName: "mdh-child-length-hospital",
+                cardName: "mdhChildLengthHospital",
                 cardKey: "D",
                 cardLabel: "11+ Days",
                 tabOrder: "31"
               },
               {
-                cardName: "mdh-child-length-hospital",
+                cardName: "mdhChildLengthHospital",
                 cardKey: "E",
                 cardLabel: "Undefined",
                 tabOrder: "32"
@@ -399,9 +399,9 @@ class WizardForm15Page extends Component {
 const selector = formValueSelector("wizard"); // <-- same as form name
 WizardForm15Page = connect(state => {
   // can select values individually
-  const patientAge = selector(state, "di-age");
-  const motherAge = selector(state, "bh-mother-age");
-  const fatherAge = selector(state, "bh-father-age");
+  const patientAge = selector(state, "diAge");
+  const motherAge = selector(state, "bhMotherAge");
+  const fatherAge = selector(state, "bhFatherAge");
   return {
     patientAge,
     motherAge,
