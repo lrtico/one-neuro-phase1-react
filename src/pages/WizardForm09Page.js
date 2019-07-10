@@ -16,7 +16,7 @@ const WizardForm09Page = props => {
       </div>
       <Field
         component={TextQuestion}
-        name="cc-caregiver-gone"
+        name="ccCaregiverGone"
         tabOrder="1"
         type="input"
         classes="question"
@@ -27,7 +27,7 @@ const WizardForm09Page = props => {
       />
       <Field
         component={TextQuestion}
-        name="cc-hours-per-day"
+        name="ccHoursPerDay"
         tabOrder="2"
         type="input"
         classes="question"
@@ -38,7 +38,7 @@ const WizardForm09Page = props => {
       />
       <Field
         component={TextQuestion}
-        name="cc-different-people"
+        name="ccDifferentPeople"
         tabOrder="3"
         type="input"
         classes="question"
