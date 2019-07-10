@@ -18,7 +18,7 @@ const WizardForm11Page = props => {
       </div>
 
       <FieldArray
-        name="brothers-sisters"
+        name="brothersSisters"
         component={FormCardBrotherSister}
         disabled={disabled}
       />
@@ -29,7 +29,7 @@ const WizardForm11Page = props => {
           label="How does this child"
           labelBold="get along"
           labelLast="with their brother(s) and sister(s)"
-          name="bs-get-along"
+          name="bsGetAlong"
           tabOrder="8"
           type="input"
           classes="question"
