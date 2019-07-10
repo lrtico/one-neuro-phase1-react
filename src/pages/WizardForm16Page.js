@@ -21,16 +21,16 @@ const WizardForm16Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="mdh-development"
+          name="mdhDevelopment"
           component={FormCardStacked}
           cardInfo={[
             {
               cardFloat: true,
               cardLabel: "Turn over?",
               tabOrder: "1",
-              card1Name: "mdh-turn-over-months",
+              card1Name: "mdhTurnOverMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-turn-over-year",
+              card2Name: "mdhTurnOverYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -38,9 +38,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Walk down stairs?",
               tabOrder: "2",
-              card1Name: "mdh-walk-down-stairs-months",
+              card1Name: "mdhWalkDownStairsMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-walk-down-stairs-year",
+              card2Name: "mdhWalkDownStairsYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -48,9 +48,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Sit alone?",
               tabOrder: "3",
-              card1Name: "mdh-sit-alone-months",
+              card1Name: "mdhSitAloneMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-sit-alone-year",
+              card2Name: "mdhSitAloneYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -58,9 +58,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Show interest in or attraction to sound?",
               tabOrder: "4",
-              card1Name: "mdh-attracted-sound-months",
+              card1Name: "mdhAttractedSoundMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-attracted-sound-year",
+              card2Name: "mdhAttractedSoundYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -68,9 +68,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Crawl?",
               tabOrder: "5",
-              card1Name: "mdh-crawl-months",
+              card1Name: "mdhCrawlMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-crawl-year",
+              card2Name: "mdhCrawlYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -78,9 +78,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Understand first words?",
               tabOrder: "6",
-              card1Name: "mdh-understand-words-months",
+              card1Name: "mdhUnderstandWordsMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-understand-words-year",
+              card2Name: "mdhUnderstandWordsYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -88,9 +88,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Stand alone?",
               tabOrder: "7",
-              card1Name: "mdh-stand-alone-months",
+              card1Name: "mdhStandAloneMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-stand-alone-year",
+              card2Name: "mdhStandAloneYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -98,9 +98,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Speak first words?",
               tabOrder: "8",
-              card1Name: "mdh-speak-first-words-months",
+              card1Name: "mdhSpeakFirstWordsMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-speak-first-words-year",
+              card2Name: "mdhSpeakFirstWordsYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -108,9 +108,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Walk alone?",
               tabOrder: "9",
-              card1Name: "mdh-walk-alone-months",
+              card1Name: "mdhWalkAloneMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-walk-alone-year",
+              card2Name: "mdhWalkAloneYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -118,9 +118,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Speak in sentences?",
               tabOrder: "10",
-              card1Name: "mdh-speak-sentences-months",
+              card1Name: "mdhSpeakSentencesMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-speak-sentences-year",
+              card2Name: "mdhSpeakSentencesYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             },
@@ -128,9 +128,9 @@ const WizardForm16Page = props => {
               cardFloat: true,
               cardLabel: "Walk up stairs?",
               tabOrder: "11",
-              card1Name: "mdh-walk-up-stairs-months",
+              card1Name: "mdhWalkUpStairsMonths",
               card1Placeholder: "Months",
-              card2Name: "mdh-walk-up-stairs-year",
+              card2Name: "mdhWalkUpStairsYear",
               card2Placeholder: "Years",
               normalizeOnlyNums: true
             }
