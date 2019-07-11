@@ -18,32 +18,32 @@ const WizardForm24Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="md-genitourinary-group"
+          name="mdGenitourinaryGroup"
           component={FormCardStacked}
           cardInfo={[
             {
-              cardName: "md-urination",
+              cardName: "mdUrination",
               cardLabel: "Urination in pants?",
               cardPlaceholder: "How often?",
               tabOrder: "1",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-pain-urinating",
+              cardName: "mdPainUrinating",
               cardLabel: "Pain while urinating?",
               cardPlaceholder: "How often?",
               tabOrder: "2",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-exessive-urination",
+              cardName: "mdExessiveUrination",
               cardLabel: "Excessive urination?",
               cardPlaceholder: "How often?",
               tabOrder: "3",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-urine-odor",
+              cardName: "mdUrineOdor",
               cardLabel: "Strong odor to urine?",
               cardPlaceholder: "How often?",
               tabOrder: "4",
