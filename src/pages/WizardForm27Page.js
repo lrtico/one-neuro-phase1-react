@@ -20,74 +20,74 @@ const WizardForm27Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="md-neurological-group"
+          name="mdNeurologicalGroup"
           component={FormCardStacked}
           cardInfo={[
             {
-              cardName: "md-seizures",
-              cardLabel: "Seizures/ convulsions?",
+              cardName: "mdSeizures",
+              cardLabel: "Seizures / convulsions?",
               cardPlaceholder: "When/where?",
               tabOrder: "1",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-speech-defects",
+              cardName: "mdSpeechDefects",
               cardLabel: "Speech defects?",
               cardPlaceholder: "How often?",
               tabOrder: "2",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-accident-prone",
+              cardName: "mdAccidentProne",
               cardLabel: "Accident prone?",
               cardPlaceholder: "How often?",
               tabOrder: "3",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-nail-biter",
+              cardName: "mdNailBiter",
               cardLabel: "Bites nails?",
               cardPlaceholder: "How often?",
               tabOrder: "4",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-sucks-thumb",
+              cardName: "mdSucksThumb",
               cardLabel: "Sucks thumb?",
               cardPlaceholder: "How often?",
               tabOrder: "5",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-grinds-teeth",
+              cardName: "mdGrindsTeeth",
               cardLabel: "Grinds teeth?",
               cardPlaceholder: "How often?",
               tabOrder: "6",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-twitches",
+              cardName: "mdTwitches",
               cardLabel: "Has tics/twitches?",
               cardPlaceholder: "How often?",
               tabOrder: "7",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-bangs-head",
+              cardName: "mdBangsHead",
               cardLabel: "Bangs head?",
               cardPlaceholder: "How often?",
               tabOrder: "9",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-rocks",
+              cardName: "mdRocks",
               cardLabel: "Rocks back and forth?",
               cardPlaceholder: "How often?",
               tabOrder: "10",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-bowel-movement",
+              cardName: "mdBowelMovement",
               cardLabel: "Bowel movements in pants/bed?",
               cardPlaceholder: "How often?",
               tabOrder: "11",
@@ -103,17 +103,17 @@ const WizardForm27Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="md-neurological-meds-group"
+          name="mdNeurologicalMedsGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "md-neurological-meds",
+              cardName: "mdNeurologicalMeds",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "12"
             },
             {
-              cardName: "md-neurological-meds",
+              cardName: "mdNeurologicalMeds",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "13"
@@ -131,7 +131,7 @@ const WizardForm27Page = props => {
           component={TextQuestion}
           label="If yes,"
           labelBold="when"
-          name="md-neurological-meds-date"
+          name="mdNeurologicalMedsDate"
           tabOrder="14"
           type="input"
           classes="question grid__half"
@@ -141,7 +141,7 @@ const WizardForm27Page = props => {
           component={TextQuestion}
           label="What"
           labelBold="medication"
-          name="md-neurological-meds-kind"
+          name="mdNeurologicalMedsKind"
           tabOrder="15"
           type="input"
           classes="question grid__half"
@@ -150,17 +150,17 @@ const WizardForm27Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="md-neurological-tranquilizer-group"
+          name="mdNeurologicalTranquilizerGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "md-neurological-tranquilizer",
+              cardName: "mdNeurologicalTranquilizer",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "16"
             },
             {
-              cardName: "md-neurological-tranquilizer",
+              cardName: "mdNeurologicalTranquilizer",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "17"
@@ -178,7 +178,7 @@ const WizardForm27Page = props => {
           component={TextQuestion}
           label="If yes,"
           labelBold="when"
-          name="md-neurological-tranquilizer-date"
+          name="mdNeurologicalTranquilizerDate"
           tabOrder="18"
           type="input"
           classes="question grid__half"
@@ -188,7 +188,7 @@ const WizardForm27Page = props => {
           component={TextQuestion}
           label="What"
           labelBold="medication"
-          name="md-neurological-tranquilizer-kind"
+          name="mdNeurologicalTranquilizerKind"
           tabOrder="19"
           type="input"
           classes="question grid__half"
@@ -197,17 +197,17 @@ const WizardForm27Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="md-neurological-adhd-meds-group"
+          name="mdNeurologicalAdhdMedsGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "md-neurological-adhd-meds",
+              cardName: "mdNeurologicalAdhdMeds",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "20"
             },
             {
-              cardName: "md-neurological-adhd-meds",
+              cardName: "mdNeurologicalAdhdMeds",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "21"
@@ -225,7 +225,7 @@ const WizardForm27Page = props => {
           component={TextQuestion}
           label="If yes,"
           labelBold="when"
-          name="md-neurological-adhd-meds-date"
+          name="mdNeurologicalAdhdMedsDate"
           tabOrder="22"
           type="input"
           classes="question grid__half"
@@ -235,7 +235,7 @@ const WizardForm27Page = props => {
           component={TextQuestion}
           label="What"
           labelBold="medication"
-          name="md-neurological-adhd-meds-kind"
+          name="mdNeurologicalAdhdMedsKind"
           tabOrder="23"
           type="input"
           classes="question grid__half"

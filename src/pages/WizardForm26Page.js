@@ -18,39 +18,39 @@ const WizardForm26Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="md-skin-group"
+          name="mdSkinGroup"
           component={FormCardStacked}
           cardInfo={[
             {
-              cardName: "md-frequent-rashes",
+              cardName: "mdFrequentRashes",
               cardLabel: "Frequent rashes?",
               cardPlaceholder: "When/where?",
               tabOrder: "1",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-bruises",
+              cardName: "mdBruises",
               cardLabel: "Bruises easily?",
               cardPlaceholder: "How often?",
               tabOrder: "2",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-sores",
+              cardName: "mdSores",
               cardLabel: "Sores?",
               cardPlaceholder: "How often?",
               tabOrder: "3",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-acne",
+              cardName: "mdAcne",
               cardLabel: "Severe acne?",
               cardPlaceholder: "How often?",
               tabOrder: "4",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-itchy",
+              cardName: "mdItchy",
               cardLabel: "Itchy skin?",
               cardPlaceholder: "How often?",
               tabOrder: "5",
