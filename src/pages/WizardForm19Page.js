@@ -30,40 +30,40 @@ const WizardForm19Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardNameCheckbox: "mdh-motor-skills-first-four",
-            cardNameDescription: "mdh-motor-skills-first-four-description",
+            cardNameCheckbox: "mdhMotorSkillsFirstFour",
+            cardNameDescription: "mdhMotorSkillsFirstFourDescription",
             cardLabel: "Motor skills",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardNameCheckbox: "mdh-temper-tantrum",
-            cardNameDescription: "mdh-temper-tantrum-description",
+            cardNameCheckbox: "mdhTemperTantrum",
+            cardNameDescription: "mdhTemperTantrumDescription",
             cardLabel: "Temper trantrums",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardNameCheckbox: "mdh-no-thrive-first-four",
-            cardNameDescription: "mdh-no-thrive-first-four-description",
+            cardNameCheckbox: "mdhNoThriveFirstFour",
+            cardNameDescription: "mdhNoThriveFirstFourDescription",
             cardLabel: "Failure to thrive",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
           },
           {
             cardKey: "D",
-            cardNameCheckbox: "mdh-separation-anxiety",
-            cardNameDescription: "mdh-separation-anxiety-description",
+            cardNameCheckbox: "mdhSeparationAnxiety",
+            cardNameDescription: "mdhSeparationAnxietyDescription",
             cardLabel: "Separating from parents",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "4"
           },
           {
             cardKey: "E",
-            cardNameCheckbox: "mdh-excessive-crying",
-            cardNameDescription: "mdh-excessive-crying-description",
+            cardNameCheckbox: "mdhExcessiveCrying",
+            cardNameDescription: "mdhExcessiveCryingDescription",
             cardLabel: "Excessive crying",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "5"
@@ -72,24 +72,24 @@ const WizardForm19Page = props => {
         label="During this child's"
         labelBold="first four years,"
         labelLast="were there any special problems noted in the following areas"
-        name="mdh-development-first-four-group"
+        name="mdhDevelopmentFirstFourGroup"
         classes="question question--thumbless"
         disabled={disabled}
         //onTextBoxClick={name => handleTextBoxClick(name)}
       />
       <div className="flex">
         <Field
-          name="mdh-change-writing-hand-group"
+          name="mdhChangeWritingHandGroup"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdh-change-writing-hand",
+              cardName: "mdhChangeWritingHand",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "6"
             },
             {
-              cardName: "mdh-change-writing-hand",
+              cardName: "mdhChangeWritingHand",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "7"
