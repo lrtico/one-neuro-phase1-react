@@ -22,24 +22,24 @@ const WizardForm29Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardNameCheckbox: "mdh-speech-stuttering",
-            cardNameDescription: "mdh-speech-stuttering-description",
+            cardNameCheckbox: "mdhSpeechStuttering",
+            cardNameDescription: "mdhSpeechStutteringDescription",
             cardLabel: "Stuttering",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardNameCheckbox: "mdh-speech-unclear",
-            cardNameDescription: "mdh-speech-unclear-description",
+            cardNameCheckbox: "mdhSpeechUnclear",
+            cardNameDescription: "mdhSpeechUnclearDescription",
             cardLabel: "Unclear speech",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardNameCheckbox: "mdh-speech-other",
-            cardNameDescription: "mdh-speech-other-description",
+            cardNameCheckbox: "mdhSpeechOther",
+            cardNameDescription: "mdhSpeechOtherDescription",
             cardLabel: "Other speech problems",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
@@ -48,7 +48,7 @@ const WizardForm29Page = props => {
         label="Does this child"
         labelBold="currently"
         labelLast="have any of the following"
-        name="mdh-speech-group"
+        name="mdhSpeechGroup"
         classes="question question--thumbless"
         disabled={disabled}
       />
@@ -59,7 +59,7 @@ const WizardForm29Page = props => {
         label="Date of most"
         labelBold="recent"
         labelLast="speech exam"
-        name="mdh-speech-exam-date"
+        name="mdhSpeechExamDate"
         tabOrder="4"
         type="date"
         classes="question grid__half"

@@ -78,7 +78,7 @@ class WizardForm50Page extends Component {
         <div className="flex flex--center-vertical">
           <Button
             onClick={this.generatePDFTest}
-            buttonLabel="Make test PDF"
+            buttonLabel="Make a PDF"
             cssClasses="btn--width-auto"
           />
           {this.state.loading ? (
