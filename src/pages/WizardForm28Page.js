@@ -38,7 +38,7 @@ const WizardForm28Page = props => {
           {
             cardKey: "C",
             cardNameCheckbox: "mdhAllergiesOther",
-            cardNameDescription: "mdh-allergies-other-description",
+            cardNameDescription: "mdhAllergiesOtherDescription",
             cardLabel: "Other allergies",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
