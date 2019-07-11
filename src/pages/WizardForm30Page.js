@@ -48,7 +48,7 @@ const WizardForm30Page = props => {
         label="Does this child"
         labelBold="currently"
         labelLast="have any of the following"
-        name="mdh-hearing-group"
+        name="mdhHearingGroup"
         classes="question question--thumbless"
         disabled={disabled}
       />
