@@ -22,7 +22,7 @@ const WizardForm22Page = props => {
           component={FormCardStacked}
           cardInfo={[
             {
-              cardName: "md-physical-exertion",
+              cardName: "mdPhysicalExertion",
               cardLabel:
                 "Shortness of breath or dizziness with physical exertion?",
               cardPlaceholder: "How often?",
@@ -30,14 +30,14 @@ const WizardForm22Page = props => {
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-activity-limits",
+              cardName: "mdActivityLimits",
               cardLabel: "Activity limitation due to heart condition?",
               cardPlaceholder: "How often?",
               tabOrder: "2",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-heart-murmur",
+              cardName: "mdHeartMurmur",
               cardLabel: "Heart murmur?",
               cardPlaceholder: "How often?",
               tabOrder: "3",
