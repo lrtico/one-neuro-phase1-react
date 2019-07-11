@@ -18,39 +18,39 @@ const WizardForm21Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="md-respitory-group"
+          name="mdRespitoryGroup"
           component={FormCardStacked}
           cardInfo={[
             {
-              cardName: "md-colds",
+              cardName: "mdColds",
               cardLabel: "Frequent colds?",
               cardPlaceholder: "How often?",
               tabOrder: "1",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-chronic-cough",
+              cardName: "mdChronicCough",
               cardLabel: "Chronic cough?",
               cardPlaceholder: "How often?",
               tabOrder: "2",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-asthma",
+              cardName: "mdAsthma",
               cardLabel: "Asthma?",
               cardPlaceholder: "How often?",
               tabOrder: "3",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-hay-fever",
+              cardName: "mdHayFever",
               cardLabel: "Hay fever?",
               cardPlaceholder: "How often?",
               tabOrder: "4",
               normalizeCapitalizeWords: true
             },
             {
-              cardName: "md-sinus-condition",
+              cardName: "mdSinusCondition",
               cardLabel: "Sinus condition?",
               cardPlaceholder: "How often?",
               tabOrder: "5",
