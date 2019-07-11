@@ -22,24 +22,24 @@ const WizardForm30Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardNameCheckbox: "mdh-hearing-ear-infection",
-            cardNameDescription: "mdh-hearing-ear-infection-description",
+            cardNameCheckbox: "mdhHearingEarInfection",
+            cardNameDescription: "mdhHearingEarInfectionDescription",
             cardLabel: "Ear infections",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardNameCheckbox: "mdh-hearing-problems",
-            cardNameDescription: "mdh-hearing-problems-description",
+            cardNameCheckbox: "mdhHearingProblems",
+            cardNameDescription: "mdhHearingProblemsDescription",
             cardLabel: "Hearing problems",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
           },
           {
             cardKey: "C",
-            cardNameCheckbox: "mdh-hearing-tubes",
-            cardNameDescription: "mdh-hearing-tubes-description",
+            cardNameCheckbox: "mdhHearingTubes",
+            cardNameDescription: "mdhHearingTubesDescription",
             cardLabel: "Ear tubes",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "3"
@@ -59,7 +59,7 @@ const WizardForm30Page = props => {
         label="Date of most"
         labelBold="recent"
         labelLast="hearing exam"
-        name="mdh-hearing-exam-date"
+        name="mdhHearingExamDate"
         tabOrder="4"
         type="date"
         classes="question grid__half"
