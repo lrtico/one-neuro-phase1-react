@@ -26,7 +26,7 @@ const WizardForm35Page = props => {
         disabled={disabled}
         fieldInputs={[
           {
-            inputName: "mc-psychology-exam-name",
+            inputName: "mcPsychologyExamName",
             inputType: "text",
             inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Name",
@@ -34,7 +34,7 @@ const WizardForm35Page = props => {
             normalizeCapitalizeWords: true
           },
           {
-            inputName: "mc-psychology-exam-city",
+            inputName: "mcPsychologyExamCity",
             inputType: "text",
             inputClasses: "cardTextInput toCapitalize",
             inputLabel: "City",
@@ -42,14 +42,14 @@ const WizardForm35Page = props => {
             normalizeCapitalizeWords: true
           },
           {
-            inputName: "mc-psychology-exam-date",
+            inputName: "mcPsychologyExamDate",
             inputType: "date",
             inputClasses: "cardTextInput",
             inputLabel: "Date",
             inputPlaceholder: "Date"
           },
           {
-            inputName: "mc-psychology-exam-reason",
+            inputName: "mcPsychologyExamReason",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Reason",
