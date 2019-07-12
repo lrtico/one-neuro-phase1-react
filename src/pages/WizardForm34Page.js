@@ -22,12 +22,12 @@ const WizardForm34Page = props => {
         Has this child ever had a<strong> neurological exam</strong>?
       </label>
       <FieldArray
-        name="nuerological-group"
+        name="nuerologicalGroup"
         component={FormCardMultiInput}
         disabled={disabled}
         fieldInputs={[
           {
-            inputName: "mc-nuerological-name",
+            inputName: "mcNuerologicalName",
             inputType: "text",
             inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Name",
@@ -35,7 +35,7 @@ const WizardForm34Page = props => {
             normalizeCapitalizeWords: true
           },
           {
-            inputName: "mc-nuerological-address",
+            inputName: "mcNuerologicalAddress",
             inputType: "text",
             inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Address",
@@ -43,14 +43,14 @@ const WizardForm34Page = props => {
             normalizeCapitalizeWords: true
           },
           {
-            inputName: "mc-nuerological-date",
+            inputName: "mcNuerologicalDate",
             inputType: "date",
             inputClasses: "cardTextInput",
             inputLabel: "Date",
             inputPlaceholder: "Date"
           },
           {
-            inputName: "mc-nuerological-reason",
+            inputName: "mcNuerologicalReason",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Reason",
