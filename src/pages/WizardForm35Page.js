@@ -21,7 +21,7 @@ const WizardForm35Page = props => {
         Has this child ever had a<strong> Psychiatric evaluation</strong>?
       </label>
       <FieldArray
-        name="psychology-group"
+        name="psychologyGroup"
         component={FormCardMultiInput}
         disabled={disabled}
         fieldInputs={[
