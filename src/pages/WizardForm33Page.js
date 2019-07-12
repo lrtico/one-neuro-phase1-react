@@ -22,12 +22,12 @@ const WizardForm33Page = props => {
         <strong> psychology counseling or therapy</strong>?
       </label>
       <FieldArray
-        name="counseling-group"
+        name="counselingGroup"
         component={FormCardMultiInput}
         disabled={disabled}
         fieldInputs={[
           {
-            inputName: "mc-counseling-name",
+            inputName: "mcCounselingName",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Name",
@@ -35,7 +35,7 @@ const WizardForm33Page = props => {
             normalizeCapitalizeWords: true
           },
           {
-            inputName: "mc-counseling-address",
+            inputName: "mcCounselingAddress",
             inputType: "text",
             inputClasses: "cardTextInput toCapitalize",
             inputLabel: "Address",
@@ -43,7 +43,7 @@ const WizardForm33Page = props => {
             normalizeCapitalizeWords: true
           },
           {
-            inputName: "mc-counseling-phone",
+            inputName: "mcCounselingPhone",
             inputType: "tel",
             inputClasses: "cardTextInput",
             inputLabel: "Phone",
@@ -51,14 +51,14 @@ const WizardForm33Page = props => {
             normalizePhone: true
           },
           {
-            inputName: "mc-counseling-reason",
+            inputName: "mcCounselingReason",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Reason",
             inputPlaceholder: "Reason"
           },
           {
-            inputName: "mc-counseling-date",
+            inputName: "mcCounselingDate",
             inputType: "date",
             inputClasses: "cardTextInput",
             inputLabel: "Date",
