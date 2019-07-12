@@ -22,16 +22,16 @@ const WizardForm31Page = props => {
         checkboxInfo={[
           {
             cardKey: "A",
-            cardNameCheckbox: "mdh-vision-problems",
-            cardNameDescription: "mdh-vision-problems-description",
+            cardNameCheckbox: "mdhVisionProblems",
+            cardNameDescription: "mdhVisionProblemsDescription",
             cardLabel: "Vision problems",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "1"
           },
           {
             cardKey: "B",
-            cardNameCheckbox: "mdh-glasses",
-            cardNameDescription: "mdh-glasses-description",
+            cardNameCheckbox: "mdhGlasses",
+            cardNameDescription: "mdhGlassesDescription",
             cardLabel: "Wears glasses or contacts",
             liClasses: "question__choice--full-width desc-checkbox",
             tabOrder: "2"
@@ -40,7 +40,7 @@ const WizardForm31Page = props => {
         label="Does this child"
         labelBold="currently"
         labelLast="have any of the following"
-        name="mdh-hearing-group"
+        name="mdhVisionGroup"
         classes="question question--thumbless"
         disabled={disabled}
       />
@@ -51,7 +51,7 @@ const WizardForm31Page = props => {
         label="Date of most"
         labelBold="recent"
         labelLast="vision exam"
-        name="mdh-vision-exam-date"
+        name="mdhVisionExamDate"
         tabOrder="3"
         type="date"
         classes="question grid__half"
