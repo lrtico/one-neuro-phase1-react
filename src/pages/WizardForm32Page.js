@@ -29,7 +29,7 @@ const WizardForm32Page = props => {
           component={TextQuestion}
           label="What is the primary physicians"
           labelBold="name"
-          name="mc-dr-name"
+          name="mcDrName"
           src="img/icons-happy-face-name.svg"
           tabOrder="1"
           type="input"
@@ -41,7 +41,7 @@ const WizardForm32Page = props => {
           component={NormalizePhoneInput}
           label="What's the primary physicians'"
           labelBold="phone"
-          name="mc-dr-phone"
+          name="mcDrPhone"
           src="img/icons-phone.svg"
           tabOrder="2"
           type="text"
@@ -56,7 +56,7 @@ const WizardForm32Page = props => {
           component={TextQuestion}
           label="How often do they"
           labelBold="visit"
-          name="mc-dr-visit-count"
+          name="mcDrVisitCount"
           src="img/icons-counter.svg"
           tabOrder="3"
           type="input"
@@ -69,7 +69,7 @@ const WizardForm32Page = props => {
           label=""
           labelBold="Date"
           labelLast="of last visit"
-          name="mc-dr-last-visit"
+          name="mcDrLastVisit"
           src="img/icons-calendar-large.svg"
           tabOrder="4"
           type="date"
@@ -81,7 +81,7 @@ const WizardForm32Page = props => {
           label="How"
           labelBold="long"
           labelLast="since last visit"
-          name="mc-dr-last-visit-months"
+          name="mcDrLastVisitMonths"
           tabOrder="5"
           type="text"
           classes="question grid__third"
@@ -92,12 +92,12 @@ const WizardForm32Page = props => {
         List any medication this child is <strong>currently</strong> taking.
       </label>
       <FieldArray
-        name="medication-list-group"
+        name="medicationListGroup"
         component={FormCardMultiInput}
         disabled={disabled}
         fieldInputs={[
           {
-            inputName: "mc-medication-name",
+            inputName: "mcMedicationName",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Name",
@@ -105,7 +105,7 @@ const WizardForm32Page = props => {
             normalizeCapitalizeWords: true
           },
           {
-            inputName: "mc-medication-reason",
+            inputName: "mcMedicationReason",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Reason",
@@ -118,13 +118,13 @@ const WizardForm32Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mc-sexual-abuse",
+              cardName: "mcSexualAbuse",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "7"
             },
             {
-              cardName: "mc-sexual-abuse",
+              cardName: "mcSexualAbuse",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "8"
@@ -133,7 +133,7 @@ const WizardForm32Page = props => {
           label="Has this child ever been"
           labelBold="sexually"
           labelLast="abused"
-          name="mc-sexual-abuse-group"
+          name="mcSexualAbuseGroup"
           classes="question question--thumbless"
           disabled={disabled}
         />
