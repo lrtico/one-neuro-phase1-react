@@ -28,147 +28,147 @@ const WizardForm36Page = props => {
           columnHeader="A-M"
           checkboxInfo={[
             {
-              cardName: "fh-drug-abuse",
+              cardName: "fhDrugAbuse",
               cardKey: "A",
               cardLabel: "Alcohol/Drug abuse",
               tabOrder: "1",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-alzheimers",
+              cardName: "fhAlzheimers",
               cardKey: "B",
               cardLabel: "Alzheimer's Disease",
               tabOrder: "2",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-behavior-disorder",
+              cardName: "fhBehaviorDisorder",
               cardKey: "C",
               cardLabel: "Behavior disorder",
               tabOrder: "3",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-birth-defect",
+              cardName: "fhBirthDefect",
               cardKey: "D",
               cardLabel: "Birth defect",
               tabOrder: "4",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-cancer",
+              cardName: "fhCancer",
               cardKey: "E",
               cardLabel: "Cancer",
               tabOrder: "5",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-cerbral-palsy",
+              cardName: "fhCerbralPalsy",
               cardKey: "F",
               cardLabel: "Cerebral Palsy",
               tabOrder: "6",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-cystic-fibrosis",
+              cardName: "fhCysticFibrosis",
               cardKey: "G",
               cardLabel: "Cystic Fibrosis",
               tabOrder: "7",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-diabetes",
+              cardName: "fhDiabetes",
               cardKey: "H",
               cardLabel: "Diabetes",
               tabOrder: "8",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-emotional-disturbance",
+              cardName: "fhEmotionalDisturbance",
               cardKey: "I",
               cardLabel: "Emotional disturbance",
               tabOrder: "9",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-food-allergies",
+              cardName: "fhFoodAllergies",
               cardKey: "J",
               cardLabel: "Food allergies",
               tabOrder: "10",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-heart-disease",
+              cardName: "fhHeartDisease",
               cardKey: "K",
               cardLabel: "Heart disease",
               tabOrder: "11",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-hemophilia",
+              cardName: "fhHemophilia",
               cardKey: "L",
               cardLabel: "Heart disease",
               tabOrder: "12",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-high-blood-pressure",
+              cardName: "fhHighBloodPressure",
               cardKey: "M",
               cardLabel: "High blood pressure",
               tabOrder: "13",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-huntington-chorea",
+              cardName: "fhHuntingtonChorea",
               cardKey: "N",
               cardLabel: "Huntington's Chorea",
               tabOrder: "14",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-intellectual-disability",
+              cardName: "fhIntellectualDisability",
               cardKey: "O",
               cardLabel: "Intellectual disability",
               tabOrder: "15",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-kidney-disease",
+              cardName: "fhKidneyDisease",
               cardKey: "P",
               cardLabel: "Kidney disease",
               tabOrder: "16",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-mental-illness",
+              cardName: "fhMentalIllness",
               cardKey: "Q",
               cardLabel: "Mental illness",
               tabOrder: "17",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-migraines",
+              cardName: "fhMigraines",
               cardKey: "R",
               cardLabel: "Migraine headaches",
               tabOrder: "18",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-multiple-sclerosis",
+              cardName: "fhMultipleSclerosis",
               cardKey: "S",
               cardLabel: "Multiple Sclerosis",
               tabOrder: "19",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-muscular-dystrophy",
+              cardName: "fhMuscularDystrophy",
               cardKey: "T",
               cardLabel: "Muscular Dystrophy",
               tabOrder: "20",
               liClasses: "question__choice--full-width"
             }
           ]}
-          name="fh-conditions-group"
+          name="fhConditionsGroup"
           classes="question question--thumbless grid__half"
           addTick={this.makeTickMark}
           disabled={disabled}
@@ -178,98 +178,98 @@ const WizardForm36Page = props => {
           columnHeader="N-Z"
           checkboxInfo={[
             {
-              cardName: "fh-nervousness",
+              cardName: "fhNervousness",
               cardKey: "A",
               cardLabel: "Nervousness",
               tabOrder: "1",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-other-learning-disability",
+              cardName: "fhOtherLearningDisability",
               cardKey: "B",
               cardLabel: "Other learning disability",
               tabOrder: "2",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-parkinsons",
+              cardName: "fhParkinsons",
               cardKey: "C",
               cardLabel: "Parkinson's Disease",
               tabOrder: "3",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-physical-handicap",
+              cardName: "fhPhysicalHandicap",
               cardKey: "D",
               cardLabel: "Physical handicap",
               tabOrder: "4",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-reading-problem",
+              cardName: "fhReadingProblem",
               cardKey: "E",
               cardLabel: "Reading problem",
               tabOrder: "5",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-seizures",
+              cardName: "fhSeizures",
               cardKey: "F",
               cardLabel: "Seizures or Epilepsy",
               tabOrder: "6",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-severe-head-injury",
+              cardName: "fhSevereHeadInjury",
               cardKey: "G",
               cardLabel: "Severe head injury",
               tabOrder: "7",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-sickle-cell",
+              cardName: "fhSickleCell",
               cardKey: "H",
               cardLabel: "Sickle-cell anemia",
               tabOrder: "8",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-speech-problem",
+              cardName: "fhSpeechProblem",
               cardKey: "I",
               cardLabel: "Speech or language problem",
               tabOrder: "9",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-stroke",
+              cardName: "fhStroke",
               cardKey: "J",
               cardLabel: "Stroke",
               tabOrder: "10",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-tay-sachs",
+              cardName: "fhTaySachs",
               cardKey: "K",
               cardLabel: "Tay-Sachs Disease",
               tabOrder: "11",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-tourettes",
+              cardName: "fhTourettes",
               cardKey: "L",
               cardLabel: "Tourette's Syndrome",
               tabOrder: "12",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-tuberculosis",
+              cardName: "fhTuberculosis",
               cardKey: "M",
               cardLabel: "Tuberculosis",
               tabOrder: "13",
               liClasses: "question__choice--full-width"
             },
             {
-              cardName: "fh-other",
+              cardName: "fhOther",
               cardKey: "N",
               cardLabel: "Other",
               tabOrder: "14",
@@ -277,7 +277,7 @@ const WizardForm36Page = props => {
             }
           ]}
           labelBold="N-Z"
-          name="fh-conditions-group"
+          name="fhConditionsGroup"
           classes="question question--thumbless grid__half"
           disabled={disabled}
         />
@@ -288,7 +288,7 @@ const WizardForm36Page = props => {
         label="What is the father's"
         labelBold="present"
         labelLast="health"
-        name="fh-fathers-health"
+        name="fhFathersHealth"
         src="img/icons-health-heart-check.svg"
         tabOrder="15"
         type="input"
@@ -301,7 +301,7 @@ const WizardForm36Page = props => {
         label="What is the mother's"
         labelBold="present"
         labelLast="health"
-        name="fh-mothers-health"
+        name="fhMothersHealth"
         src="img/icons-health-heart-check.svg"
         tabOrder="16"
         type="input"
@@ -313,19 +313,19 @@ const WizardForm36Page = props => {
         <strong> special education</strong>?
       </label>
       <FieldArray
-        name="special-ed-group"
+        name="specialEdGroup"
         component={FormCardMultiInput}
         disabled={disabled}
         fieldInputs={[
           {
-            inputName: "mc-special-ed-name",
+            inputName: "mcSpecialEdName",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Name",
             inputPlaceholder: "Name"
           },
           {
-            inputName: "mc-special-ed-class",
+            inputName: "mcSpecialEdClass",
             inputType: "text",
             inputClasses: "cardTextInput",
             inputLabel: "Class",
