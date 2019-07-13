@@ -20,47 +20,47 @@ const WizardForm42Page = props => {
         <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <Field
-        name="rda-religon-affiliation-group"
+        name="rdaReligonAffiliationGroup"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "rda-religon-affiliation",
+            cardName: "rdaReligonAffiliation",
             cardKey: "A",
             cardLabel: "Protestant",
             tabOrder: "1"
           },
           {
-            cardName: "rda-religon-affiliation",
+            cardName: "rdaReligonAffiliation",
             cardKey: "B",
             cardLabel: "Catholic",
             tabOrder: "2"
           },
           {
-            cardName: "rda-religon-affiliation",
+            cardName: "rdaReligonAffiliation",
             cardKey: "C",
             cardLabel: "Jewish",
             tabOrder: "3"
           },
           {
-            cardName: "rda-religon-affiliation",
+            cardName: "rdaReligonAffiliation",
             cardKey: "D",
             cardLabel: "Islamic",
             tabOrder: "4"
           },
           {
-            cardName: "rda-religon-affiliation",
+            cardName: "rdaReligonAffiliation",
             cardKey: "E",
             cardLabel: "Buddhist",
             tabOrder: "5"
           },
           {
-            cardName: "rda-religon-affiliation",
+            cardName: "rdaReligonAffiliation",
             cardKey: "F",
             cardLabel: "Hindu",
             tabOrder: "6"
           },
           {
-            cardName: "rda-religon-affiliation",
+            cardName: "rdaReligonAffiliation",
             cardKey: "G",
             cardLabel: "Other",
             tabOrder: "7"
@@ -74,27 +74,27 @@ const WizardForm42Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "rda-religon-involvement",
+              cardName: "rdaReligonInvolvement",
               cardLabel: "1",
               tabOrder: "8"
             },
             {
-              cardName: "rda-religon-involvement",
+              cardName: "rdaReligonInvolvement",
               cardLabel: "2",
               tabOrder: "9"
             },
             {
-              cardName: "rda-religon-involvement",
+              cardName: "rdaReligonInvolvement",
               cardLabel: "3",
               tabOrder: "10"
             },
             {
-              cardName: "rda-religon-involvement",
+              cardName: "rdaReligonInvolvement",
               cardLabel: "4",
               tabOrder: "11"
             },
             {
-              cardName: "rda-religon-involvement",
+              cardName: "rdaReligonInvolvement",
               cardLabel: "5",
               tabOrder: "12"
             }
@@ -102,7 +102,7 @@ const WizardForm42Page = props => {
           label="How"
           labelBold="involved are you,"
           labelLast="with 1 being not very and 5 being very involved"
-          name="rda-religon-involvment-group"
+          name="rdaReligonInvolvmentGroup"
           classes="question question--thumbless question--numbers"
           disabled={disabled}
         />
