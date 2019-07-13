@@ -18,17 +18,17 @@ const WizardForm40Page = props => {
         </div>
       </div>
       <Field
-        name="eh-daycare-yes-no"
+        name="ehDaycareYesNo"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "eh-daycare",
+            cardName: "ehDaycare",
             cardKey: "A",
             cardLabel: "Yes",
             tabOrder: "1"
           },
           {
-            cardName: "eh-daycare",
+            cardName: "ehDaycare",
             cardKey: "B",
             cardLabel: "No",
             tabOrder: "2"
@@ -46,7 +46,7 @@ const WizardForm40Page = props => {
           component={TextQuestion}
           label="At what"
           labelBold="age"
-          name="eh-daycare-age"
+          name="ehDaycareAge"
           src="img/icons-birthday-cake.svg"
           tabOrder="4"
           type="input"
@@ -59,7 +59,7 @@ const WizardForm40Page = props => {
           label="How many"
           labelBold="hours"
           labelLast="per week"
-          name="eh-daycare-time"
+          name="ehDaycareTime"
           src="img/icons-stopwatch.svg"
           tabOrder="5"
           type="input"
@@ -73,7 +73,7 @@ const WizardForm40Page = props => {
         label=""
         labelBold="Days"
         labelLast="per week"
-        name="eh-daycare-days"
+        name="ehDaycareDays"
         src="img/icons-calendar-large.svg"
         tabOrder="6"
         type="input"
@@ -86,7 +86,7 @@ const WizardForm40Page = props => {
         label="Any"
         labelBold="problems"
         labelLast="in preschool/daycare"
-        name="eh-daycare-problems"
+        name="ehDaycareProblems"
         src="img/icons-bomb.svg"
         tabOrder="7"
         type="input"
@@ -94,17 +94,17 @@ const WizardForm40Page = props => {
         disabled={disabled}
       />
       <Field
-        name="eh-kindergarten-yes-no"
+        name="ehKindergartenYesNo"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "eh-kindergarten",
+            cardName: "ehKindergarten",
             cardKey: "A",
             cardLabel: "Yes",
             tabOrder: "8"
           },
           {
-            cardName: "eh-kindergarten",
+            cardName: "ehKindergarten",
             cardKey: "B",
             cardLabel: "No",
             tabOrder: "9"
@@ -122,7 +122,7 @@ const WizardForm40Page = props => {
         label="Any"
         labelBold="problems"
         labelLast="in kindergarten"
-        name="eh-kindergarten-problems"
+        name="ehKindergartenProblems"
         src="img/icons-bomb.svg"
         tabOrder="10"
         type="input"
