@@ -21,17 +21,17 @@ const WizardForm41Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="eh-changed-schools-yes-no"
+          name="ehChangedSchoolsYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-changed-schools",
+              cardName: "ehChangedSchools",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "1"
             },
             {
-              cardName: "eh-changed-schools",
+              cardName: "ehChangedSchools",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "2"
@@ -49,7 +49,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-changed-schools-desc"
+          name="ehChangedSchoolsDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="3"
           type="input"
@@ -59,17 +59,17 @@ const WizardForm41Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="eh-repeat-grade-yes-no"
+          name="ehRepeatGradeYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-repeat-grade",
+              cardName: "ehRepeatGrade",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "4"
             },
             {
-              cardName: "eh-repeat-grade",
+              cardName: "ehRepeatGrade",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "5"
@@ -87,7 +87,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-grade-repeat-desc"
+          name="ehGradeRepeatDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="6"
           type="input"
@@ -97,17 +97,17 @@ const WizardForm41Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="eh-grade-skip-yes-no"
+          name="ehGradeSkipYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-grade-skip",
+              cardName: "ehGradeSkip",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "7"
             },
             {
-              cardName: "eh-grade-skip",
+              cardName: "ehGradeSkip",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "8"
@@ -125,7 +125,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-grade-skip-desc"
+          name="ehGradeSkipDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="9"
           type="input"
@@ -135,17 +135,17 @@ const WizardForm41Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="eh-difficulty-reading-yes-no"
+          name="ehDifficultyReadingYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-difficulty-reading",
+              cardName: "ehDifficultyReading",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "10"
             },
             {
-              cardName: "eh-difficulty-reading",
+              cardName: "ehDifficultyReading",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "11"
@@ -162,7 +162,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-difficulty-reading-desc"
+          name="ehDifficultReadingDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="12"
           type="input"
@@ -172,17 +172,17 @@ const WizardForm41Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="eh-difficulty-math-yes-no"
+          name="ehDifficultyMathYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-difficulty-math",
+              cardName: "ehDifficultyMath",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "13"
             },
             {
-              cardName: "eh-difficulty-math",
+              cardName: "ehDifficultyMath",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "14"
@@ -199,7 +199,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-difficulty-math-desc"
+          name="ehDifficultyMathDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="15"
           type="input"
@@ -209,17 +209,17 @@ const WizardForm41Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="eh-poor-grades-yes-no"
+          name="ehPoorGradesYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-poor-grades",
+              cardName: "ehPoorGrades",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "16"
             },
             {
-              cardName: "eh-poor-grades",
+              cardName: "ehPoorGrades",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "17"
@@ -237,7 +237,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-poor-grades-desc"
+          name="ehPoorGradesDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="18"
           type="input"
@@ -247,17 +247,17 @@ const WizardForm41Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="eh-special-ed-yes-no"
+          name="ehSpecialEdYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-special-ed",
+              cardName: "ehSpecialEd",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "19"
             },
             {
-              cardName: "eh-special-ed",
+              cardName: "ehSpecialEd",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "20"
@@ -275,7 +275,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-special-ed-desc"
+          name="ehSpecialEdDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="21"
           type="input"
@@ -284,17 +284,17 @@ const WizardForm41Page = props => {
         />
       </div>
       <Field
-        name="eh-special-ed-curr-yes-no"
+        name="ehSpecialEdCurrYesNo"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "eh-special-ed-current",
+            cardName: "ehSpecialEdCurrent",
             cardKey: "A",
             cardLabel: "Yes",
             tabOrder: "22"
           },
           {
-            cardName: "eh-special-ed-current",
+            cardName: "ehSpecialEdCurrent",
             cardKey: "B",
             cardLabel: "No",
             tabOrder: "23"
@@ -311,7 +311,7 @@ const WizardForm41Page = props => {
           component={TextQuestion}
           label="If yes, what type of"
           labelBold="class"
-          name="eh-type-special-ed-class"
+          name="ehTypeSpecialEdClass"
           src="img/icons-question-mark-plain.svg"
           tabOrder="24"
           type="input"
@@ -324,7 +324,7 @@ const WizardForm41Page = props => {
           label=""
           labelBold="Hours"
           labelLast="per day"
-          name="eh-type-special-ed-hours"
+          name="ehTypeSpecialEdHours"
           src="img/icons-stopwatch.svg"
           tabOrder="25"
           type="input"
@@ -333,17 +333,17 @@ const WizardForm41Page = props => {
         />
       </div>
       <Field
-        name="eh-dislikes-school-yes-no"
+        name="ehDislikesSchoolYesNo"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "eh-dislikes-school",
+            cardName: "ehDislikesSchool",
             cardKey: "A",
             cardLabel: "Yes",
             tabOrder: "26"
           },
           {
-            cardName: "eh-dislikes-school",
+            cardName: "ehDislikesSchool",
             cardKey: "B",
             cardLabel: "No",
             tabOrder: "27"
@@ -357,17 +357,17 @@ const WizardForm41Page = props => {
       />
       <div className="flex">
         <Field
-          name="eh-absent-yes-no"
+          name="ehAbsentYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-absent",
+              cardName: "ehAbsent",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "28"
             },
             {
-              cardName: "eh-absent",
+              cardName: "ehAbsent",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "29"
@@ -385,7 +385,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-absent-desc"
+          name="ehAbsentDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="30"
           type="input"
@@ -399,7 +399,7 @@ const WizardForm41Page = props => {
         label="If in"
         labelBold="high school"
         labelLast="when will this child graduate"
-        name="eh-graduate-hs-desc"
+        name="ehGraduateHsDesc"
         src="img/icons-graduation-cap.svg"
         tabOrder="31"
         type="date"
@@ -408,17 +408,17 @@ const WizardForm41Page = props => {
       />
       <div className="flex">
         <Field
-          name="eh-teacher-concerns-yes-no"
+          name="ehTeacherConcernsYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "eh-teacher-concerns",
+              cardName: "ehTeacherConcerns",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "32"
             },
             {
-              cardName: "eh-teacher-concerns",
+              cardName: "ehTeacherConcerns",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "33"
@@ -436,7 +436,7 @@ const WizardForm41Page = props => {
           label="If"
           labelBold="yes,"
           labelLast="please describe"
-          name="eh-teacher-concerns-desc"
+          name="ehTeacherConcernsDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="34"
           type="input"
