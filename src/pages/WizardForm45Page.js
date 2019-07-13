@@ -24,7 +24,7 @@ const WizardForm45Page = props => {
         component={TextQuestion}
         label="What is the patient's"
         labelBold="ethnicity"
-        name="rda-ethnicity"
+        name="rdaEthnicity"
         src="img/icons-happy-face-name.svg"
         tabOrder="1"
         type="input"
@@ -36,7 +36,7 @@ const WizardForm45Page = props => {
         component={TextQuestion}
         label="What is the patient's"
         labelBold="race"
-        name="rda-race"
+        name="rdaRace"
         src="img/icons-happy-face-name.svg"
         tabOrder="2"
         type="input"
@@ -48,7 +48,7 @@ const WizardForm45Page = props => {
         component={TextQuestion}
         label="Any other way you identify yourself and consider"
         labelBold="important"
-        name="rda-idenfication-other"
+        name="rdaIdenficationOther"
         src="img/icons-happy-face-name.svg"
         tabOrder="3"
         type="input"
