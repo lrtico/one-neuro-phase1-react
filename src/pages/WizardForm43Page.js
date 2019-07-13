@@ -21,7 +21,7 @@ const WizardForm43Page = props => {
       </div>
       <div className="grid__half">
         <Field
-          name="rda-spiritual-importance"
+          name="rdaSpiritualImportance"
           label="How important are"
           labelBold="spiritual concerns"
           labelLast="in your life"
