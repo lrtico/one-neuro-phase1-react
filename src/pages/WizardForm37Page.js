@@ -20,17 +20,17 @@ const WizardForm37Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="f-relating-problems-yes-no"
+          name="fFelatingProblemsYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "f-relating-problems",
+              cardName: "fRelatingProblems",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "1"
             },
             {
-              cardName: "f-relating-problems",
+              cardName: "fRelatingProblems",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "2"
@@ -48,7 +48,7 @@ const WizardForm37Page = props => {
           label="If"
           labelBold="yes"
           labelLast=", please describe"
-          name="f-relating-problems-desc"
+          name="fRelatingProblemsDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="3"
           type="input"
@@ -58,17 +58,17 @@ const WizardForm37Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="f-fight-yes-no"
+          name="fFightYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "f-fight",
+              cardName: "fFight",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "4"
             },
             {
-              cardName: "f-fight",
+              cardName: "fFight",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "5"
@@ -86,7 +86,7 @@ const WizardForm37Page = props => {
           label="If"
           labelBold="yes"
           labelLast=", please describe"
-          name="f-fight-desc"
+          name="fFightDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="6"
           type="input"
@@ -96,17 +96,17 @@ const WizardForm37Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="f-younger-friends-yes-no"
+          name="fYoungerFriendsYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "f-younger-friends",
+              cardName: "fYoungerFriends",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "7"
             },
             {
-              cardName: "f-younger-friends",
+              cardName: "fYoungerFriends",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "8"
@@ -124,7 +124,7 @@ const WizardForm37Page = props => {
           label="If"
           labelBold="yes"
           labelLast=", please describe"
-          name="f-younger-friends-desc"
+          name="fYoungerFriendsDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="9"
           type="input"
@@ -134,17 +134,17 @@ const WizardForm37Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="f-making-friends-yes-no"
+          name="fMakingFriendsYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "f-making-friends",
+              cardName: "fMakingFriends",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "10"
             },
             {
-              cardName: "f-making-friends",
+              cardName: "fMakingFriends",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "11"
@@ -162,7 +162,7 @@ const WizardForm37Page = props => {
           label="If"
           labelBold="yes"
           labelLast=", please describe"
-          name="f-making-friends-desc"
+          name="fMakingFriendsDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="12"
           type="input"
@@ -172,17 +172,17 @@ const WizardForm37Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="f-alone-yes-no"
+          name="fAloneYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "f-alone",
+              cardName: "fAlone",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "13"
             },
             {
-              cardName: "f-alone",
+              cardName: "fAlone",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "14"
@@ -200,7 +200,7 @@ const WizardForm37Page = props => {
           label="If"
           labelBold="yes"
           labelLast=", please describe"
-          name="f-alone-desc"
+          name="fAloneDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="15"
           type="input"
@@ -210,17 +210,17 @@ const WizardForm37Page = props => {
       </div>
       <div className="flex">
         <Field
-          name="f-neighborhood-friends-yes-no"
+          name="fNeighborhoodFriendsYesNo"
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "f-neighborhood-friends",
+              cardName: "fNeighborhoodFriends",
               cardKey: "A",
               cardLabel: "Yes",
               tabOrder: "16"
             },
             {
-              cardName: "f-neighborhood-friends",
+              cardName: "fNeighborhoodFriends",
               cardKey: "B",
               cardLabel: "No",
               tabOrder: "17"
@@ -238,7 +238,7 @@ const WizardForm37Page = props => {
           label="If"
           labelBold="yes"
           labelLast=", please describe"
-          name="f-neighborhood-friends-desc"
+          name="fNeighborhoodFriendsDesc"
           src="img/icons-speech-bubble.svg"
           tabOrder="18"
           type="input"
@@ -252,7 +252,7 @@ const WizardForm37Page = props => {
         label="What role does this child take in"
         labelBold="peer group games"
         labelLast="(for example, leader, follower)"
-        name="f-role-peer-group-games"
+        name="fRolePeerGroupGames"
         src="img/icons-question-mark-plain.svg"
         tabOrder="19"
         type="input"
@@ -263,31 +263,31 @@ const WizardForm37Page = props => {
         component={CheckboxCard}
         checkboxInfo={[
           {
-            cardName: "f-smoke-cigarettes",
+            cardName: "fSmokeCigarettes",
             cardKey: "A",
             cardLabel: "Smoke cigarettes",
             tabOrder: "20"
           },
           {
-            cardName: "f-chew-tobacco",
+            cardName: "fChewTobacco",
             cardKey: "B",
             cardLabel: "Chew tobacco",
             tabOrder: "21"
           },
           {
-            cardName: "f-inhale",
+            cardName: "fInhale",
             cardKey: "C",
             cardLabel: "Inhale toxic substances (e.g., paint)",
             tabOrder: "22"
           },
           {
-            cardName: "f-alcholol",
+            cardName: "fAlcholol",
             cardKey: "D",
             cardLabel: "Drink beer, wine, or liquor",
             tabOrder: "23"
           },
           {
-            cardName: "f-drugs",
+            cardName: "fDrugs",
             cardKey: "E",
             cardLabel: "Use drugs illegally (e.g., marijuana)",
             tabOrder: "24"
@@ -296,7 +296,7 @@ const WizardForm37Page = props => {
         label="Does this"
         labelBold="child's friends"
         labelLast="do any of the following"
-        name="f-friends-activities-group"
+        name="fFriendsActivitiesGroup"
         classes="question question--thumbless"
         disabled={disabled}
       />
