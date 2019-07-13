@@ -20,29 +20,29 @@ const WizardForm44Page = props => {
         <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
       </div>
       <Field
-        name="rda-religon-building-group"
+        name="rdaReligonBuildingGroup"
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "rda-religon-building",
+            cardName: "rdaReligonBuilding",
             cardKey: "A",
             cardLabel: "Church",
             tabOrder: "1"
           },
           {
-            cardName: "rda-religon-building",
+            cardName: "rdaReligonBuilding",
             cardKey: "B",
             cardLabel: "Synagogue",
             tabOrder: "2"
           },
           {
-            cardName: "rda-religon-building",
+            cardName: "rdaReligonBuilding",
             cardKey: "C",
             cardLabel: "Temple",
             tabOrder: "3"
           },
           {
-            cardName: "rda-religon-building",
+            cardName: "rdaReligonBuilding",
             cardKey: "D",
             cardLabel: "Other",
             tabOrder: "4"
