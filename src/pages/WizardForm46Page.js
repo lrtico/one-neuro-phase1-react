@@ -16,7 +16,7 @@ const WizardForm46Page = props => {
       </div>
       <div className="grid__half">
         <Field
-          name="other-information"
+          name="otherInformation"
           label="Is there anything else we should know that does not appear on this or other forms, but that is or might be important"
           component={Textarea}
           type="text"
