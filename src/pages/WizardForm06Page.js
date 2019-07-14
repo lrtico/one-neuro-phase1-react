@@ -175,7 +175,7 @@ class WizardForm06Page extends Component {
       "WizardPage6 relevant background history copy forward string = ",
       bgHistoryCopyForward
     );
-    this.props.change("relevant-background-history", bgHistoryCopyForward);
+    this.props.change("relevantBackgroundHistory", bgHistoryCopyForward);
   };
 
   handlePrimaryCaregiver = () => {
