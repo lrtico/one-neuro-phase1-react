@@ -1299,7 +1299,7 @@ class WizardForm47Page extends Component {
               </label>
               <div className="flex question__input">
                 <MaterialIcon icon="arrow_right" />
-                <Field component="input" name="di-name" type="text" />
+                <Field component="input" name="diName" type="text" />
               </div>
               {/* {patientName && (
                 <Field
@@ -1327,7 +1327,7 @@ class WizardForm47Page extends Component {
               )} */}
               <div className="flex question__input">
                 <MaterialIcon icon="arrow_right" />
-                <Field component="input" name="di-age" type="text" />
+                <Field component="input" name="diAge" type="text" />
               </div>
             </div>
           </div>
@@ -1338,27 +1338,15 @@ class WizardForm47Page extends Component {
 
             <div className="flex question__input">
               <MaterialIcon icon="arrow_right" />
-              <Field
-                component="input"
-                name="sof-reason-referral-1"
-                type="text"
-              />
+              <Field component="input" name="sofreasonReferral1" type="text" />
             </div>
             <div className="flex question__input">
               <MaterialIcon icon="arrow_right" />
-              <Field
-                component="input"
-                name="sof-reason-referral-2"
-                type="text"
-              />
+              <Field component="input" name="sofreasonReferral2" type="text" />
             </div>
             <div className="flex question__input">
               <MaterialIcon icon="arrow_right" />
-              <Field
-                component="input"
-                name="sof-reason-referral-3"
-                type="text"
-              />
+              <Field component="input" name="sofreasonReferral3" type="text" />
             </div>
             {/* {referral1 && (
               <Field
@@ -1399,19 +1387,19 @@ class WizardForm47Page extends Component {
             <label>
               Relevant <strong>background</strong> history
             </label>
-            <Field name="relevant-background-history" component="textarea" />
+            <Field name="relevantBackgroundHistory" component="textarea" />
           </div>
           <div>
             <label>
               Results of <strong>current</strong> assessment
             </label>
-            <Field name="results-current-assessment" component="textarea" />
+            <Field name="resultsCurrentAssessment" component="textarea" />
           </div>
           <div>
             <label>
               Overall <strong>summary</strong> of current situation
             </label>
-            <Field name="summary-current-situation" component="textarea" />
+            <Field name="summaryCurrentSituation" component="textarea" />
           </div>
           <Button onClick={handleSubmit} buttonLabel="OK" />
         </div>

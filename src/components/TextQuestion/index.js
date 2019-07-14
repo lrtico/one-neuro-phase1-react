@@ -12,14 +12,14 @@ class TextQuestion extends Component {
     const clickedInputName = input.name;
     let inputName = "";
     switch (clickedInputName) {
-      case "reason-referral-1":
-        inputName = `sof-${clickedInputName}`;
+      case "reasonReferral1":
+        inputName = `sof${clickedInputName}`;
         break;
-      case "reason-referral-2":
-        inputName = `sof-${clickedInputName}`;
+      case "reasonReferral2":
+        inputName = `sof${clickedInputName}`;
         break;
-      case "reason-referral-3":
-        inputName = `sof-${clickedInputName}`;
+      case "reasonReferral3":
+        inputName = `sof${clickedInputName}`;
         break;
       default:
         inputName = "";

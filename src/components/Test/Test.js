@@ -548,7 +548,10 @@ const Test = ({ testFromState, ...props }) => {
                                   t.Name,
                                   testFromState[i].ParentScaleTitles[idx]
                                     .ParentScaleName,
-                                  testFromState[i].Abbreviation,
+                                  testFromState[i].Abbreviation.replace(
+                                    "-",
+                                    ""
+                                  ).replace(" ", ""),
                                   event,
                                   t.ParentScaleTitleId
                                 )
