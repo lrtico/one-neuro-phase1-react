@@ -133,6 +133,45 @@ tests: [
           "CreatedDate": null,
           "SubTests": [...subtests go here...]
       },
+    ],
+    
+    ParentScaleTitles: [
+      {
+        CreatedDate: null,
+        HasInput: false,
+        Id: 119,
+        ParentScaleDescription: null,
+        ParentScaleName: "Facet Scales",
+        SubTests: [
+          {
+            Abbreviation: null,
+            CreatedDate: null,
+            Description: "Antisocial individuals act to counter the expectation of pain and depredation at the hands of others by engaging in duplicitous or illegal behavior designed to exploit the environment for self-gain.",
+            Id: 496,
+            Name: "Antisocial (6A): Interpersonally Irresponsible (6A.1)",
+            ParentScaleTitleId: 119,
+            TestId: null,
+          },
+          {
+            Abbreviation: null,
+            CreatedDate: null,
+            Description: "Antisocial individuals act to counter the expectation of pain and depredation at the hands of others by engaging in duplicitous or illegal behavior designed to exploit the environment for self-gain.",
+            Id: 497,
+            Name: "Antisocial (6A): Autonomous Self-Image (6A.2)",
+            ParentScaleTitleId: 119,
+            TestId: null,
+          },
+          {
+            Abbreviation: null,
+            CreatedDate: null,
+            Description: "Antisocial individuals act to counter the expectation of pain and depredation at the hands of others by engaging in duplicitous or illegal behavior designed to exploit the environment for self-gain.",
+            Id: 498,
+            Name: "Antisocial (6A): Acting-Out Dynamics (6A.3)",
+            ParentScaleTitleId: 119,
+            TestId: null,
+          }
+        ] 
+      }
     ]
   }  
 ];
@@ -515,7 +554,7 @@ state = {
         },
       ],
       ParentGroupSubTests: [],
-    }
+    },
   ]
 }
 

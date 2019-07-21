@@ -35,10 +35,13 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
 
   let score = (
     <Field
-      name={`${id}-${abbr
+      name={`t${id}${abbr
         .toLowerCase()
         .replace(/\(|\)/g, "")
-        .replace(/ /g, "-")}-fsiq-score`}
+        .replace("-", "")
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("")}FsiqScore`}
       type="text"
       component="input"
       maxLength={3}
@@ -50,10 +53,13 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
   );
   let percentile = (
     <Field
-      name={`${id}-${abbr
+      name={`t${id}${abbr
         .toLowerCase()
         .replace(/\(|\)/g, "")
-        .replace(/ /g, "-")}-fsiq-percentile`}
+        .replace("-", "")
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("")}FsiqPercentile`}
       type="text"
       component="input"
       maxLength={3}
@@ -65,10 +71,13 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
   );
   let rank = (
     <Field
-      name={`${id}-${abbr
+      name={`t${id}${abbr
         .toLowerCase()
         .replace(/\(|\)/g, "")
-        .replace(/ /g, "-")}-fsiq-rank`}
+        .replace("-", "")
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("")}FsiqRank`}
       type="text"
       component="input"
       onBlur={event =>
@@ -123,15 +132,47 @@ const Test = ({ testFromState, ...props }) => {
                         dangerouslySetInnerHTML={createMarkup(
                           t.IndexDescription
                         )}
-                      />
-                      .{" "}
+                      />{" "}
                       {t.HasInput && (
                         <span>
-                          Client name's GAI places him/her in the{" "}
+                          Client name received a Composite score of{" "}
                           <Field
-                            name={`${t.Id}-${testFromState[
+                            name={`t${t.Id}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase()}-gai-range`}
+                            ].Abbreviation.toLowerCase()
+                              .replace("-", "")
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}GaiCompositeScore`}
+                            type="text"
+                            component="input"
+                            maxLength={3}
+                            normalize={onlyNums}
+                            onBlur={event =>
+                              props.handleAppendixTestIndexesAdd(
+                                t.Id,
+                                testFromState[i].Name,
+                                testFromState[i].Abbreviation,
+                                t.IndexName,
+                                event
+                              )
+                            }
+                          />
+                          &nbsp;(
+                          <Field
+                            name={`t${t.Id}${testFromState[
+                              i
+                            ].Abbreviation.toLowerCase()
+                              .replace("-", "")
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}GaiPercentile`}
                             type="text"
                             component="input"
                             onBlur={event =>
@@ -144,11 +185,18 @@ const Test = ({ testFromState, ...props }) => {
                               )
                             }
                           />
-                          range and at the{" "}
+                          &nbsp; percentile), which falls within in the&nbsp;
                           <Field
-                            name={`${t.Id}-${testFromState[
+                            name={`t${t.Id}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase()}-gai-percentile`}
+                            ].Abbreviation.toLowerCase()
+                              .replace("-", "")
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}GaiRange`}
                             type="text"
                             component="input"
                             onBlur={event =>
@@ -161,7 +209,8 @@ const Test = ({ testFromState, ...props }) => {
                               )
                             }
                           />
-                          percentile.
+                          range of functioning compared to other individuals
+                          (his/her) age.
                         </span>
                       )}
                     </p>
@@ -173,9 +222,15 @@ const Test = ({ testFromState, ...props }) => {
                       CLIENT NAME's GCA score on the DAS-II places him/her in
                       the{" "}
                       <Field
-                        name={`${t.Id}-${testFromState[
+                        name={`t${t.Id}${testFromState[
                           i
-                        ].Abbreviation.toLowerCase()}-gca-range`}
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GcaRange`}
                         type="text"
                         component="input"
                         onBlur={event =>
@@ -188,11 +243,17 @@ const Test = ({ testFromState, ...props }) => {
                           )
                         }
                       />{" "}
-                      range DAS-II GCA score of
+                      range DAS-II (GCA score of
                       <Field
-                        name={`${t.Id}-${testFromState[
+                        name={`t${t.Id}${testFromState[
                           i
-                        ].Abbreviation.toLowerCase()}-gca-score`}
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GcaScore`}
                         type="text"
                         component="input"
                         onBlur={event =>
@@ -207,9 +268,15 @@ const Test = ({ testFromState, ...props }) => {
                       />
                       {", "}
                       <Field
-                        name={`${t.Id}-${testFromState[
+                        name={`t${t.Id}${testFromState[
                           i
-                        ].Abbreviation.toLowerCase()}-gca-percentile`}
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GcaPercentile`}
                         type="text"
                         component="input"
                         onBlur={event =>
@@ -222,12 +289,18 @@ const Test = ({ testFromState, ...props }) => {
                           )
                         }
                       />{" "}
-                      percentile while his/her Special Nonverbal Composite SNC
+                      percentile) while his/her Special Nonverbal Composite SNC
                       score placed in the{" "}
                       <Field
-                        name={`${t.Id}-${testFromState[
+                        name={`t${t.Id}${testFromState[
                           i
-                        ].Abbreviation.toLowerCase()}-snc-range`}
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}SncRange`}
                         type="text"
                         component="input"
                         onBlur={event =>
@@ -240,11 +313,17 @@ const Test = ({ testFromState, ...props }) => {
                           )
                         }
                       />{" "}
-                      range DAS-II SNC score of{" "}
+                      range (DAS-II SNC score of{" "}
                       <Field
-                        name={`${t.Id}-${testFromState[
+                        name={`t${t.Id}${testFromState[
                           i
-                        ].Abbreviation.toLowerCase()}-snc-score`}
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}SncScore`}
                         type="text"
                         component="input"
                         onBlur={event =>
@@ -259,9 +338,15 @@ const Test = ({ testFromState, ...props }) => {
                       />
                       {", "}
                       <Field
-                        name={`${t.Id}-${testFromState[
+                        name={`t${t.Id}${testFromState[
                           i
-                        ].Abbreviation.toLowerCase()}-snc-percentile`}
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}SncPercentile`}
                         type="text"
                         component="input"
                         onBlur={event =>
@@ -274,7 +359,7 @@ const Test = ({ testFromState, ...props }) => {
                           )
                         }
                       />{" "}
-                      percentile.
+                      percentile).
                     </div>
                   </div>
                 ) : (
@@ -290,10 +375,14 @@ const Test = ({ testFromState, ...props }) => {
                         <div className="flex flex--center-vertical has-toggle-child">
                           <h5>{t.Condition}</h5>
                           <Field
-                            name={`${t.Id}-${t.Condition.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}`}
+                            name={`t${t.Id}${t.Condition.toLowerCase()
+                              .replace("-", "")
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}`}
                             type="checkbox"
                             component="input"
                           />
@@ -338,11 +427,29 @@ const Test = ({ testFromState, ...props }) => {
                           )}
                         />
                         <Field
-                          name={`${t.Id}-${t.ParentScaleName.toLowerCase()
-                            .replace(/ /g, "-")
+                          name={`t${t.Id}${testFromState[
+                            i
+                          ].Abbreviation.toLowerCase()
+                            .replace(/ /g, "")
+                            .replace("-", "")
+                            .split(" ")
+                            .map(
+                              word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}${t.ParentScaleName.toLowerCase()
                             .replace("<span>", "")
+                            .replace("-", " ")
                             .replace("</span>", "")
-                            .replace(/\(|\)/g, "")}`}
+                            .replace(":", "")
+                            .replace("  ", " ")
+                            .replace(/\(|\)/g, "")
+                            .split(" ")
+                            .map(
+                              word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}`}
                           type="checkbox"
                           component="input"
                           onChange={event =>
@@ -356,9 +463,9 @@ const Test = ({ testFromState, ...props }) => {
                           }
                         />
                       </div>
-                      {t.ParentScaleDescription !== null && (
+                      {/* {t.ParentScaleDescription !== null && (
                         <div>{t.ParentScaleDescription}</div>
-                      )}
+                      )} */}
                       {t.HasInput ? (
                         <div className="test__list">
                           {/* {ReactHtmlParser(t.ParentScaleDescription)} */}
@@ -366,16 +473,31 @@ const Test = ({ testFromState, ...props }) => {
                             <span>(Client) demonstrated a relatively</span>
                             <span className="has-toggle-child">
                               <Field
-                                name={`${t.Id}-${testFromState[
+                                name={`t${t.Id}${testFromState[
                                   i
-                                ].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.ParentScaleName.toLowerCase()
-                                  .replace(/ /g, "-")
+                                ].Abbreviation.toLowerCase()
+                                  .replace(/ /g, "")
+                                  .replace("-", "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}${t.ParentScaleName.toLowerCase()
                                   .replace("<span>", "")
+                                  .replace("-", " ")
                                   .replace("</span>", "")
-                                  .replace(/\(|\)/g, "")}-inconsistent`}
+                                  .replace(":", "")
+                                  .replace("  ", " ")
+                                  .replace(/\(|\)/g, "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}Inconsistent`}
                                 type="checkbox"
                                 component="input"
                               />
@@ -383,16 +505,31 @@ const Test = ({ testFromState, ...props }) => {
                                 inconsistent
                               </span>
                               <Field
-                                name={`${t.Id}-${testFromState[
+                                name={`t${t.Id}${testFromState[
                                   i
-                                ].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.ParentScaleName.toLowerCase()
-                                  .replace(/ /g, "-")
+                                ].Abbreviation.toLowerCase()
+                                  .replace(/ /g, "")
+                                  .replace("-", "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}${t.ParentScaleName.toLowerCase()
                                   .replace("<span>", "")
                                   .replace("</span>", "")
-                                  .replace(/\(|\)/g, "")}-consistent`}
+                                  .replace("-", " ")
+                                  .replace(":", "")
+                                  .replace("  ", " ")
+                                  .replace(/\(|\)/g, "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}Consistent`}
                                 type="checkbox"
                                 component="input"
                               />
@@ -400,16 +537,31 @@ const Test = ({ testFromState, ...props }) => {
                                 consistent
                               </span>
                               <Field
-                                name={`${t.Id}-${testFromState[
+                                name={`t${t.Id}${testFromState[
                                   i
-                                ].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.ParentScaleName.toLowerCase()
-                                  .replace(/ /g, "-")
+                                ].Abbreviation.toLowerCase()
+                                  .replace(/ /g, "")
+                                  .replace("-", "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}${t.ParentScaleName.toLowerCase()
                                   .replace("<span>", "")
                                   .replace("</span>", "")
-                                  .replace(/\(|\)/g, "")}-freehand-performance`}
+                                  .replace("-", " ")
+                                  .replace(":", "")
+                                  .replace("  ", " ")
+                                  .replace(/\(|\)/g, "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}FreehandPerformance`}
                                 type="text"
                                 component="input"
                               />
@@ -419,16 +571,29 @@ const Test = ({ testFromState, ...props }) => {
                           <p>
                             <span>(Client) received a Composite score of </span>
                             <Field
-                              name={`${t.Id}-${testFromState[
+                              name={`t${t.Id}${testFromState[
                                 i
-                              ].Abbreviation.toLowerCase().replace(
-                                / /g,
-                                "-"
-                              )}-${t.ParentScaleName.toLowerCase()
-                                .replace(/ /g, "-")
+                              ].Abbreviation.toLowerCase()
+                                .replace(/ /g, "")
+                                .replace("-", "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}${t.ParentScaleName.toLowerCase()
                                 .replace("<span>", "")
                                 .replace("</span>", "")
-                                .replace(/\(|\)/g, "")}-composite-score`}
+                                .replace("-", " ")
+                                .replace(":", "")
+                                .replace("  ", " ")
+                                .replace(/\(|\)/g, "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}CompositeScore`}
                               type="text"
                               component="input"
                               maxLength={3}
@@ -445,16 +610,29 @@ const Test = ({ testFromState, ...props }) => {
                             />
                             <span>&nbsp;(</span>
                             <Field
-                              name={`${
+                              name={`t${
                                 t.Id
-                              }-${testFromState[0].Abbreviation.toLowerCase().replace(
-                                / /g,
-                                "-"
-                              )}-${t.ParentScaleName.toLowerCase()
-                                .replace(/ /g, "-")
+                              }${testFromState[0].Abbreviation.toLowerCase()
+                                .replace(/ /g, "")
+                                .replace("-", "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}${t.ParentScaleName.toLowerCase()
                                 .replace("<span>", "")
                                 .replace("</span>", "")
-                                .replace(/\(|\)/g, "")}-composite-percentile`}
+                                .replace("-", " ")
+                                .replace(":", "")
+                                .replace("  ", " ")
+                                .replace(/\(|\)/g, "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}CompositePercentile`}
                               type="text"
                               component="input"
                               maxLength={3}
@@ -465,16 +643,29 @@ const Test = ({ testFromState, ...props }) => {
                               the&nbsp;
                             </span>
                             <Field
-                              name={`${
+                              name={`t${
                                 t.Id
-                              }-${testFromState[0].Abbreviation.toLowerCase().replace(
-                                / /g,
-                                "-"
-                              )}-${t.ParentScaleName.toLowerCase()
-                                .replace(/ /g, "-")
+                              }${testFromState[0].Abbreviation.toLowerCase()
+                                .replace(/ /g, "")
+                                .replace("-", "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}${t.ParentScaleName.toLowerCase()
                                 .replace("<span>", "")
                                 .replace("</span>", "")
-                                .replace(/\(|\)/g, "")}-composite-range`}
+                                .replace("-", " ")
+                                .replace(":", "")
+                                .replace("  ", " ")
+                                .replace(/\(|\)/g, "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}CompositeRange`}
                               type="text"
                               component="input"
                             />
@@ -497,8 +688,9 @@ const Test = ({ testFromState, ...props }) => {
                       <div className="table__row table__header">
                         <div
                           className={
-                            t.SubTests.length > 0 &&
-                            t.SubTests[0].Description === null
+                            (t.SubTests.length > 0 &&
+                              t.SubTests[0].Description === null) ||
+                            t.SubTests[0].Description === ""
                               ? "table__row__cell--wide"
                               : null
                           }
@@ -514,13 +706,23 @@ const Test = ({ testFromState, ...props }) => {
                         >
                           {testFromState[i].ScoreType}
                         </div>
-                        <div>{testFromState[i].DescriptionType}</div>
+                        {testFromState[i].Abbreviation === "D-KEFS" &&
+                        (t.ParentScaleName === "Color-Word Interference Test" ||
+                          t.ParentScaleName === "Twenty Questions" ||
+                          t.ParentScaleName ===
+                            "Color-Word Interference Test" ||
+                          t.ParentScaleName === "Word Context Test" ||
+                          t.ParentScaleName === "Tower Test") ? (
+                          <div />
+                        ) : (
+                          <div>{testFromState[i].DescriptionType}</div>
+                        )}
                       </div>
                       {t.SubTests.map((t, index) => (
                         <div key={t.Id} className="table__row">
                           <div
                             className={
-                              t.Description === null
+                              t.Description === null || t.Description === ""
                                 ? "table__row__cell--wide"
                                 : null
                             }
@@ -530,15 +732,21 @@ const Test = ({ testFromState, ...props }) => {
                             <Field
                               component="input"
                               type="text"
-                              name={`${t.Id}-${t.Name.toLowerCase()
-                                .replace("<sup>", "")
+                              name={`t${t.Id}${t.Name.replace("<sup>", "")
                                 .replace("</sup>", "")
-                                .replace("/", "-")
-                                .replace(" – ", "-")
-                                .replace(/ /g, "-")
+                                .replace("/", "")
+                                .replace(" – ", " ")
                                 .replace("{", "")
                                 .replace("}", "")
-                                .replace(/\(|\)/g, "")}-score`}
+                                .replace("-", " ")
+                                .replace(":", "")
+                                .replace(/\(|\)/g, "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}Score`}
                               maxLength={3}
                               normalize={onlyNums}
                               onBlur={event =>
@@ -548,10 +756,7 @@ const Test = ({ testFromState, ...props }) => {
                                   t.Name,
                                   testFromState[i].ParentScaleTitles[idx]
                                     .ParentScaleName,
-                                  testFromState[i].Abbreviation.replace(
-                                    "-",
-                                    ""
-                                  ).replace(" ", ""),
+                                  testFromState[i].Abbreviation,
                                   event,
                                   t.ParentScaleTitleId
                                 )
@@ -559,16 +764,22 @@ const Test = ({ testFromState, ...props }) => {
                             />
                           </div>
                           <div>
-                            {t.Description == null ? (
+                            {testFromState[i].Abbreviation !== "D-KEFS" &&
+                            (t.Description === null || t.Description === "") ? (
                               <Field
                                 component="input"
                                 type="text"
-                                name={`${
+                                name={`t${
                                   t.ParentScaleTitleId
-                                }-${t.Name.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-percentile-rank`}
+                                }${t.Name.toLowerCase()
+                                  .replace(/-/g, " ")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}PercentileRank`}
                               />
                             ) : (
                               <span
@@ -600,11 +811,15 @@ const Test = ({ testFromState, ...props }) => {
                       <Field
                         component="input"
                         type="text"
-                        name={`${t.Id}-${t.Name.toLowerCase()
-                          .replace(/[/]/g, "-")
+                        name={`t${t.Id}${t.Name.toLowerCase()
+                          .replace(/[/]/g, "")
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
-                          .replace(/ /g, "-")}-score`}
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}Score`}
                         maxLength={3}
                         normalize={onlyNums}
                         onBlur={event =>
@@ -765,11 +980,18 @@ const Test = ({ testFromState, ...props }) => {
                                   <Field
                                     component="input"
                                     type="text"
-                                    name={`${t.Id}-${t.Name.toLowerCase()
-                                      .replace(/[/]/g, "-")
+                                    name={`t${t.Id}${t.Name.toLowerCase()
+                                      .replace(/[/]/g, "")
                                       .replace(/[,/]/g, "")
                                       .replace(/[’]/g, "")
-                                      .replace(/ /g, "-")}-score`}
+                                      .replace("-", " ")
+                                      .split(" ")
+                                      .map(
+                                        word =>
+                                          word.charAt(0).toUpperCase() +
+                                          word.slice(1)
+                                      )
+                                      .join("")}Score`}
                                     maxLength={3}
                                     normalize={onlyNums}
                                     onBlur={event =>
@@ -873,11 +1095,18 @@ const Test = ({ testFromState, ...props }) => {
                               <Field
                                 component="input"
                                 type="text"
-                                name={`${t.Id}-${t.Name.toLowerCase()
-                                  .replace(/[/]/g, "-")
+                                name={`t${t.Id}${t.Name.toLowerCase()
+                                  .replace(/[/]/g, " ")
                                   .replace(/[,/]/g, "")
                                   .replace(/[’]/g, "")
-                                  .replace(/ /g, "-")}-score`}
+                                  .replace("-", " ")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}Score`}
                                 maxLength={3}
                                 normalize={onlyNums}
                                 onBlur={event =>
@@ -1065,17 +1294,25 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col1 === "<Field>" ? ( //Does Col1 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(t.Id)}-${testFromState[
+                            name={`t${createNameIterator(t.Id)}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${testFromState[i].TestScoringTableDetails[
+                            ].Abbreviation.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}${testFromState[
+                              i
+                            ].TestScoringTableDetails[
                               tstdIdx
-                            ].TableHeaderRowTitles.Col1.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-score`}
+                            ].TableHeaderRowTitles.Col1.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Score`}
                             type="text"
                             component="input"
                             maxLength={3}
@@ -1104,20 +1341,24 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col2 === "<Field>" ? ( //Does Col2 =2 "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
+                            name={`t${createNameIterator(
                               t.Id,
                               1
-                            )}-${testFromState[
+                            )}${testFromState[i].Abbreviation.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${testFromState[
-                              i
-                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col2.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-score`}
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col2.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Score`}
                             type="text"
                             component="input"
                             maxLength={3}
@@ -1146,20 +1387,24 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col3 === "<Field>" ? ( //Does Col3 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
+                            name={`t${createNameIterator(
                               t.Id,
                               2
-                            )}-${testFromState[
+                            )}${testFromState[i].Abbreviation.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${testFromState[
-                              i
-                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col3.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-score`}
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col3.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Score`}
                             type="text"
                             component="input"
                             maxLength={5}
@@ -1188,20 +1433,24 @@ const Test = ({ testFromState, ...props }) => {
                       ) : t.Col4 === "<Field>" ? ( //Does Col4 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
+                            name={`t${createNameIterator(
                               t.Id,
                               3
-                            )}-${testFromState[
+                            )}${testFromState[i].Abbreviation.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${testFromState[
-                              i
-                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col4.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-score`}
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col4.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Score`}
                             type="text"
                             component="input"
                             maxLength={5}
@@ -1228,20 +1477,24 @@ const Test = ({ testFromState, ...props }) => {
                       {t.Col5 == null ? null : t.Col5 === "<Field>" ? ( //Does Col5 = null? //...then skip it //Does Col5 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
+                            name={`t${createNameIterator(
                               t.Id,
                               4
-                            )}-${testFromState[
+                            )}${testFromState[i].Abbreviation.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${testFromState[
-                              i
-                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col5.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-score`}
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col5.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Score`}
                             type="text"
                             component="input"
                             maxLength={3}
@@ -1268,20 +1521,24 @@ const Test = ({ testFromState, ...props }) => {
                       {t.Col6 == null ? null : t.Col6 === "<Field>" ? ( //Does Col6 = null? //...then skip it //Does Col6 = "<Field>"?
                         <div>
                           <Field
-                            name={`${createNameIterator(
+                            name={`t${createNameIterator(
                               t.Id,
                               5
-                            )}-${testFromState[
+                            )}${testFromState[i].Abbreviation.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}${testFromState[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${testFromState[
-                              i
-                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col6.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-score`}
+                            ].TestScoringTableDetails[0].TableHeaderRowTitles.Col6.toLowerCase()
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Score`}
                             type="text"
                             component="input"
                             maxLength={3}
@@ -1330,12 +1587,12 @@ const Test = ({ testFromState, ...props }) => {
                     style={{ marginBottom: 36, alignItems: "flex-end" }}
                   >
                     <Field
-                      name={`${
-                        t.Id
-                      }-${testFromState[0].Abbreviation.toLowerCase().replace(
-                        / /g,
-                        "-"
-                      )}-summary-abilities`}
+                      name={`t${t.Id}${testFromState[i].Abbreviation.charAt(
+                        0
+                      ).toUpperCase()}${testFromState[i].Abbreviation.slice(1)
+                        .toLowerCase()
+                        .replace(/ /g, "")
+                        .replace("-", "")}SummaryAbilities`}
                       type="text"
                       component={Textarea}
                       classes="domain__test__summary-textarea"
@@ -1350,12 +1607,12 @@ const Test = ({ testFromState, ...props }) => {
                   </p>
                   <div style={{ marginBottom: 36 }}>
                     <Field
-                      name={`${
-                        t.Id
-                      }-${testFromState[0].Abbreviation.toLowerCase().replace(
-                        / /g,
-                        "-"
-                      )}-summary-challenges`}
+                      name={`t${t.Id}${testFromState[i].Abbreviation.charAt(
+                        0
+                      ).toUpperCase()}${testFromState[i].Abbreviation.slice(1)
+                        .toLowerCase()
+                        .replace(/ /g, "")
+                        .replace("-", "")}SummaryChallenges`}
                       type="text"
                       component={Textarea}
                       classes="domain__test__summary-textarea"

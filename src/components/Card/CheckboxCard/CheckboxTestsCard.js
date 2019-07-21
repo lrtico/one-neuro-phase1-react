@@ -16,7 +16,7 @@ const CheckboxCard = ({
   ...props,
   meta: { touched, error }
 }) => {
-  // console.log("CheckboxTestsCard props, ", checkboxInfo);
+  console.log("CheckboxTestsCard props, ", checkboxInfo);
   const { handleTestFilter } = props;
   return (
     <div className={classes}>
@@ -51,7 +51,7 @@ const CheckboxCard = ({
                   //onClick={handleTick}
                 >
                   <Field
-                    name={test.Abbreviation.replace(/ /g, "-")}
+                    name={test.Abbreviation.replace(/ /g, "").replace("-", "")}
                     type="checkbox"
                     component="input"
                     onClick={() => handleTestFilter(test.Abbreviation)}

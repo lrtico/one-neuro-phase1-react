@@ -61,59 +61,118 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-fsiq-score`}
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}FsiqScore`}
+                      />
+                    ) : t.IndexName === "VERBAL  COMPREHENSION INDEX (VCI)" ||
+                      t.IndexName === "VISUAL SPATIAL INDEX (VSI)" ||
+                      t.IndexName === "FLUID REASONING INDEX (FRI)" ||
+                      t.IndexName === "WORKING MEMORY INDEX (WMI)" ||
+                      t.IndexName === "PROCESSING SPEED INDEX (PSI):)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`t${t.Id}${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/ /g, "")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.IndexName.toLowerCase()
+                          .replace("<span>", "")
+                          .replace("</span>", "")
+                          .replace(":", "")
+                          .replace("  ", " ")
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}CompositeScore`}
                       />
                     ) : t.IndexName === "General Ability Index" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
-                          .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-gai-range`}
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GaiCompositeScore`}
                       />
                     ) : t.IndexName === "General Conceptual Ability (GCA)" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-gca-score`}
+                          .replace(/ /g, "-")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GcaScore`}
                       />
                     ) : t.IndexName === "Special Nonverbal Composite (SNC)" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-snc-score`}
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}SncScore`}
                       />
                     ) : (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-${t.IndexName.toLowerCase()
-                          .replace(/ /g, "-")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.IndexName.toLowerCase()
                           .replace("<span>", "")
                           .replace("</span>", "")
-                          .replace(/\(|\)/g, "")}-composite-score`}
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}CompositeScore`}
                       />
                     )}
                   </div>
@@ -124,59 +183,119 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-fsiq-percentile`}
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}FsiqPercentile`}
+                      />
+                    ) : t.IndexName === "VERBAL  COMPREHENSION INDEX (VCI)" ||
+                      t.IndexName === "VISUAL SPATIAL INDEX (VSI)" ||
+                      t.IndexName === "FLUID REASONING INDEX (FRI)" ||
+                      t.IndexName === "WORKING MEMORY INDEX (WMI)" ||
+                      t.IndexName === "PROCESSING SPEED INDEX (PSI):)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`t${t.Id}${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/ /g, "")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.IndexName.toLowerCase()
+                          .replace("<span>", "")
+                          .replace("</span>", "")
+                          .replace(":", "")
+                          .replace("  ", " ")
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}CompositePercentile`}
                       />
                     ) : t.IndexName === "General Ability Index" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
-                          .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-gai-percentile`}
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GaiPercentile`}
                       />
                     ) : t.IndexName === "General Conceptual Ability (GCA)" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-gca-percentile`}
+                          .replace(/ /g, "-")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GcaPercentile`}
                       />
                     ) : t.IndexName === "Special Nonverbal Composite (SNC)" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-snc-percentile`}
+                          .replace(/ /g, "-")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}SncPercentile`}
                       />
                     ) : (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-${t.IndexName.toLowerCase()
-                          .replace(/ /g, "-")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.IndexName.toLowerCase()
                           .replace("<span>", "")
                           .replace("</span>", "")
-                          .replace(/\(|\)/g, "")}-composite-percentile`}
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}CompositePercentile`}
                       />
                     )}
                   </div>
@@ -187,59 +306,119 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-fsiq-rank`}
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}FsiqRank`}
+                      />
+                    ) : t.IndexName === "VERBAL  COMPREHENSION INDEX (VCI)" ||
+                      t.IndexName === "VISUAL SPATIAL INDEX (VSI)" ||
+                      t.IndexName === "FLUID REASONING INDEX (FRI)" ||
+                      t.IndexName === "WORKING MEMORY INDEX (WMI)" ||
+                      t.IndexName === "PROCESSING SPEED INDEX (PSI):)" ? (
+                      <Field
+                        component="input"
+                        type="text"
+                        maxLength={3}
+                        name={`t${t.Id}${appendices.Tests[
+                          i
+                        ].Abbreviation.toLowerCase()
+                          .replace(/ /g, "")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.IndexName.toLowerCase()
+                          .replace("<span>", "")
+                          .replace("</span>", "")
+                          .replace(":", "")
+                          .replace("  ", " ")
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}CompositeRange`}
                       />
                     ) : t.IndexName === "General Ability Index" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
-                          .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-gai-rank`}
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GaiRange`}
                       />
                     ) : t.IndexName === "General Conceptual Ability (GCA)" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-gca-range`}
+                          .replace(/ /g, "-")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}GcaRange`}
                       />
                     ) : t.IndexName === "Special Nonverbal Composite (SNC)" ? (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-snc-range`}
+                          .replace(/ /g, "-")
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}SncRange`}
                       />
                     ) : (
                       <Field
                         component="input"
                         type="text"
                         maxLength={3}
-                        name={`${t.Id}-${appendices.Tests[
+                        name={`t${t.Id}${appendices.Tests[
                           i
                         ].Abbreviation.toLowerCase()
                           .replace(/\(|\)/g, "")
-                          .replace(/ /g, "-")}-${t.IndexName.toLowerCase()
-                          .replace(/ /g, "-")
+                          .replace(/-/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.IndexName.toLowerCase()
                           .replace("<span>", "")
                           .replace("</span>", "")
-                          .replace(/\(|\)/g, "")}-composite-range`}
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}CompositeRange`}
                       />
                     )}
                   </div>
@@ -285,18 +464,24 @@ const AppendixConnected = (props, values) => {
                               component="input"
                               type="text"
                               maxLength={3}
-                              name={`${t.id}-${t.name
+                              name={`t${t.id}${t.name
                                 .toLowerCase()
                                 .replace("<sup>", "")
                                 .replace("</sup>", "")
-                                .replace(" – ", "-")
-                                .replace(/ /g, "-")
-                                .replace("/", "-")
+                                .replace(" – ", " ")
+                                .replace("-", " ")
+                                .replace("/", " ")
                                 .replace(/[’]/g, "")
                                 .replace(/[,/]/g, "")
                                 .replace("{", "")
                                 .replace("}", "")
-                                .replace(/\(|\)/g, "")}-score`}
+                                .replace(/\(|\)/g, "")
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join("")}Score`}
                             />
                           </div>
                           {appendices.Tests[i].Abbreviation === "PIY" ||
@@ -310,22 +495,34 @@ const AppendixConnected = (props, values) => {
                                 component="input"
                                 type="text"
                                 maxLength={4}
-                                name={`${t.id}-appendix-${appendices.Tests[
+                                name={`t${t.id}Appendix${appendices.Tests[
                                   i
-                                ].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.name
+                                ].Abbreviation.toLowerCase()
+                                  .replace(/-/g, " ")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}${t.name
                                   .toLowerCase()
-                                  .replace(/ /g, "-")
                                   .replace("<sup>", "")
                                   .replace("</sup>", "")
-                                  .replace("/", "-")
+                                  .replace("/", " ")
                                   .replace(/[,/]/g, "")
                                   .replace(/[’]/g, "")
                                   .replace("{", "")
                                   .replace("}", "")
-                                  .replace(/\(|\)/g, "")}-rank`}
+                                  .replace(/\(|\)/g, "")
+                                  .replace(/-/g, " ")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}Rank`}
                               />
                             </div>
                           )}
@@ -335,22 +532,34 @@ const AppendixConnected = (props, values) => {
                                 component="input"
                                 type="text"
                                 maxLength={5}
-                                name={`${t.id}-appendix-${appendices.Tests[
+                                name={`t${t.id}Appendix${appendices.Tests[
                                   i
-                                ].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.name
+                                ].Abbreviation.toLowerCase()
+                                  .replace(/-/g, " ")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}${t.name
                                   .toLowerCase()
-                                  .replace(/ /g, "-")
                                   .replace("<sup>", "")
                                   .replace("</sup>", "")
-                                  .replace("/", "-")
+                                  .replace("/", " ")
+                                  .replace(/-/g, " ")
                                   .replace(/[,/]/g, "")
                                   .replace(/[’]/g, "")
                                   .replace("{", "")
                                   .replace("}", "")
-                                  .replace(/\(|\)/g, "")}-grade-equivalent`}
+                                  .replace(/\(|\)/g, "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}GradeEquivalent`}
                               />
                             </div>
                           ) : null}
@@ -360,22 +569,34 @@ const AppendixConnected = (props, values) => {
                                 component="input"
                                 type="text"
                                 maxLength={15}
-                                name={`${t.id}-appendix-${appendices.Tests[
+                                name={`t${t.id}Appendix${appendices.Tests[
                                   i
-                                ].Abbreviation.toLowerCase().replace(
-                                  / /g,
-                                  "-"
-                                )}-${t.name
+                                ].Abbreviation.toLowerCase()
+                                  .replace(/-/g, " ")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}${t.name
                                   .toLowerCase()
-                                  .replace(/ /g, "-")
+                                  .replace(/-/g, " ")
                                   .replace("<sup>", "")
                                   .replace("</sup>", "")
-                                  .replace("/", "-")
+                                  .replace("/", " ")
                                   .replace(/[,/]/g, "")
                                   .replace(/[’]/g, "")
                                   .replace("{", "")
                                   .replace("}", "")
-                                  .replace(/\(|\)/g, "")}-range`}
+                                  .replace(/\(|\)/g, "")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}Range`}
                               />
                             </div>
                           ) : null}
@@ -402,7 +623,7 @@ const AppendixConnected = (props, values) => {
                               component="input"
                               type="text"
                               maxLength={3}
-                              name="rbans-total-scale-score"
+                              name="rbansTotalScaleScore"
                             />
                           </div>
                           <div>
@@ -410,7 +631,7 @@ const AppendixConnected = (props, values) => {
                               component="input"
                               type="text"
                               maxLength={5}
-                              name="rbans-total-scale-score-scaled-score"
+                              name="rbansTotalScaleScoreScaledScore"
                             />
                           </div>
                           <div>
@@ -418,7 +639,7 @@ const AppendixConnected = (props, values) => {
                               component="input"
                               type="text"
                               maxLength={5}
-                              name="rbans-total-scale-score-percentile-rank"
+                              name="rbansTotalScaleScorePercentileRank"
                             />
                           </div>
                           <div>
@@ -426,7 +647,7 @@ const AppendixConnected = (props, values) => {
                               component="input"
                               type="text"
                               maxLength={15}
-                              name="rbans-total-scale-score-range"
+                              name="rbansTotalScaleScoreRange"
                             />
                           </div>
                         </div>
@@ -706,7 +927,7 @@ const AppendixConnected = (props, values) => {
 
                   {t.SubTests.map(t => (
                     <div
-                      key={`${t.id}-${t.name}-subtest`}
+                      key={`${t.id}-${t.name.replace("-", "")}-subtest`}
                       className="table__row"
                     >
                       {appendices.Tests[i].Abbreviation === "MMPI-2" ? (
@@ -719,22 +940,25 @@ const AppendixConnected = (props, values) => {
                           component="input"
                           type="text"
                           maxLength={3}
-                          name={`${t.id}-${t.name
-                            .toLowerCase()
+                          name={`t${t.id}${t.name
                             .replace("<sup>", "")
                             .replace("</sup>", "")
-                            .replace(" – ", "-")
-                            .replace(/ /g, "-")
-                            .replace("/", "-")
-                            .replace(/[’]/g, "")
-                            .replace(/[,/]/g, "")
+                            .replace("/", "")
+                            .replace(" – ", "")
                             .replace("{", "")
                             .replace("}", "")
-                            .replace(/\(|\)/g, "")}-score`}
+                            .replace("-", " ")
+                            .replace(":", "")
+                            .replace(/\(|\)/g, "")
+                            .split(" ")
+                            .map(
+                              word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}Score`}
                         />
                       </div>
-                      {appendices.Tests[i].Abbreviation === "PIY" ||
-                      appendices.Tests[i].Abbreviation === "MCMI–IV" ||
+                      {appendices.Tests[i].Abbreviation === "MCMI–IV" ||
                       appendices.Tests[i].Abbreviation === "MMPI-2" ||
                       appendices.Tests[i].Abbreviation === "D-KEFS" ||
                       appendices.Tests[i].Abbreviation === "TSCC" ||
@@ -744,22 +968,35 @@ const AppendixConnected = (props, values) => {
                             component="input"
                             type="text"
                             maxLength={4}
-                            name={`${t.id}-appendix-${appendices.Tests[
+                            name={`t${t.id}Appendix${appendices.Tests[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${t.name
+                            ].Abbreviation.charAt(
+                              0
+                            ).toUpperCase()}${appendices.Tests[
+                              i
+                            ].Abbreviation.slice(1)
                               .toLowerCase()
-                              .replace(/ /g, "-")
+                              .replace(/ /g, "")
+                              .replace("-", "")}${t.name
+                              .toLowerCase()
+                              .replace(/ /g, " ")
                               .replace("<sup>", "")
                               .replace("</sup>", "")
-                              .replace("/", "-")
+                              .replace("/", " ")
                               .replace(/[,/]/g, "")
                               .replace(/[’]/g, "")
                               .replace("{", "")
                               .replace("}", "")
-                              .replace(/\(|\)/g, "")}-rank`}
+                              .replace(/\(|\)/g, "")
+                              .replace(/–/g, "")
+                              .replace(/-/g, " ")
+                              .replace(":", "")
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Rank`}
                           />
                         </div>
                       )}
@@ -769,50 +1006,136 @@ const AppendixConnected = (props, values) => {
                             component="input"
                             type="text"
                             maxLength={5}
-                            name={`${t.id}-appendix-${appendices.Tests[
+                            name={`t${t.id}Appendix${appendices.Tests[
                               i
-                            ].Abbreviation.toLowerCase().replace(
-                              / /g,
-                              "-"
-                            )}-${t.name
+                            ].Abbreviation.charAt(
+                              0
+                            ).toUpperCase()}${appendices.Tests[
+                              i
+                            ].Abbreviation.slice(1)
                               .toLowerCase()
-                              .replace(/ /g, "-")
+                              .replace(/ /g, "")
+                              .replace("-", "")}${t.name
+                              .toLowerCase()
+                              .replace(/ /g, " ")
                               .replace("<sup>", "")
                               .replace("</sup>", "")
-                              .replace("/", "-")
+                              .replace("/", " ")
                               .replace(/[,/]/g, "")
                               .replace(/[’]/g, "")
                               .replace("{", "")
                               .replace("}", "")
-                              .replace(/\(|\)/g, "")}-grade-equivalent`}
+                              .replace(/\(|\)/g, "")
+                              .replace(/–/g, "")
+                              .replace(/-/g, " ")
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}GradeEquivalent`}
                           />
                         </div>
                       ) : null}
+                      {appendices.Tests[i].Abbreviation === "PIY" ? null : (
+                        <div>
+                          <Field
+                            component="input"
+                            type="text"
+                            maxLength={15}
+                            name={`t${t.id}Appendix${appendices.Tests[
+                              i
+                            ].Abbreviation.charAt(
+                              0
+                            ).toUpperCase()}${appendices.Tests[
+                              i
+                            ].Abbreviation.slice(1)
+                              .toLowerCase()
+                              .replace(/ /g, "")
+                              .replace("-", "")}${t.name
+                              .toLowerCase()
+                              .replace(/ /g, " ")
+                              .replace("<sup>", "")
+                              .replace("</sup>", "")
+                              .replace("/", "")
+                              .replace(/[,/]/g, "")
+                              .replace(/[’]/g, "")
+                              .replace("{", "")
+                              .replace("}", "")
+                              .replace(/\(|\)/g, "")
+                              .replace(/–/g, "")
+                              .replace(/-/g, " ")
+                              .replace(":", "")
+                              .split(" ")
+                              .map(
+                                word =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join("")}Range`}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  {appendices.Tests[i].Abbreviation === "D-KEFS" &&
+                  (t.ParentScaleTitle === "Verbal Fluency" ||
+                    t.ParentScaleTitle === "Design Fluency" ||
+                    t.ParentScaleTitle === "Color-Word Interference Test" ||
+                    t.ParentScaleTitle === "Sorting Test" ||
+                    t.ParentScaleTitle === "Twenty Questions" ||
+                    t.ParentScaleTitle === "Word Context Test" ||
+                    t.ParentScaleTitle === "Tower Test" ||
+                    t.ParentScaleTitle === "Proverb Test") ? (
+                    <div className="table__row">
+                      <div>Summary of Scores</div>
+                      <div>
+                        <Field
+                          component="input"
+                          type="text"
+                          maxLength={3}
+                          name={`t${t.Id}Appendix${appendices.Tests[
+                            i
+                          ].Abbreviation.toLowerCase()
+                            .replace("-", "")
+                            .split(" ")
+                            .map(
+                              word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}${t.ParentScaleTitle.replace("-", " ")
+                            .split(" ")
+                            .map(
+                              word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}SummaryOfScoresScore`}
+                        />
+                      </div>
                       <div>
                         <Field
                           component="input"
                           type="text"
                           maxLength={15}
-                          name={`${t.id}-appendix-${appendices.Tests[
+                          name={`t${t.Id}Appendix${appendices.Tests[
                             i
-                          ].Abbreviation.toLowerCase().replace(
-                            / /g,
-                            "-"
-                          )}-${t.name
-                            .toLowerCase()
-                            .replace(/ /g, "-")
-                            .replace("<sup>", "")
-                            .replace("</sup>", "")
-                            .replace("/", "-")
-                            .replace(/[,/]/g, "")
-                            .replace(/[’]/g, "")
-                            .replace("{", "")
-                            .replace("}", "")
-                            .replace(/\(|\)/g, "")}-range`}
+                          ].Abbreviation.toLowerCase()
+                            .replace("-", "")
+                            .split(" ")
+                            .map(
+                              word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}${t.ParentScaleTitle.replace("-", " ")
+                            .split(" ")
+                            .map(
+                              word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}SummaryOfScoresRange`}
                         />
                       </div>
                     </div>
-                  ))}
+                  ) : null}
                 </div>
               ))
             : null}
@@ -847,17 +1170,21 @@ const AppendixConnected = (props, values) => {
                       component="input"
                       type="text"
                       maxLength={3}
-                      name={`${t.Id}-${t.Name.toLowerCase()
+                      name={`t${t.Id}${t.Name.toLowerCase()
                         .replace("<sup>", "")
                         .replace("</sup>", "")
-                        .replace(" – ", "-")
-                        .replace(/ /g, "-")
-                        .replace("/", "-")
+                        .replace(" – ", "")
+                        .replace("/", "")
                         .replace(/[’]/g, "")
                         .replace(/[,/]/g, "")
                         .replace("{", "")
                         .replace("}", "")
-                        .replace(/\(|\)/g, "")}-score`}
+                        .replace(/\(|\)/g, "")
+                        .split(" ")
+                        .map(
+                          word => word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join("")}Score`}
                     />
                   </div>
                   {appendices.Tests[i].Abbreviation === "PIY" ? null : (
@@ -866,21 +1193,28 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={4}
-                        name={`${t.Id}-appendix-${appendices.Tests[
+                        name={`t${t.Id}Appendix${appendices.Tests[
                           i
-                        ].Abbreviation.toLowerCase().replace(
-                          / /g,
-                          "-"
-                        )}-${t.Name.toLowerCase()
-                          .replace(/ /g, "-")
+                        ].Abbreviation.toLowerCase()
+                          .replace(/-/g, " ")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.Name.toLowerCase()
                           .replace("<sup>", "")
                           .replace("</sup>", "")
-                          .replace("/", "-")
+                          .replace("/", "")
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
                           .replace("{", "")
                           .replace("}", "")
-                          .replace(/\(|\)/g, "")}-rank`}
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}Rank`}
                       />
                     </div>
                   )}
@@ -890,21 +1224,29 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={15}
-                        name={`${t.Id}-appendix-${appendices.Tests[
+                        name={`t${t.Id}Appendix${appendices.Tests[
                           i
-                        ].Abbreviation.toLowerCase().replace(
-                          / /g,
-                          "-"
-                        )}-${t.Name.toLowerCase()
-                          .replace(/ /g, "-")
+                        ].Abbreviation.toLowerCase()
+                          .replace(/-/g, " ")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.Name.toLowerCase()
                           .replace("<sup>", "")
                           .replace("</sup>", "")
-                          .replace("/", "-")
+                          .replace("/", "")
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
                           .replace("{", "")
                           .replace("}", "")
-                          .replace(/\(|\)/g, "")}-range`}
+                          .replace(/\(|\)/g, "")
+                          .replace(/-/g, " ")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}Range`}
                       />
                     </div>
                   ) : null}
@@ -918,7 +1260,7 @@ const AppendixConnected = (props, values) => {
                       component="input"
                       type="text"
                       maxLength={3}
-                      name={`${t.Id}-ORI-score`}
+                      name={`t${t.Id}ORIScore`}
                     />
                   </div>
                   <div>
@@ -926,12 +1268,15 @@ const AppendixConnected = (props, values) => {
                       component="input"
                       type="text"
                       maxLength={5}
-                      name={`${t.Id}-appendix-${appendices.Tests[
+                      name={`t${t.Id}Appendix${appendices.Tests[
                         i
-                      ].Abbreviation.toLowerCase().replace(
-                        / /g,
-                        "-"
-                      )}-ORI-rank`}
+                      ].Abbreviation.toLowerCase()
+                        .replace("-", "")
+                        .split(" ")
+                        .map(
+                          word => word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join("")}ORIRank`}
                     />
                   </div>
                   <div>
@@ -939,12 +1284,15 @@ const AppendixConnected = (props, values) => {
                       component="input"
                       type="text"
                       maxLength={15}
-                      name={`${t.Id}-appendix-${appendices.Tests[
+                      name={`t${t.Id}Appendix${appendices.Tests[
                         i
-                      ].Abbreviation.toLowerCase().replace(
-                        / /g,
-                        "-"
-                      )}-ORI-grade-equivalent`}
+                      ].Abbreviation.toLowerCase()
+                        .replace("-", "")
+                        .split(" ")
+                        .map(
+                          word => word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join("")}ORIGradeEquivalent`}
                     />
                   </div>
                 </div>
@@ -1134,20 +1482,29 @@ const AppendixConnected = (props, values) => {
                       component="input"
                       type="text"
                       maxLength={3}
-                      name={`${t.id}-${appendices.Tests[
+                      name={`t${t.id}${appendices.Tests[
                         i
-                      ].Abbreviation.toLowerCase().replace(/ /g, "-")}-${t.name
+                      ].Abbreviation.toLowerCase()
+                        .split(" ")
+                        .map(
+                          word => word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join("")}${t.name
                         .toLowerCase()
                         .replace("<sup>", "")
                         .replace("</sup>", "")
-                        .replace(" – ", "-")
-                        .replace(/ /g, "-")
+                        .replace(" – ", " ")
                         .replace("/", "-")
                         .replace(/[’]/g, "")
                         .replace(/[,/]/g, "")
                         .replace("{", "")
                         .replace("}", "")
-                        .replace(/\(|\)/g, "")}-score`}
+                        .replace(/\(|\)/g, "")
+                        .split(" ")
+                        .map(
+                          word => word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join("")}Score`}
                     />
                   </div>
                   {appendices.Tests[i].Abbreviation === "PIY" ||
@@ -1160,22 +1517,28 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={4}
-                        name={`${t.id}-appendix-${appendices.Tests[
+                        name={`t${t.id}Appendix${appendices.Tests[
                           i
-                        ].Abbreviation.toLowerCase().replace(
-                          / /g,
-                          "-"
-                        )}-${t.name
+                        ].Abbreviation.toLowerCase()
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.name
                           .toLowerCase()
-                          .replace(/ /g, "-")
                           .replace("<sup>", "")
                           .replace("</sup>", "")
-                          .replace("/", "-")
+                          .replace("/", "")
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
                           .replace("{", "")
                           .replace("}", "")
-                          .replace(/\(|\)/g, "")}-rank`}
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}Rank`}
                       />
                     </div>
                   )}
@@ -1185,22 +1548,24 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={5}
-                        name={`${t.id}-appendix-${appendices.Tests[
+                        name={`t${t.id}Appendix${appendices.Tests[
                           i
-                        ].Abbreviation.toLowerCase().replace(
-                          / /g,
-                          "-"
-                        )}-${t.name
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.name
                           .toLowerCase()
-                          .replace(/ /g, "-")
                           .replace("<sup>", "")
                           .replace("</sup>", "")
-                          .replace("/", "-")
+                          .replace("/", "")
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
                           .replace("{", "")
                           .replace("}", "")
-                          .replace(/\(|\)/g, "")}-grade-equivalent`}
+                          .replace(/\(|\)/g, "")}GradeEquivalent`}
                       />
                     </div>
                   ) : null}
@@ -1210,22 +1575,30 @@ const AppendixConnected = (props, values) => {
                         component="input"
                         type="text"
                         maxLength={15}
-                        name={`${t.id}-appendix-${appendices.Tests[
+                        name={`t${t.id}Appendix${appendices.Tests[
                           i
-                        ].Abbreviation.toLowerCase().replace(
-                          / /g,
-                          "-"
-                        )}-${t.name
+                        ].Abbreviation.toLowerCase()
+                          .replace("-", "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}${t.name
                           .toLowerCase()
-                          .replace(/ /g, "-")
+                          .replace("-", " ")
                           .replace("<sup>", "")
                           .replace("</sup>", "")
-                          .replace("/", "-")
+                          .replace("/", "")
                           .replace(/[,/]/g, "")
                           .replace(/[’]/g, "")
                           .replace("{", "")
                           .replace("}", "")
-                          .replace(/\(|\)/g, "")}-range`}
+                          .replace(/\(|\)/g, "")
+                          .split(" ")
+                          .map(
+                            word => word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}Range`}
                       />
                     </div>
                   ) : null}
