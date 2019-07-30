@@ -41,7 +41,15 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
         .replace("-", "")
         .split(" ")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join("")}FsiqScore`}
+        .join("")}${name
+        .toLowerCase()
+        .replace("<span>", "")
+        .replace("</span>", "")
+        .replace(/\(|\)/g, "")
+        .replace("-", "")
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("")}CompositeScore`}
       type="text"
       component="input"
       maxLength={3}
@@ -59,7 +67,15 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
         .replace("-", "")
         .split(" ")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join("")}FsiqPercentile`}
+        .join("")}${name
+        .toLowerCase()
+        .replace("<span>", "")
+        .replace("</span>", "")
+        .replace(/\(|\)/g, "")
+        .replace("-", "")
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("")}CompositePercentile`}
       type="text"
       component="input"
       maxLength={3}
@@ -77,7 +93,15 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
         .replace("-", "")
         .split(" ")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join("")}FsiqRank`}
+        .join("")}${name
+        .toLowerCase()
+        .replace("<span>", "")
+        .replace("</span>", "")
+        .replace(/\(|\)/g, "")
+        .replace("-", "")
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("")}CompositeRange`}
       type="text"
       component="input"
       onBlur={event =>
@@ -690,7 +714,7 @@ const Test = ({ testFromState, ...props }) => {
                           className={
                             (t.SubTests.length > 0 &&
                               t.SubTests[0].Description === null) ||
-                            t.SubTests[0].Description === ""
+                            (t.Id !== 163 && t.SubTests[0].Description === "")
                               ? "table__row__cell--wide"
                               : null
                           }
@@ -706,13 +730,15 @@ const Test = ({ testFromState, ...props }) => {
                         >
                           {testFromState[i].ScoreType}
                         </div>
-                        {testFromState[i].Abbreviation === "D-KEFS" &&
-                        (t.ParentScaleName === "Color-Word Interference Test" ||
-                          t.ParentScaleName === "Twenty Questions" ||
-                          t.ParentScaleName ===
+                        {testFromState[i].Abbreviation === "Beery VMI" ||
+                        (testFromState[i].Abbreviation === "D-KEFS" &&
+                          (t.ParentScaleName ===
                             "Color-Word Interference Test" ||
-                          t.ParentScaleName === "Word Context Test" ||
-                          t.ParentScaleName === "Tower Test") ? (
+                            t.ParentScaleName === "Twenty Questions" ||
+                            t.ParentScaleName ===
+                              "Color-Word Interference Test" ||
+                            t.ParentScaleName === "Word Context Test" ||
+                            t.ParentScaleName === "Tower Test")) ? (
                           <div />
                         ) : (
                           <div>{testFromState[i].DescriptionType}</div>
@@ -722,7 +748,8 @@ const Test = ({ testFromState, ...props }) => {
                         <div key={t.Id} className="table__row">
                           <div
                             className={
-                              t.Description === null || t.Description === ""
+                              t.Name !== "Beery-Motor Coordination" &&
+                              (t.Description === null || t.Description === "")
                                 ? "table__row__cell--wide"
                                 : null
                             }
@@ -764,14 +791,40 @@ const Test = ({ testFromState, ...props }) => {
                             />
                           </div>
                           <div>
-                            {testFromState[i].Abbreviation !== "D-KEFS" &&
-                            (t.Description === null || t.Description === "") ? (
+                            {testFromState[i].Abbreviation !== "Beery VMI" &&
+                            (testFromState[i].Abbreviation !== "D-KEFS" &&
+                              (t.Description === null ||
+                                t.Description === "")) &&
+                            testFromState[i].Abbreviation !== "PIY" ? (
                               <Field
                                 component="input"
                                 type="text"
                                 name={`t${
                                   t.ParentScaleTitleId
                                 }${t.Name.toLowerCase()
+                                  .replace(/-/g, " ")
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}PercentileRank`}
+                              />
+                            ) : testFromState[i].Abbreviation === "PIY" ? (
+                              <Field
+                                component="input"
+                                type="text"
+                                name={`t${t.Id}${testFromState[
+                                  i
+                                ].Abbreviation.toLowerCase()
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1)
+                                  )
+                                  .join("")}${t.Name.toLowerCase()
                                   .replace(/-/g, " ")
                                   .split(" ")
                                   .map(
@@ -888,12 +941,17 @@ const Test = ({ testFromState, ...props }) => {
                                   <Field
                                     component="input"
                                     type="text"
-                                    name={`${
-                                      t.Id
-                                    }-${t.Name.toLowerCase().replace(
-                                      / /g,
-                                      "-"
-                                    )}-score`}
+                                    name={`t${t.Id}${t.Name.toLowerCase()
+                                      .replace(/[/]/g, "")
+                                      .replace(/[,/]/g, "")
+                                      .replace(/[’]/g, "")
+                                      .split(" ")
+                                      .map(
+                                        word =>
+                                          word.charAt(0).toUpperCase() +
+                                          word.slice(1)
+                                      )
+                                      .join("")}Score`}
                                     maxLength={3}
                                     normalize={onlyNums}
                                     onBlur={event =>

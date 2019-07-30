@@ -731,14 +731,18 @@ export const allTests = (state = [], action) => {
           ) {
             item.SubTests.map((subTest, i) => {
               console.log("state SubTests mapped, ", subTest + " item " + i);
-              if (subTest.Name === action.payload.SubTests[0].Name) {
-                //The subtest's parent scale is already in state, so exit the loop
+              if (
+                item.SubTests.some(
+                  subtest => subtest.Name === action.payload.SubTests[0].Name
+                )
+              ) {
+                //The subtest is already in state, so exit the loop
                 console.log(
                   "SubTest already exists",
-                  subTest.Name + " item " + i
+                  subTest.Name + " = " + action.payload.SubTests[0].Name
                 );
                 return subTest;
-              } else if (i + 1 !== item.SubTests.length) {
+              } else if (i + 1 < item.SubTests.length) {
                 //No match, but it's not the last item so exit this SubTest and go to the next one
                 console.log(
                   "There's more items to test, so exit this item",
