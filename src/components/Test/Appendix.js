@@ -528,7 +528,7 @@ const AppendixConnected = (props, values) => {
                                 name={`t${t.id}Appendix${appendices.Tests[
                                   i
                                 ].Abbreviation.toLowerCase()
-                                  .replace(/-/g, " ")
+                                  .replace("-", " ")
                                   .split(" ")
                                   .map(
                                     word =>
@@ -545,7 +545,7 @@ const AppendixConnected = (props, values) => {
                                   .replace("{", "")
                                   .replace("}", "")
                                   .replace(/\(|\)/g, "")
-                                  .replace(/-/g, " ")
+                                  .replace("-", " ")
                                   .split(" ")
                                   .map(
                                     word =>
@@ -565,7 +565,7 @@ const AppendixConnected = (props, values) => {
                                 name={`t${t.id}Appendix${appendices.Tests[
                                   i
                                 ].Abbreviation.toLowerCase()
-                                  .replace(/-/g, " ")
+                                  .replace("-", " ")
                                   .split(" ")
                                   .map(
                                     word =>
@@ -577,7 +577,7 @@ const AppendixConnected = (props, values) => {
                                   .replace("<sup>", "")
                                   .replace("</sup>", "")
                                   .replace("/", " ")
-                                  .replace(/-/g, " ")
+                                  .replace("-", " ")
                                   .replace(/[,/]/g, "")
                                   .replace(/[’]/g, "")
                                   .replace("{", "")
@@ -611,7 +611,7 @@ const AppendixConnected = (props, values) => {
                                   )
                                   .join("")}${t.name
                                   .toLowerCase()
-                                  .replace(/-/g, " ")
+                                  .replace("-", " ")
                                   .replace("<sup>", "")
                                   .replace("</sup>", "")
                                   .replace("/", " ")
@@ -732,6 +732,7 @@ const AppendixConnected = (props, values) => {
                                     .replace("</sup>", "")
                                     .replace(" – ", " ")
                                     .replace("/", " ")
+                                    .replace("-", " ")
                                     .replace(/[’]/g, "")
                                     .replace(/[,/]/g, "")
                                     .replace("{", "")
@@ -777,7 +778,7 @@ const AppendixConnected = (props, values) => {
                                       .replace("{", "")
                                       .replace("}", "")
                                       .replace(/\(|\)/g, "")
-                                      .replace(/-/g, " ")
+                                      .replace("-", " ")
                                       .split(" ")
                                       .map(
                                         word =>
@@ -813,7 +814,7 @@ const AppendixConnected = (props, values) => {
                                       .replace(/[’]/g, "")
                                       .replace("{", "")
                                       .replace("}", "")
-                                      .replace(/-/g, " ")
+                                      .replace("-", " ")
                                       .replace(/\(|\)/g, "")
                                       .split(" ")
                                       .map(
@@ -871,6 +872,7 @@ const AppendixConnected = (props, values) => {
                                         .replace("<sup>", "")
                                         .replace("</sup>", "")
                                         .replace(" – ", " ")
+                                        .replace("-", " ")
                                         .replace("/", "")
                                         .replace(/[’]/g, "")
                                         .replace(/[,/]/g, "")
@@ -924,6 +926,7 @@ const AppendixConnected = (props, values) => {
                                           .replace("{", "")
                                           .replace("}", "")
                                           .replace(/\(|\)/g, "")
+                                          .replace("-", " ")
                                           .split(" ")
                                           .map(
                                             word =>
@@ -962,6 +965,7 @@ const AppendixConnected = (props, values) => {
                                           .replace(/[’]/g, "")
                                           .replace("{", "")
                                           .replace("}", "")
+                                          .replace("-", " ")
                                           .replace(/\(|\)/g, "")
                                           .split(" ")
                                           .map(

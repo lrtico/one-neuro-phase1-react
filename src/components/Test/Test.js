@@ -945,6 +945,7 @@ const Test = ({ testFromState, ...props }) => {
                                       .replace(/[/]/g, "")
                                       .replace(/[,/]/g, "")
                                       .replace(/[’]/g, "")
+                                      .replace("-", " ")
                                       .split(" ")
                                       .map(
                                         word =>
