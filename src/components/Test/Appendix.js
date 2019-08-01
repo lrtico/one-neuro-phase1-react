@@ -1084,8 +1084,8 @@ const AppendixConnected = (props, values) => {
                               .replace("{", "")
                               .replace("}", "")
                               .replace(/\(|\)/g, "")
-                              .replace(/–/g, "")
-                              .replace(/-/g, " ")
+                              .replace("–", "")
+                              .replace("-", " ")
                               .replace(":", "")
                               .split(" ")
                               .map(
@@ -1122,8 +1122,8 @@ const AppendixConnected = (props, values) => {
                               .replace("{", "")
                               .replace("}", "")
                               .replace(/\(|\)/g, "")
-                              .replace(/–/g, "")
-                              .replace(/-/g, " ")
+                              .replace("–", "")
+                              .replace("-", " ")
                               .replace(":", "")
                               .split(" ")
                               .map(
@@ -1160,8 +1160,8 @@ const AppendixConnected = (props, values) => {
                               .replace("{", "")
                               .replace("}", "")
                               .replace(/\(|\)/g, "")
-                              .replace(/–/g, "")
-                              .replace(/-/g, " ")
+                              .replace("–", "")
+                              .replace("-", " ")
                               .split(" ")
                               .map(
                                 word =>
@@ -1197,8 +1197,8 @@ const AppendixConnected = (props, values) => {
                               .replace("{", "")
                               .replace("}", "")
                               .replace(/\(|\)/g, "")
-                              .replace(/–/g, "")
-                              .replace(/-/g, " ")
+                              .replace("–", "")
+                              .replace("-", " ")
                               .replace(":", "")
                               .split(" ")
                               .map(

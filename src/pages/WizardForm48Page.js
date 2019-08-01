@@ -42,7 +42,7 @@ class WizardForm48Page extends Component {
         <div className="question">
           <div className="live-search-wrap">
             <label>DSM-5 diagnosis (ICD-10)</label>
-            <FieldArray name="dsm-codes" component={DatabaseResultsList} />
+            <FieldArray name="dsmCodes" component={DatabaseResultsList} />
           </div>
         </div>
         <div className="question">
