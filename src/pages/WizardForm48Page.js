@@ -50,10 +50,17 @@ class WizardForm48Page extends Component {
             <FieldArray
               component={CheckboxEducationalCodeCard}
               checkboxInfo={educationalCodes.map((e, i) => ({
-                cardName: `edu-code-${e.DisabilityCode.replace(
-                  / /g,
-                  "-"
-                ).toLowerCase()}`,
+                cardName: `eduCode${e.DisabilityCode.toLowerCase()
+                  .replace("/", "")
+                  .replace(" – ", " ")
+                  .replace("{", "")
+                  .replace("}", "")
+                  .replace("-", " ")
+                  .replace(":", "")
+                  .replace(/\(|\)/g, " ")
+                  .split(" ")
+                  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join("")}`,
                 cardKey: e.id,
                 cardLabel: e.DisabilityCode,
                 tabIndex: e.id + 1
@@ -61,7 +68,7 @@ class WizardForm48Page extends Component {
               label=""
               labelBold="Educational"
               labelLast="classification"
-              name="educational-classification-group"
+              name="educationalClassificationGroup"
               classes="question question--thumbless"
             />
           </div>

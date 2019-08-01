@@ -35,14 +35,7 @@ const CheckboxEducationalCodeCard = ({
               }
               tabIndex={card.tabIndex}
             >
-              <Field
-                name={card.cardName
-                  .toLowerCase()
-                  .replace(/\(|\)/g, "")
-                  .replace("/", "-")}
-                type="checkbox"
-                component="input"
-              />
+              <Field name={card.cardName} type="checkbox" component="input" />
               <span className="question__tick--bg" />
               <span className="question__tick" />
               <div className="question__text-wrap flex flex--center-vertical">
