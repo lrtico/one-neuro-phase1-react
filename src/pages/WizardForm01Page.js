@@ -1,8 +1,9 @@
-import React from "react";
-import { reduxForm } from "redux-form";
-import validate from "../validate";
-import "../app.css";
-import Button from "../components/Button";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { reduxForm } from 'redux-form';
+import validate from '../validate';
+import '../app.css';
+import Button from '../components/Button';
 
 const WizardForm01Page = props => {
   const { handleSubmit } = props;
@@ -10,8 +11,8 @@ const WizardForm01Page = props => {
     <form onSubmit={handleSubmit}>
       <section className="col grid__half">
         <p>
-          Welcome back! I’m here to assist you in creating another amazing
-          report to help someone in need.
+          Welcome back! I’m here to assist you in creating another amazing report to help someone in
+          need.
         </p>
         <Button onClick={handleSubmit} buttonLabel="OK" />
       </section>
@@ -19,9 +20,13 @@ const WizardForm01Page = props => {
   );
 };
 
+WizardForm01Page.propTypes = {
+  handleSubmit: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm01Page);

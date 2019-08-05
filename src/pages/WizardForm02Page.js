@@ -1,29 +1,31 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import store from "../store";
-import { Field, reduxForm, FieldArray } from "redux-form";
-import validate from "../validate";
-import TextQuestion from "../components/TextQuestion";
-import TextQuestionAutoCalculate from "../components/TextQuestion/TextQuestionAutoCalculate";
-import FormCardTextDate from "../components/Card/FormCard/FormCardTextDate";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Field, reduxForm, FieldArray } from 'redux-form';
+import store from '../store';
+import validate from '../validate';
+import TextQuestion from '../components/TextQuestion';
+import TextQuestionAutoCalculate from '../components/TextQuestion/TextQuestionAutoCalculate';
+import FormCardTextDate from '../components/Card/FormCard/FormCardTextDate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
 
 class WizardForm02Page extends Component {
   calculateAge = event => {
-    let birthdate = event.target.value;
-    if (birthdate !== "" && birthdate.length >= 4) {
-      let birthYear = event.target.value.slice(0, 4);
-      let birthMonth = event.target.value.slice(5, 7);
-      let d = new Date();
-      let currYear = d.getFullYear();
-      let currMonth = d.getMonth() + 1;
-      let age = "";
-      //let x = currMonth < birthMonth;
+    const birthdate = event.target.value;
+    const { change } = this.props;
+    if (birthdate !== '' && birthdate.length >= 4) {
+      const birthYear = event.target.value.slice(0, 4);
+      const birthMonth = event.target.value.slice(5, 7);
+      const d = new Date();
+      const currYear = d.getFullYear();
+      const currMonth = d.getMonth() + 1;
+      let age = '';
+      // let x = currMonth < birthMonth;
       // console.log(`
       //   Variables
       //   =========
@@ -39,10 +41,10 @@ class WizardForm02Page extends Component {
         age = parseFloat(currYear - birthYear);
       }
 
-      this.props.change("diAge", age);
+      change('diAge', age);
       store.dispatch({
-        type: "ADD_PATIENT_AGE",
-        payload: age
+        type: 'ADD_PATIENT_AGE',
+        payload: age,
       });
     } else {
       return false;
@@ -61,9 +63,9 @@ class WizardForm02Page extends Component {
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, age } = this.props;
     const { calculateAge, makeNumber } = this;
-    console.log("Auto age should be, ", this.props.age);
+    console.log('Auto age should be, ', age);
     return (
       <form className="col" onSubmit={handleSubmit}>
         <SectionTitle titleBold="Demographics" titleRegular="info" />
@@ -78,7 +80,7 @@ class WizardForm02Page extends Component {
             tabOrder="1"
             type="input"
             classes="question grid__half"
-            //copyForward="true"
+            // copyForward="true"
           />
           <Field
             alt="Building"
@@ -113,10 +115,10 @@ class WizardForm02Page extends Component {
             tabOrder="4"
             type="number"
             classes="question grid__half"
-            age={this.props.age}
+            age={age}
             readOnly="readonly"
             onBlur={makeNumber}
-            //copyForward="true"
+            // copyForward="true"
           />
         </div>
         <div className="flex">
@@ -150,21 +152,21 @@ class WizardForm02Page extends Component {
               component={RadioCard}
               cardInfo={[
                 {
-                  thumbnail: "img/icons-woman-generic.svg",
-                  thumbnailAlt: "Girl",
-                  cardName: "diGender",
-                  cardKey: "A",
-                  cardLabel: "Girl",
-                  tabOrder: "9"
+                  thumbnail: 'img/icons-woman-generic.svg',
+                  thumbnailAlt: 'Girl',
+                  cardName: 'diGender',
+                  cardKey: 'A',
+                  cardLabel: 'Girl',
+                  tabOrder: '9',
                 },
                 {
-                  thumbnail: "img/icons-man-generic.svg",
-                  thumbnailAlt: "Boy",
-                  cardName: "diGender",
-                  cardKey: "B",
-                  cardLabel: "Boy",
-                  tabOrder: "10"
-                }
+                  thumbnail: 'img/icons-man-generic.svg',
+                  thumbnailAlt: 'Boy',
+                  cardName: 'diGender',
+                  cardKey: 'B',
+                  cardLabel: 'Boy',
+                  tabOrder: '10',
+                },
               ]}
               label="What is the"
               labelBold="gender"
@@ -178,21 +180,21 @@ class WizardForm02Page extends Component {
               component={RadioCard}
               cardInfo={[
                 {
-                  thumbnail: "img/icons-hand-left.svg",
-                  thumbnailAlt: "Left hand",
-                  cardName: "diHandedness",
-                  cardKey: "A",
-                  cardLabel: "Left",
-                  tabOrder: "13"
+                  thumbnail: 'img/icons-hand-left.svg',
+                  thumbnailAlt: 'Left hand',
+                  cardName: 'diHandedness',
+                  cardKey: 'A',
+                  cardLabel: 'Left',
+                  tabOrder: '13',
                 },
                 {
-                  thumbnail: "img/icons-hand-right.svg",
-                  thumbnailAlt: "Right hand",
-                  cardName: "diHandedness",
-                  cardKey: "B",
-                  cardLabel: "Right",
-                  tabOrder: "14"
-                }
+                  thumbnail: 'img/icons-hand-right.svg',
+                  thumbnailAlt: 'Right hand',
+                  cardName: 'diHandedness',
+                  cardKey: 'B',
+                  cardLabel: 'Right',
+                  tabOrder: '14',
+                },
               ]}
               label="Which"
               labelBold="hand"
@@ -233,7 +235,11 @@ class WizardForm02Page extends Component {
         </div>
         <div>
           <label>
-            What are the <strong>date(s)</strong> testing was administered?
+            What are the
+            {' '}
+            <strong>date(s)</strong>
+            {' '}
+            testing was administered?
           </label>
         </div>
         <FieldArray
@@ -247,13 +253,19 @@ class WizardForm02Page extends Component {
   }
 }
 
+WizardForm02Page.propTypes = {
+  change: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  age: PropTypes.number,
+};
+
 WizardForm02Page = connect(state => ({
-  age: state.patientAge
+  age: state.patientAge,
 }))(WizardForm02Page);
 
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm02Page);
