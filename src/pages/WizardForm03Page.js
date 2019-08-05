@@ -1,12 +1,13 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import TextQuestion from "../components/TextQuestion";
-import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import Button from "../components/Button";
-import { normalizePhone } from "../utils/Normalize";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import TextQuestion from '../components/TextQuestion';
+import NormalizePhoneInput from '../components/TextQuestion/NormalizePhoneInput';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import Button from '../components/Button';
+import { normalizePhone } from '../utils/Normalize';
 
 const WizardForm03Page = props => {
   const { handleSubmit } = props;
@@ -42,47 +43,47 @@ const WizardForm03Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "paqGuardian",
-              cardKey: "A",
-              cardLabel: "Mother",
-              tabOrder: "3"
+              cardName: 'paqGuardian',
+              cardKey: 'A',
+              cardLabel: 'Mother',
+              tabOrder: '3',
             },
             {
-              cardName: "paqGuardian",
-              cardKey: "B",
-              cardLabel: "Father",
-              tabOrder: "4"
+              cardName: 'paqGuardian',
+              cardKey: 'B',
+              cardLabel: 'Father',
+              tabOrder: '4',
             },
             {
-              cardName: "paqGuardian",
-              cardKey: "C",
-              cardLabel: "Grandmother",
-              tabOrder: "5"
+              cardName: 'paqGuardian',
+              cardKey: 'C',
+              cardLabel: 'Grandmother',
+              tabOrder: '5',
             },
             {
-              cardName: "paqGuardian",
-              cardKey: "D",
-              cardLabel: "Grandfather",
-              tabOrder: "5"
+              cardName: 'paqGuardian',
+              cardKey: 'D',
+              cardLabel: 'Grandfather',
+              tabOrder: '5',
             },
             {
-              cardName: "paqGuardian",
-              cardKey: "E",
-              cardLabel: "Aunt",
-              tabOrder: "6"
+              cardName: 'paqGuardian',
+              cardKey: 'E',
+              cardLabel: 'Aunt',
+              tabOrder: '6',
             },
             {
-              cardName: "paqGuardian",
-              cardKey: "F",
-              cardLabel: "Self",
-              tabOrder: "7"
+              cardName: 'paqGuardian',
+              cardKey: 'F',
+              cardLabel: 'Self',
+              tabOrder: '7',
             },
             {
-              cardName: "paqGuardian",
-              cardKey: "G",
-              cardLabel: "Other",
-              tabOrder: "8"
-            }
+              cardName: 'paqGuardian',
+              cardKey: 'G',
+              cardLabel: 'Other',
+              tabOrder: '8',
+            },
           ]}
           label="What is the"
           labelBold="relationship"
@@ -148,9 +149,14 @@ const WizardForm03Page = props => {
     </form>
   );
 };
+
+WizardForm03Page.propTypes = {
+  handleSubmit: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm03Page);

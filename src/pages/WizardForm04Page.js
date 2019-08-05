@@ -1,21 +1,24 @@
-import React, { Component } from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import TextQuestion from "../components/TextQuestion";
-import Button from "../components/Button";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import TextQuestion from '../components/TextQuestion';
+import Button from '../components/Button';
 
 class WizardForm04Page extends Component {
   changeFieldValue = (inputName, val) => {
+    const { change } = this.props;
     console.log(
-      `changeFieldValue changes this Field in the global store: "${inputName}": "${val}"`
+      `changeFieldValue changes the reason of referral for the summary of findings Field in the global store: "${inputName}": "${val}"`,
     );
-    this.props.change(inputName, val);
+    change(inputName, val);
   };
 
   render() {
-    console.log("WizardPage4 props = ", this.props);
+    console.log('WizardPage4 props = ', this.props);
     const { handleSubmit } = this.props;
+    const { changeFieldValue } = this;
 
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -28,7 +31,7 @@ class WizardForm04Page extends Component {
           classes="question"
           materialIcon="arrow_right"
           copyForward="true"
-          handleCopyForward={this.changeFieldValue}
+          handleCopyForward={changeFieldValue}
         />
         <Field
           component={TextQuestion}
@@ -38,7 +41,7 @@ class WizardForm04Page extends Component {
           classes="question"
           materialIcon="arrow_right"
           copyForward="true"
-          handleCopyForward={this.changeFieldValue}
+          handleCopyForward={changeFieldValue}
         />
         <Field
           component={TextQuestion}
@@ -48,7 +51,7 @@ class WizardForm04Page extends Component {
           classes="question"
           materialIcon="arrow_right"
           copyForward="true"
-          handleCopyForward={this.changeFieldValue}
+          handleCopyForward={changeFieldValue}
         />
         <Button onClick={handleSubmit} buttonLabel="OK" />
       </form>
@@ -56,9 +59,14 @@ class WizardForm04Page extends Component {
   }
 }
 
+WizardForm04Page.propTypes = {
+  change: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm04Page);
