@@ -1,39 +1,43 @@
-import React, { Component } from "react";
-import { reduxForm, getFormValues } from "redux-form";
-import { connect } from "react-redux";
-import axios from "axios";
-import { saveAs } from "file-saver";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { reduxForm, getFormValues } from 'redux-form';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { saveAs } from 'file-saver';
 // import FormAPI from "formapi";
-import validate from "../validate";
-import "../app.css";
-import Button from "../components/Button";
-import Appendix from "../components/Test/Appendix";
+import validate from '../validate';
+import '../app.css';
+import Button from '../components/Button';
+import Appendix from '../components/Test/Appendix';
 
 class WizardForm50Page extends Component {
   state = {
-    loading: false
+    loading: false,
   };
 
   generatePDFTest = event => {
     event.preventDefault();
-    const values = {
-      values: this.props.values,
-      appendixReducer: this.props.appendices.Tests,
-      testSelectedReducer: this.props.tests,
-      recommendations: this.props.recommendations
+    const {
+      values, tests, recommendations, appendices,
+    } = this.props;
+    const data = {
+      values,
+      appendixReducer: appendices.Tests,
+      testSelectedReducer: tests,
+      recommendations,
     };
-    console.log("generatePDFTest values, ", values);
+    console.log('generatePDFTest values, ', data);
 
     this.setState({ loading: true });
 
-    //use axios' post method to the create-pdf route passing the data from state
-    //blobs are immutable objects the represent raw data, like our PDF
+    // use axios' post method to the create-pdf route passing the data from state
+    // blobs are immutable objects the represent raw data, like our PDF
     axios
-      .post("/create-pdf", values)
-      .then(() => axios.get("fetch-pdf", { responseType: "blob" }))
+      .post('http://localhost:5000/create-pdf', data)
+      .then(() => axios.get('http://localhost:5000/fetch-pdf', { responseType: 'blob' }))
       .then(res => {
-        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
-        saveAs(pdfBlob, "newPDF.pdf");
+        const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+        saveAs(pdfBlob, 'newPDF.pdf');
         this.setState({ loading: false });
       });
 
@@ -69,9 +73,11 @@ class WizardForm50Page extends Component {
   };
 
   render() {
-    //const { handleSubmit } = this.props;
-    console.log("Wizard50 props, ", this.props);
-    console.log("Wizard50 values, ", this.props.values);
+    // const { handleSubmit } = this.props;
+    const { values } = this.props;
+    const { loading } = this.state;
+    console.log('Wizard50 props, ', this.props);
+    console.log('Wizard50 values, ', values);
     return (
       <form className="col" onSubmit={this.generatePDFTest}>
         <Appendix values={this.props} />
@@ -81,7 +87,7 @@ class WizardForm50Page extends Component {
             buttonLabel="Make a PDF"
             cssClasses="btn--width-auto"
           />
-          {this.state.loading ? (
+          {loading ? (
             <div className="pdf-generation-loader">
               <div className="pdf-generation-loader__box">
                 <div />
@@ -97,16 +103,24 @@ class WizardForm50Page extends Component {
   }
 }
 
+WizardForm50Page.propTypes = {
+  values: PropTypes.object,
+  tests: PropTypes.array,
+  Tests: PropTypes.array,
+  recommendations: PropTypes.array,
+  appendices: PropTypes.object,
+};
+
 // Grab the Redux Form's values and load it into props
 WizardForm50Page = connect(state => ({
-  values: getFormValues("wizard")(state),
+  values: getFormValues('wizard')(state),
   tests: state.testsSelectedReducer,
-  appendices: state.appendixReducer
+  appendices: state.appendixReducer,
 }))(WizardForm50Page);
 
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm50Page);
