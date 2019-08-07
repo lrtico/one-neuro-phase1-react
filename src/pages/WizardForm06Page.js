@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import validate from '../validate';
@@ -50,6 +51,9 @@ class WizardForm06Page extends Component {
       primaryCaregiverCellPhone,
       primaryCaregiverWorkPhone,
     } = this.props;
+
+    const { change } = this.props;
+
     motherName = motherName === undefined ? "(Mother's name)" : motherName;
     motherAge = motherAge === undefined ? "(mother's age)" : motherAge;
     stepmother = stepmother === 'Yes' ? 'stepmother' : 'mother';
@@ -129,23 +133,24 @@ class WizardForm06Page extends Component {
       'WizardPage6 relevant background history copy forward string = ',
       bgHistoryCopyForward,
     );
-    this.props.change('relevantBackgroundHistory', bgHistoryCopyForward);
+    change('relevantBackgroundHistory', bgHistoryCopyForward);
   };
 
   handlePrimaryCaregiver = () => {
-    this.props.change('bhPrimaryCaregiverFather', false);
-    this.props.change('bhPrimaryCaregiverMother', true);
+    const { change } = this.props;
+    change('bhPrimaryCaregiverFather', false);
+    change('bhPrimaryCaregiverMother', true);
   };
 
   handlePaqCopyForward = () => {
     const {
-      paqName, paqAddress, paqHomePhone, paqWorkPhone, paqCellPhone,
+      paqName, paqAddress, paqHomePhone, paqWorkPhone, paqCellPhone, change,
     } = this.props;
-    this.props.change('bhMotherName', paqName);
-    this.props.change('bhMotherAddress', paqAddress);
-    this.props.change('bhMotherHomePhone', paqHomePhone);
-    this.props.change('bhMotherWorkPhone', paqWorkPhone);
-    this.props.change('bhMotherCellPhone', paqCellPhone);
+    change('bhMotherName', paqName);
+    change('bhMotherAddress', paqAddress);
+    change('bhMotherHomePhone', paqHomePhone);
+    change('bhMotherWorkPhone', paqWorkPhone);
+    change('bhMotherCellPhone', paqCellPhone);
   };
 
   render() {
@@ -375,6 +380,49 @@ class WizardForm06Page extends Component {
     );
   }
 }
+
+WizardForm06Page.propTypes = {
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+  disabled: PropTypes.bool,
+  change: PropTypes.func,
+  paqName: PropTypes.string,
+  paqAddress: PropTypes.string,
+  paqHomePhone: PropTypes.string,
+  paqWorkPhone: PropTypes.string,
+  paqCellPhone: PropTypes.string,
+  motherName: PropTypes.string,
+  motherAge: PropTypes.string,
+  stepmother: PropTypes.string,
+  motherAddress: PropTypes.string,
+  motherHomePhone: PropTypes.string,
+  motherCellPhone: PropTypes.string,
+  motherWorkPhone: PropTypes.string,
+  motherEmployer: PropTypes.string,
+  motherOccupation: PropTypes.string,
+  motherWorkLength: PropTypes.string,
+  motherPrimaryLang: PropTypes.string,
+  motherSecondaryLang: PropTypes.string,
+  fatherName: PropTypes.string,
+  fatherAge: PropTypes.string,
+  stepfather: PropTypes.string,
+  fatherAddress: PropTypes.string,
+  fatherHomePhone: PropTypes.string,
+  fatherCellPhone: PropTypes.string,
+  fatherWorkPhone: PropTypes.string,
+  fatherEmployer: PropTypes.string,
+  fatherOccupation: PropTypes.string,
+  fatherWorkLength: PropTypes.string,
+  fatherPrimaryLang: PropTypes.string,
+  fatherSecondaryLang: PropTypes.string,
+  primaryCaregiverName: PropTypes.string,
+  primaryCaregiverAge: PropTypes.string,
+  primaryCaregiverRelationship: PropTypes.string,
+  primaryCaregiverAddress: PropTypes.string,
+  primaryCaregiverHomePhone: PropTypes.string,
+  primaryCaregiverCellPhone: PropTypes.string,
+  primaryCaregiverWorkPhone: PropTypes.string,
+};
 
 // Decorate with connect to read form values
 const selector = formValueSelector('wizard'); // <-- same as form name
