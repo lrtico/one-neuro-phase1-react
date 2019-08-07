@@ -29,15 +29,15 @@ class WizardForm15Page extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (
-      this.props.motherAge !== nextProps.motherAge ||
-      this.props.fatherAge !== nextProps.fatherAge
-    ) {
-      return true;
-    }
-    return false;
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   if (
+  //     this.props.motherAge !== nextProps.motherAge ||
+  //     this.props.fatherAge !== nextProps.fatherAge
+  //   ) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   render() {
     const { handleSubmit, handleDisable, disabled } = this.props;

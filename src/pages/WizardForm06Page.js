@@ -1,17 +1,16 @@
-import React, { Component } from "react";
-import { Field, reduxForm, formValueSelector } from "redux-form";
-import { connect } from "react-redux";
-import validate from "../validate";
-import TextQuestion from "../components/TextQuestion/";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubTitle from "../components/SectionSubTitle";
-import Button from "../components/Button";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import SectionSubHeader from "../components/SectionSubHeader";
-import ButtonToggle from "../components/ButtonToggle";
-import CopyForwardButton from "../components/ButtonToggle/CopyForwardButton";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
-import { normalizePhone } from "../utils/Normalize";
+import React, { Component } from 'react';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
+import validate from '../validate';
+import TextQuestion from '../components/TextQuestion';
+import SectionTitle from '../components/SectionTitle';
+import SectionSubTitle from '../components/SectionSubTitle';
+import Button from '../components/Button';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import SectionSubHeader from '../components/SectionSubHeader';
+import CopyForwardButton, { PillButton } from '../components/ButtonToggle/CopyForwardButton';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
+import { normalizePhone } from '../utils/Normalize';
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
@@ -49,94 +48,49 @@ class WizardForm06Page extends Component {
       primaryCaregiverAddress,
       primaryCaregiverHomePhone,
       primaryCaregiverCellPhone,
-      primaryCaregiverWorkPhone
+      primaryCaregiverWorkPhone,
     } = this.props;
     motherName = motherName === undefined ? "(Mother's name)" : motherName;
     motherAge = motherAge === undefined ? "(mother's age)" : motherAge;
-    stepmother = stepmother === "Yes" ? "stepmother" : "mother";
-    motherAddress =
-      motherAddress === undefined ? "(mother's address)" : motherAddress;
-    motherHomePhone =
-      motherHomePhone === undefined ? "(mother's home phone)" : motherHomePhone;
-    motherCellPhone =
-      motherCellPhone === undefined ? "(mother's cell phone)" : motherCellPhone;
-    motherWorkPhone =
-      motherWorkPhone === undefined ? "(mother's work phone)" : motherWorkPhone;
-    motherEmployer =
-      motherEmployer === undefined ? "(mother's employer)" : motherEmployer;
-    motherOccupation =
-      motherOccupation === undefined
-        ? "(mother's occupation)"
-        : motherOccupation;
-    motherWorkLength =
-      motherWorkLength === undefined
-        ? "(mother's work length)"
-        : motherWorkLength;
-    motherPrimaryLang =
-      motherPrimaryLang === undefined
-        ? "(mother's primary language)"
-        : motherPrimaryLang;
-    motherSecondaryLang =
-      motherSecondaryLang === undefined
-        ? "(mother's secondary language)"
-        : motherSecondaryLang;
+    stepmother = stepmother === 'Yes' ? 'stepmother' : 'mother';
+    motherAddress = motherAddress === undefined ? "(mother's address)" : motherAddress;
+    motherHomePhone = motherHomePhone === undefined ? "(mother's home phone)" : motherHomePhone;
+    motherCellPhone = motherCellPhone === undefined ? "(mother's cell phone)" : motherCellPhone;
+    motherWorkPhone = motherWorkPhone === undefined ? "(mother's work phone)" : motherWorkPhone;
+    motherEmployer = motherEmployer === undefined ? "(mother's employer)" : motherEmployer;
+    motherOccupation = motherOccupation === undefined ? "(mother's occupation)" : motherOccupation;
+    motherWorkLength = motherWorkLength === undefined ? "(mother's work length)" : motherWorkLength;
+    motherPrimaryLang = motherPrimaryLang === undefined ? "(mother's primary language)" : motherPrimaryLang;
+    motherSecondaryLang = motherSecondaryLang === undefined ? "(mother's secondary language)" : motherSecondaryLang;
     fatherName = fatherName === undefined ? "(Father's name)" : fatherName;
     fatherAge = fatherAge === undefined ? "(father's age)" : fatherAge;
-    stepfather = stepfather === "Yes" ? "stepfather" : "father";
-    fatherAddress =
-      fatherAddress === undefined ? "(father's address)" : fatherAddress;
-    fatherHomePhone =
-      fatherHomePhone === undefined ? "(father's home phone)" : fatherHomePhone;
-    fatherCellPhone =
-      fatherCellPhone === undefined ? "(father's cell phone)" : fatherCellPhone;
-    fatherWorkPhone =
-      fatherWorkPhone === undefined ? "(father's work phone)" : fatherWorkPhone;
-    fatherEmployer =
-      fatherEmployer === undefined ? "(father's employer)" : fatherEmployer;
-    fatherOccupation =
-      fatherOccupation === undefined
-        ? "(father's occupation)"
-        : fatherOccupation;
-    fatherWorkLength =
-      fatherWorkLength === undefined
-        ? "(father's work length)"
-        : fatherWorkLength;
-    fatherPrimaryLang =
-      fatherPrimaryLang === undefined
-        ? "(father's primary language)"
-        : fatherPrimaryLang;
-    fatherSecondaryLang =
-      fatherSecondaryLang === undefined
-        ? "(father's secondary language)"
-        : fatherSecondaryLang;
-    primaryCaregiverName =
-      primaryCaregiverName === undefined
-        ? "(Primary caregiver's name)"
-        : primaryCaregiverName;
-    primaryCaregiverAge =
-      primaryCaregiverAge === undefined
-        ? "(Primary caregiver's age)"
-        : primaryCaregiverAge;
-    primaryCaregiverRelationship =
-      primaryCaregiverRelationship === undefined
-        ? "(Primary caregiver relationship)"
-        : primaryCaregiverRelationship;
-    primaryCaregiverAddress =
-      primaryCaregiverAddress === undefined
-        ? "(Primary caregiver's address)"
-        : primaryCaregiverAddress;
-    primaryCaregiverHomePhone =
-      primaryCaregiverHomePhone === undefined
-        ? "(Primary caregiver's home phone)"
-        : primaryCaregiverHomePhone;
-    primaryCaregiverCellPhone =
-      primaryCaregiverCellPhone === undefined
-        ? "(Primary caregiver's cell phone)"
-        : primaryCaregiverCellPhone;
-    primaryCaregiverWorkPhone =
-      primaryCaregiverWorkPhone === undefined
-        ? "(Primary caregiver's work phone)"
-        : primaryCaregiverWorkPhone;
+    stepfather = stepfather === 'Yes' ? 'stepfather' : 'father';
+    fatherAddress = fatherAddress === undefined ? "(father's address)" : fatherAddress;
+    fatherHomePhone = fatherHomePhone === undefined ? "(father's home phone)" : fatherHomePhone;
+    fatherCellPhone = fatherCellPhone === undefined ? "(father's cell phone)" : fatherCellPhone;
+    fatherWorkPhone = fatherWorkPhone === undefined ? "(father's work phone)" : fatherWorkPhone;
+    fatherEmployer = fatherEmployer === undefined ? "(father's employer)" : fatherEmployer;
+    fatherOccupation = fatherOccupation === undefined ? "(father's occupation)" : fatherOccupation;
+    fatherWorkLength = fatherWorkLength === undefined ? "(father's work length)" : fatherWorkLength;
+    fatherPrimaryLang = fatherPrimaryLang === undefined ? "(father's primary language)" : fatherPrimaryLang;
+    fatherSecondaryLang = fatherSecondaryLang === undefined ? "(father's secondary language)" : fatherSecondaryLang;
+    primaryCaregiverName = primaryCaregiverName === undefined ? "(Primary caregiver's name)" : primaryCaregiverName;
+    primaryCaregiverAge = primaryCaregiverAge === undefined ? "(Primary caregiver's age)" : primaryCaregiverAge;
+    primaryCaregiverRelationship = primaryCaregiverRelationship === undefined
+      ? '(Primary caregiver relationship)'
+      : primaryCaregiverRelationship;
+    primaryCaregiverAddress = primaryCaregiverAddress === undefined
+      ? "(Primary caregiver's address)"
+      : primaryCaregiverAddress;
+    primaryCaregiverHomePhone = primaryCaregiverHomePhone === undefined
+      ? "(Primary caregiver's home phone)"
+      : primaryCaregiverHomePhone;
+    primaryCaregiverCellPhone = primaryCaregiverCellPhone === undefined
+      ? "(Primary caregiver's cell phone)"
+      : primaryCaregiverCellPhone;
+    primaryCaregiverWorkPhone = primaryCaregiverWorkPhone === undefined
+      ? "(Primary caregiver's work phone)"
+      : primaryCaregiverWorkPhone;
 
     const bgHistoryCopyForward = `${motherName}, ${motherAge}, the ${stepmother}, lives at ${motherAddress}. Her home phone number is ${motherHomePhone}, her cell phone is ${motherCellPhone}, and her work phone is ${motherWorkPhone}.\n\n${motherName} has worked ${motherWorkLength} years for ${motherEmployer} as a ${motherOccupation}.\n\nHer primary language is ${motherPrimaryLang}. Her secondary language is ${motherSecondaryLang}.\n\n${fatherName}, ${fatherAge}, the ${stepfather}, lives at ${fatherAddress}. His home phone number is ${fatherHomePhone}, his cell phone is ${fatherCellPhone}, and his work phone is ${fatherWorkPhone}.\n\n${fatherName} has worked ${fatherWorkLength} years for ${fatherEmployer} as a ${fatherOccupation}.\n\nHis primary language is ${fatherPrimaryLang}. His secondary language is ${fatherSecondaryLang}.\n\n${primaryCaregiverName}, ${primaryCaregiverAge}, the ${primaryCaregiverRelationship}, lives at ${primaryCaregiverAddress}. His home phone number is ${primaryCaregiverHomePhone}, his cell phone is ${primaryCaregiverCellPhone}, and his work phone is ${primaryCaregiverWorkPhone}.`;
 
@@ -169,43 +123,35 @@ class WizardForm06Page extends Component {
         Father years at job =
         Father primary language =
         Father secondary language =
-      `
+      `,
     );
     console.log(
-      "WizardPage6 relevant background history copy forward string = ",
-      bgHistoryCopyForward
+      'WizardPage6 relevant background history copy forward string = ',
+      bgHistoryCopyForward,
     );
-    this.props.change("relevantBackgroundHistory", bgHistoryCopyForward);
+    this.props.change('relevantBackgroundHistory', bgHistoryCopyForward);
   };
 
   handlePrimaryCaregiver = () => {
-    this.props.change("bhPrimaryCaregiverFather", false);
-    this.props.change("bhPrimaryCaregiverMother", true);
+    this.props.change('bhPrimaryCaregiverFather', false);
+    this.props.change('bhPrimaryCaregiverMother', true);
   };
 
   handlePaqCopyForward = () => {
-    let {
-      paqName,
-      paqAddress,
-      paqHomePhone,
-      paqWorkPhone,
-      paqCellPhone
+    const {
+      paqName, paqAddress, paqHomePhone, paqWorkPhone, paqCellPhone,
     } = this.props;
-    this.props.change("bhMotherName", paqName);
-    this.props.change("bhMotherAddress", paqAddress);
-    this.props.change("bhMotherHomePhone", paqHomePhone);
-    this.props.change("bhMotherWorkPhone", paqWorkPhone);
-    this.props.change("bhMotherCellPhone", paqCellPhone);
+    this.props.change('bhMotherName', paqName);
+    this.props.change('bhMotherAddress', paqAddress);
+    this.props.change('bhMotherHomePhone', paqHomePhone);
+    this.props.change('bhMotherWorkPhone', paqWorkPhone);
+    this.props.change('bhMotherCellPhone', paqCellPhone);
   };
 
   render() {
     const { handleSubmit, handleDisable, disabled } = this.props;
-    const {
-      addCopyForward,
-      handlePrimaryCaregiver,
-      handlePaqCopyForward
-    } = this;
-    console.log("WizardPage6 props, ", this.props);
+    const { addCopyForward, handlePrimaryCaregiver, handlePaqCopyForward } = this;
+    console.log('WizardPage6 props, ', this.props);
     return (
       <form className="col" onSubmit={handleSubmit}>
         <SectionTitle titleBold="Background" titleRegular="history" />
@@ -213,7 +159,7 @@ class WizardForm06Page extends Component {
         <div className="flex">
           <SectionSubHeader subHeader="Mother" />
           <div onClick={handlePrimaryCaregiver}>
-            <ButtonToggle buttonToggleLabel="primary caregiver" />
+            <PillButton buttonToggleLabel="primary caregiver" />
           </div>
           <div onClick={event => addCopyForward(event)}>
             <CopyForwardButton buttonToggleLabel="copy forward" />
@@ -245,17 +191,17 @@ class WizardForm06Page extends Component {
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "bhStepmother",
-                cardKey: "A",
-                cardLabel: "Yes",
-                tabOrder: "2"
+                cardName: 'bhStepmother',
+                cardKey: 'A',
+                cardLabel: 'Yes',
+                tabOrder: '2',
               },
               {
-                cardName: "bhStepmother",
-                cardKey: "B",
-                cardLabel: "No",
-                tabOrder: "3"
-              }
+                cardName: 'bhStepmother',
+                cardKey: 'B',
+                cardLabel: 'No',
+                tabOrder: '3',
+              },
             ]}
             label="Is she the"
             labelBold="stepmother"
@@ -287,7 +233,7 @@ class WizardForm06Page extends Component {
             type="input"
             classes="question grid__half"
             disabled={disabled}
-            //copyForward="true"
+            // copyForward="true"
           />
         </div>
         <div className="flex">
@@ -431,60 +377,45 @@ class WizardForm06Page extends Component {
 }
 
 // Decorate with connect to read form values
-const selector = formValueSelector("wizard"); // <-- same as form name
+const selector = formValueSelector('wizard'); // <-- same as form name
 WizardForm06Page = connect(state => {
   // can select values individually
-  const motherName = selector(state, "bhMotherName");
-  const motherAge = selector(state, "bhMotherAge");
-  const stepmother = selector(state, "bhStepmother");
-  const motherAddress = selector(state, "bhMotherAddress");
-  const motherHomePhone = selector(state, "bhMotherHomePhone");
-  const motherCellPhone = selector(state, "bhMotherWorkPhone");
-  const motherWorkPhone = selector(state, "bhMotherCellPhone");
-  const motherWorkLength = selector(state, "bhMotherLengthEmployement");
-  const motherEmployer = selector(state, "bhMotherEmployer");
-  const motherOccupation = selector(state, "bhMotherOccupation");
-  const motherPrimaryLang = selector(state, "bhMotherPrimaryLanguage");
-  const motherSecondaryLang = selector(state, "bhMotherSecondaryLanguage");
-  const fatherName = selector(state, "bhFatherName");
-  const fatherAge = selector(state, "bhFatherAge");
-  const faepmother = selector(state, "bhStepfather");
-  const fatherAddress = selector(state, "bhFatherAddress");
-  const fatherHomePhone = selector(state, "bhFatherHomePhone");
-  const fatherCellPhone = selector(state, "bhFatherWorkPhone");
-  const fatherWorkPhone = selector(state, "bhFatherCellPhone");
-  const fatherWorkLength = selector(state, "bhFatherLengthEmployement");
-  const fatherEmployer = selector(state, "bhFatherEmployer");
-  const fatherOccupation = selector(state, "bhFatherOccupation");
-  const fatherPrimaryLang = selector(state, "bhFatherPrimaryLanguage");
-  const fatherSecondaryLang = selector(state, "bhFatherSecondaryLanguage");
-  const primaryCaregiverName = selector(state, "bhPrimaryCaregiverName");
-  const primaryCaregiverAge = selector(state, "bhOtherParentStepparentAge");
-  const primaryCaregiverRelationship = selector(
-    state,
-    "bhOtherParentStepparentGuardian"
-  );
-  const primaryCaregiverAddress = selector(
-    state,
-    "bhOtherParentStepparentAddress"
-  );
-  const primaryCaregiverHomePhone = selector(
-    state,
-    "bhOtherParentStepparentHomePhone"
-  );
-  const primaryCaregiverCellPhone = selector(
-    state,
-    "bhOtherParentStepparentCellPhone"
-  );
-  const primaryCaregiverWorkPhone = selector(
-    state,
-    "bhOtherParentStepparentWorkPhone"
-  );
-  const paqName = selector(state, "paqName");
-  const paqAddress = selector(state, "paqAddress");
-  const paqHomePhone = selector(state, "paqHomePhone");
-  const paqWorkPhone = selector(state, "paqWorkPhone");
-  const paqCellPhone = selector(state, "paqCellPhone");
+  const motherName = selector(state, 'bhMotherName');
+  const motherAge = selector(state, 'bhMotherAge');
+  const stepmother = selector(state, 'bhStepmother');
+  const motherAddress = selector(state, 'bhMotherAddress');
+  const motherHomePhone = selector(state, 'bhMotherHomePhone');
+  const motherCellPhone = selector(state, 'bhMotherWorkPhone');
+  const motherWorkPhone = selector(state, 'bhMotherCellPhone');
+  const motherWorkLength = selector(state, 'bhMotherLengthEmployement');
+  const motherEmployer = selector(state, 'bhMotherEmployer');
+  const motherOccupation = selector(state, 'bhMotherOccupation');
+  const motherPrimaryLang = selector(state, 'bhMotherPrimaryLanguage');
+  const motherSecondaryLang = selector(state, 'bhMotherSecondaryLanguage');
+  const fatherName = selector(state, 'bhFatherName');
+  const fatherAge = selector(state, 'bhFatherAge');
+  const faepmother = selector(state, 'bhStepfather');
+  const fatherAddress = selector(state, 'bhFatherAddress');
+  const fatherHomePhone = selector(state, 'bhFatherHomePhone');
+  const fatherCellPhone = selector(state, 'bhFatherWorkPhone');
+  const fatherWorkPhone = selector(state, 'bhFatherCellPhone');
+  const fatherWorkLength = selector(state, 'bhFatherLengthEmployement');
+  const fatherEmployer = selector(state, 'bhFatherEmployer');
+  const fatherOccupation = selector(state, 'bhFatherOccupation');
+  const fatherPrimaryLang = selector(state, 'bhFatherPrimaryLanguage');
+  const fatherSecondaryLang = selector(state, 'bhFatherSecondaryLanguage');
+  const primaryCaregiverName = selector(state, 'bhPrimaryCaregiverName');
+  const primaryCaregiverAge = selector(state, 'bhOtherParentStepparentAge');
+  const primaryCaregiverRelationship = selector(state, 'bhOtherParentStepparentGuardian');
+  const primaryCaregiverAddress = selector(state, 'bhOtherParentStepparentAddress');
+  const primaryCaregiverHomePhone = selector(state, 'bhOtherParentStepparentHomePhone');
+  const primaryCaregiverCellPhone = selector(state, 'bhOtherParentStepparentCellPhone');
+  const primaryCaregiverWorkPhone = selector(state, 'bhOtherParentStepparentWorkPhone');
+  const paqName = selector(state, 'paqName');
+  const paqAddress = selector(state, 'paqAddress');
+  const paqHomePhone = selector(state, 'paqHomePhone');
+  const paqWorkPhone = selector(state, 'paqWorkPhone');
+  const paqCellPhone = selector(state, 'paqCellPhone');
   return {
     motherName,
     motherAge,
@@ -521,13 +452,13 @@ WizardForm06Page = connect(state => {
     paqAddress,
     paqHomePhone,
     paqWorkPhone,
-    paqCellPhone
+    paqCellPhone,
   };
 })(WizardForm06Page);
 
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm06Page);

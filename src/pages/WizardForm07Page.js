@@ -6,10 +6,9 @@ import TextQuestion from "../components/TextQuestion/";
 import SectionTitle from "../components/SectionTitle";
 import SectionSubTitle from "../components/SectionSubTitle";
 import Button from "../components/Button";
-import CopyForwardButton from "../components/ButtonToggle/CopyForwardButton";
+import CopyForwardButton, { PillButton } from "../components/ButtonToggle/CopyForwardButton";
 import RadioCard from "../components/Card/RadioCard/RadioCard";
 import SectionSubHeader from "../components/SectionSubHeader";
-import ButtonToggle from "../components/ButtonToggle";
 import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
 import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
 import { normalizePhone } from "../utils/Normalize";
@@ -178,7 +177,7 @@ class WizardForm07Page extends Component {
         <div className="flex">
           <SectionSubHeader subHeader="Father" />
           <div onClick={handlePrimaryCaregiver}>
-            <ButtonToggle buttonToggleLabel="primary caregiver" />
+            <PillButton buttonToggleLabel="primary caregiver" />
           </div>
           <div onClick={event => addCopyForward(event)}>
             <CopyForwardButton buttonToggleLabel="copy forward" />
