@@ -15,11 +15,9 @@ class WizardForm50Page extends Component {
     loading: false,
   };
 
-  generatePDFTest = event => {
+  generatePDFTest = (event) => {
     event.preventDefault();
-    const {
-      values, tests, recommendations, appendices,
-    } = this.props;
+    const { values, tests, recommendations, appendices } = this.props;
     const data = {
       values,
       appendixReducer: appendices.Tests,
@@ -32,10 +30,13 @@ class WizardForm50Page extends Component {
 
     // use axios' post method to the create-pdf route passing the data from state
     // blobs are immutable objects the represent raw data, like our PDF
+    // For prod use https://onpdfgenerator.azurewebsites.net/
     axios
       .post('http://localhost:5000/create-pdf', data)
-      .then(() => axios.get('http://localhost:5000/fetch-pdf', { responseType: 'blob' }))
-      .then(res => {
+      .then(() =>
+        axios.get('http://localhost:5000/fetch-pdf', { responseType: 'blob' }),
+      )
+      .then((res) => {
         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
         saveAs(pdfBlob, 'newPDF.pdf');
         this.setState({ loading: false });
@@ -112,7 +113,7 @@ WizardForm50Page.propTypes = {
 };
 
 // Grab the Redux Form's values and load it into props
-WizardForm50Page = connect(state => ({
+WizardForm50Page = connect((state) => ({
   values: getFormValues('wizard')(state),
   tests: state.testsSelectedReducer,
   appendices: state.appendixReducer,

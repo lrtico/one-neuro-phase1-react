@@ -4,24 +4,62 @@ import { Field, reduxForm } from 'redux-form';
 import validate from '../validate';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
-import FormCardStacked from '../components/Card/FormCard/FormCardStacked';
+import FormCardStacked from '../components/Card/FormCard/FormCardStacked copy state managed';
 import SectionSubHeader from '../components/SectionSubHeader';
 import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
 class WizardForm16Page extends Component {
+  state = {
+    turnOver: false,
+    walkDownStairs: false,
+    sitAlone: false,
+    likesSound: false,
+    crawls: false,
+    understandFirstWords: false,
+    standAlone: false,
+    speakFirstWords: false,
+    walkAlone: false,
+    speakSentences: false,
+    walkUpStairs: false,
+  };
+
   handleDelete = (input1Name, input2Name, ref) => {
     const { change } = this.props;
-    // console.log('WizardForm16Page handleDelete fired', input1Name, input2Name);
+    console.log('WizardForm16Page handleDelete fired', input1Name, input2Name);
     console.log('WizardForm16Page handleDelete ref = ', ref);
 
     change(input1Name, '');
     change(input2Name, '');
+    this.setState({
+      [ref]: false,
+    });
+  };
+
+  handleAddingTick = ref => {
+    console.log('WizardForm16Page handleAddingTick ref = ', ref);
+    this.setState(prevState => ({
+      [ref]: !prevState.ref,
+    }));
   };
 
   render() {
     const { handleSubmit, handleDisable, disabled } = this.props;
-    console.log('WizardForm16Page props ', this.props);
+    const {
+      turnOver,
+      walkDownStairs,
+      sitAlone,
+      likesSound,
+      crawls,
+      understandFirstWords,
+      standAlone,
+      speakFirstWords,
+      walkAlone,
+      speakSentences,
+      walkUpStairs,
+    } = this.state;
 
+    //  console.log('WizardForm16Page props ', this.props);
+    console.log('WizardForm16Page cardSelected state = ', this.state);
     return (
       <form className="col" onSubmit={handleSubmit}>
         <SectionTitle
@@ -37,8 +75,10 @@ class WizardForm16Page extends Component {
             name="mdhDevelopment"
             component={FormCardStacked}
             onDelete={this.handleDelete}
+            onAdd={this.handleAddingTick}
             cardInfo={[
               {
+                ref: 'turnOver',
                 cardFloat: true,
                 cardLabel: 'Turn over?',
                 tabOrder: '1',
@@ -47,8 +87,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhTurnOverYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: turnOver,
               },
               {
+                ref: 'walkDownStairs',
                 cardFloat: true,
                 cardLabel: 'Walk down stairs?',
                 tabOrder: '2',
@@ -57,8 +99,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhWalkDownStairsYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: walkDownStairs,
               },
               {
+                ref: 'sitAlone',
                 cardFloat: true,
                 cardLabel: 'Sit alone?',
                 tabOrder: '3',
@@ -67,8 +111,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhSitAloneYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: sitAlone,
               },
               {
+                ref: 'likesSound',
                 cardFloat: true,
                 cardLabel: 'Show interest in or attraction to sound?',
                 tabOrder: '4',
@@ -77,8 +123,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhAttractedSoundYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: likesSound,
               },
               {
+                ref: 'crawls',
                 cardFloat: true,
                 cardLabel: 'Crawl?',
                 tabOrder: '5',
@@ -87,8 +135,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhCrawlYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: crawls,
               },
               {
+                ref: 'understandFirstWords',
                 cardFloat: true,
                 cardLabel: 'Understand first words?',
                 tabOrder: '6',
@@ -97,8 +147,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhUnderstandWordsYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: understandFirstWords,
               },
               {
+                ref: 'standAlone',
                 cardFloat: true,
                 cardLabel: 'Stand alone?',
                 tabOrder: '7',
@@ -107,8 +159,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhStandAloneYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: standAlone,
               },
               {
+                ref: 'speakFirstWords',
                 cardFloat: true,
                 cardLabel: 'Speak first words?',
                 tabOrder: '8',
@@ -117,8 +171,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhSpeakFirstWordsYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: speakFirstWords,
               },
               {
+                ref: 'walkAlone',
                 cardFloat: true,
                 cardLabel: 'Walk alone?',
                 tabOrder: '9',
@@ -127,8 +183,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhWalkAloneYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: walkAlone,
               },
               {
+                ref: 'speakSentences',
                 cardFloat: true,
                 cardLabel: 'Speak in sentences?',
                 tabOrder: '10',
@@ -137,8 +195,10 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhSpeakSentencesYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: speakSentences,
               },
               {
+                ref: 'walkUpStairs',
                 cardFloat: true,
                 cardLabel: 'Walk up stairs?',
                 tabOrder: '11',
@@ -147,6 +207,7 @@ class WizardForm16Page extends Component {
                 card2Name: 'mdhWalkUpStairsYear',
                 card2Placeholder: 'Years',
                 normalizeOnlyNums: true,
+                showTick: walkUpStairs,
               },
             ]}
             label="At what"

@@ -1,17 +1,20 @@
-import React, { Component } from "react";
-import { Field, reduxForm, formValueSelector } from "redux-form";
-import { connect } from "react-redux";
-import validate from "../validate";
-import TextQuestion from "../components/TextQuestion/";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubTitle from "../components/SectionSubTitle";
-import Button from "../components/Button";
-import CopyForwardButton, { PillButton } from "../components/ButtonToggle/CopyForwardButton";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import SectionSubHeader from "../components/SectionSubHeader";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
-import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
-import { normalizePhone } from "../utils/Normalize";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
+import validate from '../validate';
+import TextQuestion from '../components/TextQuestion';
+import SectionTitle from '../components/SectionTitle';
+import SectionSubTitle from '../components/SectionSubTitle';
+import Button from '../components/Button';
+import CopyForwardButton, {
+  PillButton,
+} from '../components/ButtonToggle/CopyForwardButton';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import SectionSubHeader from '../components/SectionSubHeader';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
+import NormalizePhoneInput from '../components/TextQuestion/NormalizePhoneInput';
+import { normalizePhone } from '../utils/Normalize';
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
@@ -49,11 +52,12 @@ class WizardForm07Page extends Component {
       primaryCaregiverAddress,
       primaryCaregiverHomePhone,
       primaryCaregiverCellPhone,
-      primaryCaregiverWorkPhone
+      primaryCaregiverWorkPhone,
     } = this.props;
+    const { change } = this.props;
     motherName = motherName === undefined ? "(Mother's name)" : motherName;
     motherAge = motherAge === undefined ? "(mother's age)" : motherAge;
-    stepmother = stepmother === "Yes" ? "stepmother" : "mother";
+    stepmother = stepmother === 'Yes' ? 'stepmother' : 'mother';
     motherAddress =
       motherAddress === undefined ? "(mother's address)" : motherAddress;
     motherHomePhone =
@@ -82,7 +86,7 @@ class WizardForm07Page extends Component {
         : motherSecondaryLang;
     fatherName = fatherName === undefined ? "(Father's name)" : fatherName;
     fatherAge = fatherAge === undefined ? "(father's age)" : fatherAge;
-    stepfather = stepfather === "Yes" ? "stepfather" : "father";
+    stepfather = stepfather === 'Yes' ? 'stepfather' : 'father';
     fatherAddress =
       fatherAddress === undefined ? "(father's address)" : fatherAddress;
     fatherHomePhone =
@@ -119,7 +123,7 @@ class WizardForm07Page extends Component {
         : primaryCaregiverAge;
     primaryCaregiverRelationship =
       primaryCaregiverRelationship === undefined
-        ? "(Primary caregiver relationship)"
+        ? '(Primary caregiver relationship)'
         : primaryCaregiverRelationship;
     primaryCaregiverAddress =
       primaryCaregiverAddress === undefined
@@ -140,27 +144,29 @@ class WizardForm07Page extends Component {
 
     const bgHistoryCopyForward = `${motherName}, ${motherAge}, the ${stepmother}, lives at ${motherAddress}. Her home phone number is ${motherHomePhone}, her cell phone is ${motherCellPhone}, and her work phone is ${motherWorkPhone}.\n\n${motherName} has worked ${motherWorkLength} years for ${motherEmployer} as a ${motherOccupation}.\n\nHer primary language is ${motherPrimaryLang}. Her secondary language is ${motherSecondaryLang}.\n\n${fatherName}, ${fatherAge}, the ${stepfather}, lives at ${fatherAddress}. His home phone number is ${fatherHomePhone}, his cell phone is ${fatherCellPhone}, and his work phone is ${fatherWorkPhone}.\n\n${fatherName} has worked ${fatherWorkLength} years for ${fatherEmployer} as a ${fatherOccupation}.\n\nHis primary language is ${fatherPrimaryLang}. His secondary language is ${fatherSecondaryLang}.\n\n${primaryCaregiverName}, ${primaryCaregiverAge}, the ${primaryCaregiverRelationship}, lives at ${primaryCaregiverAddress}. His home phone number is ${primaryCaregiverHomePhone}, his cell phone is ${primaryCaregiverCellPhone}, and his work phone is ${primaryCaregiverWorkPhone}.`;
 
-    this.props.change("relevantBackgroundHistory", bgHistoryCopyForward);
+    change('relevantBackgroundHistory', bgHistoryCopyForward);
   };
 
   handlePrimaryCaregiver = () => {
-    this.props.change("bhPrimaryCaregiverFather", true);
-    this.props.change("bhPrimaryCaregiverMother", false);
+    const { change } = this.props;
+    change('bhPrimaryCaregiverFather', true);
+    change('bhPrimaryCaregiverMother', false);
   };
 
   handlePaqCopyForward = () => {
-    let {
+    const {
       paqName,
       paqAddress,
       paqHomePhone,
       paqWorkPhone,
-      paqCellPhone
+      paqCellPhone,
+      change,
     } = this.props;
-    this.props.change("bhFatherName", paqName);
-    this.props.change("bhFatherAddress", paqAddress);
-    this.props.change("bhFatherHomePhone", paqHomePhone);
-    this.props.change("bhFatherWorkPhone", paqWorkPhone);
-    this.props.change("bhFatherCellPhone", paqCellPhone);
+    change('bhFatherName', paqName);
+    change('bhFatherAddress', paqAddress);
+    change('bhFatherHomePhone', paqHomePhone);
+    change('bhFatherWorkPhone', paqWorkPhone);
+    change('bhFatherCellPhone', paqCellPhone);
   };
 
   render() {
@@ -168,7 +174,7 @@ class WizardForm07Page extends Component {
     const {
       addCopyForward,
       handlePrimaryCaregiver,
-      handlePaqCopyForward
+      handlePaqCopyForward,
     } = this;
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -179,7 +185,7 @@ class WizardForm07Page extends Component {
           <div onClick={handlePrimaryCaregiver}>
             <PillButton buttonToggleLabel="primary caregiver" />
           </div>
-          <div onClick={event => addCopyForward(event)}>
+          <div onClick={(event) => addCopyForward(event)}>
             <CopyForwardButton buttonToggleLabel="copy forward" />
           </div>
           <div onClick={handlePaqCopyForward}>
@@ -207,17 +213,17 @@ class WizardForm07Page extends Component {
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "bhStepfather",
-                cardKey: "A",
-                cardLabel: "Yes",
-                tabOrder: "2"
+                cardName: 'bhStepfather',
+                cardKey: 'A',
+                cardLabel: 'Yes',
+                tabOrder: '2',
               },
               {
-                cardName: "bhStepfather",
-                cardKey: "B",
-                cardLabel: "No",
-                tabOrder: "3"
-              }
+                cardName: 'bhStepfather',
+                cardKey: 'B',
+                cardLabel: 'No',
+                tabOrder: '3',
+              },
             ]}
             label="Is he the"
             labelBold="stepfather"
@@ -384,60 +390,60 @@ class WizardForm07Page extends Component {
 }
 
 // Decorate with connect to read form values
-const selector = formValueSelector("wizard"); // <-- same as form name
-WizardForm07Page = connect(state => {
+const selector = formValueSelector('wizard'); // <-- same as form name
+WizardForm07Page = connect((state) => {
   // can select values individually
-  const motherName = selector(state, "bhMotherName");
-  const motherAge = selector(state, "bhMotherAge");
-  const stepmother = selector(state, "bhStepmother");
-  const motherAddress = selector(state, "bhMotherAddress");
-  const motherHomePhone = selector(state, "bhMotherHomePhone");
-  const motherCellPhone = selector(state, "bhMotherWorkPhone");
-  const motherWorkPhone = selector(state, "bhMotherCellPhone");
-  const motherWorkLength = selector(state, "bhMotherLengthEmployement");
-  const motherEmployer = selector(state, "bhMotherEmployer");
-  const motherOccupation = selector(state, "bhMotherOccupation");
-  const motherPrimaryLang = selector(state, "bhMotherPrimaryLanguage");
-  const motherSecondaryLang = selector(state, "bhMotherSecondaryLanguage");
-  const fatherName = selector(state, "bhFatherName");
-  const fatherAge = selector(state, "bhFatherAge");
-  const faepmother = selector(state, "bhStepfather");
-  const fatherAddress = selector(state, "bhFatherAddress");
-  const fatherHomePhone = selector(state, "bhFatherHomePhone");
-  const fatherCellPhone = selector(state, "bhFatherWorkPhone");
-  const fatherWorkPhone = selector(state, "bhFatherCellPhone");
-  const fatherWorkLength = selector(state, "bhFatherLengthEmployement");
-  const fatherEmployer = selector(state, "bhFatherEmployer");
-  const fatherOccupation = selector(state, "bhFatherOccupation");
-  const fatherPrimaryLang = selector(state, "bhFatherPrimaryLanguage");
-  const fatherSecondaryLang = selector(state, "bhFatherSecondaryLanguage");
-  const primaryCaregiverName = selector(state, "bhPrimaryCaregiverName");
-  const primaryCaregiverAge = selector(state, "bhOtherParentStepparentAge");
+  const motherName = selector(state, 'bhMotherName');
+  const motherAge = selector(state, 'bhMotherAge');
+  const stepmother = selector(state, 'bhStepmother');
+  const motherAddress = selector(state, 'bhMotherAddress');
+  const motherHomePhone = selector(state, 'bhMotherHomePhone');
+  const motherCellPhone = selector(state, 'bhMotherWorkPhone');
+  const motherWorkPhone = selector(state, 'bhMotherCellPhone');
+  const motherWorkLength = selector(state, 'bhMotherLengthEmployement');
+  const motherEmployer = selector(state, 'bhMotherEmployer');
+  const motherOccupation = selector(state, 'bhMotherOccupation');
+  const motherPrimaryLang = selector(state, 'bhMotherPrimaryLanguage');
+  const motherSecondaryLang = selector(state, 'bhMotherSecondaryLanguage');
+  const fatherName = selector(state, 'bhFatherName');
+  const fatherAge = selector(state, 'bhFatherAge');
+  const stepfather = selector(state, 'bhStepfather');
+  const fatherAddress = selector(state, 'bhFatherAddress');
+  const fatherHomePhone = selector(state, 'bhFatherHomePhone');
+  const fatherCellPhone = selector(state, 'bhFatherWorkPhone');
+  const fatherWorkPhone = selector(state, 'bhFatherCellPhone');
+  const fatherWorkLength = selector(state, 'bhFatherLengthEmployement');
+  const fatherEmployer = selector(state, 'bhFatherEmployer');
+  const fatherOccupation = selector(state, 'bhFatherOccupation');
+  const fatherPrimaryLang = selector(state, 'bhFatherPrimaryLanguage');
+  const fatherSecondaryLang = selector(state, 'bhFatherSecondaryLanguage');
+  const primaryCaregiverName = selector(state, 'bhPrimaryCaregiverName');
+  const primaryCaregiverAge = selector(state, 'bhOtherParentStepparentAge');
   const primaryCaregiverRelationship = selector(
     state,
-    "bhOtherParentStepparentGuardian"
+    'bhOtherParentStepparentGuardian',
   );
   const primaryCaregiverAddress = selector(
     state,
-    "bhOtherParentStepparentAddress"
+    'bhOtherParentStepparentAddress',
   );
   const primaryCaregiverHomePhone = selector(
     state,
-    "bhOtherParentStepparentHomePhone"
+    'bhOtherParentStepparentHomePhone',
   );
   const primaryCaregiverCellPhone = selector(
     state,
-    "bhOtherParentStepparentCellPhone"
+    'bhOtherParentStepparentCellPhone',
   );
   const primaryCaregiverWorkPhone = selector(
     state,
-    "bhOtherParentStepparentWorkPhone"
+    'bhOtherParentStepparentWorkPhone',
   );
-  const paqName = selector(state, "paqName");
-  const paqAddress = selector(state, "paqAddress");
-  const paqHomePhone = selector(state, "paqHomePhone");
-  const paqWorkPhone = selector(state, "paqWorkPhone");
-  const paqCellPhone = selector(state, "paqCellPhone");
+  const paqName = selector(state, 'paqName');
+  const paqAddress = selector(state, 'paqAddress');
+  const paqHomePhone = selector(state, 'paqHomePhone');
+  const paqWorkPhone = selector(state, 'paqWorkPhone');
+  const paqCellPhone = selector(state, 'paqCellPhone');
   return {
     motherName,
     motherAge,
@@ -453,7 +459,7 @@ WizardForm07Page = connect(state => {
     motherSecondaryLang,
     fatherName,
     fatherAge,
-    faepmother,
+    stepfather,
     fatherAddress,
     fatherHomePhone,
     fatherCellPhone,
@@ -474,13 +480,56 @@ WizardForm07Page = connect(state => {
     paqAddress,
     paqHomePhone,
     paqWorkPhone,
-    paqCellPhone
+    paqCellPhone,
   };
 })(WizardForm07Page);
 
+WizardForm07Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+  change: PropTypes.func,
+  motherName: PropTypes.string,
+  motherAge: PropTypes.string,
+  stepmother: PropTypes.string,
+  motherAddress: PropTypes.string,
+  motherHomePhone: PropTypes.string,
+  motherCellPhone: PropTypes.string,
+  motherWorkPhone: PropTypes.string,
+  motherWorkLength: PropTypes.string,
+  motherEmployer: PropTypes.string,
+  motherOccupation: PropTypes.string,
+  motherPrimaryLang: PropTypes.string,
+  motherSecondaryLang: PropTypes.string,
+  fatherName: PropTypes.string,
+  fatherAge: PropTypes.string,
+  stepfather: PropTypes.string,
+  fatherAddress: PropTypes.string,
+  fatherHomePhone: PropTypes.string,
+  fatherCellPhone: PropTypes.string,
+  fatherWorkPhone: PropTypes.string,
+  fatherWorkLength: PropTypes.string,
+  fatherEmployer: PropTypes.string,
+  fatherOccupation: PropTypes.string,
+  fatherPrimaryLang: PropTypes.string,
+  fatherSecondaryLang: PropTypes.string,
+  primaryCaregiverName: PropTypes.string,
+  primaryCaregiverAge: PropTypes.string,
+  primaryCaregiverRelationship: PropTypes.string,
+  primaryCaregiverAddress: PropTypes.string,
+  primaryCaregiverHomePhone: PropTypes.string,
+  primaryCaregiverCellPhone: PropTypes.string,
+  primaryCaregiverWorkPhone: PropTypes.string,
+  paqName: PropTypes.string,
+  paqAddress: PropTypes.string,
+  paqHomePhone: PropTypes.string,
+  paqWorkPhone: PropTypes.string,
+  paqCellPhone: PropTypes.string,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm07Page);

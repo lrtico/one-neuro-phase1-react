@@ -1,7 +1,7 @@
 {
-  "name": "redux-form-wizard-example",
+  "name": "one-neuro-report-writer",
   "version": "1.0.0",
-  "description": "Example of how to do a multi-page \"wizard\" form using Redux Form",
+  "description": "React-based web application to generate PDF reports",
   "keywords": [],
   "main": "index.js",
   "dependencies": {

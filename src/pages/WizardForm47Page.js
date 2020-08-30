@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import "../app.css";
-import { Field, FieldArray, reduxForm } from "redux-form";
-import { connect } from "react-redux";
-import validate from "../validate";
-import MaterialIcon from "react-google-material-icons";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import CheckboxDomainsCard from "../components/Card/CheckboxCard/CheckboxDomainsCard";
-import CheckboxTestsCard from "../components/Card/CheckboxCard/CheckboxTestsCard";
-import DivButton from "../components/Button/DivButton";
-import Test from "../components/Test/Test";
-import DomainsLoading from "../components/Loading/DomainsLoading";
-import store from "../store";
-import SectionSubTitle from "../components/SectionSubTitle";
+import React, { Component } from 'react';
+import '../app.css';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import MaterialIcon from 'react-google-material-icons';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import CheckboxDomainsCard from '../components/Card/CheckboxCard/CheckboxDomainsCard';
+import CheckboxTestsCard from '../components/Card/CheckboxCard/CheckboxTestsCard';
+import DivButton from '../components/Button/DivButton';
+import Test from '../components/Test/Test';
+import DomainsLoading from '../components/Loading/DomainsLoading';
+import store from '../store';
+import SectionSubTitle from '../components/SectionSubTitle';
 
 class WizardForm47Page extends Component {
   state = {
@@ -21,75 +21,76 @@ class WizardForm47Page extends Component {
     tests: [],
     matchedTests: [],
     testsSelected: [],
-    domainsLoaded: false
+    domainsLoaded: false,
+    showFetchErrorDomains: false,
   };
 
   showLetterFormat = () => {
-    //console.log("hide domain, show letter");
-    document.querySelector(".domain__pick-domain").classList.remove("show");
-    document.querySelector(".letter-format").classList.add("show");
+    // console.log("hide domain, show letter");
+    document.querySelector('.domain__pick-domain').classList.remove('show');
+    document.querySelector('.letter-format').classList.add('show');
   };
 
   showDomainBased = () => {
     // console.log("hide letter, domain based selected");
-    document.querySelector(".letter-format").classList.remove("show");
-    //document.querySelector(".domain__pick-domain").classList.add("show");
+    document.querySelector('.letter-format').classList.remove('show');
+    // document.querySelector(".domain__pick-domain").classList.add("show");
     store.dispatch({
-      type: "SHOW_DOMAIN",
-      payload: { showDomains: true }
+      type: 'SHOW_DOMAIN',
+      payload: { showDomains: true },
     });
-    document.querySelector(".domain__pick-domain").scrollIntoView({
-      behavior: "smooth"
+    document.querySelector('.domain__pick-domain').scrollIntoView({
+      behavior: 'smooth',
     });
   };
 
   showSubDomain = () => {
-    //console.log("hide everything but pick the sub domain executing...");
+    // console.log("hide everything but pick the sub domain executing...");
     // this.setState(prevState => {
     //   return { showSubDomains: !prevState.showSubDomains };
     // });
     store.dispatch({
-      type: "SHOW_SUBDOMAIN",
-      payload: { showSubDomains: true }
+      type: 'SHOW_SUBDOMAIN',
+      payload: { showSubDomains: true },
     });
-    //document.querySelector(".domain__pick-sub-domain").classList.add("show");
-    document.querySelector(".domain__pick-sub-domain").scrollIntoView({
-      behavior: "smooth"
+    // document.querySelector(".domain__pick-sub-domain").classList.add("show");
+    document.querySelector('.domain__pick-sub-domain').scrollIntoView({
+      behavior: 'smooth',
     });
     // console.log("showSubDomain click");
   };
 
   showTests = () => {
-    //console.log("Make tests go now!");
+    // console.log("Make tests go now!");
     // this.setState(prevState => {
     //   return { showTests: !prevState.showTests };
     // });
     store.dispatch({
-      type: "SHOW__TESTS",
-      payload: { showTests: true }
+      type: 'SHOW__TESTS',
+      payload: { showTests: true },
     });
-    //document.querySelector(".domain__test").classList.add("show");
-    document.querySelector(".domain__test h4").scrollIntoView({
-      behavior: "smooth"
+    // document.querySelector(".domain__test").classList.add("show");
+    document.querySelector('.domain__test h4').scrollIntoView({
+      behavior: 'smooth',
     });
   };
 
   showSummary = () => {
-    //console.log("Make summary go now!");
+    // console.log("Make summary go now!");
     // this.setState(prevState => {
     //   return { showSummary: !prevState.showSummary };
     // });
     store.dispatch({
-      type: "SHOW_SUMMARY",
-      payload: { showSummary: true }
+      type: 'SHOW_SUMMARY',
+      payload: { showSummary: true },
     });
-    //document.querySelector(".summary-findings").classList.add("show");
-    document.querySelector(".summary-findings").scrollIntoView({
-      behavior: "smooth"
+    // document.querySelector(".summary-findings").classList.add("show");
+    document.querySelector('.summary-findings').scrollIntoView({
+      behavior: 'smooth',
     });
   };
 
-  //Add a composite score domain to the appendix (not used anymore)
+  // Add a composite score domain to the appendix (not used anymore)
   addToAppendix = (id, parentScaleName, abbreviation, name, event) => {
     console.log(`
       Make Appendix Domain info go now!
@@ -100,41 +101,41 @@ class WizardForm47Page extends Component {
       - Id: ${id}
       - Event: ${event.target.checked}
     `);
-    let data = {
+    const data = {
       Id: id,
       Name: name,
       Abbreviation: abbreviation,
-      DomainsOverall: [{ parentScaleName, id }]
+      DomainsOverall: [{ parentScaleName, id }],
     };
 
-    let checked = event.target.checked;
+    const { checked } = event.target.checked;
 
     if (checked) {
-      console.log("payload sent to add appendix reducer: ", data);
+      console.log('payload sent to add appendix reducer: ', data);
       store.dispatch({
-        type: "ADD_APPENDIX_DOMAIN",
-        payload: data
+        type: 'ADD_APPENDIX_DOMAIN',
+        payload: data,
       });
     } else {
       console.log(
-        "payload sent to remove appendix reducer: ",
-        data.DomainsOverall[0]
+        'payload sent to remove appendix reducer: ',
+        data.DomainsOverall[0],
       );
       store.dispatch({
-        type: "REMOVE_APPENDIX_DOMAIN",
-        payload: data
+        type: 'REMOVE_APPENDIX_DOMAIN',
+        payload: data,
       });
     }
   };
 
-  //Add a subtest inside a testSelected[0].SubTests to the appendix onBlur (when user leaves a subtest's score input)
+  // Add a subtest inside a testSelected[0].SubTests to the appendix onBlur (when user leaves a subtest's score input)
   addSubtestToAppendix = (
     id,
     testName,
     abbreviation,
     subtestId,
     subtestName,
-    event
+    event,
   ) => {
     console.log(`
       Make Appendix Subtest info go now!
@@ -147,27 +148,27 @@ class WizardForm47Page extends Component {
       - Event: ${event.target.value}
     `);
 
-    let data = {
+    const data = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
       SubTests: [
         {
           Id: subtestId,
-          Name: subtestName
-        }
-      ]
+          Name: subtestName,
+        },
+      ],
     };
 
-    console.log("ParentScale payload sent to appendix reducer, ", data);
+    console.log('ParentScale payload sent to appendix reducer, ', data);
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //Check to see if any sibling subtests have a value
-    let sibsNotBlank = event => {
-      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
+    // Check to see if any sibling subtests have a value
+    const sibsNotBlank = (event) => {
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        'input',
       );
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
@@ -177,14 +178,13 @@ class WizardForm47Page extends Component {
       //   }
       //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
       // }
-      for (let item of sibsArr) {
-        if (item.value !== "") {
+      for (const item of sibsArr) {
+        if (item.value !== '') {
           sibsTest = true;
           return sibsTest;
-        } else {
-          sibsTest = false;
-          return sibsTest;
         }
+        sibsTest = false;
+        return sibsTest;
       }
     };
     // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
@@ -196,8 +196,8 @@ class WizardForm47Page extends Component {
       //   payload: data
       // });
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
     } else if (sibsNotBlank(event)) {
       //   const domainName = `${parentScaleTitleId}-${parentScaleName
@@ -210,8 +210,8 @@ class WizardForm47Page extends Component {
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     } else {
       // console.log(
@@ -219,13 +219,13 @@ class WizardForm47Page extends Component {
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Add a subtest inside a ParentScaleTitle to the appendix onBlur (when user leaves a subtest's score input)
+  // Add a subtest inside a ParentScaleTitle to the appendix onBlur (when user leaves a subtest's score input)
   addParentScaleTitleSubtestToAppendix = (
     id,
     testName,
@@ -233,7 +233,7 @@ class WizardForm47Page extends Component {
     parentScaleName,
     abbreviation,
     event,
-    parentScaleTitleId
+    parentScaleTitleId,
   ) => {
     console.log(`
       Make Appendix Subtest info go now!
@@ -247,7 +247,7 @@ class WizardForm47Page extends Component {
       - ParentScale Id: ${parentScaleTitleId}
     `);
 
-    let data = {
+    const data = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
@@ -255,20 +255,20 @@ class WizardForm47Page extends Component {
         {
           Id: parentScaleTitleId,
           ParentScaleTitle: parentScaleName,
-          SubTests: [{ name, id }]
-        }
-      ]
+          SubTests: [{ name, id }],
+        },
+      ],
     };
 
-    console.log("ParentScale payload sent to appendix reducer, ", data);
+    console.log('ParentScale payload sent to appendix reducer, ', data);
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //Check to see if any sibling subtests have a value
-    let sibsNotBlank = event => {
-      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
+    // Check to see if any sibling subtests have a value
+    const sibsNotBlank = (event) => {
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        'input',
       );
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
@@ -278,14 +278,13 @@ class WizardForm47Page extends Component {
       //   }
       //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
       // }
-      for (let item of sibsArr) {
-        if (item.value !== "") {
+      for (const item of sibsArr) {
+        if (item.value !== '') {
           sibsTest = true;
           return sibsTest;
-        } else {
-          sibsTest = false;
-          return sibsTest;
         }
+        sibsTest = false;
+        return sibsTest;
       }
     };
     // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
@@ -297,14 +296,14 @@ class WizardForm47Page extends Component {
       //   payload: data
       // });
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       // console.log(`Domain name = ${domainName}`);
       this.props.change(domainName, true);
     } else if (sibsNotBlank(event)) {
@@ -318,27 +317,27 @@ class WizardForm47Page extends Component {
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     } else {
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       this.props.change(domainName, false);
       // console.log(
       //   "payload sent to remove appendix reducer: ",
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Add a subtest inside a ParentGroupSubScale to the appendix onBlur (when user leaves a subtest's score input)
+  // Add a subtest inside a ParentGroupSubScale to the appendix onBlur (when user leaves a subtest's score input)
   addParentGroupSubScaleSubtestToAppendix = (
     abbreviation,
     testName,
@@ -348,7 +347,7 @@ class WizardForm47Page extends Component {
     parentScaleName,
     id,
     name,
-    event
+    event,
   ) => {
     console.log(`
       Make ParentGroupSubScale's Appendix Subtest info go now!
@@ -363,7 +362,7 @@ class WizardForm47Page extends Component {
       - SubTest Name: ${name}
       - Event: ${event.target.value}
     `);
-    let data = {
+    const data = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
@@ -375,20 +374,20 @@ class WizardForm47Page extends Component {
             {
               Id: parentScaleTitleId,
               ParentScaleTitle: parentScaleName,
-              SubTests: [{ name, id }]
-            }
-          ]
-        }
-      ]
+              SubTests: [{ name, id }],
+            },
+          ],
+        },
+      ],
     };
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //Check to see if any sibling subtests have a value
-    let sibsNotBlank = event => {
-      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
+    // Check to see if any sibling subtests have a value
+    const sibsNotBlank = (event) => {
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        'input',
       );
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
@@ -398,14 +397,13 @@ class WizardForm47Page extends Component {
       //   }
       //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
       // }
-      for (let item of sibsArr) {
-        if (item.value !== "") {
+      for (const item of sibsArr) {
+        if (item.value !== '') {
           sibsTest = true;
           return sibsTest;
-        } else {
-          sibsTest = false;
-          return sibsTest;
         }
+        sibsTest = false;
+        return sibsTest;
       }
     };
     // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
@@ -417,14 +415,14 @@ class WizardForm47Page extends Component {
       //   payload: data
       // });
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       // console.log(`Domain name = ${domainName}`);
       this.props.change(domainName, true);
     } else if (sibsNotBlank(event)) {
@@ -438,27 +436,27 @@ class WizardForm47Page extends Component {
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     } else {
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       this.props.change(domainName, false);
       // console.log(
       //   "payload sent to remove appendix reducer: ",
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Add a subtest inside a ParentScaleTitle inside a ParentGroupScale to the appendix onBlur (when user leaves a subtest's score input)
+  // Add a subtest inside a ParentScaleTitle inside a ParentGroupScale to the appendix onBlur (when user leaves a subtest's score input)
   addParentGroupScaleParentScaleTitleSubtestToAppendix = (
     abbreviation,
     testName,
@@ -468,7 +466,7 @@ class WizardForm47Page extends Component {
     parentScaleName,
     id,
     name,
-    event
+    event,
   ) => {
     console.log(`
       Make ParentGroupScale ParentScaleTitle's Appendix Subtest info go now!
@@ -483,7 +481,7 @@ class WizardForm47Page extends Component {
       - SubTest Name: ${name}
       - Event: ${event.target.value}
     `);
-    let data = {
+    const data = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
@@ -495,20 +493,20 @@ class WizardForm47Page extends Component {
             {
               Id: parentScaleTitleId,
               ParentScaleName: parentScaleName,
-              SubTests: [{ name, id }]
-            }
-          ]
-        }
-      ]
+              SubTests: [{ name, id }],
+            },
+          ],
+        },
+      ],
     };
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //Check to see if any sibling subtests have a value
-    let sibsNotBlank = event => {
-      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
+    // Check to see if any sibling subtests have a value
+    const sibsNotBlank = (event) => {
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        'input',
       );
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
@@ -518,14 +516,13 @@ class WizardForm47Page extends Component {
       //   }
       //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
       // }
-      for (let item of sibsArr) {
-        if (item.value !== "") {
+      for (const item of sibsArr) {
+        if (item.value !== '') {
           sibsTest = true;
           return sibsTest;
-        } else {
-          sibsTest = false;
-          return sibsTest;
         }
+        sibsTest = false;
+        return sibsTest;
       }
     };
     // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
@@ -537,14 +534,14 @@ class WizardForm47Page extends Component {
       //   payload: data
       // });
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       // console.log(`Domain name = ${domainName}`);
       this.props.change(domainName, true);
     } else if (sibsNotBlank(event)) {
@@ -558,27 +555,27 @@ class WizardForm47Page extends Component {
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     } else {
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       this.props.change(domainName, false);
       // console.log(
       //   "payload sent to remove appendix reducer: ",
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Add a subtest inside a ParentGroupSubScale inside a ParentGroupScale to the appendix onBlur (when user leaves a subtest's score input)
+  // Add a subtest inside a ParentGroupSubScale inside a ParentGroupScale to the appendix onBlur (when user leaves a subtest's score input)
   addParentGroupScaleParentGroupSubScaleSubtestToAppendix = (
     abbreviation,
     testName,
@@ -590,7 +587,7 @@ class WizardForm47Page extends Component {
     parentScaleName,
     id,
     name,
-    event
+    event,
   ) => {
     console.log(`
       Make ParentGroupScale ParentGroupSubScale's Appendix Subtest info go now!
@@ -607,7 +604,7 @@ class WizardForm47Page extends Component {
       - SubTest Name: ${name}
       - Event: ${event.target.value}
     `);
-    let data = {
+    const data = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
@@ -623,22 +620,22 @@ class WizardForm47Page extends Component {
                 {
                   Id: parentScaleTitleId,
                   ParentScaleName: parentScaleName,
-                  SubTests: [{ name, id }]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                  SubTests: [{ name, id }],
+                },
+              ],
+            },
+          ],
+        },
+      ],
     };
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //Check to see if any sibling subtests have a value
-    let sibsNotBlank = event => {
-      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
+    // Check to see if any sibling subtests have a value
+    const sibsNotBlank = (event) => {
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        'input',
       );
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
@@ -648,14 +645,13 @@ class WizardForm47Page extends Component {
       //   }
       //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
       // }
-      for (let item of sibsArr) {
-        if (item.value !== "") {
+      for (const item of sibsArr) {
+        if (item.value !== '') {
           sibsTest = true;
           return sibsTest;
-        } else {
-          sibsTest = false;
-          return sibsTest;
         }
+        sibsTest = false;
+        return sibsTest;
       }
     };
     // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
@@ -667,14 +663,14 @@ class WizardForm47Page extends Component {
       //   payload: data
       // });
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       // console.log(`Domain name = ${domainName}`);
       this.props.change(domainName, true);
     } else if (sibsNotBlank(event)) {
@@ -688,27 +684,27 @@ class WizardForm47Page extends Component {
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     } else {
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       this.props.change(domainName, false);
       // console.log(
       //   "payload sent to remove appendix reducer: ",
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Add a subtest inside a TestModule to the appendix onBlur (when user leaves a subtest's score input)
+  // Add a subtest inside a TestModule to the appendix onBlur (when user leaves a subtest's score input)
   addTestModuleSubtestToAppendix = (
     testId,
     abbreviation,
@@ -721,7 +717,7 @@ class WizardForm47Page extends Component {
     parentScaleName,
     id,
     name,
-    event
+    event,
   ) => {
     console.log(`
       Make TestModules's Appendix Subtest info go now!
@@ -740,7 +736,7 @@ class WizardForm47Page extends Component {
       - Event: ${event.target.value}
     `);
 
-    let data = {
+    const data = {
       Id: testId,
       TestName: testName,
       Abbreviation: abbreviation,
@@ -759,26 +755,26 @@ class WizardForm47Page extends Component {
                   SubTests: [
                     {
                       name,
-                      id
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                      id,
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
     };
 
-    console.log("TestModule payload sent to appendix reducer, ", data);
+    console.log('TestModule payload sent to appendix reducer, ', data);
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //Check to see if any sibling subtests have a value
-    let sibsNotBlank = event => {
-      let sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
+    // Check to see if any sibling subtests have a value
+    const sibsNotBlank = (event) => {
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
+        'input',
       );
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
@@ -788,14 +784,13 @@ class WizardForm47Page extends Component {
       //   }
       //   sib = sib.parentNode.parentNode.nextSibling.querySelector("input");
       // }
-      for (let item of sibsArr) {
-        if (item.value !== "") {
+      for (const item of sibsArr) {
+        if (item.value !== '') {
           sibsTest = true;
           return sibsTest;
-        } else {
-          sibsTest = false;
-          return sibsTest;
         }
+        sibsTest = false;
+        return sibsTest;
       }
     };
     // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
@@ -807,14 +802,14 @@ class WizardForm47Page extends Component {
       //   payload: data
       // });
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       // console.log(`Make domain toggle (id ${parentScaleTitleId}) checked now!`);
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       // console.log(`Domain name = ${domainName}`);
       this.props.change(domainName, true);
     } else if (sibsNotBlank(event)) {
@@ -828,33 +823,33 @@ class WizardForm47Page extends Component {
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     } else {
-      //Automatically change the domain's field property and visually check the radio button
+      // Automatically change the domain's field property and visually check the radio button
       const domainName = `${parentScaleTitleId}-${parentScaleName
         .toLowerCase()
-        .replace(/ /g, "-")}`;
+        .replace(/ /g, '-')}`;
       this.props.change(domainName, false);
       // console.log(
       //   "payload sent to remove appendix reducer: ",
       //   data.ParentScale[0].SubTests[0]
       // );
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Add a TableHeaderRowTitle inside a TestScoringTableDetail to the appendix onBlur (when user leaves a score input)
+  // Add a TableHeaderRowTitle inside a TestScoringTableDetail to the appendix onBlur (when user leaves a score input)
   addTestScoringTableScoresToAppendix = (
     abbreviation,
     testName,
     id,
     name,
-    event
+    event,
   ) => {
     console.log(`
       Make TestScoringTableScore's Appendix Subtest info go now!
@@ -866,41 +861,41 @@ class WizardForm47Page extends Component {
       - Event: ${event.target.value}
     `);
 
-    let data = {
+    const data = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
       TestScoringTableScores: [
         {
           name,
-          id
-        }
-      ]
+          id,
+        },
+      ],
     };
 
     console.log(
-      "TestScoringTableScore payload sent to appendix reducer, ",
-      data
+      'TestScoringTableScore payload sent to appendix reducer, ',
+      data,
     );
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //The field just left has a value so add it to the global state
+    // The field just left has a value so add it to the global state
     if (notBlank) {
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
     } else {
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Add an IndexName inside a TestIndex to the appendix onBlur (when user leaves a score input)
+  // Add an IndexName inside a TestIndex to the appendix onBlur (when user leaves a score input)
   addTestIndexToAppendix = (id, testName, abbreviation, indexName, event) => {
     console.log(`
       Make IndexName's Appendix info go now!
@@ -912,72 +907,72 @@ class WizardForm47Page extends Component {
       - Event: ${event.target.value}
     `);
 
-    let data = {
+    const data = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
       TestIndexes: [
         {
           Id: id,
-          IndexName: indexName
-        }
-      ]
+          IndexName: indexName,
+        },
+      ],
     };
 
-    let gcaData = {
+    const gcaData = {
       Id: id,
       TestName: testName,
       Abbreviation: abbreviation,
       TestIndexes: [
         {
           Id: id,
-          IndexName: "General Conceptual Ability (GCA)"
+          IndexName: 'General Conceptual Ability (GCA)',
         },
         {
           Id: id,
-          IndexName: "Special Nonverbal Composite (SNC)"
-        }
-      ]
+          IndexName: 'Special Nonverbal Composite (SNC)',
+        },
+      ],
     };
 
-    console.log("IndexName payload sent to appendix reducer, ", data);
+    console.log('IndexName payload sent to appendix reducer, ', data);
 
-    let notBlank = event.target.value !== "";
+    const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
 
-    //The field just left has a value so add it to the global state
-    if (notBlank && indexName !== "General Conceptual Ability") {
+    // The field just left has a value so add it to the global state
+    if (notBlank && indexName !== 'General Conceptual Ability') {
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: data
+        type: 'ADD_APPENDIX_TEST',
+        payload: data,
       });
-    } else if (notBlank && indexName === "General Conceptual Ability") {
+    } else if (notBlank && indexName === 'General Conceptual Ability') {
       store.dispatch({
-        type: "ADD_APPENDIX_TEST",
-        payload: gcaData
+        type: 'ADD_APPENDIX_TEST',
+        payload: gcaData,
       });
     } else {
       store.dispatch({
-        type: "REMOVE_APPENDIX_SUBTEST",
-        payload: data
+        type: 'REMOVE_APPENDIX_SUBTEST',
+        payload: data,
       });
     }
   };
 
-  //Show all the tests in a domain that's clicked on
-  filterTestsByDomainsSelected = card => {
-    //console.log("Passed domain from checkbox child ", card);
+  // Show all the tests in a domain that's clicked on
+  filterTestsByDomainsSelected = (card) => {
+    // console.log("Passed domain from checkbox child ", card);
     // console.log("filterTestsByDomainsSelected curr state, ", this.state);
     // console.log(`Box clicked on had the label of ${card}`);
-    //this.setState(({ matchedTests, tests, ...state }) => {
+    // this.setState(({ matchedTests, tests, ...state }) => {
 
     const { tests } = this.state;
     const { storeMatchedTests } = this.props;
-    const idx = storeMatchedTests.map(t => t.DomainName).indexOf(card);
+    const idx = storeMatchedTests.map((t) => t.DomainName).indexOf(card);
     // console.log(`idx = ${idx}`);
 
     if (idx !== -1) {
-      //The domain is in state already so we remove it...
+      // The domain is in state already so we remove it...
       // console.log("IndexOf, ", idx);
       // console.log(
       //   "The domain is in state already so we remove it now! ",
@@ -988,18 +983,18 @@ class WizardForm47Page extends Component {
       //   matchedTests: matchedTests.filter(t => t.DomainName !== card)
       // };
 
-      //let data = matchedTests.filter(t => t.DomainName !== card);
+      // let data = matchedTests.filter(t => t.DomainName !== card);
       // console.log(
       //   `The clicked domain is already in state, so we send the reducer the payload of the domain: ${card}`
       // );
       store.dispatch({
-        type: "REMOVE_TESTS",
-        payload: card
+        type: 'REMOVE_TESTS',
+        payload: card,
       });
     } else {
-      //The domain clicked isn't in the matchedTest array, so filter the immutable all tests state
-      //by copying the test that was clicked to the matchedTest array
-      //console.log("IndexOf, ", idx);
+      // The domain clicked isn't in the matchedTest array, so filter the immutable all tests state
+      // by copying the test that was clicked to the matchedTest array
+      // console.log("IndexOf, ", idx);
       // console.log(
       //   "The domain clicked isn't in the matchedTest array so make add now! ",
       //   this.state.matchedTests
@@ -1015,10 +1010,10 @@ class WizardForm47Page extends Component {
       // console.log("newarr, ", newarr);
       // return [matchedTests.push(newarr)];
 
-      let handleMatches = tests.filter(t => t.DomainName === card);
-      let data = {
+      const handleMatches = tests.filter((t) => t.DomainName === card);
+      const data = {
         DomainName: card,
-        handleMatches
+        handleMatches,
       };
       // console.log(
       //   `${card} clicked is NOT in state, so we create a new data array with that clicked domain: ${JSON.stringify(
@@ -1026,32 +1021,34 @@ class WizardForm47Page extends Component {
       //   )}`
       // );
       store.dispatch({
-        type: "ADD_TESTS",
-        payload: data
+        type: 'ADD_TESTS',
+        payload: data,
       });
     }
-    //});
+    // });
   };
 
-  //Show the test when clicked on or hide it
-  showFilteredTest = test => {
-    console.log("showFilteredTest fired ", this.state);
-    let selectedTest = this.state.tests.filter(t => t.Abbreviation === test);
+  // Show the test when clicked on or hide it
+  showFilteredTest = (test) => {
+    console.log('showFilteredTest fired ', this.state);
+    const selectedTest = this.state.tests.filter(
+      (t) => t.Abbreviation === test,
+    );
     store.dispatch({
-      type: "ADD_TEST",
-      payload: selectedTest[0]
+      type: 'ADD_TEST',
+      payload: selectedTest[0],
     });
     store.dispatch({
-      type: "SHOW_TESTS",
-      payload: { showTests: true }
+      type: 'SHOW_TESTS',
+      payload: { showTests: true },
     });
 
     // console.log("Make show test go now!", test);
     this.setState(({ testsSelected, tests, ...state }) => {
-      const idx = testsSelected.map(t => t.Abbreviation).indexOf(test);
+      const idx = testsSelected.map((t) => t.Abbreviation).indexOf(test);
 
       if (idx !== -1) {
-        //The abbreviation is in state already so we remove it...
+        // The abbreviation is in state already so we remove it...
         // console.log("IndexOf, ", idx);
         // console.log(
         //   "The abbreviation is in state already so we remove it now! ",
@@ -1059,65 +1056,69 @@ class WizardForm47Page extends Component {
         // );
         return {
           ...state,
-          testsSelected: testsSelected.filter(t => t.Abbreviation !== test)
+          testsSelected: testsSelected.filter((t) => t.Abbreviation !== test),
         };
-      } else {
-        //The abbreviation clicked isn't in the testsSelected array, so filter the immutable all tests state
-        //by copying the test that was clicked to the testsSelected array
-        // console.log("IndexOf, ", idx);
-        // console.log(
-        //   "The abbreviation clicked isn't in the testsSelected array so make add now! ",
-        //   this.state.testsSelected
-        // );
-        return [testsSelected.push(selectedTest[0])];
       }
+      // The abbreviation clicked isn't in the testsSelected array, so filter the immutable all tests state
+      // by copying the test that was clicked to the testsSelected array
+      // console.log("IndexOf, ", idx);
+      // console.log(
+      //   "The abbreviation clicked isn't in the testsSelected array so make add now! ",
+      //   this.state.testsSelected
+      // );
+      return [testsSelected.push(selectedTest[0])];
     });
   };
 
-  //Copy the data from the store to the input clicked on
-  handleCopyForward = data => {
-    console.log(`Data passed to the copy forward function = `, data);
+  // Copy the data from the store to the input clicked on
+  handleCopyForward = (data) => {
+    console.log('Data passed to the copy forward function = ', data);
   };
 
   componentDidUpdate(prevProps, prevState) {
     Object.entries(this.props).forEach(
       ([key, val]) =>
-        prevProps[key] !== val && console.log(`Prop '${key}' changed`)
+        prevProps[key] !== val && console.log(`Prop '${key}' changed`),
     );
     Object.entries(this.state).forEach(
       ([key, val]) =>
-        prevState[key] !== val && console.log(`State '${key}' changed`)
+        prevState[key] !== val && console.log(`State '${key}' changed`),
     );
   }
 
   componentDidMount() {
-    //Load the domains into state
-    console.log("componentDidMount firing");
-    const url = "http://oneneuro.azurewebsites.net/api/test/domains/all";
+    // Load the domains into state
+    console.log('componentDidMount firing');
+    // const url = 'http://oneneuro.azurewebsites.net/api/test/domains/all';
+    const url = 'https://oneneurowebapi.azurewebsites.net/api/test/domains/all';
     fetch(url)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
-        this.setState({ domains: data });
-        //console.log("Domain data from API, ", data);
+      .then((data) => {
+        this.setState({ domains: data, showFetchErrorDomains: false });
+        console.log('Domain data from API, ', data);
       })
-      .catch(error => console.log("Domain API error, ", error));
-    //console.log("WizardForm47 is loading");
+      .catch((error) => {
+        this.setState({ showFetchErrorDomains: true });
+        console.log('Error fetching domains: ', error);
+      });
+    // console.log("WizardForm47 is loading");
 
-    //Load all the test data into state
-    const allData = "http://oneneuro.azurewebsites.net/api/test/get/all";
+    // Load all the test data into state
+    // const allData = 'http://oneneuro.azurewebsites.net/api/test/get/all';
+    const allData = 'https://oneneurowebapi.azurewebsites.net/api/test/get/all';
     fetch(allData)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(d => {
+      .then((d) => {
         this.setState({ tests: d, domainsLoaded: true });
-        //console.log("Test data from API, ", allData);
+        console.log('Test data from API, ', d);
       })
-      .catch(error => console.log("Getting all data error, ", error));
+      .catch((error) => console.log('Getting all data error, ', error));
 
-    console.log("Selected tests from the global store are: ", this.props.tests);
+    console.log('Selected tests from the global store are: ', this.props.tests);
     this.setState({ testsSelected: this.props.tests });
   }
 
@@ -1141,12 +1142,12 @@ class WizardForm47Page extends Component {
       // referral2,
       // referral3,
       storeMatchedTests,
-      tests
+      tests,
     } = this.props;
-    const { domains } = this.state;
+    const { domains, showFetchErrorDomains, domainsLoaded } = this.state;
     // console.log("State after render(), ", this.state);
     // console.log("Page 47's props from the store ", this.props);
-    console.log("Page 47 render just fired");
+    console.log('Page 47 render just fired');
 
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -1159,19 +1160,19 @@ class WizardForm47Page extends Component {
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "tor-format",
-                cardText: "Letter-format",
-                cardKey: "1",
-                tabOrder: "1",
-                cardLabel: "No"
+                cardName: 'tor-format',
+                cardText: 'Letter-format',
+                cardKey: '1',
+                tabOrder: '1',
+                cardLabel: 'No',
               },
               {
-                cardName: "tor-format",
-                cardText: "Domain-based",
-                cardKey: "2",
-                tabOrder: "2",
-                cardLabel: "Yes"
-              }
+                cardName: 'tor-format',
+                cardText: 'Domain-based',
+                cardKey: '2',
+                tabOrder: '2',
+                cardLabel: 'Yes',
+              },
             ]}
             label="Please choose whether or not you need to"
             labelBold="include tests"
@@ -1187,7 +1188,8 @@ class WizardForm47Page extends Component {
           />
           <div className="grid__half">
             <label>
-              Summary of <strong>visit</strong>
+              Summary of
+              <strong>visit</strong>
             </label>
             <Field name="other-information" component="textarea" />
           </div>
@@ -1197,19 +1199,19 @@ class WizardForm47Page extends Component {
         <div
           className={
             this.props.domainBasedReports.showDomains
-              ? "domain__pick-domain show"
-              : "domain__pick-domain"
+              ? 'domain__pick-domain show'
+              : 'domain__pick-domain'
           }
         >
           <SectionSubTitle subTitleFirst="Domains" />
-          {this.state.domainsLoaded ? (
+          {domainsLoaded ? (
             <FieldArray
               component={CheckboxDomainsCard}
-              checkboxInfo={domains.map(domain => ({
+              checkboxInfo={domains.map((domain) => ({
                 cardName: `dbr-${domain.DomainName}`,
                 cardKey: domain.id,
                 cardLabel: domain.DomainName,
-                tabOrder: domain.id
+                tabOrder: domain.id,
               }))}
               label="Check all the"
               labelBold="domains"
@@ -1218,6 +1220,14 @@ class WizardForm47Page extends Component {
               classes="question question--thumbless"
               handleDomainTestFilter={this.filterTestsByDomainsSelected}
             />
+          ) : showFetchErrorDomains ? (
+            <div style={{ color: '#00414d' }}>
+              We are working on a problem loading the domains. Please send an
+              email to jpowell@lrtico.com and include the steps you took when
+              finding the issue, which browser you are using, and which
+              operating system your computer has installed, e.g. Mac OS or
+              Windows. Thank you!
+            </div>
           ) : (
             <DomainsLoading />
           )}
@@ -1227,17 +1237,17 @@ class WizardForm47Page extends Component {
         <div
           className={
             this.props.domainBasedReports.showSubDomains
-              ? "domain__pick-sub-domain show"
-              : "domain__pick-sub-domain"
+              ? 'domain__pick-sub-domain show'
+              : 'domain__pick-sub-domain'
           }
         >
           <SectionSubTitle subTitleFirst="Available" subTitleBold="tests" />
           <FieldArray
             component={CheckboxTestsCard}
-            checkboxInfo={storeMatchedTests.map(test => ({
+            checkboxInfo={storeMatchedTests.map((test) => ({
               columnHeader: test.DomainName,
               cardName: `dbr-${test.DomainName}`,
-              checkboxLabels: test.handleMatches
+              checkboxLabels: test.handleMatches,
             }))}
             label="Check all the"
             labelBold="tests"
@@ -1252,8 +1262,8 @@ class WizardForm47Page extends Component {
         <div
           className={
             this.props.domainBasedReports.showTests
-              ? "domain__test show"
-              : "domain__test"
+              ? 'domain__test show'
+              : 'domain__test'
           }
         >
           <SectionSubTitle subTitleFirst="Selected" subTitleBold="tests" />
@@ -1287,8 +1297,8 @@ class WizardForm47Page extends Component {
         <div
           className={
             this.props.domainBasedReports.showSummary
-              ? "summary-findings show"
-              : "summary-findings"
+              ? 'summary-findings show'
+              : 'summary-findings'
           }
         >
           <SectionTitle titleBold="Summary" titleRegular="of findings" />
@@ -1429,11 +1439,11 @@ class WizardForm47Page extends Component {
 // })(WizardForm47Page);
 
 WizardForm47Page = reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
-  //values: { "sof-reason-referral-1": this.props.referral1 }
+  validate,
+  // values: { "sof-reason-referral-1": this.props.referral1 }
   // initialValues: {
   //   "sof-reason-referral-1":
   //     this.props.referral1 === undefined ? "" : this.props.referral1
@@ -1441,13 +1451,13 @@ WizardForm47Page = reduxForm({
   // enableReinitialize: true
 })(WizardForm47Page);
 
-//Grab the state values for showing/hiding components from the store and showing selected tests
+// Grab the state values for showing/hiding components from the store and showing selected tests
 export default connect(
-  state => ({
+  (state) => ({
     domainBasedReports: state.domainBasedReports,
     storeMatchedTests: state.matchedTests,
-    tests: state.testsSelectedReducer
-    //initialValues: state.copyForward // pull initial values from copyForward reducer
-  })
-  //{ load: loadAccount } // bind account loading action creator
+    tests: state.testsSelectedReducer,
+    // initialValues: state.copyForward // pull initial values from copyForward reducer
+  }),
+  // { load: loadAccount } // bind account loading action creator
 )(WizardForm47Page);

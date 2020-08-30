@@ -1,14 +1,15 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubHeader from "../components/SectionSubHeader";
-import DescriptionCheckboxCard from "../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard";
-import TextQuestion from "../components/TextQuestion";
-import Button from "../components/Button";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import SectionSubHeader from '../components/SectionSubHeader';
+import DescriptionCheckboxCard from '../components/Card/DescriptionCheckboxCard/DescriptionCheckboxCard';
+import TextQuestion from '../components/TextQuestion';
+import Button from '../components/Button';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
-const WizardForm30Page = props => {
+const WizardForm30Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -21,29 +22,29 @@ const WizardForm30Page = props => {
         component={DescriptionCheckboxCard}
         checkboxInfo={[
           {
-            cardKey: "A",
-            cardNameCheckbox: "mdhHearingEarInfection",
-            cardNameDescription: "mdhHearingEarInfectionDescription",
-            cardLabel: "Ear infections",
-            liClasses: "question__choice--full-width desc-checkbox",
-            tabOrder: "1"
+            cardKey: 'A',
+            cardNameCheckbox: 'mdhHearingEarInfection',
+            cardNameDescription: 'mdhHearingEarInfectionDescription',
+            cardLabel: 'Ear infections',
+            liClasses: 'question__choice--full-width desc-checkbox',
+            tabOrder: '1',
           },
           {
-            cardKey: "B",
-            cardNameCheckbox: "mdhHearingProblems",
-            cardNameDescription: "mdhHearingProblemsDescription",
-            cardLabel: "Hearing problems",
-            liClasses: "question__choice--full-width desc-checkbox",
-            tabOrder: "2"
+            cardKey: 'B',
+            cardNameCheckbox: 'mdhHearingProblems',
+            cardNameDescription: 'mdhHearingProblemsDescription',
+            cardLabel: 'Hearing problems',
+            liClasses: 'question__choice--full-width desc-checkbox',
+            tabOrder: '2',
           },
           {
-            cardKey: "C",
-            cardNameCheckbox: "mdhHearingTubes",
-            cardNameDescription: "mdhHearingTubesDescription",
-            cardLabel: "Ear tubes",
-            liClasses: "question__choice--full-width desc-checkbox",
-            tabOrder: "3"
-          }
+            cardKey: 'C',
+            cardNameCheckbox: 'mdhHearingTubes',
+            cardNameDescription: 'mdhHearingTubesDescription',
+            cardLabel: 'Ear tubes',
+            liClasses: 'question__choice--full-width desc-checkbox',
+            tabOrder: '3',
+          },
         ]}
         label="Does this child"
         labelBold="currently"
@@ -70,9 +71,16 @@ const WizardForm30Page = props => {
     </form>
   );
 };
+
+WizardForm30Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm30Page);

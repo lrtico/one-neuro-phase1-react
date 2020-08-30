@@ -1,14 +1,15 @@
-import React from "react";
-import { Field, FieldArray, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import TextQuestion from "../components/TextQuestion";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import CheckboxCard from '../components/Card/CheckboxCard/CheckboxCard';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import TextQuestion from '../components/TextQuestion';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
-const WizardForm37Page = props => {
+const WizardForm37Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -24,17 +25,17 @@ const WizardForm37Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fRelatingProblems",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "1"
+              cardName: 'fRelatingProblems',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '1',
             },
             {
-              cardName: "fRelatingProblems",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "2"
-            }
+              cardName: 'fRelatingProblems',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '2',
+            },
           ]}
           label="Does this child have problems"
           labelBold="relating to or playing with"
@@ -62,17 +63,17 @@ const WizardForm37Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fFight",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "4"
+              cardName: 'fFight',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '4',
             },
             {
-              cardName: "fFight",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "5"
-            }
+              cardName: 'fFight',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '5',
+            },
           ]}
           label="Does this child"
           labelBold="fight frequently"
@@ -100,17 +101,17 @@ const WizardForm37Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fYoungerFriends",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "7"
+              cardName: 'fYoungerFriends',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '7',
             },
             {
-              cardName: "fYoungerFriends",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "8"
-            }
+              cardName: 'fYoungerFriends',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '8',
+            },
           ]}
           label="Does this child prefer playing with"
           labelBold="younger"
@@ -138,17 +139,17 @@ const WizardForm37Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fMakingFriends",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "10"
+              cardName: 'fMakingFriends',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '10',
             },
             {
-              cardName: "fMakingFriends",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "11"
-            }
+              cardName: 'fMakingFriends',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '11',
+            },
           ]}
           label="Does this child have"
           labelBold="difficulty making"
@@ -176,17 +177,17 @@ const WizardForm37Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fAlone",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "13"
+              cardName: 'fAlone',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '13',
             },
             {
-              cardName: "fAlone",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "14"
-            }
+              cardName: 'fAlone',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '14',
+            },
           ]}
           label="Does this child"
           labelBold="prefer playing"
@@ -214,17 +215,17 @@ const WizardForm37Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fNeighborhoodFriends",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "16"
+              cardName: 'fNeighborhoodFriends',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '16',
             },
             {
-              cardName: "fNeighborhoodFriends",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "17"
-            }
+              cardName: 'fNeighborhoodFriends',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '17',
+            },
           ]}
           label="Are there children with whom this child could"
           labelBold="play"
@@ -263,35 +264,35 @@ const WizardForm37Page = props => {
         component={CheckboxCard}
         checkboxInfo={[
           {
-            cardName: "fSmokeCigarettes",
-            cardKey: "A",
-            cardLabel: "Smoke cigarettes",
-            tabOrder: "20"
+            cardName: 'fSmokeCigarettes',
+            cardKey: 'A',
+            cardLabel: 'Smoke cigarettes',
+            tabOrder: '20',
           },
           {
-            cardName: "fChewTobacco",
-            cardKey: "B",
-            cardLabel: "Chew tobacco",
-            tabOrder: "21"
+            cardName: 'fChewTobacco',
+            cardKey: 'B',
+            cardLabel: 'Chew tobacco',
+            tabOrder: '21',
           },
           {
-            cardName: "fInhale",
-            cardKey: "C",
-            cardLabel: "Inhale toxic substances (e.g., paint)",
-            tabOrder: "22"
+            cardName: 'fInhale',
+            cardKey: 'C',
+            cardLabel: 'Inhale toxic substances (e.g., paint)',
+            tabOrder: '22',
           },
           {
-            cardName: "fAlcholol",
-            cardKey: "D",
-            cardLabel: "Drink beer, wine, or liquor",
-            tabOrder: "23"
+            cardName: 'fAlcholol',
+            cardKey: 'D',
+            cardLabel: 'Drink beer, wine, or liquor',
+            tabOrder: '23',
           },
           {
-            cardName: "fDrugs",
-            cardKey: "E",
-            cardLabel: "Use drugs illegally (e.g., marijuana)",
-            tabOrder: "24"
-          }
+            cardName: 'fDrugs',
+            cardKey: 'E',
+            cardLabel: 'Use drugs illegally (e.g., marijuana)',
+            tabOrder: '24',
+          },
         ]}
         label="Does this"
         labelBold="child's friends"
@@ -305,9 +306,16 @@ const WizardForm37Page = props => {
     </form>
   );
 };
+
+WizardForm37Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm37Page);

@@ -1,12 +1,13 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import TextQuestion from "../components/TextQuestion";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import TextQuestion from '../components/TextQuestion';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
-const WizardForm38Page = props => {
+const WizardForm38Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -60,9 +61,16 @@ const WizardForm38Page = props => {
     </form>
   );
 };
+
+WizardForm38Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm38Page);

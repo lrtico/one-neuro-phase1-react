@@ -14,36 +14,47 @@ import {
 } from '../../../utils/Normalize';
 
 class FormCardStacked extends Component {
-  handleTextboxTickInputs = event => {
-    const tar = event.currentTarget;
-    const addDeleteEl = tar.parentNode.nextSibling.children[1];
-    const requiredText = tar.parentNode.nextSibling.nextSibling;
-    const val = tar.value;
-    console.log(
-      'handleTextboxTickInputs input value onBlur before hasValue call',
-      val,
-    );
-    // Check both inputs values
-    // If both are "", remove the class
-    // Else add the class
-    const inputs = tar.parentNode.querySelectorAll('input');
-    const makeArr = Array.from(inputs);
-    let hasValue = false;
-    makeArr.forEach(input => {
-      if (input.value !== '') {
-        hasValue = true;
-      }
-    });
+  handleTextboxTickInputs = (event, input1Name, input2Name, cardFloat, ref) => {
+    const { onAdd } = this.props;
 
-    if (hasValue) {
-      tar.parentNode.parentNode.classList.add('question__checkbox--selected');
-      addDeleteEl.classList.add('question__key-text--visible');
-      requiredText.classList.remove('question__required-text--visible');
+    if (cardFloat) {
+      // has two inputs
+      console.log(`
+        FormStacked handleTextboxTickInputs args:
+        input1Name: ${input1Name}
+        input2Name: ${input2Name}
+        cardFloat: ${cardFloat}
+        ref: ${ref}
+      `);
+      onAdd(ref);
     } else {
-      tar.parentNode.parentNode.classList.remove(
-        'question__checkbox--selected',
-      );
-      addDeleteEl.classList.remove('question__key-text--visible');
+      const tar = event.currentTarget;
+      const addDeleteEl = tar.parentNode.nextSibling.children[1];
+      const requiredText = tar.parentNode.nextSibling.nextSibling;
+      const val = tar.value;
+      console.log('input value onBlur before hasValue call', val);
+      // Check both inputs values
+      // If both are "", remove the class
+      // Else add the class
+      const inputs = tar.parentNode.querySelectorAll('input');
+      const makeArr = Array.from(inputs);
+      let hasValue = false;
+      makeArr.forEach(input => {
+        if (input.value !== '') {
+          hasValue = true;
+        }
+      });
+
+      if (hasValue) {
+        tar.parentNode.parentNode.classList.add('question__checkbox--selected');
+        addDeleteEl.classList.add('question__key-text--visible');
+        requiredText.classList.remove('question__required-text--visible');
+      } else {
+        tar.parentNode.parentNode.classList.remove(
+          'question__checkbox--selected',
+        );
+        addDeleteEl.classList.remove('question__key-text--visible');
+      }
     }
   };
 
@@ -52,7 +63,6 @@ class FormCardStacked extends Component {
     const addDeleteEl = tar.nextSibling.children[1];
     const requiredText = tar.nextSibling.nextSibling;
     const val = tar.value;
-    console.log('handleTextboxTick fired');
     if (val !== '') {
       tar.parentNode.classList.add('question__checkbox--selected');
       addDeleteEl.classList.add('question__key-text--visible');
@@ -74,71 +84,39 @@ class FormCardStacked extends Component {
     }
   };
 
-  handleDelete = (event, input1Name, input2Name, cardFloat, ref) => {
+  handleDelete = (event, input1Name, input2Name, cardFloat, index, ref) => {
     const { onDelete } = this.props;
 
-    // event.stopPropagation();
-    // console.log(`
-    //   FormStacked handleDelete args:
-    //   input1Name: ${input1Name}
-    //   input2Name: ${input2Name}
-    //   cardFloat: ${cardFloat}
-    //   ref: ${ref}
-    // `);
+    event.stopPropagation();
+    console.log(`
+      FormStacked handleDelete args:
+      input1Name: ${input1Name}
+      input2Name: ${input2Name}
+      cardFloat: ${cardFloat}
+      index: ${index}
+      ref: ${ref}
+    `);
 
     if (cardFloat) {
-      // FormCard has 2 inputs
-      console.log('FormCardStacked handleDelete cardFloat = true');
+      // console.log('FormCardStacked handleDelete cardFloat = true');
+      // TODO: delete the inputs values from the store
       onDelete(input1Name, input2Name, ref);
-
-      const tar = event.currentTarget;
-      // const val = tar.parentNode.parentNode.previousSibling.value;
-      const addDeleteEl = tar.parentNode;
-
-      console.log(
-        'handleDelete 2 inputs event.target = ',
-        tar.parentNode.parentNode.previousSibling,
-      );
-      // console.log('input = ', tar.parentNode.parentNode.previousSibling.value);
-
-      tar.parentNode.parentNode.parentNode.classList.remove(
-        'question__checkbox--selected',
-      );
-      addDeleteEl.classList.remove('question__key-text--visible');
     } else {
-      // FormCard only has 1 input
-      //   console.log('FormCardStacked handleDelete cardFloat = false');
-      //   console.log(`
-      //   FormStacked handleDelete args:
-      //   input1Name: ${input1Name}
-      //   input2Name: ${input2Name}
-      //   cardFloat: ${cardFloat}
-      //   ref: ${ref}
-      // `);
-      onDelete(input1Name);
-
       const tar = event.currentTarget;
       const val = tar.parentNode.parentNode.previousSibling.value;
       const addDeleteEl = tar.parentNode;
-      // console.log(
-      //   'handleDelete event.target = ',
-      //   tar.parentNode.parentNode.previousSibling,
-      // );
-      // console.log('input = ', val);
+      console.log('input = ', tar.parentNode.parentNode.previousSibling.value);
 
       if (val !== '') {
-        // console.log('handleDelete if val != blank');
         addDeleteEl.parentNode.parentNode.classList.remove(
           'question__checkbox--selected',
         );
         addDeleteEl.classList.remove('question__key-text--visible');
-        // tar.parentNode.parentNode.previousSibling.value = '';
+        tar.parentNode.parentNode.previousSibling.value = '';
       }
-
-      // console.log('handleDelete remove required');
-      // document
-      //   .querySelector('.question__required-text')
-      //   .classList.remove('question__required-text--visible');
+      document
+        .querySelector('.question__required-text')
+        .classList.remove('question__required-text--visible');
     }
   };
 
@@ -160,7 +138,6 @@ class FormCardStacked extends Component {
       handleDelete,
     } = this;
     console.log('FormCardStacked props ', this.props);
-
     return (
       <div className={disabled ? `${classes} content--disabled` : classes}>
         <label>
@@ -181,8 +158,13 @@ class FormCardStacked extends Component {
           {cardInfo.map((card, index) => (
             <li
               key={randomId()}
-              className="question__card question__form-card flex--col question__card--vertical-center flex--center-vertical"
+              className={
+                card.showTick
+                  ? 'question__card question__form-card flex--col question__card--vertical-center flex--center-vertical question__checkbox--selected'
+                  : 'question__card question__form-card flex--col question__card--vertical-center flex--center-vertical'
+              }
               tabIndex={card.tabOrder}
+              ref={card.ref}
             >
               <div className="question__tick-wrap">
                 <MaterialIcon icon="check" />
@@ -200,7 +182,15 @@ class FormCardStacked extends Component {
                     component="input"
                     type={undefined ? 'text' : card.card1Type}
                     className="cardTextInput"
-                    onKeyUp={event => handleTextboxTickInputs(event)}
+                    onKeyUp={event =>
+                      handleTextboxTickInputs(
+                        event,
+                        card.card1Name,
+                        card.card2Name,
+                        card.cardFloat,
+                        card.ref,
+                      )
+                    }
                     normalize={card.normalizeOnlyNums ? onlyNums : null}
                   />
                   <Field
@@ -208,7 +198,15 @@ class FormCardStacked extends Component {
                     component="input"
                     type={undefined ? 'text' : card.card2Type}
                     className="cardTextInput"
-                    onKeyUp={event => handleTextboxTickInputs(event)}
+                    onKeyUp={event =>
+                      handleTextboxTickInputs(
+                        event,
+                        card.card1Name,
+                        card.card2Name,
+                        card.cardFloat,
+                        card.ref,
+                      )
+                    }
                     normalize={card.normalizeOnlyNums ? onlyNums : null}
                   />
                   <div className="question__form-card__inline-inputs__label">
@@ -227,7 +225,7 @@ class FormCardStacked extends Component {
                   min={undefined ? null : card.cardMinValue}
                   className="cardTextInput"
                   placeholder={card.cardPlaceholder}
-                  onKeyUp={event => handleTextboxTick(event)}
+                  onKeyUp={handleTextboxTick}
                   normalize={
                     card.normalizePhone
                       ? normalizePhone
@@ -240,42 +238,33 @@ class FormCardStacked extends Component {
 
               <div
                 className="question__key-label flex flex--center-vertical"
-                onClick={event => handleRequired(event)}
+                onClick={handleRequired}
               >
                 <div className="question__key">
                   <span>{index + 1}</span>
                 </div>
-                <div className="question__key-text">
+                <div
+                  className={
+                    card.showTick
+                      ? 'question__key-text question__key-text--visible'
+                      : 'question__key-text'
+                  }
+                >
                   <span>Add</span>
-                  {card.cardFloat ? (
-                    <span
-                      onClick={event =>
-                        handleDelete(
-                          event,
-                          card.card1Name,
-                          card.card2Name,
-                          card.cardFloat,
-                          card.ref,
-                        )
-                      }
-                    >
-                      Delete
-                    </span>
-                  ) : (
-                    <span
-                      onClick={event =>
-                        handleDelete(
-                          event,
-                          card.cardName,
-                          card.Label,
-                          card.cardType,
-                          card.ref,
-                        )
-                      }
-                    >
-                      Delete
-                    </span>
-                  )}
+                  <span
+                    onClick={event =>
+                      handleDelete(
+                        event,
+                        card.card1Name,
+                        card.card2Name,
+                        card.cardFloat,
+                        index,
+                        card.ref,
+                      )
+                    }
+                  >
+                    Delete
+                  </span>
                 </div>
               </div>
               <RequiredText
@@ -302,6 +291,7 @@ FormCardStacked.propTypes = {
   touched: PropTypes.bool,
   error: PropTypes.string,
   onDelete: PropTypes.func,
+  onAdd: PropTypes.func,
 };
 
 export default FormCardStacked;

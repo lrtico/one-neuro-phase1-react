@@ -1,32 +1,33 @@
-import React, { Component } from "react";
-import "../app.css";
-import { reduxForm, FieldArray } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import ButtonToggle from "../components/ButtonToggle";
-import DatabaseResultsList from "../components/LiveSearch/DatabaseResultsList/DatabaseResultsList";
-import CheckboxEducationalCodeCard from "../components/Card/CheckboxCard/CheckboxEducationalCodeCard";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import '../app.css';
+import { reduxForm, FieldArray } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import ButtonToggle from '../components/ButtonToggle';
+import DatabaseResultsList from '../components/LiveSearch/DatabaseResultsList/DatabaseResultsList';
+import CheckboxEducationalCodeCard from '../components/Card/CheckboxCard/CheckboxEducationalCodeCard';
 
 class WizardForm48Page extends Component {
   state = {
     educationalCodes: [],
-    educationalCodesLoading: true
+    // educationalCodesLoading: true,
   };
 
   componentDidMount() {
-    //Load the educational classifications into state
-    const URL = "http://oneneuro.azurewebsites.net/api/edu/all";
+    // Load the educational classifications into state
+    const URL = 'https://onpdfgenerator.azurewebsites.net/api/edu/all';
     fetch(URL)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         this.setState({ educationalCodes: data });
-        console.log("Educational classifications from AIP, ", data);
+        console.log('Educational classifications from AIP, ', data);
       })
-      .catch(error =>
-        console.log("Educational classifciation API error, ", error)
+      .catch((error) =>
+        console.log('Educational classifciation API error, ', error),
       );
   }
 
@@ -49,21 +50,21 @@ class WizardForm48Page extends Component {
           <div>
             <FieldArray
               component={CheckboxEducationalCodeCard}
-              checkboxInfo={educationalCodes.map((e, i) => ({
+              checkboxInfo={educationalCodes.map((e) => ({
                 cardName: `eduCode${e.DisabilityCode.toLowerCase()
-                  .replace("/", "")
-                  .replace(" – ", " ")
-                  .replace("{", "")
-                  .replace("}", "")
-                  .replace("-", " ")
-                  .replace(":", "")
-                  .replace(/\(|\)/g, " ")
-                  .split(" ")
-                  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join("")}`,
+                  .replace('/', '')
+                  .replace(' – ', ' ')
+                  .replace('{', '')
+                  .replace('}', '')
+                  .replace('-', ' ')
+                  .replace(':', '')
+                  .replace(/\(|\)/g, ' ')
+                  .split(' ')
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join('')}`,
                 cardKey: e.id,
                 cardLabel: e.DisabilityCode,
-                tabIndex: e.id + 1
+                tabIndex: e.id + 1,
               }))}
               label=""
               labelBold="Educational"
@@ -79,9 +80,13 @@ class WizardForm48Page extends Component {
   }
 }
 
+WizardForm48Page.propTypes = {
+  handleSubmit: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm48Page);

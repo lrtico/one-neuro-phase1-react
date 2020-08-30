@@ -1,14 +1,15 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubHeader from "../components/SectionSubHeader";
-import Button from "../components/Button";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import TextQuestion from "../components/TextQuestion";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import SectionSubHeader from '../components/SectionSubHeader';
+import Button from '../components/Button';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import TextQuestion from '../components/TextQuestion';
 
-const WizardForm41Page = props => {
+const WizardForm41Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -25,17 +26,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehChangedSchools",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "1"
+              cardName: 'ehChangedSchools',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '1',
             },
             {
-              cardName: "ehChangedSchools",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "2"
-            }
+              cardName: 'ehChangedSchools',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '2',
+            },
           ]}
           label="Changed schools"
           labelBold="for reasons"
@@ -63,17 +64,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehRepeatGrade",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "4"
+              cardName: 'ehRepeatGrade',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '4',
             },
             {
-              cardName: "ehRepeatGrade",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "5"
-            }
+              cardName: 'ehRepeatGrade',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '5',
+            },
           ]}
           label="Has been"
           labelBold="retained"
@@ -101,17 +102,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehGradeSkip",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "7"
+              cardName: 'ehGradeSkip',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '7',
             },
             {
-              cardName: "ehGradeSkip",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "8"
-            }
+              cardName: 'ehGradeSkip',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '8',
+            },
           ]}
           label="Has"
           labelBold="skipped"
@@ -139,17 +140,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehDifficultyReading",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "10"
+              cardName: 'ehDifficultyReading',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '10',
             },
             {
-              cardName: "ehDifficultyReading",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "11"
-            }
+              cardName: 'ehDifficultyReading',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '11',
+            },
           ]}
           label="Does this child have"
           labelBold="difficulty reading"
@@ -176,17 +177,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehDifficultyMath",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "13"
+              cardName: 'ehDifficultyMath',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '13',
             },
             {
-              cardName: "ehDifficultyMath",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "14"
-            }
+              cardName: 'ehDifficultyMath',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '14',
+            },
           ]}
           label="Does this child"
           labelBold="difficulty with math"
@@ -213,17 +214,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehPoorGrades",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "16"
+              cardName: 'ehPoorGrades',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '16',
             },
             {
-              cardName: "ehPoorGrades",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "17"
-            }
+              cardName: 'ehPoorGrades',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '17',
+            },
           ]}
           label="Gets"
           labelBold="poor"
@@ -251,17 +252,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehSpecialEd",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "19"
+              cardName: 'ehSpecialEd',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '19',
             },
             {
-              cardName: "ehSpecialEd",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "20"
-            }
+              cardName: 'ehSpecialEd',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '20',
+            },
           ]}
           label="Has been"
           labelBold="tested"
@@ -288,17 +289,17 @@ const WizardForm41Page = props => {
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "ehSpecialEdCurrent",
-            cardKey: "A",
-            cardLabel: "Yes",
-            tabOrder: "22"
+            cardName: 'ehSpecialEdCurrent',
+            cardKey: 'A',
+            cardLabel: 'Yes',
+            tabOrder: '22',
           },
           {
-            cardName: "ehSpecialEdCurrent",
-            cardKey: "B",
-            cardLabel: "No",
-            tabOrder: "23"
-          }
+            cardName: 'ehSpecialEdCurrent',
+            cardKey: 'B',
+            cardLabel: 'No',
+            tabOrder: '23',
+          },
         ]}
         label="Currently is placed in"
         labelBold="special education"
@@ -337,17 +338,17 @@ const WizardForm41Page = props => {
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "ehDislikesSchool",
-            cardKey: "A",
-            cardLabel: "Yes",
-            tabOrder: "26"
+            cardName: 'ehDislikesSchool',
+            cardKey: 'A',
+            cardLabel: 'Yes',
+            tabOrder: '26',
           },
           {
-            cardName: "ehDislikesSchool",
-            cardKey: "B",
-            cardLabel: "No",
-            tabOrder: "27"
-          }
+            cardName: 'ehDislikesSchool',
+            cardKey: 'B',
+            cardLabel: 'No',
+            tabOrder: '27',
+          },
         ]}
         label=""
         labelBold="Dislikes"
@@ -361,17 +362,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehAbsent",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "28"
+              cardName: 'ehAbsent',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '28',
             },
             {
-              cardName: "ehAbsent",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "29"
-            }
+              cardName: 'ehAbsent',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '29',
+            },
           ]}
           label="Is"
           labelBold="absent"
@@ -412,17 +413,17 @@ const WizardForm41Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "ehTeacherConcerns",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "32"
+              cardName: 'ehTeacherConcerns',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '32',
             },
             {
-              cardName: "ehTeacherConcerns",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "33"
-            }
+              cardName: 'ehTeacherConcerns',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '33',
+            },
           ]}
           label="Do you have any concerns about the"
           labelBold="quality"
@@ -449,9 +450,16 @@ const WizardForm41Page = props => {
     </form>
   );
 };
+
+WizardForm41Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm41Page);

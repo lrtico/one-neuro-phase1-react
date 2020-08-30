@@ -1,22 +1,23 @@
-import React from "react";
-import { Field, FieldArray, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import TextQuestion from "../components/TextQuestion";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import Button from "../components/Button";
-import FormCardMultiInput from "../components/Card/FormCard/FormCardMultiInput";
-import NormalizePhoneInput from "../components/TextQuestion/NormalizePhoneInput";
-import { normalizePhone } from "../utils/Normalize";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import TextQuestion from '../components/TextQuestion';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import Button from '../components/Button';
+import FormCardMultiInput from '../components/Card/FormCard/FormCardMultiInput';
+import NormalizePhoneInput from '../components/TextQuestion/NormalizePhoneInput';
+import { normalizePhone } from '../utils/Normalize';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
 // const handleClick = () => {
 //   console.log("Disable button clicked");
 // };
 
-const WizardForm32Page = props => {
+const WizardForm32Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
-  console.log("Props from PageList state disabled = ", disabled);
+  console.log('Props from PageList state disabled = ', disabled);
   return (
     <form className="col" onSubmit={handleSubmit}>
       <div className="flex" onClick={() => handleDisable(32)}>
@@ -88,7 +89,7 @@ const WizardForm32Page = props => {
           disabled={disabled}
         />
       </div>
-      <label className={disabled ? "content--disabled" : null}>
+      <label className={disabled ? 'content--disabled' : null}>
         List any medication this child is <strong>currently</strong> taking.
       </label>
       <FieldArray
@@ -97,20 +98,20 @@ const WizardForm32Page = props => {
         disabled={disabled}
         fieldInputs={[
           {
-            inputName: "mcMedicationName",
-            inputType: "text",
-            inputClasses: "cardTextInput",
-            inputLabel: "Name",
-            inputPlaceholder: "Name",
-            normalizeCapitalizeWords: true
+            inputName: 'mcMedicationName',
+            inputType: 'text',
+            inputClasses: 'cardTextInput',
+            inputLabel: 'Name',
+            inputPlaceholder: 'Name',
+            normalizeCapitalizeWords: true,
           },
           {
-            inputName: "mcMedicationReason",
-            inputType: "text",
-            inputClasses: "cardTextInput",
-            inputLabel: "Reason",
-            inputPlaceholder: "Reason"
-          }
+            inputName: 'mcMedicationReason',
+            inputType: 'text',
+            inputClasses: 'cardTextInput',
+            inputLabel: 'Reason',
+            inputPlaceholder: 'Reason',
+          },
         ]}
       />
       <div className="flex">
@@ -118,17 +119,17 @@ const WizardForm32Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mcSexualAbuse",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "7"
+              cardName: 'mcSexualAbuse',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '7',
             },
             {
-              cardName: "mcSexualAbuse",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "8"
-            }
+              cardName: 'mcSexualAbuse',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '8',
+            },
           ]}
           label="Has this child ever been"
           labelBold="sexually"
@@ -143,9 +144,16 @@ const WizardForm32Page = props => {
     </form>
   );
 };
+
+WizardForm32Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm32Page);

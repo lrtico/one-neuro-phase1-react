@@ -1,62 +1,62 @@
-import React, { Component } from "react";
-import { Field } from "redux-form";
-import "./formCard.css";
-import "../../../app.css";
-import "../../ButtonToggle/buttonToggleStyles.css";
-import MaterialIcon from "react-google-material-icons";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import RequiredText from "../../Required/RequiredText";
+import React, { Component } from 'react';
+import { Field } from 'redux-form';
+import './formCard.css';
+import '../../../app.css';
+import '../../ButtonToggle/buttonToggleStyles.css';
+import MaterialIcon from 'react-google-material-icons';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import RequiredText from '../../Required/RequiredText';
 import {
   normalizePhone,
-  normalizeCapitalizeWords
-} from "../../../utils/Normalize";
+  normalizeCapitalizeWords,
+} from '../../../utils/Normalize';
 
 class FormCardMultiInput extends Component {
   handleTick = event => {
-    const tar = event.currentTarget,
-      addDeleteEl = tar.children[1],
-      requiredText = tar.nextSibling;
-    tar.parentNode.classList.toggle("question__checkbox--selected");
-    let val = tar.parentNode.children[1].value;
-    if (val !== "") {
-      tar.parentNode.classList.add("question__checkbox--selected");
-      addDeleteEl.classList.add("question__key-text--visible");
-      requiredText.classList.remove("question__required-text--visible");
+    const tar = event.currentTarget;
+    const addDeleteEl = tar.children[1];
+    const requiredText = tar.nextSibling;
+    tar.parentNode.classList.toggle('question__checkbox--selected');
+    const val = tar.parentNode.children[1].value;
+    if (val !== '') {
+      tar.parentNode.classList.add('question__checkbox--selected');
+      addDeleteEl.classList.add('question__key-text--visible');
+      requiredText.classList.remove('question__required-text--visible');
     } else {
-      tar.parentNode.classList.remove("question__checkbox--selected");
-      addDeleteEl.classList.remove("question__key-text--visible");
-      requiredText.classList.add("question__required-text--visible");
+      tar.parentNode.classList.remove('question__checkbox--selected');
+      addDeleteEl.classList.remove('question__key-text--visible');
+      requiredText.classList.add('question__required-text--visible');
     }
   };
 
   handleKeyUp = event => {
-    console.log("Key pressed = ", event.currentTarget.value);
+    console.log('Key pressed = ', event.currentTarget.value);
     const tar = event.currentTarget;
-    let val = tar.value;
-    const addDeleteEl = tar.parentNode.querySelector(".question__key-label")
+    const val = tar.value;
+    const addDeleteEl = tar.parentNode.querySelector('.question__key-label')
       .children[1];
-    if (val !== "") {
-      tar.parentNode.classList.add("question__checkbox--selected");
-      addDeleteEl.classList.add("question__key-text--visible");
+    if (val !== '') {
+      tar.parentNode.classList.add('question__checkbox--selected');
+      addDeleteEl.classList.add('question__key-text--visible');
     } else {
-      tar.parentNode.classList.remove("question__checkbox--selected");
-      addDeleteEl.classList.remove("question__key-text--visible");
+      tar.parentNode.classList.remove('question__checkbox--selected');
+      addDeleteEl.classList.remove('question__key-text--visible');
     }
   };
 
   handleDelete = event => {
     const tar = event.currentTarget;
-    let val = tar.parentNode.parentNode.parentNode.children[1].value;
-    console.log("value = ", val);
-    const addDeleteEl = tar.parentNode,
-      checkboxes = tar.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
-      );
+    const val = tar.parentNode.parentNode.parentNode.children[1].value;
+    console.log('value = ', val);
+    const addDeleteEl = tar.parentNode;
+    const checkboxes = tar.parentNode.parentNode.parentNode.querySelectorAll(
+      'input',
+    );
     // console.log("Checkboxes", checkboxes);
-    if (val !== "") {
-      addDeleteEl.classList.remove("question__checkbox--selected");
-      addDeleteEl.classList.remove("question__key-text--visible");
-      tar.parentNode.parentNode.parentNode.children[1].value = "";
+    if (val !== '') {
+      addDeleteEl.classList.remove('question__checkbox--selected');
+      addDeleteEl.classList.remove('question__key-text--visible');
+      tar.parentNode.parentNode.parentNode.children[1].value = '';
       checkboxes.forEach(function(checkbox) {
         checkbox.checked = false;
       });
@@ -67,7 +67,7 @@ class FormCardMultiInput extends Component {
   addRecord = event => {
     const button = event.currentTarget;
     this.props.fields.push({});
-    button.classList.toggle("toggleVis--active");
+    button.classList.toggle('toggleVis--active');
   };
 
   // handleNormalize = (normalize, value) => {
@@ -82,12 +82,12 @@ class FormCardMultiInput extends Component {
 
   render() {
     const minHeight = {
-      minHeight: "285px"
+      minHeight: '285px',
     };
     const { disabled } = this.props;
-    //console.log("FormCardMultiInput's props received, ", this.props);
+    // console.log("FormCardMultiInput's props received, ", this.props);
     return (
-      <div className={disabled ? "question content--disabled" : "question"}>
+      <div className={disabled ? 'question content--disabled' : 'question'}>
         <div className="toggleVis add-button" onClick={this.addRecord}>
           <div className="btn__hover" />
           <button
@@ -102,8 +102,8 @@ class FormCardMultiInput extends Component {
           <div
             className={
               disabled
-                ? "question__choice--radio-shield content--disabled"
-                : "question__choice--radio-shield"
+                ? 'question__choice--radio-shield content--disabled'
+                : 'question__choice--radio-shield'
             }
           />
           <ReactCSSTransitionGroup

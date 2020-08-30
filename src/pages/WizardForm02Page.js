@@ -65,7 +65,8 @@ class WizardForm02Page extends Component {
   render() {
     const { handleSubmit, age } = this.props;
     const { calculateAge, makeNumber } = this;
-    console.log('Auto age should be, ', age);
+    // console.log('Auto age should be, ', age);
+    console.log('WizardFormPage02 props, ', this.props);
     return (
       <form className="col" onSubmit={handleSubmit}>
         <SectionTitle titleBold="Demographics" titleRegular="info" />
@@ -235,11 +236,7 @@ class WizardForm02Page extends Component {
         </div>
         <div>
           <label>
-            What are the
-            {' '}
-            <strong>date(s)</strong>
-            {' '}
-            testing was administered?
+            What are the <strong>date(s)</strong> testing was administered?
           </label>
         </div>
         <FieldArray

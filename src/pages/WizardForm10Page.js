@@ -1,18 +1,19 @@
-import React from "react";
-import { Field, FieldArray, reduxForm } from "redux-form";
-import validate from "../validate";
-import TextQuestion from "../components/TextQuestion/";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubHeader from "../components/SectionSubHeader";
-import Button from "../components/Button";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import validate from '../validate';
+import TextQuestion from '../components/TextQuestion';
+import SectionTitle from '../components/SectionTitle';
+import SectionSubHeader from '../components/SectionSubHeader';
+import Button from '../components/Button';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import CheckboxCard from '../components/Card/CheckboxCard/CheckboxCard';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
 // const renderError = ({ meta: { touched, error } }) =>
 //   touched && error ? <span>{error}</span> : false;
 
-const WizardForm10Page = props => {
+const WizardForm10Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -26,17 +27,17 @@ const WizardForm10Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "fhCloseness",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "1"
+              cardName: 'fhCloseness',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '1',
             },
             {
-              cardName: "fhCloseness",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "2"
-            }
+              cardName: 'fhCloseness',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '2',
+            },
           ]}
           label="Is this child"
           labelBold="closer"
@@ -61,17 +62,17 @@ const WizardForm10Page = props => {
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "fhExperienced",
-            cardKey: "A",
-            cardLabel: "Yes",
-            tabOrder: "4"
+            cardName: 'fhExperienced',
+            cardKey: 'A',
+            cardLabel: 'Yes',
+            tabOrder: '4',
           },
           {
-            cardName: "fhExperienced",
-            cardKey: "B",
-            cardLabel: "No",
-            tabOrder: "5"
-          }
+            cardName: 'fhExperienced',
+            cardKey: 'B',
+            cardLabel: 'No',
+            tabOrder: '5',
+          },
         ]}
         label="Has this child ever experienced any"
         labelBold="parental separations, divorces, or death"
@@ -118,23 +119,23 @@ const WizardForm10Page = props => {
         component={CheckboxCard}
         checkboxInfo={[
           {
-            cardName: "fhCustodyMother",
-            cardKey: "A",
-            cardLabel: "Mother",
-            tabOrder: "9"
+            cardName: 'fhCustodyMother',
+            cardKey: 'A',
+            cardLabel: 'Mother',
+            tabOrder: '9',
           },
           {
-            cardName: "fhCustodyFather",
-            cardKey: "B",
-            cardLabel: "Father",
-            tabOrder: "10"
+            cardName: 'fhCustodyFather',
+            cardKey: 'B',
+            cardLabel: 'Father',
+            tabOrder: '10',
           },
           {
-            cardName: "fhCustodyBoth",
-            cardKey: "C",
-            cardLabel: "Both",
-            tabOrder: "11"
-          }
+            cardName: 'fhCustodyBoth',
+            cardKey: 'C',
+            cardLabel: 'Both',
+            tabOrder: '11',
+          },
         ]}
         name="fhCustodyGroup"
         label="Who has"
@@ -148,35 +149,35 @@ const WizardForm10Page = props => {
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "fhVisitation",
-            cardKey: "A",
-            cardLabel: "Weekly or more often",
-            tabOrder: "12"
+            cardName: 'fhVisitation',
+            cardKey: 'A',
+            cardLabel: 'Weekly or more often',
+            tabOrder: '12',
           },
           {
-            cardName: "fhVisitation",
-            cardKey: "B",
-            cardLabel: "Once or twice per month",
-            tabOrder: "13"
+            cardName: 'fhVisitation',
+            cardKey: 'B',
+            cardLabel: 'Once or twice per month',
+            tabOrder: '13',
           },
           {
-            cardName: "fhVisitation",
-            cardKey: "C",
-            cardLabel: "50/50",
-            tabOrder: "14"
+            cardName: 'fhVisitation',
+            cardKey: 'C',
+            cardLabel: '50/50',
+            tabOrder: '14',
           },
           {
-            cardName: "fhVisitation",
-            cardKey: "D",
-            cardLabel: "Few times per year",
-            tabOrder: "15"
+            cardName: 'fhVisitation',
+            cardKey: 'D',
+            cardLabel: 'Few times per year',
+            tabOrder: '15',
           },
           {
-            cardName: "fhVisitation",
-            cardKey: "E",
-            cardLabel: "Never",
-            tabOrder: "16"
-          }
+            cardName: 'fhVisitation',
+            cardKey: 'E',
+            cardLabel: 'Never',
+            tabOrder: '16',
+          },
         ]}
         label="How often does one parent"
         labelBold="see"
@@ -189,9 +190,15 @@ const WizardForm10Page = props => {
   );
 };
 
+WizardForm10Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm10Page);

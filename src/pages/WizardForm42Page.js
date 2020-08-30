@@ -1,13 +1,14 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubHeader from "../components/SectionSubHeader";
-import Button from "../components/Button";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import SectionSubHeader from '../components/SectionSubHeader';
+import Button from '../components/Button';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
 
-const WizardForm42Page = props => {
+const WizardForm42Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -24,47 +25,47 @@ const WizardForm42Page = props => {
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "rdaReligonAffiliation",
-            cardKey: "A",
-            cardLabel: "Protestant",
-            tabOrder: "1"
+            cardName: 'rdaReligonAffiliation',
+            cardKey: 'A',
+            cardLabel: 'Protestant',
+            tabOrder: '1',
           },
           {
-            cardName: "rdaReligonAffiliation",
-            cardKey: "B",
-            cardLabel: "Catholic",
-            tabOrder: "2"
+            cardName: 'rdaReligonAffiliation',
+            cardKey: 'B',
+            cardLabel: 'Catholic',
+            tabOrder: '2',
           },
           {
-            cardName: "rdaReligonAffiliation",
-            cardKey: "C",
-            cardLabel: "Jewish",
-            tabOrder: "3"
+            cardName: 'rdaReligonAffiliation',
+            cardKey: 'C',
+            cardLabel: 'Jewish',
+            tabOrder: '3',
           },
           {
-            cardName: "rdaReligonAffiliation",
-            cardKey: "D",
-            cardLabel: "Islamic",
-            tabOrder: "4"
+            cardName: 'rdaReligonAffiliation',
+            cardKey: 'D',
+            cardLabel: 'Islamic',
+            tabOrder: '4',
           },
           {
-            cardName: "rdaReligonAffiliation",
-            cardKey: "E",
-            cardLabel: "Buddhist",
-            tabOrder: "5"
+            cardName: 'rdaReligonAffiliation',
+            cardKey: 'E',
+            cardLabel: 'Buddhist',
+            tabOrder: '5',
           },
           {
-            cardName: "rdaReligonAffiliation",
-            cardKey: "F",
-            cardLabel: "Hindu",
-            tabOrder: "6"
+            cardName: 'rdaReligonAffiliation',
+            cardKey: 'F',
+            cardLabel: 'Hindu',
+            tabOrder: '6',
           },
           {
-            cardName: "rdaReligonAffiliation",
-            cardKey: "G",
-            cardLabel: "Other",
-            tabOrder: "7"
-          }
+            cardName: 'rdaReligonAffiliation',
+            cardKey: 'G',
+            cardLabel: 'Other',
+            tabOrder: '7',
+          },
         ]}
         classes="question question--thumbless"
         disabled={disabled}
@@ -74,30 +75,30 @@ const WizardForm42Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "rdaReligonInvolvement",
-              cardLabel: "1",
-              tabOrder: "8"
+              cardName: 'rdaReligonInvolvement',
+              cardLabel: '1',
+              tabOrder: '8',
             },
             {
-              cardName: "rdaReligonInvolvement",
-              cardLabel: "2",
-              tabOrder: "9"
+              cardName: 'rdaReligonInvolvement',
+              cardLabel: '2',
+              tabOrder: '9',
             },
             {
-              cardName: "rdaReligonInvolvement",
-              cardLabel: "3",
-              tabOrder: "10"
+              cardName: 'rdaReligonInvolvement',
+              cardLabel: '3',
+              tabOrder: '10',
             },
             {
-              cardName: "rdaReligonInvolvement",
-              cardLabel: "4",
-              tabOrder: "11"
+              cardName: 'rdaReligonInvolvement',
+              cardLabel: '4',
+              tabOrder: '11',
             },
             {
-              cardName: "rdaReligonInvolvement",
-              cardLabel: "5",
-              tabOrder: "12"
-            }
+              cardName: 'rdaReligonInvolvement',
+              cardLabel: '5',
+              tabOrder: '12',
+            },
           ]}
           label="How"
           labelBold="involved are you,"
@@ -112,9 +113,16 @@ const WizardForm42Page = props => {
     </form>
   );
 };
+
+WizardForm42Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm42Page);

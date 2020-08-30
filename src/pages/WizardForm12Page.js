@@ -1,12 +1,13 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import Button from "../components/Button";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import Button from '../components/Button';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
-const WizardForm12Page = props => {
+const WizardForm12Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -19,29 +20,29 @@ const WizardForm12Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "crResidence",
-              cardKey: "A",
-              cardLabel: "Apartment",
-              tabOrder: "1"
+              cardName: 'crResidence',
+              cardKey: 'A',
+              cardLabel: 'Apartment',
+              tabOrder: '1',
             },
             {
-              cardName: "crResidence",
-              cardKey: "B",
-              cardLabel: "Single-family home",
-              tabOrder: "2"
+              cardName: 'crResidence',
+              cardKey: 'B',
+              cardLabel: 'Single-family home',
+              tabOrder: '2',
             },
             {
-              cardName: "crResidence",
-              cardKey: "C",
-              cardLabel: "Townhome",
-              tabOrder: "3"
+              cardName: 'crResidence',
+              cardKey: 'C',
+              cardLabel: 'Townhome',
+              tabOrder: '3',
             },
             {
-              cardName: "crResidence",
-              cardKey: "D",
-              cardLabel: "Other",
-              tabOrder: "4"
-            }
+              cardName: 'crResidence',
+              cardKey: 'D',
+              cardLabel: 'Other',
+              tabOrder: '4',
+            },
           ]}
           label="Where does this child"
           labelBold="live"
@@ -55,45 +56,45 @@ const WizardForm12Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "crResidenceLength",
-              cardLabel: "Less than 1",
-              tabOrder: "5"
+              cardName: 'crResidenceLength',
+              cardLabel: 'Less than 1',
+              tabOrder: '5',
             },
             {
-              cardName: "crResidenceLength",
-              cardLabel: "1",
-              tabOrder: "6"
+              cardName: 'crResidenceLength',
+              cardLabel: '1',
+              tabOrder: '6',
             },
             {
-              cardName: "crResidenceLength",
-              cardLabel: "2",
-              tabOrder: "7"
+              cardName: 'crResidenceLength',
+              cardLabel: '2',
+              tabOrder: '7',
             },
             {
-              cardName: "crResidenceLength",
-              cardLabel: "3",
-              tabOrder: "8"
+              cardName: 'crResidenceLength',
+              cardLabel: '3',
+              tabOrder: '8',
             },
             {
-              cardName: "crResidenceLength",
-              cardLabel: "4",
-              tabOrder: "9"
+              cardName: 'crResidenceLength',
+              cardLabel: '4',
+              tabOrder: '9',
             },
             {
-              cardName: "crResidenceLength",
-              cardLabel: "5",
-              tabOrder: "10"
+              cardName: 'crResidenceLength',
+              cardLabel: '5',
+              tabOrder: '10',
             },
             {
-              cardName: "crResidenceLength",
-              cardLabel: "6",
-              tabOrder: "11"
+              cardName: 'crResidenceLength',
+              cardLabel: '6',
+              tabOrder: '11',
             },
             {
-              cardName: "crResidenceLength",
-              cardLabel: "7+",
-              tabOrder: "12"
-            }
+              cardName: 'crResidenceLength',
+              cardLabel: '7+',
+              tabOrder: '12',
+            },
           ]}
           label="How many"
           labelBold="years living"
@@ -108,9 +109,16 @@ const WizardForm12Page = props => {
     </form>
   );
 };
+
+WizardForm12Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm12Page);

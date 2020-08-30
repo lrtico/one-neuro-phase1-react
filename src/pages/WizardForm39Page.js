@@ -1,13 +1,14 @@
-import React from "react";
-import { Field, FieldArray, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
-import TextQuestion from "../components/TextQuestion";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import CheckboxCard from '../components/Card/CheckboxCard/CheckboxCard';
+import TextQuestion from '../components/TextQuestion';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
-const WizardForm39Page = props => {
+const WizardForm39Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -21,77 +22,77 @@ const WizardForm39Page = props => {
         component={CheckboxCard}
         checkboxInfo={[
           {
-            cardName: "btOverstimulated",
-            cardKey: "A",
-            cardLabel: "Is easily overstimulated in play",
-            tabOrder: "1"
+            cardName: 'btOverstimulated',
+            cardKey: 'A',
+            cardLabel: 'Is easily overstimulated in play',
+            tabOrder: '1',
           },
           {
-            cardName: "btAttentionSpan",
-            cardKey: "B",
-            cardLabel: "Has a short attention span",
-            tabOrder: "2"
+            cardName: 'btAttentionSpan',
+            cardKey: 'B',
+            cardLabel: 'Has a short attention span',
+            tabOrder: '2',
           },
           {
-            cardName: "btSelfControl",
-            cardKey: "C",
-            cardLabel: "Lacks self-control",
-            tabOrder: "3"
+            cardName: 'btSelfControl',
+            cardKey: 'C',
+            cardLabel: 'Lacks self-control',
+            tabOrder: '3',
           },
           {
-            cardName: "btUnhappy",
-            cardKey: "D",
-            cardLabel: "Seems unhappy most of the time",
-            tabOrder: "4"
+            cardName: 'btUnhappy',
+            cardKey: 'D',
+            cardLabel: 'Seems unhappy most of the time',
+            tabOrder: '4',
           },
           {
-            cardName: "btAffectionless",
-            cardKey: "E",
-            cardLabel: "Withholds affection",
-            tabOrder: "5"
+            cardName: 'btAffectionless',
+            cardKey: 'E',
+            cardLabel: 'Withholds affection',
+            tabOrder: '5',
           },
           {
-            cardName: "btHidesFeelings",
-            cardKey: "F",
-            cardLabel: "Hides feelings",
-            tabOrder: "6"
+            cardName: 'btHidesFeelings',
+            cardKey: 'F',
+            cardLabel: 'Hides feelings',
+            tabOrder: '6',
           },
           {
-            cardName: "btOverEngergetic",
-            cardKey: "G",
-            cardLabel: "Seems over energetic in play",
-            tabOrder: "7"
+            cardName: 'btOverEngergetic',
+            cardKey: 'G',
+            cardLabel: 'Seems over energetic in play',
+            tabOrder: '7',
           },
           {
-            cardName: "btImpulsive",
-            cardKey: "H",
-            cardLabel: "Seems impulsive",
-            tabOrder: "8"
+            cardName: 'btImpulsive',
+            cardKey: 'H',
+            cardLabel: 'Seems impulsive',
+            tabOrder: '8',
           },
           {
-            cardName: "btOverreactsProblems",
-            cardKey: "I",
-            cardLabel: "Overreacts in the face of problems",
-            tabOrder: "9"
+            cardName: 'btOverreactsProblems',
+            cardKey: 'I',
+            cardLabel: 'Overreacts in the face of problems',
+            tabOrder: '9',
           },
           {
-            cardName: "btShy",
-            cardKey: "J",
-            cardLabel: "Uncomfortable meeting new people",
-            tabOrder: "10"
+            cardName: 'btShy',
+            cardKey: 'J',
+            cardLabel: 'Uncomfortable meeting new people',
+            tabOrder: '10',
           },
           {
-            cardName: "btParentalAttention",
-            cardKey: "K",
-            cardLabel: "Requires a lot of parental attention",
-            tabOrder: "11"
+            cardName: 'btParentalAttention',
+            cardKey: 'K',
+            cardLabel: 'Requires a lot of parental attention',
+            tabOrder: '11',
           },
           {
-            cardName: "btCannotCalm",
-            cardKey: "L",
-            cardLabel: "Cannot calm down",
-            tabOrder: "12"
-          }
+            cardName: 'btCannotCalm',
+            cardKey: 'L',
+            cardLabel: 'Cannot calm down',
+            tabOrder: '12',
+          },
         ]}
         label="Does this child"
         labelBold="exhibit"
@@ -130,9 +131,16 @@ const WizardForm39Page = props => {
     </form>
   );
 };
+
+WizardForm39Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm39Page);

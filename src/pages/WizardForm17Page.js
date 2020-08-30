@@ -1,14 +1,15 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import SectionSubHeader from "../components/SectionSubHeader";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import TextQuestion from "../components/TextQuestion";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import SectionSubHeader from '../components/SectionSubHeader';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import TextQuestion from '../components/TextQuestion';
 
-const WizardForm17Page = props => {
+const WizardForm17Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -26,17 +27,17 @@ const WizardForm17Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdhBreastFed",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "1"
+              cardName: 'mdhBreastFed',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '1',
             },
             {
-              cardName: "mdhBreastFed",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "2"
-            }
+              cardName: 'mdhBreastFed',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '2',
+            },
           ]}
           label="Was this child"
           labelBold="breastFed"
@@ -60,17 +61,17 @@ const WizardForm17Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdhBottleFed",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "4"
+              cardName: 'mdhBottleFed',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '4',
             },
             {
-              cardName: "mdhBottleFed",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "5"
-            }
+              cardName: 'mdhBottleFed',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '5',
+            },
           ]}
           label="Was this child"
           labelBold="bottleFed"
@@ -122,17 +123,17 @@ const WizardForm17Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdhBedWetting",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "9"
+              cardName: 'mdhBedWetting',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '9',
             },
             {
-              cardName: "mdhBedWetting",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "10"
-            }
+              cardName: 'mdhBedWetting',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '10',
+            },
           ]}
           label="Did"
           labelBold="bed-wetting"
@@ -157,17 +158,17 @@ const WizardForm17Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdhBedSoiling",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "12"
+              cardName: 'mdhBedSoiling',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '12',
             },
             {
-              cardName: "mdhBedSoiling",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "13"
-            }
+              cardName: 'mdhBedSoiling',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '13',
+            },
           ]}
           label="Did"
           labelBold="bed-soiling"
@@ -192,17 +193,17 @@ const WizardForm17Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "mdhBedWettingMedicalReasons",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "15"
+              cardName: 'mdhBedWettingMedicalReasons',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '15',
             },
             {
-              cardName: "mdhBedWettingMedicalReasons",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "16"
-            }
+              cardName: 'mdhBedWettingMedicalReasons',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '16',
+            },
           ]}
           label="Were there"
           labelBold="medical reasons"
@@ -226,9 +227,16 @@ const WizardForm17Page = props => {
     </form>
   );
 };
+
+WizardForm17Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm17Page);

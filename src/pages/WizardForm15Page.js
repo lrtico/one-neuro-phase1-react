@@ -1,31 +1,30 @@
-import React, { Component } from "react";
-import { Field, FieldArray, reduxForm, formValueSelector } from "redux-form";
-import { connect } from "react-redux";
-import { normalizeNumber } from "../utils/Normalize";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import SectionSubHeader from "../components/SectionSubHeader";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
-import Button from "../components/Button";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
-import TextQuestion from "../components/TextQuestion";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Field, FieldArray, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
+import { normalizeNumber } from '../utils/Normalize';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import SectionSubHeader from '../components/SectionSubHeader';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import CheckboxCard from '../components/Card/CheckboxCard/CheckboxCard';
+import Button from '../components/Button';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
+import TextQuestion from '../components/TextQuestion';
 
 class WizardForm15Page extends Component {
   componentDidMount() {
-    const patientAge = this.props.patientAge,
-      motherAge = this.props.motherAge,
-      fatherAge = this.props.fatherAge;
+    const { patientAge, motherAge, fatherAge, change } = this.props;
     console.log(`Mother's age = ${motherAge}, father's age = ${fatherAge}`);
     if (motherAge !== undefined && patientAge !== undefined) {
-      let motherAgeAtBirth = Number(motherAge - patientAge);
+      const motherAgeAtBirth = Number(motherAge - patientAge);
       console.log(`Mother's age at birth = ${motherAgeAtBirth}`);
-      this.props.change("mdhMothersAge", motherAgeAtBirth);
+      change('mdhMothersAge', motherAgeAtBirth);
     }
     if (fatherAge !== undefined && patientAge !== undefined) {
-      let fatherAgeAtBirth = Number(fatherAge - patientAge);
+      const fatherAgeAtBirth = Number(fatherAge - patientAge);
       console.log(`Father's age at birth = ${fatherAgeAtBirth}`);
-      this.props.change("mdhFathersAge", fatherAgeAtBirth);
+      change('mdhFathersAge', fatherAgeAtBirth);
     }
   }
 
@@ -93,17 +92,17 @@ class WizardForm15Page extends Component {
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "mdhHospitalBirth",
-                cardKey: "A",
-                cardLabel: "Yes",
-                tabOrder: "4"
+                cardName: 'mdhHospitalBirth',
+                cardKey: 'A',
+                cardLabel: 'Yes',
+                tabOrder: '4',
               },
               {
-                cardName: "mdhHospitalBirth",
-                cardKey: "B",
-                cardLabel: "No",
-                tabOrder: "5"
-              }
+                cardName: 'mdhHospitalBirth',
+                cardKey: 'B',
+                cardLabel: 'No',
+                tabOrder: '5',
+              },
             ]}
             label="Was this child"
             labelBold="born"
@@ -204,29 +203,29 @@ class WizardForm15Page extends Component {
           component={CheckboxCard}
           checkboxInfo={[
             {
-              cardName: "mdhForceps",
-              cardKey: "A",
-              cardLabel: "Forceps used",
-              tabOrder: "13"
+              cardName: 'mdhForceps',
+              cardKey: 'A',
+              cardLabel: 'Forceps used',
+              tabOrder: '13',
             },
             {
-              cardName: "mdhBreech",
-              cardKey: "B",
-              cardLabel: "Breech birth",
-              tabOrder: "14"
+              cardName: 'mdhBreech',
+              cardKey: 'B',
+              cardLabel: 'Breech birth',
+              tabOrder: '14',
             },
             {
-              cardName: "mdhInduced",
-              cardKey: "C",
-              cardLabel: "Labor induced",
-              tabOrder: "15"
+              cardName: 'mdhInduced',
+              cardKey: 'C',
+              cardLabel: 'Labor induced',
+              tabOrder: '15',
             },
             {
-              cardName: "mdhCeasarean",
-              cardKey: "D",
-              cardLabel: "Ceasarean delivery",
-              tabOrder: "16"
-            }
+              cardName: 'mdhCeasarean',
+              cardKey: 'D',
+              cardLabel: 'Ceasarean delivery',
+              tabOrder: '16',
+            },
           ]}
           label="Check any of the following"
           labelBold="complications"
@@ -308,35 +307,35 @@ class WizardForm15Page extends Component {
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "mdhMotherLengthHospital",
-                cardKey: "A",
-                cardLabel: "1-2 Days",
-                tabOrder: "23"
+                cardName: 'mdhMotherLengthHospital',
+                cardKey: 'A',
+                cardLabel: '1-2 Days',
+                tabOrder: '23',
               },
               {
-                cardName: "mdhMotherLengthHospital",
-                cardKey: "B",
-                cardLabel: "3-7 Days",
-                tabOrder: "24"
+                cardName: 'mdhMotherLengthHospital',
+                cardKey: 'B',
+                cardLabel: '3-7 Days',
+                tabOrder: '24',
               },
               {
-                cardName: "mdhMotherLengthHospital",
-                cardKey: "C",
-                cardLabel: "8-10 Days",
-                tabOrder: "25"
+                cardName: 'mdhMotherLengthHospital',
+                cardKey: 'C',
+                cardLabel: '8-10 Days',
+                tabOrder: '25',
               },
               {
-                cardName: "mdhMotherLengthHospital",
-                cardKey: "D",
-                cardLabel: "11+ Days",
-                tabOrder: "26"
+                cardName: 'mdhMotherLengthHospital',
+                cardKey: 'D',
+                cardLabel: '11+ Days',
+                tabOrder: '26',
               },
               {
-                cardName: "mdhMotherLengthHospital",
-                cardKey: "E",
-                cardLabel: "Undefined",
-                tabOrder: "27"
-              }
+                cardName: 'mdhMotherLengthHospital',
+                cardKey: 'E',
+                cardLabel: 'Undefined',
+                tabOrder: '27',
+              },
             ]}
             label="Mother's"
             labelBold="length"
@@ -351,35 +350,35 @@ class WizardForm15Page extends Component {
             component={RadioCard}
             cardInfo={[
               {
-                cardName: "mdhChildLengthHospital",
-                cardKey: "A",
-                cardLabel: "1-2 Days",
-                tabOrder: "28"
+                cardName: 'mdhChildLengthHospital',
+                cardKey: 'A',
+                cardLabel: '1-2 Days',
+                tabOrder: '28',
               },
               {
-                cardName: "mdhChildLengthHospital",
-                cardKey: "B",
-                cardLabel: "3-7 Days",
-                tabOrder: "29"
+                cardName: 'mdhChildLengthHospital',
+                cardKey: 'B',
+                cardLabel: '3-7 Days',
+                tabOrder: '29',
               },
               {
-                cardName: "mdhChildLengthHospital",
-                cardKey: "C",
-                cardLabel: "8-10 Days",
-                tabOrder: "30"
+                cardName: 'mdhChildLengthHospital',
+                cardKey: 'C',
+                cardLabel: '8-10 Days',
+                tabOrder: '30',
               },
               {
-                cardName: "mdhChildLengthHospital",
-                cardKey: "D",
-                cardLabel: "11+ Days",
-                tabOrder: "31"
+                cardName: 'mdhChildLengthHospital',
+                cardKey: 'D',
+                cardLabel: '11+ Days',
+                tabOrder: '31',
               },
               {
-                cardName: "mdhChildLengthHospital",
-                cardKey: "E",
-                cardLabel: "Undefined",
-                tabOrder: "32"
-              }
+                cardName: 'mdhChildLengthHospital',
+                cardKey: 'E',
+                cardLabel: 'Undefined',
+                tabOrder: '32',
+              },
             ]}
             label="Child's"
             labelBold="length"
@@ -396,22 +395,32 @@ class WizardForm15Page extends Component {
 }
 
 // Decorate with connect to read form values
-const selector = formValueSelector("wizard"); // <-- same as form name
-WizardForm15Page = connect(state => {
+const selector = formValueSelector('wizard'); // <-- same as form name
+WizardForm15Page = connect((state) => {
   // can select values individually
-  const patientAge = selector(state, "diAge");
-  const motherAge = selector(state, "bhMotherAge");
-  const fatherAge = selector(state, "bhFatherAge");
+  const patientAge = selector(state, 'diAge');
+  const motherAge = selector(state, 'bhMotherAge');
+  const fatherAge = selector(state, 'bhFatherAge');
   return {
     patientAge,
     motherAge,
-    fatherAge
+    fatherAge,
   };
 })(WizardForm15Page);
 
+WizardForm15Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+  change: PropTypes.func,
+  patientAge: PropTypes.string,
+  motherAge: PropTypes.string,
+  fatherAge: PropTypes.string,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm15Page);

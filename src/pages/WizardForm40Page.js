@@ -1,13 +1,14 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
-import TextQuestion from "../components/TextQuestion";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import Button from '../components/Button';
+import TextQuestion from '../components/TextQuestion';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
 
-const WizardForm40Page = props => {
+const WizardForm40Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -22,17 +23,17 @@ const WizardForm40Page = props => {
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "ehDaycare",
-            cardKey: "A",
-            cardLabel: "Yes",
-            tabOrder: "1"
+            cardName: 'ehDaycare',
+            cardKey: 'A',
+            cardLabel: 'Yes',
+            tabOrder: '1',
           },
           {
-            cardName: "ehDaycare",
-            cardKey: "B",
-            cardLabel: "No",
-            tabOrder: "2"
-          }
+            cardName: 'ehDaycare',
+            cardKey: 'B',
+            cardLabel: 'No',
+            tabOrder: '2',
+          },
         ]}
         label="Does or did this child"
         labelBold="attend"
@@ -98,17 +99,17 @@ const WizardForm40Page = props => {
         component={RadioCard}
         cardInfo={[
           {
-            cardName: "ehKindergarten",
-            cardKey: "A",
-            cardLabel: "Yes",
-            tabOrder: "8"
+            cardName: 'ehKindergarten',
+            cardKey: 'A',
+            cardLabel: 'Yes',
+            tabOrder: '8',
           },
           {
-            cardName: "ehKindergarten",
-            cardKey: "B",
-            cardLabel: "No",
-            tabOrder: "9"
-          }
+            cardName: 'ehKindergarten',
+            cardKey: 'B',
+            cardLabel: 'No',
+            tabOrder: '9',
+          },
         ]}
         label="Does or did this child"
         labelBold="attend"
@@ -134,9 +135,16 @@ const WizardForm40Page = props => {
     </form>
   );
 };
+
+WizardForm40Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm40Page);

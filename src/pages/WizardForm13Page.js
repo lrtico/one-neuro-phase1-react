@@ -1,14 +1,15 @@
-import React from "react";
-import { Field, FieldArray, reduxForm } from "redux-form";
-import validate from "../validate";
-import SectionTitle from "../components/SectionTitle";
-import RadioCard from "../components/Card/RadioCard/RadioCard";
-import CheckboxCard from "../components/Card/CheckboxCard/CheckboxCard";
-import Button from "../components/Button";
-import ButtonDisable from "../components/ButtonToggle/ButtonDisable";
-import TextQuestion from "../components/TextQuestion";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import validate from '../validate';
+import SectionTitle from '../components/SectionTitle';
+import RadioCard from '../components/Card/RadioCard/RadioCard';
+import CheckboxCard from '../components/Card/CheckboxCard/CheckboxCard';
+import Button from '../components/Button';
+import ButtonDisable from '../components/ButtonToggle/ButtonDisable';
+import TextQuestion from '../components/TextQuestion';
 
-const WizardForm13Page = props => {
+const WizardForm13Page = (props) => {
   const { handleSubmit, handleDisable, disabled } = props;
   return (
     <form className="col" onSubmit={handleSubmit}>
@@ -20,70 +21,70 @@ const WizardForm13Page = props => {
         component={CheckboxCard}
         checkboxInfo={[
           {
-            cardName: "frMovies",
-            cardKey: "A",
-            cardLabel: "Movies",
-            tabOrder: "1"
+            cardName: 'frMovies',
+            cardKey: 'A',
+            cardLabel: 'Movies',
+            tabOrder: '1',
           },
           {
-            cardName: "frGames",
-            cardKey: "B",
-            cardLabel: "Games",
-            tabOrder: "2"
+            cardName: 'frGames',
+            cardKey: 'B',
+            cardLabel: 'Games',
+            tabOrder: '2',
           },
           {
-            cardName: "frMeals",
-            cardKey: "C",
-            cardLabel: "Meals",
-            tabOrder: "3"
+            cardName: 'frMeals',
+            cardKey: 'C',
+            cardLabel: 'Meals',
+            tabOrder: '3',
           },
           {
-            cardName: "frSports",
-            cardKey: "D",
-            cardLabel: "Sports",
-            tabOrder: "4"
+            cardName: 'frSports',
+            cardKey: 'D',
+            cardLabel: 'Sports',
+            tabOrder: '4',
           },
           {
-            cardName: "frConversations",
-            cardKey: "E",
-            cardLabel: "Conversations",
-            tabOrder: "5"
+            cardName: 'frConversations',
+            cardKey: 'E',
+            cardLabel: 'Conversations',
+            tabOrder: '5',
           },
           {
-            cardName: "frTrips",
-            cardKey: "F",
-            cardLabel: "Trips",
-            tabOrder: "6"
+            cardName: 'frTrips',
+            cardKey: 'F',
+            cardLabel: 'Trips',
+            tabOrder: '6',
           },
           {
-            cardName: "frVisitsWithRelatives",
-            cardKey: "G",
-            cardLabel: "Visits with relatives",
-            tabOrder: "7"
+            cardName: 'frVisitsWithRelatives',
+            cardKey: 'G',
+            cardLabel: 'Visits with relatives',
+            tabOrder: '7',
           },
           {
-            cardName: "frTelevision",
-            cardKey: "H",
-            cardLabel: "Television",
-            tabOrder: "8"
+            cardName: 'frTelevision',
+            cardKey: 'H',
+            cardLabel: 'Television',
+            tabOrder: '8',
           },
           {
-            cardName: "frChurch",
-            cardKey: "I",
-            cardLabel: "Church",
-            tabOrder: "9"
+            cardName: 'frChurch',
+            cardKey: 'I',
+            cardLabel: 'Church',
+            tabOrder: '9',
           },
           {
-            cardName: "frOther",
-            cardKey: "J",
-            cardLabel: "Other",
-            tabOrder: "10"
-          }
+            cardName: 'frOther',
+            cardKey: 'J',
+            cardLabel: 'Other',
+            tabOrder: '10',
+          },
         ]}
         label="Check all"
         labelBold="activities"
         labelLast="in which this child often participates with family or peers:"
-        noQuestionMark={true}
+        noQuestionMark
         name="frActivitesGroup"
         classes="question question--thumbless"
         disabled={disabled}
@@ -107,35 +108,35 @@ const WizardForm13Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "frGrandparentFrequency",
-              cardKey: "A",
-              cardLabel: "Weekly or more often",
-              tabOrder: "12"
+              cardName: 'frGrandparentFrequency',
+              cardKey: 'A',
+              cardLabel: 'Weekly or more often',
+              tabOrder: '12',
             },
             {
-              cardName: "frGrandparentFrequency",
-              cardKey: "B",
-              cardLabel: "Once or twice per month",
-              tabOrder: "13"
+              cardName: 'frGrandparentFrequency',
+              cardKey: 'B',
+              cardLabel: 'Once or twice per month',
+              tabOrder: '13',
             },
             {
-              cardName: "frGrandparentFrequency",
-              cardKey: "C",
-              cardLabel: "Few times per year",
-              tabOrder: "14"
+              cardName: 'frGrandparentFrequency',
+              cardKey: 'C',
+              cardLabel: 'Few times per year',
+              tabOrder: '14',
             },
             {
-              cardName: "frGrandparentFrequency",
-              cardKey: "D",
-              cardLabel: "Never",
-              tabOrder: "15"
+              cardName: 'frGrandparentFrequency',
+              cardKey: 'D',
+              cardLabel: 'Never',
+              tabOrder: '15',
             },
             {
-              cardName: "frGrandparentFrequency",
-              cardKey: "E",
-              cardLabel: "No grandparents living",
-              tabOrder: "16"
-            }
+              cardName: 'frGrandparentFrequency',
+              cardKey: 'E',
+              cardLabel: 'No grandparents living',
+              tabOrder: '16',
+            },
           ]}
           label="How"
           labelBold="frequently"
@@ -188,23 +189,23 @@ const WizardForm13Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "frEducationLevel",
-              cardKey: "A",
-              cardLabel: "Technical or vocational school",
-              tabOrder: "20"
+              cardName: 'frEducationLevel',
+              cardKey: 'A',
+              cardLabel: 'Technical or vocational school',
+              tabOrder: '20',
             },
             {
-              cardName: "frEducationLevel",
-              cardKey: "B",
-              cardLabel: "College",
-              tabOrder: "21"
+              cardName: 'frEducationLevel',
+              cardKey: 'B',
+              cardLabel: 'College',
+              tabOrder: '21',
             },
             {
-              cardName: "frEducationLevel",
-              cardKey: "C",
-              cardLabel: "Law, medical, or other advanced studies",
-              tabOrder: "22"
-            }
+              cardName: 'frEducationLevel',
+              cardKey: 'C',
+              cardLabel: 'Law, medical, or other advanced studies',
+              tabOrder: '22',
+            },
           ]}
           label="What"
           labelBold="level of education"
@@ -219,23 +220,23 @@ const WizardForm13Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "frDisciplinarian",
-              cardKey: "A",
-              cardLabel: "Mother",
-              tabOrder: "23"
+              cardName: 'frDisciplinarian',
+              cardKey: 'A',
+              cardLabel: 'Mother',
+              tabOrder: '23',
             },
             {
-              cardName: "frDisciplinarian",
-              cardKey: "B",
-              cardLabel: "Father",
-              tabOrder: "24"
+              cardName: 'frDisciplinarian',
+              cardKey: 'B',
+              cardLabel: 'Father',
+              tabOrder: '24',
             },
             {
-              cardName: "frDisciplinarian",
-              cardKey: "C",
-              cardLabel: "Other",
-              tabOrder: "25"
-            }
+              cardName: 'frDisciplinarian',
+              cardKey: 'C',
+              cardLabel: 'Other',
+              tabOrder: '25',
+            },
           ]}
           label="Who is mainly"
           labelBold="in charge"
@@ -263,17 +264,17 @@ const WizardForm13Page = props => {
           component={RadioCard}
           cardInfo={[
             {
-              cardName: "frAgreeDiscipline",
-              cardKey: "A",
-              cardLabel: "Yes",
-              tabOrder: "27"
+              cardName: 'frAgreeDiscipline',
+              cardKey: 'A',
+              cardLabel: 'Yes',
+              tabOrder: '27',
             },
             {
-              cardName: "frAgreeDiscipline",
-              cardKey: "B",
-              cardLabel: "No",
-              tabOrder: "28"
-            }
+              cardName: 'frAgreeDiscipline',
+              cardKey: 'B',
+              cardLabel: 'No',
+              tabOrder: '28',
+            },
           ]}
           label="Do all caregivers"
           labelBold="agree"
@@ -298,9 +299,16 @@ const WizardForm13Page = props => {
     </form>
   );
 };
+
+WizardForm13Page.propTypes = {
+  disabled: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  handleDisable: PropTypes.func,
+};
+
 export default reduxForm({
-  form: "wizard", //                 <------ same form name
+  form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardForm13Page);
