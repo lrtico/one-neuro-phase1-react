@@ -13,11 +13,12 @@ class DatabaseResultsList extends Component {
       // selectedCode: [],
       initialState: [],
       dsmCodes: [],
+      showLiveSearchResults: false,
     };
   }
 
   componentDidMount() {
-    const url = 'https://onpdfgenerator.azurewebsites.net/api/DSM/all';
+    const url = 'https://oneneurowebapi.azurewebsites.net/api/DSM/all';
     fetch(url)
       .then((response) => {
         return response.json();
@@ -46,28 +47,34 @@ class DatabaseResultsList extends Component {
       payload: { codeValue },
     });
     fields.push({ codeValue });
-    document
-      .querySelector('.live-search-results')
-      .classList.remove('live-search-results--expand');
+    this.setState({
+      showLiveSearchResults: false,
+    });
+
     document.getElementById('dsm-code-input').value = '';
   };
 
   showSearchResults = (event) => {
     const tar = event.currentTarget;
     const searchQuery = tar.value.toLowerCase();
-    const codes = tar.parentNode.nextSibling.nextSibling;
+    // const codes = tar.parentNode.nextSibling.nextSibling;
     const { initialState } = this.state;
 
     console.log('The user typed ', searchQuery);
 
-    codes.classList.add('live-search-results--expand');
+    this.setState({
+      showLiveSearchResults: true,
+    });
+
+    // codes.classList.add('live-search-results--expand');
 
     // if the value is empty, that means
     if (searchQuery === '') {
-      codes.classList.remove('live-search-results--expand');
+      // codes.classList.remove('live-search-results--expand');
       // tar.style.paddingLeft = codeWidth;
       this.setState({
         dsmCodes: initialState,
+        showLiveSearchResults: false,
       });
     }
     // console.log("This.state.dsmCodes before filter: ", this.state.dsmCodes);
@@ -98,7 +105,7 @@ class DatabaseResultsList extends Component {
 
   render() {
     const { dsmSelectedCodes, fields } = this.props;
-    const { dsmCodes } = this.state;
+    const { dsmCodes, showLiveSearchResults } = this.state;
     console.log('Props on the DatabaseResultsList fields', fields);
     // console.log("Selected code: ", this.state.selectedCode);
     console.log('dsmCodes from Redux store = ', dsmSelectedCodes);
@@ -133,7 +140,13 @@ class DatabaseResultsList extends Component {
                 </div>
               ))}
         </div>
-        <div className="live-search-results">
+        <div
+          className={
+            showLiveSearchResults
+              ? 'live-search-results live-search-results--expand '
+              : 'live-search-results'
+          }
+        >
           <div className="live-search-result live-search-result--header">
             <span className="liv-search-result__dsm-code">DSM-5 CODE</span>
             <span className="liv-search-result__icd-code">IDC-10 CODE</span>

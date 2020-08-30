@@ -17,7 +17,7 @@ class WizardForm48Page extends Component {
 
   componentDidMount() {
     // Load the educational classifications into state
-    const URL = 'https://onpdfgenerator.azurewebsites.net/api/edu/all';
+    const URL = 'https://oneneurowebapi.azurewebsites.net/api/edu/all';
     fetch(URL)
       .then((response) => {
         return response.json();
