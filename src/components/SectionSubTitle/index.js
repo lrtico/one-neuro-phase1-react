@@ -1,12 +1,13 @@
-import React from "react";
-import "./sectionSubTitleStyles.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './sectionSubTitleStyles.css';
 
-const SectionSubTitle = props => {
+const SectionSubTitle = (props) => {
   const {
     subTitleFirst,
     subTitleBold,
     subTitleRegular,
-    subtitleAbbreviation
+    subtitleAbbreviation,
   } = props;
   return (
     <h3 className="h3--sib-h4">
@@ -16,6 +17,13 @@ const SectionSubTitle = props => {
       )}
     </h3>
   );
+};
+
+SectionSubTitle.propTypes = {
+  subTitleFirst: PropTypes.string,
+  subTitleBold: PropTypes.string,
+  subTitleRegular: PropTypes.string,
+  subtitleAbbreviation: PropTypes.string,
 };
 
 export default SectionSubTitle;

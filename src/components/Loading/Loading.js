@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const Loading = () => {
   return (
     <div>
-      <p>Hello, we're loading...</p>
+      <p>Hello, we&apos;re loading...</p>
     </div>
   );
 };

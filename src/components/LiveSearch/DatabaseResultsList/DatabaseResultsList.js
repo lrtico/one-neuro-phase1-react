@@ -129,6 +129,7 @@ class DatabaseResultsList extends Component {
           {dsmSelectedCodes === undefined
             ? null
             : dsmSelectedCodes.map((code, i) => (
+                // eslint-disable-next-line react/jsx-indent
                 <div
                   key={i}
                   className="live-search-wrap__dsm-code live-search-wrap__dsm-code--selected"

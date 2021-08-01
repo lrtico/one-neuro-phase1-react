@@ -1,5 +1,7 @@
+/* eslint-disable no-param-reassign */
 import React, { Component } from 'react';
 import { Field } from 'redux-form';
+import PropTypes from 'prop-types';
 import './formCard.css';
 import '../../../app.css';
 import '../../ButtonToggle/buttonToggleStyles.css';
@@ -8,11 +10,13 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import RequiredText from '../../Required/RequiredText';
 
 class FormCardBrotherSister extends Component {
-  handleTick = event => {
+  handleTick = (event) => {
     const tar = event.currentTarget;
     const addDeleteEl = tar.children[1];
     const requiredText = tar.nextSibling;
     const val = tar.parentNode.children[1].value;
+
+    console.log('val =', tar.parentNode.children[1]);
 
     if (val !== '') {
       tar.parentNode.classList.add('question__checkbox--selected');
@@ -25,50 +29,54 @@ class FormCardBrotherSister extends Component {
     }
   };
 
-  handleKeyUp = event => {
-    console.log('Key pressed = ', event.currentTarget.value);
+  handleKeyUp = (event) => {
+    console.log('Key pressed = ', event.currentTarget);
     const tar = event.currentTarget;
     const val = tar.value;
-    const addDeleteEl = tar.parentNode.querySelector('.question__key-label')
-      .children[1];
+    const addDeleteEl = tar.parentNode.querySelector('.question__key-label').children[1];
+    const requiredText = tar.parentNode.querySelector('.question__required-text');
     if (val !== '') {
       tar.parentNode.classList.add('question__checkbox--selected');
       addDeleteEl.classList.add('question__key-text--visible');
+      requiredText.classList.remove('question__required-text--visible');
     } else {
       tar.parentNode.classList.remove('question__checkbox--selected');
       addDeleteEl.classList.remove('question__key-text--visible');
+      requiredText.classList.add('question__required-text--visible');
     }
   };
 
-  handleDelete = event => {
+  handleDelete = (event) => {
+    const { fields } = this.props;
     const tar = event.currentTarget;
     const val = tar.parentNode.parentNode.parentNode.children[1].value;
     console.log('value = ', val);
     const addDeleteEl = tar.parentNode;
-    const checkboxes = tar.parentNode.parentNode.parentNode.querySelectorAll(
-      'input',
-    );
+    const checkboxes = tar.parentNode.parentNode.parentNode.querySelectorAll('input');
     // console.log("Checkboxes", checkboxes);
     if (val !== '') {
       addDeleteEl.classList.remove('question__checkbox--selected');
       addDeleteEl.classList.remove('question__key-text--visible');
       tar.parentNode.parentNode.parentNode.children[1].value = '';
-      checkboxes.forEach(function(checkbox) {
+      checkboxes.forEach((checkbox) => {
         checkbox.checked = false;
       });
-      this.props.fields.pop(event);
+
+      fields.pop(event);
     }
   };
 
-  addRecord = event => {
+  addRecord = (event) => {
+    const { fields } = this.props;
     const button = event.currentTarget;
-    this.props.fields.push({});
+    fields.push({});
     button.classList.toggle('toggleVis--active');
   };
 
   render() {
     const minHeight = { minHeight: '380px' };
-    const { disabled } = this.props;
+    const { disabled, fields } = this.props;
+    console.log('FormCardBrotherSister props =', this.props);
     return (
       <div className={disabled ? 'question content--disabled' : 'question'}>
         <div className="toggleVis add-button" onClick={this.addRecord}>
@@ -76,16 +84,13 @@ class FormCardBrotherSister extends Component {
           <button
             type="button"
             className="flex--col-vertical-center flex--wrap"
-            disabled={disabled ? true : false}
+            disabled={!!disabled}
           >
             <span>New Record</span>
           </button>
         </div>
 
-        <ul
-          className="question__cards question__cards--none-visible flex--wrap"
-          style={minHeight}
-        >
+        <ul className="question__cards question__cards--none-visible flex--wrap" style={minHeight}>
           <div
             className={
               disabled
@@ -98,7 +103,7 @@ class FormCardBrotherSister extends Component {
             transitionEnterTimeOut={10000}
             transitionLeaveTimeOut={5000}
           >
-            {this.props.fields.map((card, index) => (
+            {fields.map((card, index) => (
               <li
                 key={index + 1}
                 className="question__card question__form-card flex--col flex--center-vertical flex--space-between"
@@ -123,9 +128,7 @@ class FormCardBrotherSister extends Component {
                     className="radio-visible"
                     id={`bs-choice-${index}-${index + 2}`}
                   />
-                  <label htmlFor={`bs-choice-${index}-${index + 2}`}>
-                    Sister
-                  </label>
+                  <label htmlFor={`bs-choice-${index}-${index + 2}`}>Sister</label>
                 </div>
                 <div className="question-card__radio">
                   <Field
@@ -136,9 +139,7 @@ class FormCardBrotherSister extends Component {
                     className="radio-visible"
                     id={`bs-choice-${index}-${index + 3}`}
                   />
-                  <label htmlFor={`bs-choice-${index}-${index + 3}`}>
-                    Brother
-                  </label>
+                  <label htmlFor={`bs-choice-${index}-${index + 3}`}>Brother</label>
                 </div>
                 <div className="question-card__radio">
                   <Field
@@ -149,9 +150,7 @@ class FormCardBrotherSister extends Component {
                     className="radio-visible"
                     id={`bs-choice-${index}-${index + 4}`}
                   />
-                  <label htmlFor={`bs-choice-${index}-${index + 4}`}>
-                    Lives at home
-                  </label>
+                  <label htmlFor={`bs-choice-${index}-${index + 4}`}>Lives at home</label>
                 </div>
                 <div className="question-card__radio">
                   <Field
@@ -162,9 +161,7 @@ class FormCardBrotherSister extends Component {
                     className="radio-visible"
                     id={`bs-choice-${index}-${index + 5}`}
                   />
-                  <label htmlFor={`bs-choice-${index}-${index + 5}`}>
-                    Not at home
-                  </label>
+                  <label htmlFor={`bs-choice-${index}-${index + 5}`}>Not at home</label>
                 </div>
                 <div
                   className="question__key-label flex flex--center-vertical"
@@ -179,7 +176,7 @@ class FormCardBrotherSister extends Component {
                   </div>
                 </div>
                 <RequiredText
-                  requiredText="Enter required info above :)"
+                  requiredText="Enter all info above :)"
                   customRequiredTextClass="question__required-text"
                 />
                 <div className="question__bg" />
@@ -191,5 +188,10 @@ class FormCardBrotherSister extends Component {
     );
   }
 }
+
+FormCardBrotherSister.propTypes = {
+  fields: PropTypes.object,
+  disabled: PropTypes.bool,
+};
 
 export default FormCardBrotherSister;

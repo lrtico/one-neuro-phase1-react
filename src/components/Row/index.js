@@ -1,5 +1,5 @@
-import React from "react";
-import "../../app.css";
+import React from 'react';
+import '../../app.css';
 
 const Row = () => {
   return <div className="flex" />;

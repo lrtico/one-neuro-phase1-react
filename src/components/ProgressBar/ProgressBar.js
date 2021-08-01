@@ -1,8 +1,10 @@
-import React from "react";
-import "./ProgressBarStyles.css";
-import MaterialIcon from "react-google-material-icons";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './ProgressBarStyles.css';
+import MaterialIcon from 'react-google-material-icons';
 
-export default props => {
+const ProgressBar = (props) => {
+  const { currentProgress, goBack } = props;
   return (
     <div className="progress">
       <div>
@@ -13,10 +15,10 @@ export default props => {
       <div className="progress__bar">
         <div
           className="progress__bar__status"
-          style={{ bottom: props.currentProgress * 2 + "%" }}
+          style={{ bottom: `${currentProgress * 2}%` }}
         >
           <span className="progress__bar__percent">
-            {props.currentProgress} of 50
+            {currentProgress} of 50
           </span>
           <div className="progress__button">
             <img src="img/icons-heart-love-solid.svg" alt="heart" />
@@ -24,8 +26,8 @@ export default props => {
         </div>
       </div>
       <div className="progress__bar__tick" />
-      {props.currentProgress <= 1 ? null : (
-        <div className="progress__previous" onClick={props.goBack}>
+      {currentProgress <= 1 ? null : (
+        <div className="progress__previous" onClick={goBack}>
           <MaterialIcon icon="arrow_back" />
           <div>
             <span>BACK</span>
@@ -35,3 +37,10 @@ export default props => {
     </div>
   );
 };
+
+ProgressBar.propTypes = {
+  currentProgress: PropTypes.number,
+  goBack: PropTypes.func,
+};
+
+export default ProgressBar;

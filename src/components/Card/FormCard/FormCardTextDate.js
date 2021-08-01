@@ -1,91 +1,101 @@
-import React, { Component } from "react";
-import { Field } from "redux-form";
-import "./formCard.css";
-import "../../../app.css";
-import "../../ButtonToggle/buttonToggleStyles.css";
-import MaterialIcon from "react-google-material-icons";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import RequiredText from "../../Required/RequiredText";
+/* eslint-disable no-param-reassign */
+import React, { Component } from 'react';
+import { Field } from 'redux-form';
+import PropTypes from 'prop-types';
+import './formCard.css';
+import '../../../app.css';
+import '../../ButtonToggle/buttonToggleStyles.css';
+import MaterialIcon from 'react-google-material-icons';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import RequiredText from '../../Required/RequiredText';
 
 class FormCardTextDate extends Component {
-  handleTick = event => {
+  handleTick = (event) => {
     const tar = event.currentTarget;
-    let val = tar.parentNode.children[1].value;
+    const val = tar.parentNode.children[1].value;
+    const requiredText = tar.nextSibling;
     const addDeleteEl = tar.children[1];
-    if (val !== "") {
-      tar.parentNode.classList.add("question__checkbox--selected");
-      addDeleteEl.classList.add("question__key-text--visible");
+
+    if (val !== '') {
+      tar.parentNode.classList.add('question__checkbox--selected');
+      addDeleteEl.classList.add('question__key-text--visible');
+      requiredText.classList.remove('question__required-text--visible');
     } else {
-      tar.parentNode.classList.remove("question__checkbox--selected");
-      addDeleteEl.classList.remove("question__key-text--visible");
+      tar.parentNode.classList.remove('question__checkbox--selected');
+      addDeleteEl.classList.remove('question__key-text--visible');
+      requiredText.classList.add('question__required-text--visible');
     }
   };
 
-  handleKeyUp = event => {
-    console.log("Key pressed = ", event.currentTarget.value);
+  handleKeyUp = (event) => {
+    // console.log('Key pressed = ', event.currentTarget.value);
     const tar = event.currentTarget;
-    let val = tar.value;
-    const addDeleteEl = tar.parentNode.querySelector(".question__key-label")
-      .children[1];
-    if (val !== "") {
-      tar.parentNode.classList.add("question__checkbox--selected");
-      addDeleteEl.classList.add("question__key-text--visible");
+    const val = tar.value;
+    const requiredText = tar.parentNode.querySelector('.question__required-text');
+    const addDeleteEl = tar.parentNode.querySelector('.question__key-label').children[1];
+
+    if (val !== '') {
+      tar.parentNode.classList.add('question__checkbox--selected');
+      addDeleteEl.classList.add('question__key-text--visible');
+      requiredText.classList.remove('question__required-text--visible');
     } else {
-      tar.parentNode.classList.remove("question__checkbox--selected");
-      addDeleteEl.classList.remove("question__key-text--visible");
+      tar.parentNode.classList.remove('question__checkbox--selected');
+      addDeleteEl.classList.remove('question__key-text--visible');
+      requiredText.classList.add('question__required-text--visible');
     }
   };
 
-  handleDelete = event => {
+  handleDelete = (event) => {
+    const { fields } = this.props;
     const tar = event.currentTarget;
-    let val = tar.parentNode.parentNode.parentNode.children[1].value;
-    console.log("value = ", val);
-    const addDeleteEl = tar.parentNode,
-      checkboxes = tar.parentNode.parentNode.parentNode.querySelectorAll(
-        "input"
-      );
+    const val = tar.parentNode.parentNode.parentNode.children[1].value;
+    console.log('value = ', val);
+    const addDeleteEl = tar.parentNode;
+    const checkboxes = tar.parentNode.parentNode.parentNode.querySelectorAll('input');
     // console.log("Checkboxes", checkboxes);
-    if (val !== "") {
-      addDeleteEl.classList.remove("question__checkbox--selected");
-      addDeleteEl.classList.remove("question__key-text--visible");
-      tar.parentNode.parentNode.parentNode.children[1].value = "";
-      checkboxes.forEach(function(checkbox) {
+    if (val !== '') {
+      addDeleteEl.classList.remove('question__checkbox--selected');
+      addDeleteEl.classList.remove('question__key-text--visible');
+      tar.parentNode.parentNode.parentNode.children[1].value = '';
+      checkboxes.forEach((checkbox) => {
         checkbox.checked = false;
       });
-      this.props.fields.pop(event);
+
+      fields.pop(event);
     }
   };
 
-  addRecord = event => {
+  addRecord = (event) => {
+    const { fields } = this.props;
     const button = event.currentTarget;
-    this.props.fields.push({});
-    button.classList.toggle("toggleVis--active");
+    fields.push({});
+    button.classList.toggle('toggleVis--active');
   };
 
   render() {
     const minHeight = {
-      minHeight: "200px"
+      minHeight: '200px',
     };
-    console.log("Page 5 props passed from parent, ", this.props);
-    const { buttonText, disabled } = this.props;
+    console.log('Page 5 props passed from parent, ', this.props);
+    const { buttonText, disabled, fields } = this.props;
     return (
-      <div className={disabled ? "question content--disabled" : "question"}>
+      <div className={disabled ? 'question content--disabled' : 'question'}>
         <div className="toggleVis add-button" onClick={this.addRecord}>
           <div className="btn__hover" />
           <button
             type="button"
             className="flex--col-vertical-center flex--wrap"
-            disabled={disabled ? true : false}
+            disabled={disabled}
           >
-            <span>{buttonText ? buttonText : "New Record"}</span>
+            <span>{buttonText || 'New Record'}</span>
           </button>
         </div>
         <ul className="question__cards flex--wrap" style={minHeight}>
           <div
             className={
               disabled
-                ? "question__choice--radio-shield content--disabled"
-                : "question__choice--radio-shield"
+                ? 'question__choice--radio-shield content--disabled'
+                : 'question__choice--radio-shield'
             }
           />
           <ReactCSSTransitionGroup
@@ -93,7 +103,7 @@ class FormCardTextDate extends Component {
             transitionEnterTimeOut={10000}
             transitionLeaveTimeOut={5000}
           >
-            {this.props.fields.map((recordsReviewed, index) => (
+            {fields.map((recordsReviewed, index) => (
               <li
                 key={index}
                 className="question__card question__form-card flex--col flex--center-vertical flex--space-between"
@@ -131,7 +141,7 @@ class FormCardTextDate extends Component {
                   </div>
                 </div>
                 <RequiredText
-                  requiredText="Enter required info above :)"
+                  requiredText="Please add a title and date"
                   customRequiredTextClass="question__required-text"
                 />
                 <div className="question__bg" />
@@ -143,5 +153,11 @@ class FormCardTextDate extends Component {
     );
   }
 }
+
+FormCardTextDate.propTypes = {
+  fields: PropTypes.object,
+  buttonText: PropTypes.string,
+  disabled: PropTypes.bool,
+};
 
 export default FormCardTextDate;

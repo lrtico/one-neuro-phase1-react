@@ -1,8 +1,8 @@
-import React from "react";
-import "./textAreaStyles.css";
-import "../../app.css";
-import MaterialIcon from "react-google-material-icons";
-import ButtonToggle from "../ButtonToggle";
+import React from 'react';
+import './textAreaStyles.css';
+import '../../app.css';
+import MaterialIcon from 'react-google-material-icons';
+import ButtonToggle from '../ButtonToggle';
 
 const TextArea = ({
   input,
@@ -19,10 +19,10 @@ const TextArea = ({
   copyForward,
   rows,
   disabled,
-  meta: { touched, error }
+  meta: { touched, error },
 }) => (
   <div className={disabled ? `${classes} content--disabled` : classes}>
-    <label hidden={label == null ? true : false}>
+    <label hidden={label == null}>
       {label} <strong>{labelBold}</strong> {labelLast}?
     </label>
     <div className="flex question__input">
@@ -33,10 +33,10 @@ const TextArea = ({
         placeholder={helpertext}
         tabIndex={tabOrder}
         type={type}
-        readOnly={disabled ? true : false}
+        readOnly={!!disabled}
         rows={rows}
       >
-        {" "}
+        {' '}
       </textarea>
       {copyForward === undefined ? null : (
         <div className="question__input__copy-forward">
