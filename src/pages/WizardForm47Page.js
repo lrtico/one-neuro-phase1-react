@@ -117,10 +117,7 @@ class WizardForm47Page extends Component {
         payload: data,
       });
     } else {
-      console.log(
-        'payload sent to remove appendix reducer: ',
-        data.DomainsOverall[0],
-      );
+      console.log('payload sent to remove appendix reducer: ', data.DomainsOverall[0]);
       store.dispatch({
         type: 'REMOVE_APPENDIX_DOMAIN',
         payload: data,
@@ -129,14 +126,7 @@ class WizardForm47Page extends Component {
   };
 
   // Add a subtest inside a testSelected[0].SubTests to the appendix onBlur (when user leaves a subtest's score input)
-  addSubtestToAppendix = (
-    id,
-    testName,
-    abbreviation,
-    subtestId,
-    subtestName,
-    event,
-  ) => {
+  addSubtestToAppendix = (id, testName, abbreviation, subtestId, subtestName, event) => {
     console.log(`
       Make Appendix Subtest info go now!
       Info we need:
@@ -167,9 +157,7 @@ class WizardForm47Page extends Component {
 
     // Check to see if any sibling subtests have a value
     const sibsNotBlank = (event) => {
-      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        'input',
-      );
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll('input');
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
       // while (sib) {
@@ -267,9 +255,7 @@ class WizardForm47Page extends Component {
 
     // Check to see if any sibling subtests have a value
     const sibsNotBlank = (event) => {
-      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        'input',
-      );
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll('input');
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
       // while (sib) {
@@ -386,9 +372,7 @@ class WizardForm47Page extends Component {
 
     // Check to see if any sibling subtests have a value
     const sibsNotBlank = (event) => {
-      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        'input',
-      );
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll('input');
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
       // while (sib) {
@@ -505,9 +489,7 @@ class WizardForm47Page extends Component {
 
     // Check to see if any sibling subtests have a value
     const sibsNotBlank = (event) => {
-      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        'input',
-      );
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll('input');
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
       // while (sib) {
@@ -634,9 +616,7 @@ class WizardForm47Page extends Component {
 
     // Check to see if any sibling subtests have a value
     const sibsNotBlank = (event) => {
-      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        'input',
-      );
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll('input');
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
       // while (sib) {
@@ -773,9 +753,7 @@ class WizardForm47Page extends Component {
 
     // Check to see if any sibling subtests have a value
     const sibsNotBlank = (event) => {
-      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll(
-        'input',
-      );
+      const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll('input');
       // console.log("all sibs, ", sibsArr);
       let sibsTest;
       // while (sib) {
@@ -844,13 +822,7 @@ class WizardForm47Page extends Component {
   };
 
   // Add a TableHeaderRowTitle inside a TestScoringTableDetail to the appendix onBlur (when user leaves a score input)
-  addTestScoringTableScoresToAppendix = (
-    abbreviation,
-    testName,
-    id,
-    name,
-    event,
-  ) => {
+  addTestScoringTableScoresToAppendix = (abbreviation, testName, id, name, event) => {
     console.log(`
       Make TestScoringTableScore's Appendix Subtest info go now!
       Info we need:
@@ -873,10 +845,7 @@ class WizardForm47Page extends Component {
       ],
     };
 
-    console.log(
-      'TestScoringTableScore payload sent to appendix reducer, ',
-      data,
-    );
+    console.log('TestScoringTableScore payload sent to appendix reducer, ', data);
 
     const notBlank = event.target.value !== '';
     // console.log("Subtest input wasn't blank: ", notBlank);
@@ -1031,9 +1000,7 @@ class WizardForm47Page extends Component {
   // Show the test when clicked on or hide it
   showFilteredTest = (test) => {
     console.log('showFilteredTest fired ', this.state);
-    const selectedTest = this.state.tests.filter(
-      (t) => t.Abbreviation === test,
-    );
+    const selectedTest = this.state.tests.filter((t) => t.Abbreviation === test);
     store.dispatch({
       type: 'ADD_TEST',
       payload: selectedTest[0],
@@ -1077,12 +1044,10 @@ class WizardForm47Page extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     Object.entries(this.props).forEach(
-      ([key, val]) =>
-        prevProps[key] !== val && console.log(`Prop '${key}' changed`),
+      ([key, val]) => prevProps[key] !== val && console.log(`Prop '${key}' changed`),
     );
     Object.entries(this.state).forEach(
-      ([key, val]) =>
-        prevState[key] !== val && console.log(`State '${key}' changed`),
+      ([key, val]) => prevState[key] !== val && console.log(`State '${key}' changed`),
     );
   }
 
@@ -1182,10 +1147,7 @@ class WizardForm47Page extends Component {
         </div>
 
         <div className="letter-format">
-          <SectionTitle
-            titleBold="Letter-format"
-            titleRegular="type of report"
-          />
+          <SectionTitle titleBold="Letter-format" titleRegular="type of report" />
           <div className="grid__half">
             <label>
               Summary of
@@ -1222,11 +1184,10 @@ class WizardForm47Page extends Component {
             />
           ) : showFetchErrorDomains ? (
             <div style={{ color: '#00414d' }}>
-              We are working on a problem loading the domains. Please send an
-              email to jpowell@lrtico.com and include the steps you took when
-              finding the issue, which browser you are using, and which
-              operating system your computer has installed, e.g. Mac OS or
-              Windows. Thank you!
+              We are working on a problem loading the domains. Please send an email to
+              jpowell@lrtico.com and include the steps you took when finding the issue, which
+              browser you are using, and which operating system your computer has installed, e.g.
+              Mac OS or Windows. Thank you!
             </div>
           ) : (
             <DomainsLoading />
@@ -1260,11 +1221,7 @@ class WizardForm47Page extends Component {
         </div>
 
         <div
-          className={
-            this.props.domainBasedReports.showTests
-              ? 'domain__test show'
-              : 'domain__test'
-          }
+          className={this.props.domainBasedReports.showTests ? 'domain__test show' : 'domain__test'}
         >
           <SectionSubTitle subTitleFirst="Selected" subTitleBold="tests" />
           <Test
@@ -1274,16 +1231,10 @@ class WizardForm47Page extends Component {
             handleAppendixParentGroupSubScaleSubtestAdd={
               this.addParentGroupSubScaleSubtestToAppendix
             }
-            handleAppendixTestScoringTableScoresAdd={
-              this.addTestScoringTableScoresToAppendix
-            }
-            handleAppendixTestModulesSubtestAdd={
-              this.addTestModuleSubtestToAppendix
-            }
+            handleAppendixTestScoringTableScoresAdd={this.addTestScoringTableScoresToAppendix}
+            handleAppendixTestModulesSubtestAdd={this.addTestModuleSubtestToAppendix}
             handleAppendixTestIndexesAdd={this.addTestIndexToAppendix}
-            handleAppendixParentScaleTitleSubtestAdd={
-              this.addParentScaleTitleSubtestToAppendix
-            }
+            handleAppendixParentScaleTitleSubtestAdd={this.addParentScaleTitleSubtestToAppendix}
             handleAppendixParentGroupScalesParentGroupSubScaleSubtestAdd={
               this.addParentGroupScaleParentGroupSubScaleSubtestToAppendix
             }
@@ -1296,9 +1247,7 @@ class WizardForm47Page extends Component {
 
         <div
           className={
-            this.props.domainBasedReports.showSummary
-              ? 'summary-findings show'
-              : 'summary-findings'
+            this.props.domainBasedReports.showSummary ? 'summary-findings show' : 'summary-findings'
           }
         >
           <SectionTitle titleBold="Summary" titleRegular="of findings" />

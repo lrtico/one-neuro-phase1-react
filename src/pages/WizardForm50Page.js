@@ -33,10 +33,9 @@ class WizardForm50Page extends Component {
     // For prod use https://onpdfgenerator.azurewebsites.net/
     axios
       .post('http://localhost:5000/create-pdf', data)
-      .then(() =>
-        axios.get('http://localhost:5000/fetch-pdf', { responseType: 'blob' }),
-      )
+      .then(() => axios.get('http://localhost:5000/fetch-pdf', { responseType: 'blob' }))
       .then((res) => {
+        // eslint-disable-next-line no-undef
         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
         saveAs(pdfBlob, 'newPDF.pdf');
         this.setState({ loading: false });

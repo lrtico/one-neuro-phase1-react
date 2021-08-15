@@ -4,14 +4,10 @@ import './pageJump.css';
 import MaterialIcon from 'react-google-material-icons';
 import RequiredText from '../Required/RequiredText';
 
-const PageJump = props => {
-  const {
-    pageNumber,
-    handlePageNumber,
-    handleEnterPageJump,
-    handlePageJump,
-    pageJumpOutOfRange,
-  } = props;
+const PageJump = (props) => {
+  // eslint-disable-next-line operator-linebreak
+  const { pageNumber, handlePageNumber, handleEnterPageJump, handlePageJump, pageJumpOutOfRange } =
+    props;
   return (
     <div id="page-jump">
       <input
@@ -38,7 +34,7 @@ const PageJump = props => {
 
 PageJump.propTypes = {
   pageNumber: PropTypes.number,
-  handlePageNumber: PropTypes.number,
+  handlePageNumber: PropTypes.func,
   handleEnterPageJump: PropTypes.func,
   handlePageJump: PropTypes.func,
   pageJumpOutOfRange: PropTypes.bool,

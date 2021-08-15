@@ -18,7 +18,7 @@ class WizardForm extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.state = {
-      page: 21,
+      page: 47,
       pageNumber: 1,
       testState: false,
       loading: true,
@@ -31,28 +31,20 @@ class WizardForm extends Component {
   //   console.log("Make PDF go now!");
   // };
 
-  startingAnimation = () => {
-    // console.log("starting");
-    this.setState({ testState: true });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  endingAnimation = () => {
-    console.log('ending');
-    this.setState({ testState: false });
-  };
-
   nextPage() {
+    const { page } = this.state;
     this.endingAnimation();
     setTimeout(() => {
-      this.setState({ page: this.state.page + 1 });
+      this.setState({ page: page + 1 });
     }, 250);
   }
 
   previousPage() {
-    this.setState({ page: this.state.page - 1 });
+    const { page } = this.state;
+    this.setState({ page: page - 1 });
   }
 
+  // eslint-disable-next-line react/sort-comp
   backToPage1 = () => {
     this.setState({ page: 2 });
   };
@@ -61,7 +53,7 @@ class WizardForm extends Component {
     this.setState({ page: 47 });
   };
 
-  handlePageNumber = e => {
+  handlePageNumber = (e) => {
     console.log('Make page jump now!');
     const x = e.target.value - 0;
     if (x < 0 || x > 50) {
@@ -78,13 +70,14 @@ class WizardForm extends Component {
   };
 
   handleJumpToPage = () => {
+    const { pageNumber } = this.state;
     console.log('Make page jump now!');
     this.setState({
-      page: this.state.pageNumber,
+      page: pageNumber,
     });
   };
 
-  pressEnterJumpToPage = event => {
+  pressEnterJumpToPage = (event) => {
     const { pageNumber } = this.state;
     if (event.key === 'Enter') {
       console.log('Enter makes page jump now!');
@@ -94,9 +87,10 @@ class WizardForm extends Component {
     }
   };
 
-  handleClearError = index => {
-    console.log('todo: handle clear error at ', this.state.hasError);
-    this.setState(prevState => ({
+  handleClearError = () => {
+    const { hasError } = this.state;
+    console.log('todo: handle clear error at ', hasError);
+    this.setState((prevState) => ({
       hasError: !prevState.hasError,
     }));
   };
@@ -108,26 +102,38 @@ class WizardForm extends Component {
     this.setState({ loading: false });
   }
 
+  startingAnimation = () => {
+    // console.log("starting");
+    this.setState({ testState: true });
+    // eslint-disable-next-line no-undef
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  endingAnimation = () => {
+    console.log('ending');
+    this.setState({ testState: false });
+  };
+
   render() {
-    const { onSubmit } = this.props;
+    const { onSubmit, onClearError, errors } = this.props;
     // const { page } = this.state;
-    const { loading } = this.state;
+    const { loading, testState, page, pageNumber, pageJumpOutOfRange, hasError } = this.state;
     // console.log("WizardForm props, ", this.props);
     return (
       <div>
         {loading ? (
           <Loading />
         ) : (
-          <CSSTransition in={this.state.testState} classNames="form">
+          <CSSTransition in={testState} classNames="form">
             <div className="form content questions">
               <CCWrapper
                 startingAnimation={this.startingAnimation}
                 endingAnimation={this.endingAnimation}
-                pageNumber={this.state.page}
+                pageNumber={page}
               >
                 <PageList
                   onSubmit={this.nextPage}
-                  pageNumber={this.state.page}
+                  pageNumber={page}
                   generateTest={onSubmit}
                   handleDisable={this.toggleDisable}
                 />
@@ -136,7 +142,7 @@ class WizardForm extends Component {
           </CSSTransition>
         )}
         <ProgressBar
-          currentProgress={this.state.page}
+          currentProgress={page}
           goBack={this.previousPage}
           handleGoPage1={this.backToPage1}
           handleGoPage47={this.goPage47}
@@ -144,15 +150,11 @@ class WizardForm extends Component {
         <PageJump
           handleEnterPageJump={this.pressEnterJumpToPage}
           handlePageJump={this.handleJumpToPage}
-          pageNumber={this.state.pageNumber}
+          pageNumber={pageNumber}
           handlePageNumber={this.handlePageNumber}
-          pageJumpOutOfRange={this.state.pageJumpOutOfRange}
+          pageJumpOutOfRange={pageJumpOutOfRange}
         />
-        <Toast
-          onClearError={this.props.onClearError}
-          errors={this.props.errors}
-          hasError={this.state.hasError}
-        />
+        <Toast onClearError={onClearError} errors={errors} hasError={hasError} />
       </div>
     );
   }
@@ -160,15 +162,17 @@ class WizardForm extends Component {
 
 WizardForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onClearError: PropTypes.func,
+  errors: PropTypes.array,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     errors: state.errors,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onClearError(index) {
       dispatch(clearError(index));

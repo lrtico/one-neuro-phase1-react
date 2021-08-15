@@ -32,25 +32,27 @@ class DatabaseResultsList extends Component {
       .catch((error) => console.log(error));
   }
 
-  handleSelectCode = (codeValue) => {
+  handleSelectCode = (codeValue, codeValueIcd10, codeDescription, codeSpecifier) => {
     const { fields } = this.props;
-    console.log('Make code go now!', codeValue);
-    console.log(`Simulate payload: "codeValue": "${codeValue}" `);
-    // The exact code in the live search results that was clicked...
-    // const code = event;
-    // console.log("The code is ... ", event.dsm);
-    // console.log("Current target = ", code);
-    // console.log("This.props.fields = ", this.props.fields);
-    // this.setState({ selectedCode: [...this.state.selectedCode, codeValue] });
+    console.log('Make code go now!', codeValue, codeValueIcd10, codeDescription, codeSpecifier);
+    console.log(`
+      Payload:
+      codeValue: ${codeValue}
+      codeValueIcd10: ${codeValueIcd10}
+      codeDescription: ${codeDescription}
+      codeSpecifier: ${codeSpecifier}
+    `);
+
     store.dispatch({
       type: 'ADD_DSM_CODE',
-      payload: { codeValue },
+      payload: { codeValue, codeValueIcd10, codeDescription, codeSpecifier },
     });
-    fields.push({ codeValue });
+    fields.push({ codeValue, codeValueIcd10, codeDescription, codeSpecifier });
     this.setState({
       showLiveSearchResults: false,
     });
 
+    // eslint-disable-next-line no-undef
     document.getElementById('dsm-code-input').value = '';
   };
 
@@ -155,11 +157,7 @@ class DatabaseResultsList extends Component {
             <span className="liv-search-result__specifier">SPECIFIER</span>
           </div>
           {dsmCodes.map((code) => (
-            <DatabaseResult
-              data={code}
-              key={code.Id}
-              onSelectCode={this.handleSelectCode}
-            />
+            <DatabaseResult data={code} key={code.Id} onSelectCode={this.handleSelectCode} />
           ))}
         </div>
       </div>

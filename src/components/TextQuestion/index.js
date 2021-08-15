@@ -8,8 +8,8 @@ import CopyForwardButton from '../ButtonToggle/CopyForwardButton';
 
 class TextQuestion extends Component {
   addCopyForward = () => {
-    const val = this.props.input.value;
-    const input = this.props.input;
+    const { input } = this.props;
+    const val = input.value;
     const clickedInputName = input.name;
     const { handleCopyForward } = this.props;
     let inputName = '';
@@ -71,9 +71,7 @@ class TextQuestion extends Component {
         </label>
         <div className="flex question__input">
           {src === undefined ? null : <img src={src} alt={alt} />}
-          {materialIcon === undefined ? null : (
-            <MaterialIcon icon={materialIcon} />
-          )}
+          {materialIcon === undefined ? null : <MaterialIcon icon={materialIcon} />}
           <input
             {...input}
             placeholder={placeholder}
@@ -118,7 +116,7 @@ TextQuestion.propTypes = {
   materialIcon: PropTypes.string,
   copyForward: PropTypes.string,
   maxCharacters: PropTypes.string,
-  disabled: PropTypes.string,
+  disabled: PropTypes.bool,
   meta: PropTypes.string,
 };
 
