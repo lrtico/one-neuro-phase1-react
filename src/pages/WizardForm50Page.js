@@ -114,6 +114,7 @@ WizardForm50Page.propTypes = {
 // Grab the Redux Form's values and load it into props
 WizardForm50Page = connect((state) => ({
   values: getFormValues('wizard')(state),
+  recommendations: state.recommendations,
   tests: state.testsSelectedReducer,
   appendices: state.appendixReducer,
 }))(WizardForm50Page);

@@ -1,14 +1,14 @@
-import React from "react";
-import { Field } from "redux-form";
-import "./checkboxCardStyles.css";
-import "../../../app.css";
-import "../../Card/cardStyles.css";
-import { randomId } from "../../../utils/Helpers";
-import store from "../../../store";
+import React from 'react';
+import { Field } from 'redux-form';
+import './checkboxCardStyles.css';
+import '../../../app.css';
+import '../../Card/cardStyles.css';
+import { randomId } from '../../../utils/Helpers';
+import store from '../../../store';
 
 function handleTick(event) {
   const tar = event.currentTarget;
-  console.log("handleTick curr tar ", tar);
+  console.log('handleTick curr tar ', tar);
   //tar.classList.toggle("question__checkbox--selected");
 }
 
@@ -21,10 +21,10 @@ function handleTick(event) {
 const handleRecommendation = (name, i) => {
   console.log(`Make ${name} ${i} recommendation go now!`);
   store.dispatch({
-    type: "ADD_RECOMMENDATION",
-    payload: name
-  })
-}
+    type: 'ADD_RECOMMENDATION',
+    payload: name,
+  });
+};
 
 
 const CheckboxCard = ({
@@ -42,7 +42,7 @@ const CheckboxCard = ({
   ...props,
   meta: { touched, error }
 }) => {
-  console.log("checkboxinfo props, ", checkboxInfo);
+  console.log('checkboxinfo props, ', checkboxInfo);
   return (
     <div className={disabled ? `${classes} content--disabled` : classes}>
       <h4
@@ -52,7 +52,7 @@ const CheckboxCard = ({
         {columnHeader}
       </h4>
       <label hidden={label == null ? true : false}>
-        {label} <strong>{labelBold}</strong> {labelLast}{noQuestionMark ? null : "?"}
+        {label} <strong>{labelBold}</strong> {labelLast}{noQuestionMark ? null : '?'}
       </label>
       <div className="question__input">
         <div className="question__multiple-choice">
@@ -62,15 +62,15 @@ const CheckboxCard = ({
         <ul className="question__choices question__checkboxCard flex--wrap">
           <div className={
               disabled
-                ? "question__choice--radio-shield content--disabled"
-                : "question__choice--radio-shield"
+                ? 'question__choice--radio-shield content--disabled'
+                : 'question__choice--radio-shield'
             } />
           {checkboxInfo.map((card, i) => (
             <li
               key={randomId()}
               className={
                 card.liClasses == null
-                  ? "question__choice"
+                  ? 'question__choice'
                   : `${card.liClasses} question__choice`
               }
               tabIndex={card.tabOrder}

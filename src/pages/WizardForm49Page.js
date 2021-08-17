@@ -11,10 +11,7 @@ import Recommendations from '../components/Recommendations/Recommendations';
 
 class WizardForm49Page extends Component {
   onCheckboxClick = (input) => {
-    // console.log(
-    //   "Recommendation's passed argument from onCheckboxClick ",
-    //   input
-    // );
+    console.log("Recommendation's passed argument from onCheckboxClick ", input);
     const { change } = this.props;
     console.log('WizardForm49Page this.props.change', change);
     change(input.name, !input.checked);
@@ -33,137 +30,133 @@ class WizardForm49Page extends Component {
           component={CheckboxCard}
           checkboxInfo={[
             {
-              cardName: 'recommendation-adhd',
+              cardName: 'recommendationAdhd',
               cardKey: 'A',
               cardLabel: 'ADHD',
               tabOrder: '1',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-autism',
+              cardName: 'recommendationAutism',
               cardKey: 'B',
               cardLabel: 'Autism',
               tabOrder: '2',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-dementia',
+              cardName: 'recommendationDementia',
               cardKey: 'C',
               cardLabel: 'DEMENTIA',
               tabOrder: '3',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-dysthymia',
+              cardName: 'recommendationDysthymia',
               cardKey: 'D',
               cardLabel: 'Dysthymia',
               tabOrder: '4',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-learning-disability-mathematics',
+              cardName: 'recommendationLearningDisabilityMathematics',
               cardKey: 'E',
               cardLabel: 'Learning Disability Mathematics',
               tabOrder: '5',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-learning-disability-reading',
+              cardName: 'recommendationLearningDisabilityReading',
               cardKey: 'F',
               cardLabel: 'Learning Disability Reading',
               tabOrder: '6',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-neurocognitive-disorder',
+              cardName: 'recommendationNeurocognitiveDisorder',
               cardKey: 'G',
               cardLabel: 'Neurocognitive Disorder',
               tabOrder: '7',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-visual-processing-children-adults',
+              cardName: 'recommendationVisualProcessingChildrenAdults',
               cardKey: 'H',
               cardLabel: 'Visual Processing Weakness for Children & Adults',
               tabOrder: '8',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-visual-processing-children',
+              cardName: 'recommendationVisualProcessingChildren',
               cardKey: 'I',
               cardLabel: 'Visual Processing Weakness for Children',
               tabOrder: '9',
               recommendation: true,
             },
             {
-              cardName:
-                'recommendation-learning-disability-writing-children-adults',
+              cardName: 'recommendationLearningDisabilityWritingChildrenAdults',
               cardKey: 'J',
-              cardLabel:
-                'Learning Disability in Writing Diagnosis for Children & Adults',
+              cardLabel: 'Learning Disability in Writing Diagnosis for Children & Adults',
               tabOrder: '10',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-learning-disability-writing-children',
+              cardName: 'recommendationLearningDisabilityWritingChildren',
               cardKey: 'K',
-              cardLabel:
-                'Learning Disability in Writing Diagnosis for Children',
+              cardLabel: 'Learning Disability in Writing Diagnosis for Children',
               tabOrder: '11',
               recommendation: true,
             },
             {
-              cardName:
-                'recommendation-auditory-processing-weakness-children-adults',
+              cardName: 'recommendationAuditoryProcessingWeaknessChildrenAdults',
               cardKey: 'L',
               cardLabel: 'Auditory Processing Weakness for Children & Adults',
               tabOrder: '12',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-auditory-processing-weakness-children',
+              cardName: 'recommendationAuditoryProcessingWeaknessChildren',
               cardKey: 'M',
               cardLabel: 'Auditory Processing Weakness for Children',
               tabOrder: '13',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-trauma-ptsd',
+              cardName: 'recommendationTraumaPtsd',
               cardKey: 'N',
               cardLabel: 'Trauma/PTSD',
               tabOrder: '14',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-psychosis',
+              cardName: 'recommendationPsychosis',
               cardKey: 'O',
               cardLabel: 'Psychosis',
               tabOrder: '15',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-behavior-challenges',
+              cardName: 'recommendationBehaviorChallenges',
               cardKey: 'P',
               cardLabel: 'Behavior Challenges',
               tabOrder: '16',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-sports-concussion',
+              cardName: 'recommendationSportsConcussion',
               cardKey: 'Q',
               cardLabel: 'Sports Concussion',
               tabOrder: '17',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-reactive-attachment-disorder',
+              cardName: 'recommendationReactiveAttachmentDisorder',
               cardKey: 'R',
               cardLabel: 'Reactive Attachment Disorder',
               tabOrder: '18',
               recommendation: true,
             },
             {
-              cardName: 'recommendation-traumatic-brain-injury',
+              cardName: 'recommendationTraumaticBrainInjury',
               cardKey: 'S',
               cardLabel: 'Traumatic Brain Injury',
               tabOrder: '19',

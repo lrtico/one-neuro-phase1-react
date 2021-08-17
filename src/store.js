@@ -1,12 +1,12 @@
-import { createStore, combineReducers } from "redux";
-import { reducer as reduxFormReducer } from "redux-form";
-import testsSelectedReducer from "../src/reducers/reducerTests";
-import appendixReducer from "../src/reducers/reducerAppendix";
-import recommendations from "../src/reducers/reducerRecommendation";
-import domainBasedReports from "./reducers/reducerDomains";
-import copyForward from "./reducers/reducerCopyForward";
-import { matchedTests } from "./reducers/reducerTests";
-import { patientAge, dsmSelectedCodes, errors } from "./reducers/reducers";
+import { createStore, combineReducers } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
+import testsSelectedReducer from '../src/reducers/reducerTests';
+import appendixReducer from '../src/reducers/reducerAppendix';
+import recommendations from '../src/reducers/reducerRecommendation';
+import domainBasedReports from './reducers/reducerDomains';
+import copyForward from './reducers/reducerCopyForward';
+import { matchedTests } from './reducers/reducerTests';
+import { patientAge, dsmSelectedCodes, errors } from './reducers/reducers';
 
 const reducer = combineReducers({
   form: reduxFormReducer, // mounted under "form"
@@ -18,12 +18,12 @@ const reducer = combineReducers({
   patientAge,
   dsmSelectedCodes,
   copyForward,
-  errors
+  errors,
 });
 
-const store = (window.devToolsExtension
-  ? window.devToolsExtension()(createStore)
-  : createStore)(reducer);
+const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(
+  reducer,
+);
 
 window.store = store;
 

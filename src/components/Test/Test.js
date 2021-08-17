@@ -79,6 +79,7 @@ const ReplaceField = ({ d, i, a, n, tn, event, ...props }) => {
       component="input"
       maxLength={3}
       normalize={onlyNums}
+      // eslint-disable-next-line no-shadow
       onBlur={(event) => props.handleAppendixTestIndexesAdd(id, testName, abbr, name, event)}
     />
   );
