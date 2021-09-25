@@ -9,7 +9,7 @@ const PageJump = (props) => {
   const { pageNumber, handlePageNumber, handleEnterPageJump, handlePageJump, pageJumpOutOfRange } =
     props;
   return (
-    <div id="page-jump">
+    <div id="page-jump" className="noprint">
       <input
         type="text"
         value={pageNumber}

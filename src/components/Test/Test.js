@@ -614,7 +614,6 @@ const Test = ({ testFromState, ...props }) => {
                           {testFromState[i].ScoreType}
                         </div>
                         {testFromState[i].Abbreviation === 'Beery VMI' ||
-                        testFromState[i].Abbreviation === 'PIY' ||
                         (testFromState[i].Abbreviation === 'D-KEFS' &&
                           (parentscaletitle.ParentScaleName === 'Color-Word Interference Test' ||
                             parentscaletitle.ParentScaleName === 'Twenty Questions' ||
@@ -671,12 +670,16 @@ const Test = ({ testFromState, ...props }) => {
                           <div>
                             {testFromState[i].Abbreviation !== 'Beery VMI' &&
                             testFromState[i].Abbreviation !== 'D-KEFS' &&
-                            (subtest.Description === null || subtest.Description === '') &&
-                            testFromState[i].Abbreviation !== 'PIY' ? (
+                            (subtest.Description === null || subtest.Description === '') ? (
                               <Field
                                 component="input"
                                 type="text"
-                                name={`t${subtest.ParentScaleTitleId}${subtest.Name.toLowerCase()
+                                name={`t${subtest.Id}${testFromState[0].Abbreviation.toLowerCase()
+                                  .replace(/ /g, '')
+                                  .replace('-', '')
+                                  .split(' ')
+                                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                  .join('')}${subtest.Name.toLowerCase()
                                   .replace(/-/g, ' ')
                                   .split(' ')
                                   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -707,9 +710,10 @@ const Test = ({ testFromState, ...props }) => {
                         component="input"
                         type="text"
                         name={`t${subtest.Id}${subtest.Name.toLowerCase()
-                          .replace(/[/]/g, '')
+                          .replace(/[/]/g, ' ')
                           .replace(/[,/]/g, '')
                           .replace(/[’]/g, '')
+                          .replaceAll('-', ' ')
                           .split(' ')
                           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                           .join('')}Score`}
@@ -1193,6 +1197,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${createNameIterator(tablescore.Id)}${testFromState[
                                 i
                               ].Abbreviation.toLowerCase()
+                                .replaceAll('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                                 .join('')}${testFromState[i].TestScoringTableDetails[
@@ -1230,6 +1235,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${createNameIterator(tablescore.Id, 1)}${testFromState[
                                 i
                               ].Abbreviation.toLowerCase()
+                                .replaceAll('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                                 .join('')}${testFromState[
@@ -1267,6 +1273,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${createNameIterator(tablescore.Id, 2)}${testFromState[
                                 i
                               ].Abbreviation.toLowerCase()
+                                .replaceAll('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                                 .join('')}${testFromState[
@@ -1304,6 +1311,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${createNameIterator(tablescore.Id, 3)}${testFromState[
                                 i
                               ].Abbreviation.toLowerCase()
+                                .replaceAll('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                                 .join('')}${testFromState[
@@ -1344,6 +1352,7 @@ const Test = ({ testFromState, ...props }) => {
                                 .join('')}${testFromState[
                                 i
                               ].TestScoringTableDetails[0].TableHeaderRowTitles.Col5.toLowerCase()
+                                .replaceAll('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                                 .join('')}Score`}
@@ -1374,6 +1383,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${createNameIterator(tablescore.Id, 5)}${testFromState[
                                 i
                               ].Abbreviation.toLowerCase()
+                                .replaceAll('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                                 .join('')}${testFromState[

@@ -1254,7 +1254,7 @@ class WizardForm47Page extends Component {
           <div className="flex copy-forward-row">
             <div className="question grid__half">
               <label>
-                Patient's <strong>name</strong>
+                Patient&apos;s <strong>name</strong>
               </label>
               <div className="flex question__input">
                 <MaterialIcon icon="arrow_right" />
@@ -1273,7 +1273,7 @@ class WizardForm47Page extends Component {
             </div>
             <div className="question grid__half">
               <label>
-                Patient's <strong>age</strong>
+                Patient&apos;s <strong>age</strong>
               </label>
               {/* {patientAge && (
                 <Field

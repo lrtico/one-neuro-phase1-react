@@ -18,10 +18,7 @@ const WizardForm19Page = (props) => {
   console.log('WizardPage19 props, ', props);
   return (
     <form className="col" onSubmit={handleSubmit}>
-      <SectionTitle
-        titleBold="Medical &amp; development"
-        titleRegular="history"
-      />
+      <SectionTitle titleBold="Medical &amp; development" titleRegular="history" />
       <div className="flex" onClick={() => handleDisable(19)}>
         <SectionSubHeader subHeader="Development" />
         <ButtonDisable buttonToggleLabel="disable" disabled={disabled} />
@@ -41,7 +38,7 @@ const WizardForm19Page = (props) => {
             cardKey: 'B',
             cardNameCheckbox: 'mdhTemperTantrum',
             cardNameDescription: 'mdhTemperTantrumDescription',
-            cardLabel: 'Temper trantrums',
+            cardLabel: 'Temper tantrums',
             liClasses: 'question__choice--full-width desc-checkbox',
             tabOrder: '2',
           },

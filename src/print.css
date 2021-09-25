@@ -1,0 +1,15 @@
+@media print {
+  .pdf {
+    display: block;
+  }
+
+  #page-jump,
+  #page-trans,
+  .progress,
+  .toast,
+  .noprint,
+  header,
+  .grid {
+    display: none;
+  }
+}

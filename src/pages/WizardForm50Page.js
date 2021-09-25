@@ -9,6 +9,7 @@ import validate from '../validate';
 import '../app.css';
 import Button from '../components/Button';
 import Appendix from '../components/Test/Appendix';
+import PdfTemplate from '../components/PDFTemplate/PdfTemplate';
 
 class WizardForm50Page extends Component {
   state = {
@@ -24,16 +25,20 @@ class WizardForm50Page extends Component {
       testSelectedReducer: tests,
       recommendations,
     };
-    console.log('generatePDFTest values, ', data);
+    console.log('generatePDF values, ', data);
 
     this.setState({ loading: true });
 
     // use axios' post method to the create-pdf route passing the data from state
     // blobs are immutable objects the represent raw data, like our PDF
+
     // For prod use https://onpdfgenerator.azurewebsites.net/
+    // For local use http://localhost:5000/
     axios
-      .post('http://localhost:5000/create-pdf', data)
-      .then(() => axios.get('http://localhost:5000/fetch-pdf', { responseType: 'blob' }))
+      .post('https://onpdfgenerator.azurewebsites.net/create-pdf', data)
+      .then(() =>
+        axios.get('https://onpdfgenerator.azurewebsites.net/fetch-pdf', { responseType: 'blob' }),
+      )
       .then((res) => {
         // eslint-disable-next-line no-undef
         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
@@ -74,31 +79,40 @@ class WizardForm50Page extends Component {
 
   render() {
     // const { handleSubmit } = this.props;
-    const { values } = this.props;
+    const { values, appendices, tests, recommendations } = this.props;
     const { loading } = this.state;
     console.log('Wizard50 props, ', this.props);
     console.log('Wizard50 values, ', values);
+    const data = {
+      values,
+      appendixReducer: appendices.Tests,
+      testSelectedReducer: tests,
+      recommendations,
+    };
     return (
-      <form className="col" onSubmit={this.generatePDFTest}>
-        <Appendix values={this.props} />
-        <div className="flex flex--center-vertical">
-          <Button
-            onClick={this.generatePDFTest}
-            buttonLabel="Make a PDF"
-            cssClasses="btn--width-auto"
-          />
-          {loading ? (
-            <div className="pdf-generation-loader">
-              <div className="pdf-generation-loader__box">
-                <div />
-                <div />
-                <div />
+      <div>
+        <PdfTemplate data={data} />
+        <form className="col noprint" onSubmit={this.generatePDFTest}>
+          <Appendix values={this.props} />
+          <div className="flex flex--center-vertical">
+            <Button
+              onClick={this.generatePDFTest}
+              buttonLabel="Make a PDF"
+              cssClasses="btn--width-auto"
+            />
+            {loading ? (
+              <div className="pdf-generation-loader">
+                <div className="pdf-generation-loader__box">
+                  <div />
+                  <div />
+                  <div />
+                </div>
+                <div className="pdf-generation-loader__arrow" />
               </div>
-              <div className="pdf-generation-loader__arrow" />
-            </div>
-          ) : null}
-        </div>
-      </form>
+            ) : null}
+          </div>
+        </form>
+      </div>
     );
   }
 }

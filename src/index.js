@@ -12,7 +12,7 @@ import PageTrans from './components/PageTrans';
 import Hamburger from './components/Hamburger';
 
 const rootEl = document.getElementById('root');
-const handleError = error => {
+const handleError = (error) => {
   store.dispatch(addError(error.message));
 };
 window.store = store;
@@ -24,7 +24,9 @@ ReactDOM.render(
       <PageTrans />
       <Hamburger />
       <WizardForm onSubmit={showResults} />
-      <Values form="wizard" />
+      <div className="noprint">
+        <Values form="wizard" />
+      </div>
     </div>
   </Provider>,
   rootEl,
