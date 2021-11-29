@@ -21,9 +21,11 @@ class WizardForm extends Component {
       page: 1,
       pageNumber: 1,
       testState: false,
-      loading: true,
+      loading: false,
       hasError: true,
       pageJumpOutOfRange: false,
+      allTests: [],
+      allTestsLoaded: false,
     };
   }
 
@@ -100,6 +102,18 @@ class WizardForm extends Component {
     // setTimeout(() => this.setState({ loading: false }), 3000);
 
     this.setState({ loading: false });
+
+    // Load all the test data into state
+    const allData = 'https://oneneurowebapi.azurewebsites.net/api/test/get/all';
+    fetch(allData)
+      .then((response) => {
+        return response.json();
+      })
+      .then((d) => {
+        this.setState({ allTests: d, allTestsLoaded: true });
+        console.log('All test data from API, ', d);
+      })
+      .catch((error) => console.log('Getting all test fetch data error, ', error));
   }
 
   startingAnimation = () => {
@@ -117,8 +131,17 @@ class WizardForm extends Component {
   render() {
     const { onSubmit, onClearError, errors } = this.props;
     // const { page } = this.state;
-    const { loading, testState, page, pageNumber, pageJumpOutOfRange, hasError } = this.state;
-    // console.log("WizardForm props, ", this.props);
+    const {
+      loading,
+      testState,
+      page,
+      pageNumber,
+      pageJumpOutOfRange,
+      hasError,
+      allTests,
+      allTestsLoaded,
+    } = this.state;
+    console.log('WizardForm state, ', this.state);
     return (
       <div>
         {loading ? (
@@ -136,6 +159,8 @@ class WizardForm extends Component {
                   pageNumber={page}
                   generateTest={onSubmit}
                   handleDisable={this.toggleDisable}
+                  allTests={allTests}
+                  allTestsLoaded={allTestsLoaded}
                 />
               </CCWrapper>
             </div>

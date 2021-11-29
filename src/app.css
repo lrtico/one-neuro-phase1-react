@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700,700i|Montserrat:400,700");
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700,700i|Montserrat:400,700');
+
+.values {
+  /* display: none; */
+}
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -243,7 +248,7 @@ optgroup,
 select,
 textarea,
 form {
-  font-family: "Merriweather", "Georgia", serif;
+  font-family: 'Merriweather', 'Georgia', serif;
   /* 1 */
   font-size: 100%;
   /* 1 */
@@ -279,9 +284,9 @@ select {
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
+html [type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
   /* 2 */
 }
@@ -290,9 +295,9 @@ html [type="button"],
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -301,9 +306,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -359,8 +364,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10-.
  * 2. Remove the padding in IE 10-.
  */
-[type="checkbox"],
-[type="radio"] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -379,8 +384,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -388,7 +393,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -398,8 +403,8 @@ textarea {
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
  */
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -417,13 +422,13 @@ textarea {
 /**
 * Styles for the date picker
 **/
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type='date']::-webkit-calendar-picker-indicator {
   cursor: pointer;
   margin-top: 0px;
   position: relative;
   transition: all 250ms ease-in-out;
 }
-input[type="date"]::-webkit-calendar-picker-indicator:hover {
+input[type='date']::-webkit-calendar-picker-indicator:hover {
   background-color: transparent;
   margin-top: 5px;
 }
@@ -483,7 +488,7 @@ body {
   margin: 6.3rem 0 0;
   padding: 0;
   font-size: 2.8rem;
-  font-family: "Merriweather", "Georgia", serif;
+  font-family: 'Merriweather', 'Georgia', serif;
   color: #000;
   background-color: #d5fbff;
   -webkit-font-smoothing: antialiased;
@@ -542,7 +547,7 @@ h3 + .flex--align-items-end > h4 {
 }
 
 h4 {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 21px;
   font-size: 2.1rem;
   margin-bottom: 18px;
@@ -551,7 +556,7 @@ h4 {
 
 .question__col-header {
   color: #474747;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 21px;
   font-size: 2.1rem;
   font-weight: bold;
@@ -658,7 +663,7 @@ textarea {
   border: none;
   border-bottom: 1px solid #aaaaaa;
   color: #333;
-  font-family: "Merriweather", "Georgia", serif;
+  font-family: 'Merriweather', 'Georgia', serif;
   line-height: 1em;
   padding: 9px 18px;
   width: 100%;
@@ -670,7 +675,7 @@ textarea {
   width: 100%;
 }
 
-[type="radio"].radio-visible {
+[type='radio'].radio-visible {
   height: initial;
   position: initial;
   top: initial;
@@ -683,7 +688,7 @@ textarea {
 
 .question-card__radio > label {
   display: inline-block;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-size: 1.2rem;
   line-height: initial;
@@ -719,7 +724,7 @@ textarea {
 
 .test-desc h5 {
   color: #a3a3a3;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 21px;
   font-size: 2.1rem;
   margin: 36px 0 9px;
@@ -739,22 +744,22 @@ textarea {
   background-color: rgba(255, 255, 0, 0.5);
   border-bottom-color: #306cff;
   color: #306cff;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.test__list input[type="number"] {
+.test__list input[type='number'] {
   width: 7.14vw;
 }
 
-.test__list input[type="text"] {
+.test__list input[type='text'] {
   width: 14.28vw;
   width: max-content;
 }
 
 form .test-table {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .test-table .table__row {
@@ -812,25 +817,19 @@ form .test-table {
   width: 57.12vw;
 }
 
-.table__row input[type="text"] {
+.table__row input[type='text'] {
   background-color: rgba(255, 255, 0, 0.5);
   border-bottom-color: #306cff;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   width: 72px;
 }
 
-.test-table.test-table--appendix
-  .table__row.table__header
-  div:nth-child(4)
-  input[type="text"],
-.test-table.test-table--appendix
-  .table__row
-  div:nth-child(4)
-  > input[type="text"] {
+.test-table.test-table--appendix .table__row.table__header div:nth-child(4) input[type='text'],
+.test-table.test-table--appendix .table__row div:nth-child(4) > input[type='text'] {
   width: 100%;
 }
 
-.test-table.test-table--appendix .table__row div > input[type="text"] {
+.test-table.test-table--appendix .table__row div > input[type='text'] {
   width: 100%;
 }
 
@@ -1005,8 +1004,8 @@ form .test-table {
   opacity: 0.5;
 }
 
-input[type="radio"].content--disabled,
-input[type="checkbox"].content--disabled {
+input[type='radio'].content--disabled,
+input[type='checkbox'].content--disabled {
   opacity: 0;
 }
 
@@ -1063,7 +1062,7 @@ textarea {
 /* Required text and elements */
 .question__required-text {
   color: #d0290a;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   opacity: 0;
   position: absolute;
   left: 0;
@@ -1149,7 +1148,7 @@ textarea {
 
 .pdf-generation-loader__arrow:after,
 .pdf-generation-loader__arrow:before {
-  content: "";
+  content: '';
   position: absolute;
   width: 9px;
   height: 2px;

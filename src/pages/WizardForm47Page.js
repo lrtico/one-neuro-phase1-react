@@ -18,10 +18,10 @@ import SectionSubTitle from '../components/SectionSubTitle';
 class WizardForm47Page extends Component {
   state = {
     domains: [],
-    tests: [],
+    // tests: [],
     matchedTests: [],
     testsSelected: [],
-    domainsLoaded: false,
+    domainsLoaded: true,
     showFetchErrorDomains: false,
   };
 
@@ -90,7 +90,7 @@ class WizardForm47Page extends Component {
     });
   };
 
-  // Add a composite score domain to the appendix (not used anymore)
+  // Add a composite score domain to the appendix (is this used anymore?)
   addToAppendix = (id, parentScaleName, abbreviation, name, event) => {
     console.log(`
       Make Appendix Domain info go now!
@@ -108,9 +108,9 @@ class WizardForm47Page extends Component {
       DomainsOverall: [{ parentScaleName, id }],
     };
 
-    const { checked } = event.target.checked;
+    // const { checked } = event.target.checked;
 
-    if (checked) {
+    if (event.target.checked) {
       console.log('payload sent to add appendix reducer: ', data);
       store.dispatch({
         type: 'ADD_APPENDIX_DOMAIN',
@@ -584,7 +584,7 @@ class WizardForm47Page extends Component {
       - ParentScale Name: ${parentScaleName}
       - Id: ${id}
       - SubTest Name: ${name}
-      - Event: ${event.target.value}
+      - Event target value: ${event.target.value}
     `);
     const data = {
       Id: id,
@@ -612,12 +612,12 @@ class WizardForm47Page extends Component {
     };
 
     const notBlank = event.target.value !== '';
-    // console.log("Subtest input wasn't blank: ", notBlank);
+    console.log("Subtest input wasn't blank: ", notBlank);
 
     // Check to see if any sibling subtests have a value
     const sibsNotBlank = (event) => {
       const sibsArr = event.target.parentNode.parentNode.parentNode.querySelectorAll('input');
-      // console.log("all sibs, ", sibsArr);
+      console.log('all sibs =', sibsArr);
       let sibsTest;
       // while (sib) {
       //   if (sib.nodeType === 1 && sib !== event.target) {
@@ -637,7 +637,7 @@ class WizardForm47Page extends Component {
     // console.log("Value of sibsNotBlank test, ", sibsNotBlank(event));
 
     if (notBlank) {
-      // console.log("payload sent to add subtest appendix reducer: ", data);
+      console.log('payload sent to add subtest appendix reducer ADD_APPENDIX_TEST: ', data);
       // store.dispatch({
       //   type: "ADD_APPENDIX_SUBTEST",
       //   payload: data
@@ -873,7 +873,7 @@ class WizardForm47Page extends Component {
       - Test name: ${testName}
       - Abbreviation: ${abbreviation}
       - Index Name: ${indexName}
-      - Event: ${event.target.value}
+      - Value: ${event.target.value}
     `);
 
     const data = {
@@ -935,7 +935,8 @@ class WizardForm47Page extends Component {
     // console.log(`Box clicked on had the label of ${card}`);
     // this.setState(({ matchedTests, tests, ...state }) => {
 
-    const { tests } = this.state;
+    // const { tests } = this.state;
+    const { allTests } = this.props;
     const { storeMatchedTests } = this.props;
     const idx = storeMatchedTests.map((t) => t.DomainName).indexOf(card);
     // console.log(`idx = ${idx}`);
@@ -979,7 +980,7 @@ class WizardForm47Page extends Component {
       // console.log("newarr, ", newarr);
       // return [matchedTests.push(newarr)];
 
-      const handleMatches = tests.filter((t) => t.DomainName === card);
+      const handleMatches = allTests.filter((t) => t.DomainName === card);
       const data = {
         DomainName: card,
         handleMatches,
@@ -999,19 +1000,19 @@ class WizardForm47Page extends Component {
 
   // Show the test when clicked on or hide it
   showFilteredTest = (test) => {
-    console.log('showFilteredTest fired ', this.state);
-    const selectedTest = this.state.tests.filter((t) => t.Abbreviation === test);
-    store.dispatch({
-      type: 'ADD_TEST',
-      payload: selectedTest[0],
-    });
+    // console.log('start showFilteredTest fired ', this.state);
+    // const { tests } = this.state;
+    const { allTests } = this.props;
+    const selectedTest = allTests.filter((t) => t.Abbreviation === test);
+
     store.dispatch({
       type: 'SHOW_TESTS',
       payload: { showTests: true },
     });
 
     // console.log("Make show test go now!", test);
-    this.setState(({ testsSelected, tests, ...state }) => {
+    // this.setState(({ testsSelected, tests, ...state }) => {
+    this.setState(({ testsSelected, ...state }) => {
       const idx = testsSelected.map((t) => t.Abbreviation).indexOf(test);
 
       if (idx !== -1) {
@@ -1021,20 +1022,30 @@ class WizardForm47Page extends Component {
         //   "The abbreviation is in state already so we remove it now! ",
         //   this.state.testsSelected
         // );
+        store.dispatch({
+          type: 'REMOVE_TEST',
+          payload: selectedTest[0],
+        });
         return {
           ...state,
           testsSelected: testsSelected.filter((t) => t.Abbreviation !== test),
         };
       }
-      // The abbreviation clicked isn't in the testsSelected array, so filter the immutable all tests state
+      // The abbreviation clicked isn't in the testsSelected array,
+      // so filter the immutable all tests state
       // by copying the test that was clicked to the testsSelected array
       // console.log("IndexOf, ", idx);
       // console.log(
       //   "The abbreviation clicked isn't in the testsSelected array so make add now! ",
       //   this.state.testsSelected
       // );
+      store.dispatch({
+        type: 'ADD_TEST',
+        payload: selectedTest[0],
+      });
       return [testsSelected.push(selectedTest[0])];
     });
+    // console.log('end showFilteredTest fired ', this.state);
   };
 
   // Copy the data from the store to the input clicked on
@@ -1052,10 +1063,10 @@ class WizardForm47Page extends Component {
   }
 
   componentDidMount() {
-    // Load the domains into state
-    console.log('componentDidMount firing');
-    // const url = 'http://oneneuro.azurewebsites.net/api/test/domains/all';
+    console.log('start componentDidMount firing');
     const url = 'https://oneneurowebapi.azurewebsites.net/api/test/domains/all';
+
+    // Load the domains into state
     fetch(url)
       .then((response) => {
         return response.json();
@@ -1068,35 +1079,34 @@ class WizardForm47Page extends Component {
         this.setState({ showFetchErrorDomains: true });
         console.log('Error fetching domains: ', error);
       });
-    // console.log("WizardForm47 is loading");
 
-    // Load all the test data into state
-    // const allData = 'http://oneneuro.azurewebsites.net/api/test/get/all';
-    const allData = 'https://oneneurowebapi.azurewebsites.net/api/test/get/all';
-    fetch(allData)
-      .then((response) => {
-        return response.json();
-      })
-      .then((d) => {
-        this.setState({ tests: d, domainsLoaded: true });
-        console.log('Test data from API, ', d);
-      })
-      .catch((error) => console.log('Getting all data error, ', error));
+    // // Load all the test data into state
+    // const allData = 'https://oneneurowebapi.azurewebsites.net/api/test/get/all';
+    // fetch(allData)
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((d) => {
+    //     this.setState({ tests: d, domainsLoaded: true });
+    //     console.log('Test data from API, ', d);
+    //   })
+    //   .catch((error) => console.log('Getting all data error, ', error));
 
     console.log('Selected tests from the global store are: ', this.props.tests);
     this.setState({ testsSelected: this.props.tests });
+    console.log('after mounting state =', this.state);
   }
 
-  shouldComponentUpdate(nextState) {
-    if (
-      this.state.tests !== nextState.tests ||
-      this.state.domainsLoaded !== nextState.domainsLoaded ||
-      this.state.domains !== nextState.domains
-    ) {
-      return true;
-    }
-    return false;
-  }
+  // shouldComponentUpdate(nextState) {
+  //   if (
+  //     // this.state.tests !== nextState.tests ||
+  //     this.state.domainsLoaded !== nextState.domainsLoaded ||
+  //     this.state.domains !== nextState.domains
+  //   ) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   render() {
     const {
@@ -1108,11 +1118,13 @@ class WizardForm47Page extends Component {
       // referral3,
       storeMatchedTests,
       tests,
+      allTests,
+      allTestsLoaded,
     } = this.props;
     const { domains, showFetchErrorDomains, domainsLoaded } = this.state;
     // console.log("State after render(), ", this.state);
     // console.log("Page 47's props from the store ", this.props);
-    console.log('Page 47 render just fired');
+    console.log('Page 47 render just fired, props =', this.props);
 
     return (
       <form className="col" onSubmit={handleSubmit}>
@@ -1202,22 +1214,28 @@ class WizardForm47Page extends Component {
               : 'domain__pick-sub-domain'
           }
         >
-          <SectionSubTitle subTitleFirst="Available" subTitleBold="tests" />
-          <FieldArray
-            component={CheckboxTestsCard}
-            checkboxInfo={storeMatchedTests.map((test) => ({
-              columnHeader: test.DomainName,
-              cardName: `dbr-${test.DomainName}`,
-              checkboxLabels: test.handleMatches,
-            }))}
-            label="Check all the"
-            labelBold="tests"
-            labelLast="that were given"
-            name="dbr-tests-group"
-            classes="question question--thumbless"
-            handleTestFilter={this.showFilteredTest}
-          />
-          <DivButton divButtonLabel="OK" show={this.showTests} />
+          {allTestsLoaded ? (
+            <div>
+              <SectionSubTitle subTitleFirst="Available" subTitleBold="tests" />
+              <FieldArray
+                component={CheckboxTestsCard}
+                checkboxInfo={storeMatchedTests.map((test) => ({
+                  columnHeader: test.DomainName,
+                  cardName: `dbr-${test.DomainName}`,
+                  checkboxLabels: test.handleMatches,
+                }))}
+                label="Check all the"
+                labelBold="tests"
+                labelLast="that were given"
+                name="dbr-tests-group"
+                classes="question question--thumbless"
+                handleTestFilter={this.showFilteredTest}
+              />
+              <DivButton divButtonLabel="OK" show={this.showTests} />
+            </div>
+          ) : (
+            <p>Please wait a bit for the tests to load...</p>
+          )}
         </div>
 
         <div

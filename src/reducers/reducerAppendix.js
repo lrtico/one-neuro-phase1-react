@@ -289,45 +289,6 @@ export const allTests = (state = [], action) => {
       // If it is, then add the payload's subtest to the existing parent scale's subtest array
 
       console.log('Appendix state before match logic, state =', state, 'action =', action);
-      // console.log(
-      //   `
-      //     - Action payload = ${JSON.stringify(action.payload)}
-      //   `
-      // );
-
-      // let foo = state.map((item, i) =>
-      //   item.ParentScale.map(parentscale => {
-      //     console.log("foo ParentScale, ", parentscale);
-      //     if (
-      //       parentscale.ParentScaleTitle ===
-      //       action.payload.ParentScale[0].ParentScaleTitle
-      //     ) {
-      //       console.log("ParentScaleTitle match", parentscale.ParentScaleTitle);
-      //       parentscale.SubTests.push(
-      //         action.payload.ParentScale[0].SubTests[0]
-      //       );
-      //       console.log("After appendix does match, ", state);
-      //       return parentscale;
-      //     } else {
-      //       console.log(
-      //         "ParentScaleTitle doesn't match, ",
-      //         parentscale.ParentScaleTitle
-      //       );
-      //       state[i].ParentScale.push(action.payload.ParentScale[0]);
-      //       console.log("After appendix doesn't match, ", state);
-      //       return parentscale;
-      //     }
-      //   })
-      // );
-
-      /*
-        Take an object from the parent scale array
-        - If the payload's parent scale title = the iterated state's item's parent scale title, add the
-          payload to the subtest array in the parent scale array
-        - If the payload's parent scale title = the current iterated state's parent scale title && the
-          payload's parent scale title doesn't match any of the other iterated state's parent scale titles,
-          add a new parent scale title object to the state array
-      */
 
       if (hasTest) {
         for (const item of state) {
@@ -660,7 +621,7 @@ export const allTests = (state = [], action) => {
                 return p;
               }
             }); // end ParentGroupScales forEach
-          } // End of state.ParentGroupScales iteration
+          } // End of existing state.ParentGroupScales iteration
 
           if (item.SubTests !== undefined && item.TestName === action.payload.TestName) {
             item.SubTests.map((subTest, i) => {
@@ -885,6 +846,8 @@ export const allTests = (state = [], action) => {
                 console.log(
                   "The iterated indexName's name = the payload's indexName, it's already there so exit to map ",
                   t,
+                  'state =',
+                  state,
                 );
                 return t;
               }
@@ -920,6 +883,23 @@ export const allTests = (state = [], action) => {
             console.log('constant created to hold the payload , ', ParentScale);
             return [{ ...item, ParentScale }];
           } // end of ParentScale empty but TestIndexes not empty iteration
+
+          if (
+            item.ParentGroupScales === undefined &&
+            item.Abbreviation === action.payload.Abbreviation &&
+            item.TestIndexes !== undefined &&
+            action.payload.ParentGroupScales !== undefined
+          ) {
+            // The subtest's parent scale is already in state, add this payload's subtest to that parent scale
+            console.log(
+              "No ParentGroupScales, but there is a TestIndex so we stick the ParentGroupScales inside that matched IndexName's item",
+              action.payload.ParentGroupScales[0].ParentGroupScaleName,
+            );
+            const ParentGroupScales = [];
+            ParentGroupScales.push(action.payload.ParentGroupScales[0]);
+            console.log('constant created to hold the payload,', ParentGroupScales);
+            return [{ ...item, ParentGroupScales }];
+          } // end of ParentGroupScales empty but TestIndexes not empty iteration
 
           if (
             item.ParentScale !== undefined &&

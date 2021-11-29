@@ -5,7 +5,7 @@
 }
 
 @page {
-  margin: 10mm 5mm;
+  margin: 10mm 5mm 5mm 5mm;
   size: letter;
 }
 
@@ -16,6 +16,10 @@
     margin: 0;
     width: 100%;
     counter-reset: page;
+  }
+
+  .mb9mm {
+    margin-bottom: 9mm;
   }
 
   .content {
@@ -52,6 +56,23 @@
     margin: 0 20mm;
   }
 
+  .pdf-t main section .bell-curve {
+    margin-top: 45px;
+    max-width: 100%;
+  }
+
+  .pdf-t main section .domain__test {
+    height: unset;
+    margin-bottom: 12mm;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .pdf-t main section .domain__test .domain__test__title {
+    align-items: flex-end;
+    margin-bottom: 3mm;
+  }
+
   .pdf-t main h1 {
     font-size: 23pt;
     font-weight: 700;
@@ -65,17 +86,57 @@
   }
 
   .pdf-t main section h3 {
-    color: #666;
+    color: #00a6d8;
     font-weight: 700;
     font-size: 16pt;
     margin: 5mm 0;
     text-transform: uppercase;
   }
 
+  .pdf-t main section h4 {
+    color: #474747;
+    font-family: 'Lato', sans-serif;
+    font-size: 20pt;
+    margin-bottom: 0;
+    text-transform: capitalize;
+  }
+
+  .pdf-t main section h5 {
+    color: #666;
+    font-family: 'Lato', sans-serif;
+    font-size: 16pt;
+    text-transform: uppercase;
+  }
+
+  .pdf-t main section .domain__test h5 {
+    margin-bottom: 0;
+  }
+
+  .pdf-t main section h5.test-module {
+    color: #474747;
+    font-family: 'Lato', sans-serif;
+    font-size: 18pt;
+    text-transform: capitalize;
+  }
+
+  .pdf-t main section h6.test-module {
+    color: #898989;
+    font-family: 'Lato', sans-serif;
+    font-size: 16pt;
+    text-transform: capitalize;
+  }
+
+  .pdf-t main section .h7 {
+    font-family: 'Lato', sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    margin-bottom: 0mm;
+  }
+
   .pdf-t p {
     flex: 1 1 100%;
     font-size: 14pt;
-    line-height: 15pt;
+    line-height: 16pt;
     margin: 0 0 5mm 0;
   }
 
@@ -88,6 +149,22 @@
     line-height: inherit;
     text-align: left;
     vertical-align: top;
+  }
+
+  .test-table .table__row.table__header div:first-child,
+  .test-table .table__row div:first-child {
+    width: unset;
+  }
+
+  .test-table .table__row.table__header div:first-child,
+  .test-table .table__row div:first-child,
+  .test-table .table__row.table__header div:nth-child(2),
+  .test-table .table__row div:nth-child(2),
+  .test-table.test-table--appendix .table__row.table__header div:nth-child(3),
+  .test-table.test-table--appendix .table__row div:nth-child(3),
+  .test-table.test-table--appendix .table__row.table__header div:nth-child(4),
+  .test-table.test-table--appendix .table__row div:nth-child(4) {
+    padding-right: 4mm;
   }
 
   .pdf-t main section table td {
@@ -119,12 +196,16 @@
     width: 100%;
   }
 
+  .pdf-t main section ul.mb9mm {
+    margin-bottom: 9mm;
+  }
+
   .pdf-t main section ul li {
-    color: black;
-    font-size: 12pt;
+    color: #474747;
+    font-size: 14pt;
     font-style: normal;
     font-weight: 700;
-    line-height: 14pt;
+    line-height: 18pt;
     margin-top: 3mm;
     margin-right: 0;
     margin-bottom: 3mm;
@@ -143,7 +224,7 @@
   }
 
   .pdf-t main section ul li p {
-    font-size: 12pt;
+    font-size: 14pt;
     margin-left: 0;
     margin-right: 0;
   }
@@ -197,11 +278,6 @@
     margin-left: 10mm;
     padding: 10mm 5mm;
   }
-  .pdf-t main section .primary-caregiver--active {
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center; */
-  }
   .pdf-t main section .primary-caregiver--active h3 {
     display: inline-block;
   }
@@ -214,6 +290,122 @@
     margin-left: 5mm;
     opacity: 1;
     padding: 2mm 5mm;
+  }
+
+  .pdf-t main section .test-table {
+    font-family: 'Lato', 'Calibri', 'Corbel', 'Franklin Gothic', sans-serif;
+  }
+  .pdf-t main section table.test-table {
+    border-collapse: collapse;
+    font-family: 'Lato', 'Calibri', 'Corbel', 'Franklin Gothic', sans-serif;
+    font-size: 9pt;
+    width: 100%;
+  }
+
+  .pdf-t main section table.test-table + .test-table {
+    margin-top: 12mm;
+  }
+
+  .pdf-t main section .test-table td,
+  .pdf-t main section .test-table th {
+    border-bottom: 1px solid #a3a3a3;
+    font-size: 14pt;
+    font-weight: normal;
+    text-align: left;
+    padding: 4mm 4mm 4mm 0;
+  }
+  .pdf-t main section .test-table th {
+    color: #39a4d4;
+    vertical-align: bottom;
+  }
+  .pdf-t main section .test-table .table__row.table__header {
+    border-bottom: 1px solid #a3a3a3;
+    border-top: none;
+    font-size: 14pt;
+    color: #39a4d4;
+    padding: 3mm 0;
+  }
+  .pdf-t main section .test-table .table__row {
+    border-bottom: 1px solid #a3a3a3;
+    color: #474747;
+    display: table-row;
+    font-size: 14pt;
+    margin: 3mm 0 0;
+    padding-bottom: 3mm;
+  }
+  /* .pdf-t main section .test-table .table__row li {
+    font-size: 9pt !important;
+    line-height: 11pt !important;
+    margin-bottom: 6pt !important;
+  } */
+  .pdf-t main section .test-table .table__row > div:nth-child(1) {
+    flex: 0 0 220px;
+    margin-right: 18px;
+  }
+  .pdf-t main section .test-table .table__row > div:nth-child(2) {
+    flex: 1 1 100px;
+    margin-right: 18px;
+  }
+  .pdf-t main section .test-table .table__row > div:nth-child(3) {
+    flex: 1 1 100px;
+    margin-right: 18px;
+  }
+  .pdf-t main section .test-table .table__row > div:nth-child(4) {
+    flex: 1 1 100px;
+    margin-right: 18px;
+  }
+  .pdf-t main section .test-table .table__row > div:nth-child(5) {
+    flex: 1 1 100px;
+  }
+  .pdf-t main section .test-table .table__row ul {
+    margin-top: 0;
+  }
+  .pdf-t main section .test-table .table__row ul li {
+    font-size: 12pt;
+    font-weight: normal;
+    line-height: 16pt;
+    margin-top: 0;
+    margin-bottom: 2mm;
+  }
+  .pdf-t main section .test-table .table__row ul li ul li,
+  .pdf-t main section .test-table .table__row span ul li:first-of-type {
+    margin-top: 2mm;
+  }
+  .pdf-t main section .test-table.test-table-cols4-equal .table__row > div {
+    flex: 1 1 25%;
+  }
+  .pdf-t
+    main
+    section
+    .test-table.test-table-cols4-equal.test-table-cols4--4th-col-narrow
+    .table__row
+    > div:nth-child(4) {
+    flex: 1 1 50px;
+  }
+  .pdf-t main section .test-table.test-table--col3-scores .table__row > div:nth-child(1) {
+    flex: 1 0 220px;
+  }
+  .pdf-t main section .test-table.test-table--col3-scores .table__row > div:nth-child(2) {
+    flex: 1 0 100px;
+  }
+  .pdf-t main section .test-table.test-table--col3-scores .table__row > div:nth-child(2) {
+    flex: 1 0 100px;
+  }
+  .pdf-t main section .domain__test p {
+    color: black;
+    font-style: normal;
+    margin-bottom: 5mm;
+  }
+
+  .appendices,
+  .appendix,
+  .test-table.test-table--appendix {
+    width: 100%;
+  }
+
+  .pdf-t main section .test-table.test-table--appendix .table__row--last {
+    border-bottom: 1px solid #a3a3a3;
+    margin-bottom: 36px;
   }
 
   .pdf-t #pageHeader {

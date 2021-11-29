@@ -136,7 +136,7 @@ const Test = ({ testFromState, ...props }) => {
           </div>
           <div className="test-desc">
             <div
-              style={{ marginBottom: '9px' }}
+              style={{ marginBottom: '9px', lineHeight: '3rem' }}
               dangerouslySetInnerHTML={createMarkup(t.Descriptions)}
             />
             {t.TestIndexes.map((testindex, tiIdx) => (
@@ -392,7 +392,7 @@ const Test = ({ testFromState, ...props }) => {
                           name={`t${parentscaletitle.Id}${testFromState[
                             i
                           ].Abbreviation.toLowerCase()
-                            .replace(/ /g, '')
+                            .replace(/\(|\)/g, '')
                             .replace('-', '')
                             .split(' ')
                             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -432,7 +432,7 @@ const Test = ({ testFromState, ...props }) => {
                                 name={`t${parentscaletitle.Id}${testFromState[
                                   i
                                 ].Abbreviation.toLowerCase()
-                                  .replace(/ /g, '')
+                                  .replace(/\(|\)/g, '')
                                   .replace('-', '')
                                   .split(' ')
                                   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -454,7 +454,7 @@ const Test = ({ testFromState, ...props }) => {
                                 name={`t${parentscaletitle.Id}${testFromState[
                                   i
                                 ].Abbreviation.toLowerCase()
-                                  .replace(/ /g, '')
+                                  .replace(/\(|\)/g, '')
                                   .replace('-', '')
                                   .split(' ')
                                   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -476,7 +476,7 @@ const Test = ({ testFromState, ...props }) => {
                                 name={`t${parentscaletitle.Id}${testFromState[
                                   i
                                 ].Abbreviation.toLowerCase()
-                                  .replace(/ /g, '')
+                                  .replace(/\(|\)/g, '')
                                   .replace('-', '')
                                   .split(' ')
                                   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -502,7 +502,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${parentscaletitle.Id}${testFromState[
                                 i
                               ].Abbreviation.toLowerCase()
-                                .replace(/ /g, '')
+                                .replace(/\(|\)/g, '')
                                 .replace('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -535,7 +535,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${
                                 parentscaletitle.Id
                               }${testFromState[0].Abbreviation.toLowerCase()
-                                .replace(/ /g, '')
+                                .replace(/\(|\)/g, '')
                                 .replace('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -559,7 +559,7 @@ const Test = ({ testFromState, ...props }) => {
                               name={`t${
                                 parentscaletitle.Id
                               }${testFromState[0].Abbreviation.toLowerCase()
-                                .replace(/ /g, '')
+                                .replace(/\(|\)/g, '')
                                 .replace('-', '')
                                 .split(' ')
                                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -832,11 +832,32 @@ const Test = ({ testFromState, ...props }) => {
                 : null}
               {parentgroupscale.ParentGroupSubScales.map((parentgroupsubscale, pgssIdx) => (
                 <div key={parentgroupsubscale.Id}>
-                  <h6>
-                    {parentgroupsubscale.ParentGroupSubScaleName === 'Full Scale'
-                      ? null
-                      : parentgroupsubscale.ParentGroupSubScaleName}
-                  </h6>
+                  <div className="test-table-heading flex has-toggle-child">
+                    <h4>
+                      {/* {parentgroupsubscale.ParentGroupSubScaleName === 'Full Scale'
+                        ? null
+                        : parentgroupsubscale.ParentGroupSubScaleName} */}
+                      {parentgroupsubscale.ParentGroupSubScaleName}
+                    </h4>
+                    <Field
+                      name={`t${parentgroupsubscale.Id}${testFromState[i].Abbreviation.toLowerCase()
+                        .replace(/ /g, '')
+                        .replace('-', '')
+                        .split(' ')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join('')}${parentgroupsubscale.ParentGroupSubScaleName.toLowerCase()
+                        .replace(/ /g, ' ')
+                        .replaceAll('-', ' ')
+                        .replaceAll('(', '')
+                        .replaceAll(')', '')
+                        .replaceAll('/', '')
+                        .split(' ')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join('')}`}
+                      type="checkbox"
+                      component="input"
+                    />
+                  </div>
                   {parentgroupsubscale.ParentScaleTitles.map((parentscaletitle, pstIdx) => (
                     <div key={parentscaletitle.Id}>
                       {parentscaletitle.SubTests.length > 0 ? (
@@ -942,7 +963,27 @@ const Test = ({ testFromState, ...props }) => {
           {t.ParentGroupSubScales.length > 0
             ? t.ParentGroupSubScales.map((parentgroupsubscale, pgssIdx) => (
                 <div key={parentgroupsubscale.Id}>
-                  <h5>{parentgroupsubscale.ParentGroupSubScaleName}</h5>
+                  <div className="flex has-toggle-child">
+                    <h5>{parentgroupsubscale.ParentGroupSubScaleName}</h5>
+                    <Field
+                      name={`t${parentgroupsubscale.Id}${testFromState[i].Abbreviation.toLowerCase()
+                        .replace(/ /g, '')
+                        .replace('-', '')
+                        .split(' ')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join('')}${parentgroupsubscale.ParentGroupSubScaleName.toLowerCase()
+                        .replace(/ /g, ' ')
+                        .replaceAll('-', ' ')
+                        .replaceAll(',', ' ')
+                        .replaceAll('(', '')
+                        .replaceAll(')', '')
+                        .split(' ')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join('')}`}
+                      type="checkbox"
+                      component="input"
+                    />
+                  </div>
                   {parentgroupsubscale.ParentScaleTitles.map((parentscaletitle, pstIdx) => (
                     <div key={parentscaletitle.Id}>
                       <div>
@@ -1032,12 +1073,50 @@ const Test = ({ testFromState, ...props }) => {
           {t.TestModules.length > 0
             ? t.TestModules.map((testmodule, tmIdx) => (
                 <div key={`${testmodule.Id}-${testmodule.Name}`}>
-                  <h5>{testmodule.Name}</h5>
+                  <div className="flex has-toggle-child">
+                    <h5>{testmodule.Name}</h5>
+                    <Field
+                      name={`t${testmodule.Id}${testFromState[i].Abbreviation.toLowerCase()
+                        .replace(/ /g, '')
+                        .replace('-', '')
+                        .split(' ')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join('')}${testmodule.Name.toLowerCase()
+                        .replace(/ /g, ' ')
+                        .replaceAll('-', ' ')
+                        .replaceAll('(', '')
+                        .replaceAll(')', '')
+                        .split(' ')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join('')}`}
+                      type="checkbox"
+                      component="input"
+                    />
+                  </div>
                   <p>{testmodule.Descriptions}</p>
                   {testmodule.ParentGroupScales.map((parentgroupscale, pgsIdx) => (
                     <div key={parentgroupscale.Id}>
-                      <div className="test-table-heading">
+                      <div className="test-table-heading flex has-toggle-child">
                         <SectionSubHeader subHeader={parentgroupscale.ParentGroupScaleName} />
+                        <Field
+                          name={`t${parentgroupscale.Id}${testFromState[
+                            i
+                          ].Abbreviation.toLowerCase()
+                            .replace(/ /g, '')
+                            .replace('-', '')
+                            .split(' ')
+                            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                            .join('')}${parentgroupscale.ParentGroupScaleName.toLowerCase()
+                            .replace(/ /g, ' ')
+                            .replaceAll('-', ' ')
+                            .replaceAll('(', '')
+                            .replaceAll(')', '')
+                            .split(' ')
+                            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                            .join('')}`}
+                          type="checkbox"
+                          component="input"
+                        />
                       </div>
                       {parentgroupscale.ParentScaleTitles.map((parentscaletitle, pstIdx) => (
                         <div key={parentscaletitle.Id}>

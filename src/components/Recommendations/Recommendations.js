@@ -18,11 +18,18 @@ class Recommendations extends Component {
     });
   };
 
+  handleAddSubSubRecommendation = (id) => {
+    store.dispatch({
+      type: 'ADD_SUB_SUB_RECOMMENDATION',
+      payload: id,
+    });
+  };
+
   handleCheckBoxClick = (event, id) => {
     const { onCheckboxClick } = this.props;
     console.log('Recommendation checkbox clicked', 'event.target =', event.target, 'id =', id);
 
-    // Send action to add sub recommendation to state
+    // Send action to add recommendation to state
     this.handleAddSubRecommendation(id);
 
     const c = event.target;
@@ -66,22 +73,24 @@ class Recommendations extends Component {
                         .join('')}Recommendation`}
                       type="checkbox"
                       component="input"
-                      onClick={(event) => handleCheckBoxClick(event, item.id)}
+                      // onClick={(event) => handleCheckBoxClick(event, item.id)}
+                      onClick={() => this.handleAddSubRecommendation(item.id)}
                     />
                     <p dangerouslySetInnerHTML={createMarkup(item.text)} />
                     {item.subtext.length > 0
-                      ? item.subtext.map((r) => (
-                          <div key={r.id} className="recommendation__list">
+                      ? item.subtext.map((subtext) => (
+                          <div key={subtext.id} className="recommendation__list">
                             <label className="has-toggle-child flex">
                               <Field
-                                name={`r${r.id
+                                name={`r${subtext.id
                                   .split(' ')
                                   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                                   .join('')}Recommendation`}
                                 type="checkbox"
                                 component="input"
+                                onClick={() => this.handleAddSubSubRecommendation(subtext.id)}
                               />
-                              <p dangerouslySetInnerHTML={createMarkup(r.text)} />
+                              <p dangerouslySetInnerHTML={createMarkup(subtext.text)} />
                             </label>
                           </div>
                         ))

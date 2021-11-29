@@ -24,7 +24,7 @@ ReactDOM.render(
       <PageTrans />
       <Hamburger />
       <WizardForm onSubmit={showResults} />
-      <div className="noprint">
+      <div className="noprint values">
         <Values form="wizard" />
       </div>
     </div>

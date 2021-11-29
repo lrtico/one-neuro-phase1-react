@@ -106,22 +106,23 @@ class PageList extends Component {
     wizardForm50: false,
   };
 
-  toggleDisable = page => {
+  toggleDisable = (page) => {
     let num = page;
     let val = `wizardForm${num}`;
-    //console.log("Old state = " + this.state[val]);
-    this.setState(prevState => ({
+    // console.log("Old state = " + this.state[val]);
+    this.setState((prevState) => ({
       [val]: !prevState[val],
     }));
     // let newVal = this.state[val];
-    //console.log("New state = " + this.state[val]);
+    // console.log("New state = " + this.state[val]);
     this.props.change(`wizardForm${num}Disabled`, !this.state[val]);
   };
 
   render() {
     // console.log("PageList props = ", this.props);
     // console.log("PageList state = ", this.state);
-    const { onSubmit, previousPage, pageNumber, generateTest } = this.props;
+    const { onSubmit, previousPage, pageNumber, generateTest, allTests, allTestsLoaded } =
+      this.props;
     const { toggleDisable } = this;
     return (
       <div>
@@ -484,7 +485,12 @@ class PageList extends Component {
           />
         ) : null}
         {pageNumber === 47 ? (
-          <WizardForm47Page onSubmit={onSubmit} previousPage={previousPage} />
+          <WizardForm47Page
+            onSubmit={onSubmit}
+            previousPage={previousPage}
+            allTests={allTests}
+            allTestsLoaded={allTestsLoaded}
+          />
         ) : null}
         {pageNumber === 48 ? (
           <WizardForm48Page
@@ -503,10 +509,7 @@ class PageList extends Component {
           />
         ) : null}
         {pageNumber === 50 ? (
-          <WizardForm50Page
-            onSubmit={generateTest}
-            previousPage={previousPage}
-          />
+          <WizardForm50Page onSubmit={generateTest} previousPage={previousPage} />
         ) : null}
       </div>
     );

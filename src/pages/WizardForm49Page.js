@@ -11,7 +11,7 @@ import Recommendations from '../components/Recommendations/Recommendations';
 
 class WizardForm49Page extends Component {
   onCheckboxClick = (input) => {
-    console.log("Recommendation's passed argument from onCheckboxClick ", input);
+    console.log("Recommendation's passed argument from onCheckboxClick ", input.name);
     const { change } = this.props;
     console.log('WizardForm49Page this.props.change', change);
     change(input.name, !input.checked);
